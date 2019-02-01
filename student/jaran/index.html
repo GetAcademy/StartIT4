@@ -3,10 +3,154 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Jaran</title>
+    <style>
+        .rest {
+            background-color: red;
+            width: 50px;
+            height: 50px;
+            font-size: 300%;
+            margin: 5px;
+            border: 5px;
+            float: left;
+            text-align: center;
+        }
+
+        .først {
+            background-color: red;
+            width: 50px;
+            height: 50px;
+            font-size: 300%;
+            margin: 5px;
+            border: 5px;
+            float: left;
+            text-align: center;
+            clear: left;
+        }
+
+        .seier {
+            background-color: black;
+            color: white;
+            clear: left;
+            width: 100px;
+            text-align: center;
+        }
+
+        .tap {
+            background-color: black;
+            color: white;
+            clear: left;
+            width: 100px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    Dette er min side - og jeg heter _______ <!-- bytt ut med navnet ditt! -->
-    <br/><a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
+    Dette er min side - og jeg heter Jaran <!-- bytt ut med navnet ditt! --><br/>
+   
+
+    <div id="1" class="rest" onclick="velg(this)"></div>
+    <div id="2" class="rest" onclick="velg(this)"></div>
+    <div id="3" class="rest" onclick="velg(this)"></div>
+
+    <div id="4" class="først" onclick="velg(this)"></div>
+    <div id="5" class="rest" onclick="velg(this)"></div>
+    <div id="6" class="rest" onclick="velg(this)"></div>
+
+    <div id="7" class="først" onclick="velg(this)"></div>
+    <div id="8" class="rest" onclick="velg(this)"></div>
+    <div id="9" class="rest" onclick="velg(this)"></div>
+
+    <div class="seier" id="vinn"></div>
+    <div class="tap" id="tap"></div>
+    <br /><a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
+
+    <script type="text/javascript">
+        var isGameFinished = false;
+        var one = document.getElementById('1');
+        var two = document.getElementById('2');
+        var three = document.getElementById('3');
+        var four = document.getElementById('4');
+        var five = document.getElementById('5');
+        var six = document.getElementById('6');
+        var seven = document.getElementById('7');
+        var eight = document.getElementById('8');
+        var nine = document.getElementById('9');
+
+        function velg(element) {
+            if (isGameFinished == true) { return }
+
+            element.innerHTML = 'X'
+
+
+            if (one.innerHTML && two.innerHTML && three.innerHTML == 'X') {
+                var victory = document.getElementById('vinn');
+                victory.innerHTML = 'Du Vant!';
+                isGameFinished = true;
+            } if (four.innerHTML && five.innerHTML && six.innerHTML == 'X') {
+                var victory = document.getElementById('vinn');
+                victory.innerHTML = 'Du Vant!';
+                isGameFinished = true;
+            } if (seven.innerHTML && eight.innerHTML && nine.innerHTML == 'X') {
+                var victory = document.getElementById('vinn');
+                victory.innerHTML = 'Du Vant!';
+                isGameFinished = true;
+            } if (one.innerHTML && four.innerHTML && seven.innerHTML == 'X') {
+                var victory = document.getElementById('vinn');
+                victory.innerHTML = 'Du Vant!';
+                isGameFinished = true;
+            } if (two.innerHTML && five.innerHTML && eight.innerHTML == 'X') {
+                var victory = document.getElementById('vinn');
+                victory.innerHTML = 'Du Vant!';
+                isGameFinished = true;
+            } if (three.innerHTML && six.innerHTML && nine.innerHTML == 'X') {
+                var victory = document.getElementById('vinn');
+                victory.innerHTML = 'Du Vant!';
+                isGameFinished = true;
+            } if (one.innerHTML && five.innerHTML && nine.innerHTML == 'X') {
+                var victory = document.getElementById('vinn');
+                victory.innerHTML = 'Du Vant!';
+                isGameFinished = true;
+            } if (three.innerHTML && five.innerHTML && seven.innerHTML == 'X') {
+                var victory = document.getElementById('vinn');
+                victory.innerHTML = 'Du Vant!';
+                isGameFinished = true;
+            } if (one.innerHTML && two.innerHTML && three.innerHTML == 'O') {
+                var lose = document.getElementById('tap');
+                lose.innerHTML = 'Datamaskinen Vant';
+                isGameFinished = true;
+            } if (four.innerHTML && five.innerHTML && six.innerHTML == 'O') {
+                var lose = document.getElementById('tap');
+                lose.innerHTML = 'Datamaskinen Vant';
+                isGameFinished = true;
+            } if (seven.innerHTML && eight.innerHTML && nine.innerHTML == 'O') {
+                var lose = document.getElementById('tap');
+                lose.innerHTML = 'Datamaskinen Vant';
+                isGameFinished = true;
+            } if (one.innerHTML && four.innerHTML && seven.innerHTML == 'O') {
+                var lose = document.getElementById('tap');
+                lose.innerHTML = 'Datamaskinen Vant';
+                isGameFinished = true;
+            } if (two.innerHTML && five.innerHTML && eight.innerHTML == 'O') {
+                var lose = document.getElementById('tap');
+                lose.innerHTML = 'Datamaskinen Vant';
+                isGameFinished = true;
+            } if (three.innerHTML && six.innerHTML && nine.innerHTML == 'O') {
+                var lose = document.getElementById('tap');
+                lose.innerHTML = 'Datamaskinen Vant';
+                isGameFinished = true;
+            } if (one.innerHTML && five.innerHTML && nine.innerHTML == 'O') {
+                var lose = document.getElementById('tap');
+                lose.innerHTML = 'Datamaskinen Vant';
+                isGameFinished = true;
+            } if (three.innerHTML && five.innerHTML && seven.innerHTML == 'O') {
+                var lose = document.getElementById('tap');
+                lose.innerHTML = 'Datamaskinen Vant';
+                isGameFinished = true;
+            }
+
+
+        }
+    </script>
 </body>
 </html>
