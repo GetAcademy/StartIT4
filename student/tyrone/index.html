@@ -10,36 +10,79 @@
         background-color:ghostwhite;
 
     }
-    h1{
-        resize:90px;
+    h1 {
+        font-size: 250%;
+        text-align: center;
+        color:rebeccapurple;
+    }
+    p{
+       font-size:80%;
         text-align:center;
+        color:black;
     }
 
+    div {
+        color: black;
+        background-color: green;
+        padding: 10px;
+        margin: 10px;
+        border: ridge purple 15px ;
+        width: 20px;
+        height: 20px;
+        float: left;
+    }
 
+        div.selected {
+            clear: left;
+        }
 
 </style>
+
 <body>
+
+
+    <h1>HEI eg heiter Tyrone Teunissen </h1>
+
+    <p>this is a worke in progress page</p>
+
+    <button> reset </button>
+
+    <div id="R1K1" class="selected" onclick="trykk(this,'R2K1','R1K2','R2K1','R2K1')">7</div>
+    <div id="R1K2" onclick="trykk(this,'R2K2','R1K3','R1K1','R2K2')">1</div>
+    <div id="R1K3" onclick="trykk(this,'R2K3','R1K2','R1K2','R2K3')">2</div>
+    <div id="R2K1" class="selected" onclick="trykk(this,'R1K1','R2K2','R3K1','R1K1')">5</div>
+    <div id="R2K2" onclick="trykk(this,'R2K1','R1K2','R3K2','R2K3')"></div>
+    <div id="R2K3" onclick="trykk(this,'R1K3','R2K2','R3K3','R3K3')">3</div>
+    <div id="R3K1" class="selected" onclick="trykk(this,'R3K2','R2K1','R3K2','R3K2')">8</div>
+    <div id="R3K2" onclick="trykk(this,'R3K3','R3K1','R2K2','R3K1')">4</div>
+    <div id="R3K3" onclick="trykk(this,'R3K2','R2K3','R3K2','R2K3')">6</div>
+    <script>
+
+        function trykk(tagElement, alt1, alt2, alt3, alt4) {
+            if (document.getElementById(alt1).innerHTML == '') {
+                document.getElementById(alt1).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            if (document.getElementById(alt2).innerHTML == '') {
+                document.getElementById(alt2).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            if (document.getElementById(alt3).innerHTML == '') {
+                document.getElementById(alt3).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            if (document.getElementById(alt4).innerHTML == '') {
+                document.getElementById(alt4).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+        }
+    </script>
+
+
+
     
-    <h1 style="color:rebeccapurple" >HEI eg heiter Tyrone Teunissen </h1>
-    
-    <p style="colore:green">this is a worke in progress page</p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <br/><a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
-</body>
-</html>
+        <br /> <a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
+</body >
+</html >
