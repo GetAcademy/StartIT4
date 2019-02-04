@@ -45,17 +45,19 @@
 
     <p>this is a worke in progress page</p>
 
-    <button> reset </button>
-
-    <div id="R1K1" class="selected" onclick="trykk(this,'R2K1','R1K2','R2K1','R2K1')">7</div>
-    <div id="R1K2" onclick="trykk(this,'R2K2','R1K3','R1K1','R2K2')">1</div>
-    <div id="R1K3" onclick="trykk(this,'R2K3','R1K2','R1K2','R2K3')">2</div>
-    <div id="R2K1" class="selected" onclick="trykk(this,'R1K1','R2K2','R3K1','R1K1')">5</div>
-    <div id="R2K2" onclick="trykk(this,'R2K1','R1K2','R3K2','R2K3')"></div>
-    <div id="R2K3" onclick="trykk(this,'R1K3','R2K2','R3K3','R3K3')">3</div>
-    <div id="R3K1" class="selected" onclick="trykk(this,'R3K2','R2K1','R3K2','R3K2')">8</div>
-    <div id="R3K2" onclick="trykk(this,'R3K3','R3K1','R2K2','R3K1')">4</div>
-    <div id="R3K3" onclick="trykk(this,'R3K2','R2K3','R3K2','R2K3')">6</div>
+    <button onclick="reset()"> reset </button>
+   
+    <div id="spillbrett">
+        <div id="R1K1" class="selected" onclick="trykk(this,'R2K1','R1K2','R2K1','R2K1')">7</div>
+        <div id="R1K2" onclick="trykk(this,'R2K2','R1K3','R1K1','R2K2')">1</div>
+        <div id="R1K3" onclick="trykk(this,'R2K3','R1K2','R1K2','R2K3')">2</div>
+        <div id="R2K1" class="selected" onclick="trykk(this,'R1K1','R2K2','R3K1','R1K1')">5</div>
+        <div id="R2K2" onclick="trykk(this,'R2K1','R1K2','R3K2','R2K3')"></div>
+        <div id="R2K3" onclick="trykk(this,'R1K3','R2K2','R3K3','R3K3')">3</div>
+        <div id="R3K1" class="selected" onclick="trykk(this,'R3K2','R2K1','R3K2','R3K2')">8</div>
+        <div id="R3K2" onclick="trykk(this,'R3K3','R3K1','R2K2','R3K1')">4</div>
+        <div id="R3K3" onclick="trykk(this,'R3K2','R2K3','R3K2','R2K3')">6</div>
+    </div>
     <script>
 
         function trykk(tagElement, alt1, alt2, alt3, alt4) {
@@ -76,13 +78,26 @@
                 tagElement.innerHTML = '';
             }
         }
+        function reset() {
+            let html = "<div id=\"R1K1\" class=\"selected\" onclick=\"trykk(this,'R2K1','R1K2','R2K1','R2K1')\">7</div>" +
+                "<div id=\"R1K2\" onclick=\"trykk(this,'R2K2','R1K3','R1K1','R2K2')\">1</div>" +
+                "<div id=\"R1K3\" onclick=\"trykk(this,'R2K3','R1K2','R1K2','R2K3')\">2</div>" +
+                "<div id=\"R2K1\" class=\"selected\" onclick=\"trykk(this,'R1K1','R2K2','R3K1','R1K1')\">5</div>" +
+                "<div id=\"R2K2\" onclick=\"trykk(this,'R2K1','R1K2','R3K2','R2K3')\"></div>" +
+                "<div id=\"R2K3\" onclick=\"trykk(this,'R1K3','R2K2','R3K3','R3K3')\">3</div>" +
+                "<div id=\"R3K1\" class=\"selected\" onclick=\"trykk(this,'R3K2','R2K1','R3K2','R3K2')\">8</div>" +
+                "<div id=\"R3K2\" onclick=\"trykk(this,'R3K3','R3K1','R2K2','R3K1')\">4</div>" +
+                "<div id=\"R3K3\" onclick=\"trykk(this,'R3K2','R2K3','R3K2','R2K3')\">6</div>";
+            document.getElementById('spillbrett').innerHTML = html;
+        }
+
     </script>
 
 
 
-    
 
 
-        <br /> <a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
-</body >
+
+    <br /> <a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
+</body>
 </html >
