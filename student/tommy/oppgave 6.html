@@ -19,8 +19,8 @@
     <input id="borderRadiusSlider" type="range" min="100" max="500" step="10" oninput="showDiv()" />
     <br />
     <select id="borderChooser" onchange="showDiv">
-        <option value="black">Black</option>
-        <option selected value="grey">Grey</option>
+        <option value="10px solid black">Black</option>
+        <option selected value="10px solid grey">Grey</option>
         <option value="none">None</option>
     </select>
 
@@ -36,10 +36,18 @@
         var borderChooser = document.getElementById('borderChooser')
         showDiv();
         function showDiv() {
-            resultatDiv.innerHTML = '<div style="background-color: ' + colorChooser.value +
-                ';width: ' + sizeSlider.value + 'px;height: ' + sizeSlider.value + 'px;">' +
-                textInput.value + '</div>';
+            resultatDiv.innerHTML = '<div style="'
+                + 'background-color: ' + colorChooser.value + ';' +
+                + 'border: ' + borderChooser.value + 'px;'
+                + 'width: ' + sizeSlider.value + 'px;'
+                + 'height: ' + sizeSlider.value + 'px;'
+                + 'width: ' + borderRadiusSlider + 'px;'
+                + 'height: ' + borderRadiusSlider + 'px;">'
+                + textInput.value + '</div>';
             resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+        }
+         
+
        
     </script>
 </body>
