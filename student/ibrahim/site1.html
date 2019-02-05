@@ -154,7 +154,7 @@ label{
 
     <script language="javascript" type="text/javascript">
 
-        // Array of trivia data
+        // Array av trivia data
 
         var TriviaData = new Array(10)
 
@@ -206,21 +206,20 @@ label{
             TriviaData[9][2] = "no";
             
             //første spørsmål
-  // Load up first question
+  // lader opp første spørsmål
 
         setQuestion();
 
  
 
-        // Sets question text and indicator so that we know the question has been displayed
-
+        // setter spørsmålet og en idikator for å hvite at spørsmålet har blitt spurt
         function setQuestion() {
 
-            selectionValid = false; // Flag to make sure question has not been asked yet
+            selectionValid = false; // sjekker om at spørsmålet ikke har blitt spurt
 
             while (selectionValid == false) {
 
-                currentQuestion = Math.floor(Math.random() * 10); // randomly select starting question
+                currentQuestion = Math.floor(Math.random() * 10); // tilfeldig velger start spørsmålet
 
                 if (TriviaData[currentQuestion][2] == "no") {
 
@@ -244,7 +243,7 @@ label{
 
             if (TriviaData[currentQuestion][1] == myAnswer) {
 
-                // answer correct
+                // svarer riktig
 
                 totalCorrect = totalCorrect + 1;
 
@@ -254,7 +253,7 @@ label{
 
  
 
-        // This function creates our two dimensional array
+        // skaper en todimensjonal array
 
         function createTwoDimensionalArray(arraySize) {
 
@@ -266,9 +265,9 @@ label{
 
  
 
-        // This function checks the answer, updates correct total
+        // sjekker svar og oppdaterer svarene
 
-        // and randomly selects the next question
+        // tilfeldig velger neste spørsmål
 
         function checkAnswer() {
 
@@ -284,7 +283,7 @@ label{
 
             }
 
-            // get next question if not asked all yet
+            // får tak i neste spørsmål hvis det ikke har blitt spørt
 
             if (questionsAsked < 10) {
 
@@ -292,7 +291,7 @@ label{
 
             }
 
-            // final question asked - disable button and show final results
+            // siste spørsmål spart- slutt knapp og hviser siste resultatet
 
             else {
 
@@ -302,7 +301,7 @@ label{
 
             }
 
-            // update totals
+            // oppdaterer totale
 
             document.getElementById("NumberAsked").innerHTML = questionsAsked;
 
