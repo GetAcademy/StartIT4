@@ -3,6 +3,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <h1 style="text-align:center";>Ibrahim Bademci</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <style>
 
 body{
@@ -18,7 +21,8 @@ li{
 }
 ul{
     list-style-type: none;
-    margin:0px;
+    margin-left:-10px;
+    margin-right:-10px;
     padding:0px;
     overflow:hidden;
     background-color:crimson;
@@ -38,14 +42,273 @@ li a:hover{
 .active{
     background-color: grey;
 }
+
+.grafa{
+    border: 2px solid crimson;
+    border-radius: 10px;
+    width: 600px;
+    height: 450px;
+    align-content: center;
+    margin:auto;
+    background-image: url("trivia2.jpg");
+}
+
+.para, .para2, .para3, .para4{
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #666;
+    font-size: 30px;
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+}
+#ButtonContinue{
+    background-color: crimson;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+}
+
+.form-radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance:none ;
+    display: inline-block;
+    position: relative;
+    background-color: #f1f1f1;
+    color: #666;
+    top:10px;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+}
+.form-radio:checked::before{
+    position:absolute;
+    font: 13px/1 "Open Sans", sans-serif;
+    left: 11px;
+    top:7px;
+    content: "\02143";
+    transform: rotate(40deg);
+}
+.form-radio:hover{
+    background-color: rgb(168, 168, 168);
+}
+.form-radio:checked{
+    background-color: rgb(241, 229, 205);
+}
+label{
+    font: 300 30px/1.7 'Open Sans', sans-serif;
+    color: black;
+    cursor: pointer;
+}
+
+
 </style>
 </head>
 <body>
     <ul>
         <li><a href="index.html">StartSide</a></li>
         <li><a href="site1.html"class=active>Om Meg</a></li>
-        <li><a href="site3.html">veit ikke</a></li>
+        <li><a href="site3.html">Noen Bilder</a></li>
         <li><a href="/StartIT4/main/index.html">Tilbake til StartIT4</a></li>
     </ul>
+<div class="grafa">
+    <p class="para">
+
+
+        Asking question <span id="NumberAsked">1</span> of 10 with <span id="NumberCorrect">0</span> answers correct</p>
+<br>
+    <p class = "para3">
+
+        <span id="TriviaQuestion">???</span>
+
+    </p>
+
+    <p class="para2">
+
+        &nbsp;
+        <input id="RadioTrue" type="radio" value="true" name="answer" class="form-radio" checked="checked" ><label for="radio-one">True</label>
+
+        &nbsp;&nbsp;&nbsp;
+
+        <input id="RadioFalse" type="radio" value="false" name="answer" class="form-radio"><label for="radio-two">False</label>
+
+    </p>
+
+    <p class = "para4">
+
+        <input id="ButtonContinue" onclick="checkAnswer();" type="button" value="continue" />
+
+    </p>
+</div>
+ 
+
+    <script language="javascript" type="text/javascript">
+
+        // Array av trivia data
+
+        var TriviaData = new Array(10)
+
+        createTwoDimensionalArray(3);
+
+        var questionsAsked = 0;
+
+        var totalCorrect = 0;
+
+        var currentQuestion = 0;
+
+        var selectionValid = false;
+
+            // Spørsmål
+            TriviaData[0][0] = "Ibrahim er 22 år"; //true
+            TriviaData[1][0] = "Ibrahim har bodd i Sandefjord hele livet";//false
+            TriviaData[2][0] = "Ibrahim har 2 katter";//true
+            TriviaData[3][0] = "Ibrahim har aldri spilt World of Warcraft"; //false
+            TriviaData[4][0] = "Ibrahim har ingen søsken";//false
+            TriviaData[5][0] = "Familien til Ibrahim er fra Tyrkia";//true
+            TriviaData[6][0] = "Ibrahim spiller Old School RuneScape";//true
+            TriviaData[7][0] = "Kalle navnet til Ibrahim som liten var Ibo";//true
+            TriviaData[8][0] = "Etter navnet mitt Bademci betyr mandler"; //true
+            TriviaData[9][0] = "Ibrahim spiller support som main role i League of Legends";//false
+
+
+            // Svar
+            TriviaData[0][1] = "true";
+            TriviaData[1][1] = "false";
+            TriviaData[2][1] = "true";
+            TriviaData[3][1] = "false";
+            TriviaData[4][1] = "false";
+            TriviaData[5][1] = "true";
+            TriviaData[6][1] = "true";    
+            TriviaData[7][1] = "true";    
+            TriviaData[8][1] = "true";    
+            TriviaData[9][1] = "false";
+            
+            //har spørsmål blitt stilt
+            TriviaData[0][2] = "no";
+            TriviaData[1][2] = "no";
+            TriviaData[2][2] = "no";
+            TriviaData[3][2] = "no";
+            TriviaData[4][2] = "no";
+            TriviaData[5][2] = "no";
+            TriviaData[6][2] = "no";
+            TriviaData[7][2] = "no";
+            TriviaData[8][2] = "no";
+            TriviaData[9][2] = "no";
+            
+            //første spørsmål
+  // lader opp første spørsmål
+
+        setQuestion();
+
+ 
+
+        // setter spørsmålet og en idikator for å hvite at spørsmålet har blitt spurt
+        function setQuestion() {
+
+            selectionValid = false; // sjekker om at spørsmålet ikke har blitt spurt
+
+            while (selectionValid == false) {
+
+                currentQuestion = Math.floor(Math.random() * 10); // tilfeldig velger start spørsmålet
+
+                if (TriviaData[currentQuestion][2] == "no") {
+
+                    selectionValid = true;
+
+                }
+
+            }
+
+            document.getElementById("TriviaQuestion").innerHTML = TriviaData[currentQuestion][0];
+
+            TriviaData[currentQuestion][2] = "yes";
+
+            questionsAsked = questionsAsked + 1;
+
+        }
+
+ 
+
+        function processAnswer(myAnswer) {
+
+            if (TriviaData[currentQuestion][1] == myAnswer) {
+
+                // svarer riktig
+
+                totalCorrect = totalCorrect + 1;
+
+            }
+
+        }
+
+ 
+
+        // skaper en todimensjonal array
+
+        function createTwoDimensionalArray(arraySize) {
+
+            for (i = 0; i < TriviaData.length; ++i)
+
+                TriviaData[i] = new Array(arraySize);
+
+        }
+
+ 
+
+        // sjekker svar og oppdaterer svarene
+
+        // tilfeldig velger neste spørsmål
+
+        function checkAnswer() {
+
+            if (document.getElementById("RadioTrue").checked) {
+
+                processAnswer("true");
+
+            }
+
+            else {
+
+                processAnswer("false");
+
+            }
+
+            // får tak i neste spørsmål hvis det ikke har blitt spørt
+
+            if (questionsAsked < 10) {
+
+                setQuestion();
+
+            }
+
+            // siste spørsmål spart- slutt knapp og hviser siste resultatet
+
+            else {
+
+                alert("Quiz complete! You got " + totalCorrect + " correct out of 10.");
+
+                document.getElementById("ButtonContinue").disabled = true;
+
+            }
+
+            // oppdaterer totale
+
+            document.getElementById("NumberAsked").innerHTML = questionsAsked;
+
+            document.getElementById("NumberCorrect").innerHTML = totalCorrect;
+
+        }
+
+</script>
 </body>
 </html>
