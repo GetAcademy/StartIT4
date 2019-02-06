@@ -11,7 +11,7 @@
             display: grid;
             grid-template-columns: 75px 75px 75px;
             grid-template-rows: 75px 75px 75px 75px;
-            grid-template-areas: 'sju åtte ni' 'fire fem seks' 'en to tre' ' null tilbake';
+            grid-template-areas: 'sju åtte ni' 'fire fem seks' 'en to tre' 'tilbake null igjen';
             margin: auto;
             border: solid 4px black;
         }
@@ -21,12 +21,13 @@
             color: red;
             text-align: center;
             font-size: 300%;
+            border: solid 1px black;
         }
+
         .svar {
             margin: auto;
             width: 200px;
         }
-        
     </style>
 </head>
 
@@ -41,9 +42,9 @@
         <div id="one" class="tall en" onclick="knapp(this)">1</div>
         <div id="two" class="tall to" onclick="knapp(this)">2</div>
         <div id="three" class="tall tre" onclick="knapp(this)">3</div>
-        <div></div>
+        <div id="backspace" class="tall tilbake" onclick="knepp(this)">&#8592</div>
         <div id="zero" class="tall null" onclick="knapp(this)">0</div>
-        <div id="return" class="tall tilbake" onclick="knepp(this)">&#8634</div>
+        <div id="refresh" class="tall igjen" onclick="knepp(this)">&#8634</div>
     </div>
     <div id="kode" class="tall svar"></div>
     <div id="riktig" class="tall svar"></div>
@@ -51,11 +52,11 @@
 </body>
 <script>
     var isGameFinished = false
-    
+
     var kode = document.getElementById('kode')
 
     function knapp(element) {
-        if (isGameFinished == true) {return}
+        if (isGameFinished == true) { return }
         document.getElementById('kode').innerHTML += element.innerHTML
         if (kode.innerHTML == '12345') {
             var right = document.getElementById('riktig')
@@ -69,8 +70,8 @@
         document.getElementById('riktig').innerHTML = ''
         isGameFinished = false
     }
-   
 
-    
+
+
 </script>
 </html>
