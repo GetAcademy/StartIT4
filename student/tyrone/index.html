@@ -4,42 +4,101 @@
 <head>
     <meta charset="utf-8" />
     <title>the page of a NOOB</title>
+
+    <style>
+
+        body {
+            background-color: ghostwhite;
+
+        }
+
+        h1 {
+            font-size: 250%;
+            text-align: center;
+            color: rebeccapurple;
+            border:ridge black 20px;
+            background:darkblue;
+            border-left-style:ridge blue ;
+
+        }
+
+        p {
+            font-size: 80%;
+            text-align: center;
+            color: black;
+        }
+
+        div.rute {
+            color: red;
+            background-color: black;
+            padding: 10px;
+            margin: 10px;
+            border: ridge 15px;
+            width: 20px;
+            height: 20px;
+            float: left;
+        }
+
+        div.selected {
+            clear: left;
+        }
+    </style>
 </head>
-<style>
-    body {
-        background-color:ghostwhite;
 
-    }
-    h1{
-        resize:90px;
-        text-align:center;
-    }
-
-
-
-</style>
 <body>
-    
-    <h1 style="color:rebeccapurple" >HEI eg heiter Tyrone Teunissen </h1>
-    
-    <p style="colore:green">this is a worke in progress page</p>
 
 
+    <h1>Hello my name is Tyrone Teunissen </h1>
 
+    <p>this is a worke in progress page</p>
+    <br /> <a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
+    <br /> <a href="file:///C:/Users/Tteun/Downloads/sudoku.html"> til sudoku </a>
+    <div id="spillbrett">
+        <div id="R1K1" class="rute selected" onclick="trykk(this,'R2K1','R1K2','R2K1','R2K1')">7</div>
+        <div id="R1K2" class="rute" onclick="trykk(this,'R2K2','R1K3','R1K1','R2K2')">1</div>
+        <div id="R1K3" class="rute" onclick="trykk(this,'R2K3','R1K2','R1K2','R2K3')">2</div>
+        <div id="R2K1" class="rute selected" onclick="trykk(this,'R1K1','R2K2','R3K1','R1K1')">5</div>
+        <div id="R2K2" class="rute" onclick="trykk(this,'R2K1','R1K2','R3K2','R2K3')"></div>
+        <div id="R2K3" class="rute" onclick="trykk(this,'R1K3','R2K2','R3K3','R3K3')">3</div>
+        <div id="R3K1" class="rute selected" onclick="trykk(this,'R3K2','R2K1','R3K2','R3K2')">8</div>
+        <div id="R3K2" class="rute" onclick="trykk(this,'R3K3','R3K1','R2K2','R3K1')">4</div>
+        <div id="R3K3" class="rute" onclick="trykk(this,'R3K2','R2K3','R3K2','R2K3')">6</div>
+    </div>
 
+    <button onclick="reset()"> reset </button>
+    <script>
+        function trykk(tagElement, alt1, alt2, alt3, alt4) {
 
+        if (document.getElementById(alt1).innerHTML == '') {
+            document.getElementById(alt1).innerHTML = tagElement.innerHTML;
+            tagElement.innerHTML = '';
+            }
+        if (document.getElementById(alt2).innerHTML == '') {
+            document.getElementById(alt2).innerHTML = tagElement.innerHTML;
+            tagElement.innerHTML = '';
+            }
+        if (document.getElementById(alt3).innerHTML == '') {
+            document.getElementById(alt3).innerHTML = tagElement.innerHTML;
+            tagElement.innerHTML = '';
+            }
+        if (document.getElementById(alt4).innerHTML == '') {
+            document.getElementById(alt4).innerHTML = tagElement.innerHTML;
+            tagElement.innerHTML = '';
+            }
+        }
+        function reset() {
+            let html = "<div id=\"R1K1\" class=\"rute selected\" onclick=\"trykk(this,'R2K1','R1K2','R2K1','R2K1')\">7</div>" +
+                "<div id=\"R1K2\" class=\"rute\" onclick=\"trykk(this,'R2K2','R1K3','R1K1','R2K2')\">1</div>" +
+                "<div id=\"R1K3\" class=\"rute\" onclick=\"trykk(this,'R2K3','R1K2','R1K2','R2K3')\">2</div>" +
+                "<div id=\"R2K1\" class=\"rute selected\" onclick=\"trykk(this,'R1K1','R2K2','R3K1','R1K1')\">5</div>" +
+                "<div id=\"R2K2\" class=\"rute\" onclick=\"trykk(this,'R2K1','R1K2','R3K2','R2K3')\"></div>" +
+                "<div id=\"R2K3\" class=\"rute\" onclick=\"trykk(this,'R1K3','R2K2','R3K3','R3K3')\">3</div>" +
+                "<div id=\"R3K1\" class=\"rute selected\" onclick=\"trykk(this,'R3K2','R2K1','R3K2','R3K2')\">8</div>" +
+                "<div id=\"R3K2\" class=\"rute\" onclick=\"trykk(this,'R3K3','R3K1','R2K2','R3K1')\">4</div>" +
+                "<div id=\"R3K3\" class=\"rute\" onclick=\"trykk(this,'R3K2','R2K3','R3K2','R2K3')\">6</div>";
+            document.getElementById('spillbrett').innerHTML = html;
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-    <br/><a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
+        </script>
 </body>
-</html>
+</html >
