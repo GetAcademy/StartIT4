@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Quiz</title>
+    <style>
+        .action-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            background: #867bfb;
+            padding: 0.5em 2em;
+            border-radius: 40px;
+            margin: 1em 0;
+            transition: 0.3s;
+        }
+
+            .action-btn:hover {
+                box-shadow: 0 20px 25px rgba(51,0,204,0.2);
+            }
+        img {
+            border-radius: 50%;
+        }
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            grid-area: content;
+            background: url(https://wallpaperplay.com/walls/full/d/3/c/108053.jpg);
+        }
+    </style>
+</head>
+<body style="text-align:center";>
+
+        <h1>Quiz for StartIT 4</h1>
+
+        <img src="https://780alberta.files.wordpress.com/2015/07/you-can-do-it.jpg" />
+
+        <form id="quiz" name="quiz">
+
+            <h2>Q1: What's the capital of Norway?</h2><br>
+            <h3>
+                <input type="radio" name="q1" value="a">Porsgrunn</br>
+                <input type="radio" name="q1" value="b">Stockholm</br>
+                <input type="radio" name="q1" value="c">Oslo</br><br>
+            </h3>
+
+            <h2>Q2: How much is 4+6?</h2><br>
+            <h3>
+                <input type="radio" name="q2" value="a">10</br>
+                <input type="radio" name="q2" value="b">9</br>
+                <input type="radio" name="q2" value="c">11</br><br>
+            </h3>
+
+            <h2>Q3: What's the highest mountain in norway?</h2><br>
+            <h3>
+                <input type="radio" name="q3" value="a">Storen</br>
+                <input type="radio" name="q3" value="b">Galdhøpiggen</br>
+                <input type="radio" name="q3" value="c">Glittertinden</br><br>
+            </h3>
+
+            <a class="action-btn" onclick="check()">FERDIG</a>
+        </form>
+        <script>
+            function check() {
+                var q1 = document.getElementById('quiz').q1.value
+                var q2 = document.getElementById('quiz').q2.value
+                var q3 = document.getElementById('quiz').q3.value
+                var count = 0;
+
+                if (q1 == "c") {
+                    count++;
+                }
+                if (q2 == "a") {
+                    count++;
+                }
+                if (q3 == "b") {
+                    count++;
+                }
+                alert("Du fikk " + count + " poeng");
+            }
+        </script>
+</body>
+</html>
