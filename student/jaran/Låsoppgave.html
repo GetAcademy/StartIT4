@@ -51,24 +51,22 @@
 
 </body>
 <script>
-    var isGameFinished = false
-
     var kode = document.getElementById('kode')
 
     function knapp(element) {
-        if (isGameFinished == true) { return }
+        if (kode.innerHTML.length >= 5) { return }
         document.getElementById('kode').innerHTML += element.innerHTML
-        if (kode.innerHTML == '12345') {
+        if (kode.innerHTML == '91293') {
             var right = document.getElementById('riktig')
             right.innerHTML = 'Riktig'
-            isGameFinished = true
+
         }
     }
 
     function knepp() {
         document.getElementById('kode').innerHTML = ''
         document.getElementById('riktig').innerHTML = ''
-        isGameFinished = false
+
     }
 
 
