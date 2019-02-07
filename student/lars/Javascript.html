@@ -30,38 +30,82 @@
             <li id="bern" onclick="sveits()">Sveits?</li>
         </ol>
     <script>
+        var HasAnswered = false;
         function doSomething() {
-            document.getElementById('false').innerHTML += ' Feil!';
+            if (!HasAnswered) {
+                document.getElementById('false').innerHTML += ' Feil!';
+                HasAnswered = true;
+            }
         }
+        var HaveAnswered = false;
         function heiSann() {
-            document.getElementById('hei').innerHTML += ' Feil!';
+            if (!HaveAnswered) {
+                document.getElementById('hei').innerHTML += ' Feil!';
+                HaveAnswered = true;
+            }
         }
+        var push = false;
         function godJul() {
-            document.getElementById('id').innerHTML += ' Feil!';
+            if (!push) {
+                document.getElementById('id').innerHTML += ' Feil!';
+                push = true;
+            }
         }
+        var hei = false;
         function plsWork() {
-            document.getElementById('true').innerHTML += ' Riktig!';
+            if (!hei) {
+                document.getElementById('true').innerHTML += ' Riktig!';
+                hei = true;
+            }
         }
+        var hi = false;
         function supYall() {
-            document.getElementById('dunt').innerHTML += ' Feil!';
+            if (!hi) {
+                document.getElementById('dunt').innerHTML += ' Feil!';
+                hi = true;
+            }
         }
+        var hus = false;
         function yoSup() {
-            document.getElementById('dun').innerHTML += ' Feil!';
+            if (!hus) {
+                document.getElementById('dun').innerHTML += ' Feil!';
+                hus = true;
+            }
         }
+        var ski = false;
         function sommerTid() {
-            document.getElementById('dunest').innerHTML += ' Riktig!';
+            if (!ski) {
+                document.getElementById('dunest').innerHTML += ' Riktig!';
+                ski = true;
+            }
         }
+        var heis = false;
         function tyskLand() {
-            document.getElementById('berlin').innerHTML += ' Riktig, du finner den i Berlin!';
+            if (!heis) {
+                document.getElementById('berlin').innerHTML += ' Riktig, du finner den i Berlin!';
+                heis = true;
+            }
         }
+        var imsdal = false;
         function marseille() {
-            document.getElementById('marseille').innerHTML += ' Feil!';
+            if (!imsdal) {
+                document.getElementById('marseille').innerHTML += ' Feil!';
+                imsdal = true;
+            }
         }
+        var tulling = false;
         function norge() {
-            document.getElementById('oslo').innerHTML += ' Feil!';
+            if (!tulling) {
+                document.getElementById('oslo').innerHTML += ' Feil!';
+                tulling = true;
+            }
         }
+        var burn = false;
         function sveits() {
-            document.getElementById('bern').innerHTML += ' Feil!';
+            if (!burn) {
+                document.getElementById('bern').innerHTML += ' Feil!';
+                burn = true;
+            }
         }
     </script>
 </body>
