@@ -16,7 +16,15 @@
     <input id="SizeChanger" type="range" min="1" max="10" step="1" oninput="ChangeSize()" />
     
     <div id="Image">
-        <img src="https://media.wired.com/photos/5926d71eaf95806129f50cc9/master/pass/Microsoft10.jpg" alt="missing"/>
+        <img src="https://media.wired.com/photos/5926d71eaf95806129f50cc9/master/pass/Microsoft10.jpg" alt="missing" style="width:5em; height:5em;"/>
+    </div>
+
+    <button onclick="MakeParagraph()">
+    Make Paragraph!
+    </button>
+
+    <div id="MakeStuff">
+
     </div>
 
     
@@ -26,6 +34,10 @@
         function ChangeSize()
         {
             document.getElementById("Image").innerHTML = '<img src="https://media.wired.com/photos/5926d71eaf95806129f50cc9/master/pass/Microsoft10.jpg" alt="missing" style=" width:' + document.getElementById("SizeChanger").value + 'em; height: ' + document.getElementById("SizeChanger").value + 'em;"></>';
+        }
+        function MakeParagraph()
+        {
+            document.getElementById("MakeStuff").innerHTML += '<p>Paragraph</p>';
         }
 
     </script>
