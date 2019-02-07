@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    
+    <h2>Quiz</h2>
+    
+    <p>1. Hvor mange dager er det i ett år?</>
+        <ol type="a">
+            <li id="false" onclick="doSomething()">340?</li>
+            <li id="hei" onclick="heiSann()">360?</li>
+            <li id="true" onclick="plsWork()">365?</li>
+            <li id="id" onclick="godJul()">310?</li>
+        </ol>
+    <p>2. Hva skjer du detter ut av ett romskipet uten en romdrakt?</p>
+        <ol type="a">
+            <li id="dunt" onclick="supYall()">Du fryser ihjel? </li>
+            <li id="dun" onclick="yoSup()">Blodet ditt begynner å koke?</li>
+            <li id="dunest" onclick="sommerTid()">Den ene siden fryser, mens andre siden mot solen starter å brenne?</li>
+        </ol>
+    <p>3. I hvilket land finner du Brandenburger Tor?</p>
+        <ol type="a">
+            <li id="berlin" onclick="tyskLand()">Tyskland?</li>
+            <li id="marseille" onclick="marseille()">Frankrike?</li>
+            <li id="oslo" onclick="norge()">Norge?</li>
+            <li id="bern" onclick="sveits()">Sveits?</li>
+        </ol>
+    <script>
+        var HasAnswered = false;
+        function doSomething() {
+            if (!HasAnswered) {
+                document.getElementById('false').innerHTML += ' Feil!';
+                HasAnswered = true;
+            }
+        }
+        var HaveAnswered = false;
+        function heiSann() {
+            if (!HaveAnswered) {
+                document.getElementById('hei').innerHTML += ' Feil!';
+                HaveAnswered = true;
+            }
+        }
+        var push = false;
+        function godJul() {
+            if (!push) {
+                document.getElementById('id').innerHTML += ' Feil!';
+                push = true;
+            }
+        }
+        var hei = false;
+        function plsWork() {
+            if (!hei) {
+                document.getElementById('true').innerHTML += ' Riktig!';
+                hei = true;
+            }
+        }
+        var hi = false;
+        function supYall() {
+            if (!hi) {
+                document.getElementById('dunt').innerHTML += ' Feil!';
+                hi = true;
+            }
+        }
+        var hus = false;
+        function yoSup() {
+            if (!hus) {
+                document.getElementById('dun').innerHTML += ' Feil!';
+                hus = true;
+            }
+        }
+        var ski = false;
+        function sommerTid() {
+            if (!ski) {
+                document.getElementById('dunest').innerHTML += ' Riktig!';
+                ski = true;
+            }
+        }
+        var heis = false;
+        function tyskLand() {
+            if (!heis) {
+                document.getElementById('berlin').innerHTML += ' Riktig, du finner den i Berlin!';
+                heis = true;
+            }
+        }
+        var imsdal = false;
+        function marseille() {
+            if (!imsdal) {
+                document.getElementById('marseille').innerHTML += ' Feil!';
+                imsdal = true;
+            }
+        }
+        var tulling = false;
+        function norge() {
+            if (!tulling) {
+                document.getElementById('oslo').innerHTML += ' Feil!';
+                tulling = true;
+            }
+        }
+        var burn = false;
+        function sveits() {
+            if (!burn) {
+                document.getElementById('bern').innerHTML += ' Feil!';
+                burn = true;
+            }
+        }
+    </script>
+</body>
+</html>

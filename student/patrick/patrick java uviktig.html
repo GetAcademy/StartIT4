@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+
+
+
+</head>
+
+<body>
+
+    <input id="Ranger" type="range" min="150" max="1000" step="10" oninput="DoRange()" />
+    
+    <br />
+
+    <input id="Textbox" type="text" oninput="DoRange()" value="endre ting!" />
+    
+    <br />
+
+    <select id="Selector" onchange="DoRange()"> 
+        <option selected value="red">red</option>
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+    </select>
+    
+
+    <div id="Resultat">
+
+    </div>
+
+    <div id="ResultatHTML">
+
+    </div>
+
+    
+
+    <script>
+        
+        var Rang = document.getElementById("Ranger");
+        var Textbox = document.getElementById("Textbox");
+        var Selector = document.getElementById("Selector");
+
+        var resultat = document.getElementById("Resultat")
+        var resultatHTML = document.getElementById("ResultatHTML")
+
+        DoRange();
+
+        function DoRange()
+        {
+            var size = Rang.value;
+            var text = Textbox.value;
+            var color = Selector.value;
+
+            var background = 'backgroundcolor' + color;
+            var width = 'width: ' + size;
+            var height = 'height ' + size;
+            var style = 'style= ' + background + width + height;
+
+            resultat.innerHTML = 'div' + style + text;
+            resultatHTML.innerText = resultat.innerHTML;
+        }
+
+    </script>
+
+</body>
+
+</html>
