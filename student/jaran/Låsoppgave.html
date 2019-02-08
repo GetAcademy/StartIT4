@@ -54,9 +54,9 @@
     var kode = document.getElementById('kode')
 
     function knapp(element) {
-        if (kode.innerHTML.length >= 5) { return }
+        if (kode.innerHTML.length >= 6) { return }
         document.getElementById('kode').innerHTML += element.innerHTML
-        if (kode.innerHTML == '91293') {
+        if (kode.innerHTML == '091293') {
             var right = document.getElementById('riktig')
             right.innerHTML = 'Riktig'
 

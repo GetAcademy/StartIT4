@@ -12,38 +12,28 @@
     </style>
 </head>
 <body>
-    <input id="horiRange" type="range" min="50" max="450" step="10" value="50" onchange="showSVG()" />
-    <input id="vertRange" type="range" min="50" max="450" step="10" value="50" onchange="showSVG()" />
-    <br />
+    <body>
+        <input id="horiRange" type="range" min="50" max="450" step="10" value="250" oninput="showSVG()" />
+        <input id="vertRange" type="range" min="50" max="450" step="10" value="250" oninput="showSVG()" />
+        <br />
 
-    <svg width="1000" height="1000">
-        <rect class="board" height="500" width="500" fill="lightblue" stroke="lightpink" stroke-width="10" />
-        <circle id="changeSVG"></circle>
-    </svg>
+        <svg width="1000" height="1000">
+            <rect class="board" height="500" width="500" fill="lightblue" stroke="lightpink" stroke-width="10" />
+            <circle id="changeSVG" cx="250" cy="250" r="40" stroke="blue" fill="red" stroke-width="5"></circle>
+        </svg>
 
 
-    <script>
-
-        var horiRange = document.getElementById('horiRange');
-        var vertRange = document.getElementById('vertRange');
-        var changeSVG = document.getElementById('changeSVG');
-
-        showSVG();
-
-        function showSVG() {
-            var hori = horiRange.value;
-            var vert = vertRange.value;
-
-            var sideways = 'cx: ' + hori + ';';
-            var updown = 'cy: ' + vert + ';';
-            var r = 'r: 40;';
-            var stroke = 'stroke: blue;';
-            var width = 'stroke-width: 5;';
-            var fill = 'fill: red;';
-            var style = 'style="' + sideways + updown + r + stroke + width + fill + '"';
-            changeSVG.outerHTML = '<circle ' + style + '>' + '</circle>';
-
-        }
-    </script>
-</body>
+        <script>
+            var horiRange = document.getElementById('horiRange');
+            var vertRange = document.getElementById('vertRange');
+            var changeSVG = document.getElementById('changeSVG');
+            //showSVG();
+            function showSVG() {
+                var hori = horiRange.value;
+                var vert = vertRange.value;
+                changeSVG.setAttribute("cx", hori);
+                changeSVG.setAttribute("cy", vert);
+            }
+        </script>
+    </body>
 </html>
