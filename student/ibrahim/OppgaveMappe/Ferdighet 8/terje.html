@@ -1,0 +1,24 @@
+<head>
+        <style>
+            .stilig1 {
+                background-color: blueviolet;
+            }
+            .stilig2 {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="bla">Bla bla bla</div>
+        <div id="bla">Bla bla bla 2</div>
+        <input id="chk1" type="checkbox" onchange="toggleStyle()" />Bakgrunnsfarge<br/>
+        <input id="chk2" type="checkbox" onchange="toggleStyle()" />Forgrunnsfarge<br/>
+        <script>
+            function toggleStyle() {
+                var isChecked1 = document.getElementById('chk1').checked;
+                document.getElementById('bla').classList.toggle('stilig1', isChecked1);
+                var isChecked2 = document.getElementById('chk2').checked;
+                document.getElementById('bla').classList.toggle('stilig2', isChecked2);
+            }
+        </script>
+    </body>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+
+    <style>
+    .color1{
+        background:red;
+    }
+    .border2{
+        border:2px solid black;
+    }
+    .borderRadius3{
+        background-color: aquamarine;
+        border: 2px solid black;
+        border-radius: 50%;
+    } 
+    .padding4{
+        background-color:orange;
+        padding: 20px;
+    }
+    .margin5{
+        background-color: crimson;
+        margin: 10px;
+    }
+ 
+    </style>
+
+    </head>
+
+    <body>
+        <div id="box1"> Box1 </div>
+        <input id="chk" type="checkbox" onchange="toggleStyle()" />
+    </body>
+
+    <script>
+        function toggleStyle(){
+            var isChecked = document.getElementById('chk').checked;
+            document.getElementById('box1').classList.toggle('color1', isChecked);
+            
+            var isChecked = document.getElementById('chk2').checked;
+            document.getElementById('box2').classList.toggle('border2', isChecked);
+            
+            var isChecked = document.getElementById('chk3').checked;
+            document.getElementById('box3').classList.toggle('borderRadius3', isChecked);
+            
+            var isChecked = document.getElementById('chk4').checked;
+            document.getElementById('box4').classList.toggle('padding4', isChecked);
+            
+            var isChecked = document.getElementById('chk5').checked;
+            document.getElementById('box5').classList.toggle('margin5', isChecked);
+
+        }
+    </script>
+</html>
