@@ -2,52 +2,64 @@
 <head>
 
     <style>
-    .color1{
+    .stiling1{
         background:red;
     }
-    .border2{
+    .stiling2{
         border:2px solid black;
     }
-    .borderRadius3{
-        background-color: aquamarine;
-        border: 2px solid black;
+    .stiling3{
         border-radius: 50%;
     } 
-    .padding4{
-        background-color:orange;
+    .stiling4{
+        
         padding: 20px;
     }
-    .margin5{
-        background-color: crimson;
+    .stiling5{
         margin: 10px;
     }
- 
+    div.selected::before{
+        content: "🡆";
+    }
+    div.selected::after{
+        content: "🡄";
+    }
     </style>
 
     </head>
 
     <body>
-        <div id="box1"> Box1 </div>
-        <input id="chk" type="checkbox" onchange="toggleStyle()" />
+            <div id="box1" onclick="toggleStyle(this)"> Box1 </div>
+            <div id="box2" onclick="toggleStyle(this)"> Box2 </div>
+
+
+        <input id="chk1" type="checkbox" onchange="toggleStyle()" />
+        <input id="chk2" type="checkbox" onchange="toggleStyle()" />
+        <input id="chk3" type="checkbox" onchange="toggleStyle()" />
+        <input id="chk4" type="checkbox" onchange="toggleStyle()" />
+        <input id="chk5" type="checkbox" onchange="toggleStyle()" />
     </body>
 
     <script>
-        function toggleStyle(){
-            var isChecked = document.getElementById('chk').checked;
-            document.getElementById('box1').classList.toggle('color1', isChecked);
-            
-            var isChecked = document.getElementById('chk2').checked;
-            document.getElementById('box2').classList.toggle('border2', isChecked);
-            
-            var isChecked = document.getElementById('chk3').checked;
-            document.getElementById('box3').classList.toggle('borderRadius3', isChecked);
-            
-            var isChecked = document.getElementById('chk4').checked;
-            document.getElementById('box4').classList.toggle('padding4', isChecked);
-            
-            var isChecked = document.getElementById('chk5').checked;
-            document.getElementById('box5').classList.toggle('margin5', isChecked);
+        var box1Input = document.getElementById('box1');
 
+        var box2Input = document.getElementById('box2');
+    
+        function toggleStyle(){
+            var isChecked1 = document.getElementById('chk1').checked;
+            document.getElementById('box1').classList.toggle('stiling1', isChecked1);
+           
+            var isChecked2 = document.getElementById('chk2').checked;
+            document.getElementById('box1').classList.toggle('stiling2', isChecked2);
+           
+            var isChecked3 = document.getElementById('chk3').checked;
+            document.getElementById('box1').classList.toggle('stiling3', isChecked3);
+           
+            var isChecked4 = document.getElementById('chk4').checked;
+            document.getElementById('box1').classList.toggle('stiling4', isChecked4);
+           
+            var isChecked5 = document.getElementById('chk5').checked;
+            document.getElementById('box1').classList.toggle('stiling5', isChecked5);
         }
     </script>
 </html>
