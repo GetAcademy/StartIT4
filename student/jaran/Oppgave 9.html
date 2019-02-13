@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .svar {
+            background-color: cyan;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+        .selected::before {
+            content: "🡆";
+        }
+
+        .selected::after {
+            content: "🡄";
+        }
+    </style>
+</head>
+<body>
+    <input id="bredde" type="range" min="0" max="500" step="10" value="100" oninput="showDiv(this)" />
+    <br />
+    <input id="høyde" type="range" min="0" max="500" step="10" value="100" oninput="showDiv(this)" />
+    <br />
+    <div id="resultat1" class="svar" onclick="velg(this)">A</div>
+    <div id="resultat2" class="svar" onclick="velg(this)">B</div>
+
+    <script>
+       
+        var bredde = document.getElementById('bredde');
+        var høyde = document.getElementById('høyde');
+        var selected = document.getElementById('resultat1');
+        var selection = selected.value;
+        selected.classList.add('selected');
+        
+
+        function velg(selected2) {
+            
+            selected.classList.remove('selected');
+            selected2.classList.add('selected');
+            selected = selected2; 
+
+            
+        }
+
+        //showDiv();
+
+        function showDiv() {
+            
+            var tallV = parseInt(bredde.value);
+            var tallH = parseInt(høyde.value);
+            var areal = tallV * tallH;
+            var omkrets = 2 * tallV + 2 * tallH;
+            var vid = bredde.value;
+            var høy = høyde.value;
+            var width = 'width:' + vid + 'px; ';
+            var height = 'height:' + høy + 'px;';
+            var stille = width + height;
+            selected.setAttribute("style", stille);
+            selected.innerHTML = 'Areal: ' + areal + '<br/>' +
+                'Omkrets: ' + omkrets;
+
+
+        }
+    </script>
+</body>
+</html>
