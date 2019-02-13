@@ -13,6 +13,7 @@
         {
             color:royalblue;
         }
+        
 
     </style>
 
@@ -42,7 +43,7 @@
 
 
 
-
+    
     <input id="SizeChanger" type="range" min="1" max="10" step="1" oninput="ChangeSize()" />
 
     <div id="Image">
@@ -79,7 +80,6 @@
     </div>
 
 
-
     <script>
 
 
@@ -99,6 +99,78 @@
                 "Monk",
                 "Paladin"
             ];
+
+
+        
+
+        /*var PepeRay =
+            [
+                '<img src="https://ih1.redbubble.net/image.509653038.6551/pp,550x550.jpg" alt="missing" style=" width:' + RandomNumber(1, 20) + 'em; height: ' + RandomNumber(1, 20) + 'em;"></>',
+                '<img src="https://i.imgur.com/9fnb25E.jpg" alt="missing" style=" width:' + RandomNumber(1, 20) + 'em; height: ' + RandomNumber(1, 20) + 'em; "></>',
+                '<img src="http://pixelartmaker.com/art/325290f811a0c97.png" alt="missing" style=" width:' + RandomNumber(1, 20) + 'em; height: ' + RandomNumber(1, 20) + 'em;"></>',
+                '<img src="https://image.myanimelist.net/ui/CX3ngBwpzCosdceC8GCbonZTFLjaSHURShnB8RXBcpsn_gXKJqJ4FcDN36393qeRKWBnu4mjL8prBBnEOzqbMFGv8LdXQIZlePm841Imyrvz5fpgg1SAuKpkQ_hzQDKm" alt="missing" style=" width:' + RandomNumber(1, 20) + 'em; height: ' + RandomNumber(1, 20) + 'em;"></>',
+                '<img src="https://66.media.tumblr.com/477fee5bb71b44c60c551addca1901df/tumblr_noxtzaydkS1uwa0t9o1_1280.png" alt="missing" style=" width:' + RandomNumber(1, 20) + 'em; height: ' + RandomNumber(1, 20) + 'em;"></>',
+                '<img src="https://i.imgur.com/dgdlzqf.jpg" alt="missing" style=" width:' + RandomNumber(1, 20) + 'em; height: ' + RandomNumber(1, 20) + 'em;"></>'
+
+            ];*/
+
+
+
+        var images =
+            [
+                'https://ih1.redbubble.net/image.509653038.6551/pp,550x550.jpg',
+                'https://i.imgur.com/9fnb25E.jpg',
+                'http://pixelartmaker.com/art/325290f811a0c97.png',
+                'https://image.myanimelist.net/ui/CX3ngBwpzCosdceC8GCbonZTFLjaSHURShnB8RXBcpsn_gXKJqJ4FcDN36393qeRKWBnu4mjL8prBBnEOzqbMFGv8LdXQIZlePm841Imyrvz5fpgg1SAuKpkQ_hzQDKm',
+                'https://66.media.tumblr.com/477fee5bb71b44c60c551addca1901df/tumblr_noxtzaydkS1uwa0t9o1_1280.png',
+                'https://i.imgur.com/dgdlzqf.jpg'
+            ];
+
+        var PepeRay = images.map(createImageHtml);
+
+        function createImageHtml(url) {
+            var endX = RandomNumber(window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * 0.2, window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']));
+            var endY = RandomNumber(window.innerHeight / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * 0.2, window.innerHeight / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']));
+
+            var startX = RandomNumber(1, endX * 0.8);
+            var startY = RandomNumber(1, endY * 0.8);
+
+            var bredde = endX - startX;
+            var høyde = endY - startY;
+            return `
+                <img src="${url}" alt="missing" 
+                     style="
+                        position:absolute; 
+                        width: ${bredde}em;
+                        height: ${høyde}em;
+                        left: ${startX}em;
+                        right: ${endX}em;
+                        top: ${startY}em;
+                        bottom: ${endY}em;
+                        " 
+                />
+                `;
+        }
+        MakePepe();
+        function MakePepe() {
+            document.body.innerHTML += RandomPepe(RandomNumber(1, 20));
+        }
+        function RandomPepe(Loop) {
+            var html = '';
+            for (i = 0; i < Loop; i++) {
+                html += PepeRay[RandomNumber(0, 6)];
+            }
+            console.log(html);
+            return html;
+        }
+
+        
+
+        
+
+        
+
+        
 
         var timer = setInterval(PrintClass, 1000);
 
@@ -164,6 +236,25 @@
             }
         }
 
+        
+
+        /*function MakePepe() {
+            document.body.innerHTML += '<div style="' +
+                PepeLocationEm('left', startX) +
+                PepeLocationEm('top', startY) +
+                PepeLocationEm('width', bredde) +
+                PepeLocationEm('height', høyde) +
+                '">' + RandomPepe(RandomNumber(1, 20)) + '</div>';
+        }*/
+
+        
+
+       
+
+        function RandomNumber(min, max)
+        {
+            return Math.floor(Math.random() * (max - min) + min)
+        }
 
 
     </script>
