@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body onload="klikkHer()">
+    <div id="tekstHer"></div>
+    <img width="400" src="https://media.snl.no/system/images/48614/standard_elefanter1.jpg">
+
+
+    <script>
+        document.getElementById('tekstHer').innerHTML += '<br/> tid med bare F5' + new Date().toTimeString();
+        function klikkHer() {
+            document.getElementById('tekstHer').innerHTML += '<br/> tid med ctrl+F5' + new Date().toTimeString();
+        }
+    </script>
+
+</body>
+
+</html>

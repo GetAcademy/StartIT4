@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        .fa {
+            padding: 30px;
+            font-size: 50px;
+            width: 150px;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px 10px;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa-dribbble {
+            background: #ea4c89;
+            color: white;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        div.page {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 13fr 87fr;
+            grid-template-areas: 
+            'menu maincontent'
+        }
+
+
+        div.menu {
+            background-color: rgb(0, 0, 0);
+            grid-area: menu;
+            font-family: Agency FB;
+            font-size: 400%;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: dodgerblue;
+
+        }
+
+        div.maincontent {
+            background-color: rgb(255, 255, 255);
+            grid-area: maincontent;
+            font-family: Agency FB;
+            font-size: 500%;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: dodgerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div style="background-image:url('biler.jpg')" class="maincontent">Andersen Autospa</div>
+        <div class="menu">Menu
+            <a href="https://rene15151.wixsite.com/andersenautospa" target="_blank" class="fa fa-dribbble"></a>
+            <a href="https://www.facebook.com/AAUTOSPA/" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/andersen_autospa/" target="_blank" class="fa fa-instagram"></a>
+        </div>
+
+    </div>
+</body>
+
+</html>

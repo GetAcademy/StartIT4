@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div id="innhold">
+        Jeg tenker på et tall mellom 1 og 20. Tipp hvilket!<br />
+        <input type="text" /> <button onclick="tipp1()">Tipp</button>
+    </div>
+
+    <script>
+        function tipp1() {
+            document.getElementById('innhold').innerHTML = `
+            Du tippet 27. Det er for høyt - tipp igjen!<br/>
+            <input type="text"/><button onclick="tipp2()">Tipp</button>
+            `;
+        }
+        function tipp2() {
+            document.getElementById('innhold').innerHTML = `
+            Du tippet 12 - og det er riktig! 😀<br/>
+            <button onclick="tipp2()">Start på nytt</button>
+            `;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Snømann</title>
+    <!-- <style>
+        div {
+            
+        }
+    </style> -->
+</head>
+
+<body>
+
+    <svg width="700" height="700" viewbox="0 0 700 700" style="background-color: rgba(66, 170, 255, 0);">
+        <g visibility="hidden">
+            <g id="star">
+                <polygon points="25,0.5 10,49.5 45,19 2.5,19 40,49.5" style="fill:rgb(4, 176, 255);stroke:rgb(0, 0, 0);stroke-width:0;fill-rule:nonzero;" />
+            </g>
+        </g>
+        <g id="stars">
+            <use onmouseover="mus1" onmouseout="mus1" xlink:href="#star" x="10" y="10"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="500" y="150"></use>
+            <use onmouseover="removeStar(this)"xlink:href="#star" x="600" y="600"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="580" y="320"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="20" y="180"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="290" y="700"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="320" y="640"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="10" y="330"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="740" y="20"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="400" y="80"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="580" y="250"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="440" y="220"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="400" y="420"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="540" y="20"></use>
+            <use onmouseover="removeStar(this)" xlink:href="#star" x="440" y="520"></use>
+
+        </g>
+        <!-- <polygon points="25,0.5 10,49.5 45,19 2.5,19 40,49.5" style="fill:rgb(255, 255, 255);stroke:rgb(0, 0, 0);stroke-width:0;fill-rule:nonzero;" />
+        <polygon points="25,0.5 10,49.5 45,19 2.5,19 40,49.5" style="fill:rgb(255, 255, 255);stroke:rgb(0, 0, 0);stroke-width:0;fill-rule:nonzero;" />
+        <polygon points="250,100 10,49.5 45,19 2.5,19 40,49.5" style="fill:rgb(255, 255, 255);stroke:rgb(0, 0, 0);stroke-width:0;fill-rule:nonzero;" />
+        <polygon x="250" y="600" points="25,0.5 10,49.5 45,19 2.5,19 40,49.5" style="fill:rgb(255, 255, 255);stroke:rgb(0, 0, 0);stroke-width:0;fill-rule:nonzero;" /> -->
+
+        <circle cx="200" cy="470" r="120" stroke="black" stroke-width="4" fill="white" />
+        <circle cx="200" cy="300" r="80" stroke="black" stroke-width="4" fill="white" />
+        <circle cx="200" cy="180" r="50" stroke="black" stroke-width="4" fill="white" />
+        <circle cx="215" cy="200" r="2" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="210" cy="202" r="2" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="205" cy="204" r="2" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="200" cy="206" r="2" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="195" cy="208" r="2" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="190" cy="210" r="2" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="197" cy="183" r="6" stroke="rgb(255, 93, 0)" stroke-width="1.5" fill="rgb(255, 93, 0)" />
+
+        <circle cx="195" cy="270" r="6" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="195" cy="300" r="6" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="195" cy="330" r="6" stroke="black" stroke-width="1.5" fill="black" />
+
+        <circle cx="180" cy="160" r="5" stroke="black" stroke-width="1.5" fill="black" />
+        <circle cx="212" cy="160" r="5" stroke="black" stroke-width="1.5" fill="black" />
+        <line x1="400" y1="300" x2="250" y2="250" style="stroke:black;stroke-width:4" />
+        <line x1="20" y1="300" x2="150" y2="250" style="stroke:black;stroke-width:4" />
+        <line x1="20" y1="260" x2="50" y2="290" style="stroke:black;stroke-width:4" />
+        <line x1="35" y1="335" x2="50" y2="290" style="stroke:black;stroke-width:4" />
+        <rect x="142" y="130" width="115" height="10" style="fill:rgb(0, 0, 0);stroke-width:3;stroke:rgb(0,0,0)" />
+        <rect x="163" y="60" width="70" height="80" style="fill:rgb(0, 0, 0);stroke-width:3;stroke:rgb(0,0,0)" />
+    </svg>
+    <div id="mus1"></div>
+    <script>
+        setInterval(addRandomStar, 300);
+        function mus() {
+             document.getElementById('mus1').innerHTML = '<img width="500" style="position: fixed;left: 70px; top: 200px;" src="https://speakupforsuccess.com/wp-content/uploads/2013/07/attention-come-here-12649651.jpg"/>'
+         } 
+        function ikkemus() {
+            document.getElementById('mus1').innerHTML = ''
+        }
+
+        // function addRandomStar() {
+        //     var x = Math.floor(Math.random() * 500);
+        //     var y = Math.floor(Math.random() * 500);
+        //     console.log(x, y);
+        //     document.getElementById('stars').innerHTML +=
+        //         `<use xlink:href="#star" x="${x}" y="${y}"></use>`;
+        // }
+
+        // function removeStar(useTag) {
+        //     useTag.outerHTML = '';
+        // }
+    </script>
+</body>
+
+</html>

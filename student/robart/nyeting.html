@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+
+<body>
+    <input id="sizeSlider" type="range" min="1" max="1000" step="10" oninput="showDiv()" />
+    <br /><input id="textInput" type="text" oninput="showDiv()" value="Her kan du skrive hva du vil!" />
+    
+    <select id="colorChooser" onchange="showDiv()">
+        <option value="dodgerblue">Blue</option>
+        <option select value="green">Green</option>
+        <option value="hotpink">Pink</option>
+        <option value="purple"> purple</option>
+    </select>
+    
+    <select id="resultatDiv" onchange="showDiv()">
+        <option value="black">black</option>
+        <option select value="transparent">No border</option>
+        <option value="grey">grey</option>
+        </select>
+
+        <div id="resultat" style="color:white"></div>
+        <div id="resultatHtml" style="color: rgba(143, 71, 71, 0)" style="font-family: monospace"></div>
+
+        <script>
+            var resultatDiv = document.getElementById('resultat');
+            var resultatHtmlDiv = document.getElementById('resultatHtml');
+            var sizeSlider = document.getElementById('sizeSlider');
+            var textInput = document.getElementById('textInput');
+            var colorChooser = document.getElementById('colorChooser');
+            var borderChooser = document.getElementById('resultatDiv');
+
+            showDiv();
+
+            function showDiv() {
+                var size = sizeSlider.value;
+                var text = textInput.value;
+                var color = colorChooser.value;
+                var border = borderChooser.value;
+
+                var backgroundColor = 'background-color: ' + color + ';';
+                var border = 'border: 5px solid ' + border + ';';
+                var width = 'width: ' + size + 'px;';
+                var height = 'height: ' + size + 'px;';
+                var style = 'style="' + border + backgroundColor + width + height + '"';
+                resultatDiv.innerHTML = '<div ' + style + '>' + text + '</div>';
+                resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+                 
+            }
+
+        </script>
+
+</body>
+
+</html>
