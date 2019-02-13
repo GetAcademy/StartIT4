@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Ferdighet 7 - Sette variabel til resultat av et regnestykke. </p>
+    <input id="Bredde" type="range" min="1" max="1000" step="1" oninput="calculate()" value="2" />
+    <input id="Høyde" type="range" min="1" max="1000" step="1" oninput="calculate()" value="2" />
+    <div id="resultat"></div>
+    <div id="box" style="background-color:red" >heyhey</div>
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var BreddeInput = document.getElementById('Bredde');
+        var HøydeInput = document.getElementById('Høyde');
+        var boxDiv = document.getElementById('box');
+        calculate();
+
+        function calculate() {
+            var Bredde = parseInt(BreddeInput.value);
+            var Høyde = parseInt(HøydeInput.value);
+            var sum = Bredde + Høyde + Bredde + Høyde;
+            var produkt = Bredde * Høyde;
+            resultatDiv.innerHTML = '' +
+                ' Omkrets ' + Bredde + ' + ' + Høyde +  ' + ' + Bredde + ' + ' + Høyde + ' =  ' + sum + '<br/>' +
+                ' Arial ' + Bredde + ' * ' + Høyde + ' = ' + produkt + ' m2 ';
+                boxDiv.style.width = Bredde+'px';
+                boxDiv.style.height = Høyde + 'px';
+        }
+    </script>
+</body>
+</html>
