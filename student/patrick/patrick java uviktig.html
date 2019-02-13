@@ -7,38 +7,164 @@
 
     </title>
 
+    <style>
 
+        .MyClass
+        {
+            color:royalblue;
+        }
+
+    </style>
+
+    <script>
+        function AgeCheck()
+        {
+            alert("welcome to chicks with dicks 24/7!")
+        }
+        if (confirm("This website displays explicit content not appropriate for minors!"))
+        {
+            AgeCheck();
+        }
+        else
+        {
+            window.stop();
+        }   
+
+
+
+        
+    </script>
 
 </head>
 
-<body>
+<body onload="GetLoad()">
+   
+
+
+
 
     <input id="SizeChanger" type="range" min="1" max="10" step="1" oninput="ChangeSize()" />
-    
+
     <div id="Image">
-        <img src="https://media.wired.com/photos/5926d71eaf95806129f50cc9/master/pass/Microsoft10.jpg" alt="missing" style="width:5em; height:5em;"/>
+        <img src="https://media.wired.com/photos/5926d71eaf95806129f50cc9/master/pass/Microsoft10.jpg" alt="missing" style="width:5em; height:5em;" />
     </div>
 
-    <button onclick="MakeParagraph()">
-    Make Paragraph!
+    <button onclick="MakeParagraph(1,21)">
+        Roll D20!
     </button>
+
+    <button onclick="ToggleMode()">
+        Dark Mode
+    </button>
+
+    <p onclick="ToggleStuff(this)">
+        hey hey hey hey hey hey hey.
+    </p>
+
+
+    
+    <p function="MakePersonStuff('patrick', 23, 150)" class="PersonClass">
+        Reveal Identity!
+    </p>
+
+    <input id="PepeSize" type="range" min="1" max="10" step="1" oninput="PepeSizeChanger()" />
+    <input id="BorderChanger" type="range" min="0" max="50" step="1" oninput="PepeSizeChanger()" />
+
+    <div id="TestImage">
+        <img src="https://outline-prod.imgix.net/20170424-4O1GHDF3vyAAcQfG8B1r?auto=format&q=60&w=1280&s=c49e730b235eed295a37aca197ca0259" alt="missing" style="width:5em; height:5em; border-radius:0%" />
+    </div>
 
     <div id="MakeStuff">
 
     </div>
 
-    
-   
+
+
     <script>
-        
-        function ChangeSize()
-        {
+
+
+        //DND classes thing
+        var ArrayNumber = 0;
+        var CoreClasses =
+            [
+                "Barbarian",
+                "Fighter",
+                "Bard",
+                "Sorceror",
+                "Wizard",
+                "Ranger",
+                "Druid",
+                "Cleric",
+                "Rogue",
+                "Monk",
+                "Paladin"
+            ];
+
+        var timer = setInterval(PrintClass, 1000);
+
+        function PrintClass() {
+
+            var value = CoreClasses[ArrayNumber];
+            document.getElementById("MakeStuff").innerHTML += '<h3>Class: </h3>' + '<em>' + value + '</em>';
+            ArrayNumber++;
+            if (ArrayNumber >= CoreClasses.length) clearInterval(timer);
+        }
+
+        //Windows Script
+        function ChangeSize() {
             document.getElementById("Image").innerHTML = '<img src="https://media.wired.com/photos/5926d71eaf95806129f50cc9/master/pass/Microsoft10.jpg" alt="missing" style=" width:' + document.getElementById("SizeChanger").value + 'em; height: ' + document.getElementById("SizeChanger").value + 'em;"></>';
         }
-        function MakeParagraph()
-        {
-            document.getElementById("MakeStuff").innerHTML += '<p>Paragraph</p>';
+
+        //Pepe Script
+        function PepeSizeChanger() {
+            document.getElementById("TestImage").innerHTML = '<img src="https://outline-prod.imgix.net/20170424-4O1GHDF3vyAAcQfG8B1r?auto=format&q=60&w=1280&s=c49e730b235eed295a37aca197ca0259" alt="missing" style="width:' + document.getElementById("PepeSize").value + 'em; height:' + document.getElementById("PepeSize").value + 'em; border-radius:' + document.getElementById("BorderChanger").value + '%" />'
         }
+
+        //Paragrapg maker
+        function MakeParagraph(min, max) {
+            document.getElementById("MakeStuff").innerHTML += '<p>Rolled: ' + Math.floor(Math.random() * (max - min) + min) + '</p>';
+        }
+
+        //DarkMode
+        function DarkMode() {
+            document.body.style.backgroundColor = "gray";
+        }
+        function LightMode() {
+            document.body.style.backgroundColor = "white";
+        }
+        function ToggleMode() {
+            if (document.body.style.backgroundColor != "gray") {
+                DarkMode();
+            }
+            else {
+                LightMode();
+            }
+        }
+
+        //ClassToggler
+        function ToggleStuff(Clicked) {
+            Clicked.classList.toggle("MyClass");
+        }
+
+
+
+        //ParameterFunctionProject.
+        function MakePersonStuff(Name, Age, IQ)
+        {
+            return 'Name: ' + Name + '<br/> Age: ' + Age + '<br/> IQ: ' + IQ;
+        }
+
+        function GetLoad()
+        {
+            var Loads = document.getElementsByClassName('PersonClass');
+            for (let Load of Loads)
+            {
+                let raw = Load.getAttribute("function").toString();
+                Load.innerHTML = eval(raw);
+            }
+        }
+
+
 
     </script>
 
