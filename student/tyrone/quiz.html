@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+        font-size: xx-large;
+    }
+
+</style>
+<h1> hva er hovedstaden i nederland </h1>
+
+
+<body>
+    <div class="a" id="abox"></div>
+
+    <div class="a1" style="background-color: black; text-align: center; font-size: xx-large; color: azure;" onclick="rektig()">Amsterdam</div>
+   
+    <div class="a2" style="background-color: black; text-align: center; font-size: xx-large; color: azure;" onclick="feil()">Rotterdam</div>
+   
+    <div class="a3" style="background-color: black; text-align: center; font-size: xx-large; color: azure;" onclick="feil()">oslo</div>
+    
+    <div class="a" id="abox2"></div>
+    <script>
+        function rektig (element) {
+            var element2 = document.getElementById('abox');
+            element2.innerHTML = 'rektig'
+            var element3 = document.getElementById('abox2');
+            element3.innerHTML = 'Neste'
+        }
+        function feil (element) {
+            var element2 = document.getElementById('abox');
+            element2.innerHTML = 'feil'
+
+        }
+
+
+    </script>
+</body>
+</html>
