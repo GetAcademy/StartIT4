@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="action(1)">
+    <p>Ferdighet 2a - Alternative eventhandlere: onchange osv.</p>
+    <input type="text" onchange="action(2)" oninput="action(3)" />
+    <h3 onmouseover="action(4)" onmouseout="action(5)">Test test test</h3>
+    <h2 id="info"></h2>
+
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
+    <script>
+        function action(element) {
+            if (element == 1) {
+                document.getElementById('info').innerHTML += '<li>onload</li>';
+            }
+            else if (element == 2) {
+                document.getElementById('info').innerHTML += '<li>onchange</li>';   
+            }
+            else if (element == 3) {
+                document.getElementById('info').innerHTML += '<li>oninput</li>';
+            }
+            else if (element == 4) {
+                document.getElementById('info').innerHTML += '<li>onmouseover</li>';
+            }
+            else if (element == 5) {
+                document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+            }
+            
+        }
+    </script>
+</body>
+</html>
