@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Ferdighet 9d - Valgsetninger - Sammenligne flere ting på en gang (og)</p>
+    <div id="info"></div>
+    <div id="2"></div>
+    <div id="3"></div>
+    <ul>
+        <li>Endre på tekstene!</li>
+        <li>Prøv også å fylle ut tall: 11, 101, 102</li>
+    </ul>
+    <input type="text" id="txt1" oninput="findFirst()" value="Per" /><br />
+    <input type="text" id="txt2" oninput="findFirst()" value="Pål" /><br />
+    <input type="text" id="txt3" oninput="findFirst()" value="Espen" /><br />
+    <script>
+        var infoDiv = document.getElementById('info');
+        var toDiv   = document.getElementById('2');
+        var treDiv  = document.getElementById('3');
+        var txtDiv1 = document.getElementById('txt1');
+        var txtDiv2 = document.getElementById('txt2');
+        var txtDiv3 = document.getElementById('txt3');
+        findFirst();
+        function findFirst() {
+            var txt1 = txtDiv1.value;
+            var txt2 = txtDiv2.value;
+            var txt3 = txtDiv3.value;
+            infoDiv.innerHTML = 'Om vi sorterer de tre tekstene, er denne den første:<br/>';
+            if (txt1 <= txt2 && txt1 <= txt3 && txt2 <= txt3) infoDiv.innerHTML += txt1, toDiv.innerHTML = txt2, treDiv.innerHTML = txt3;
+            else if (txt1 <= txt2 && txt1 <= txt3 && txt3 <= txt2) infoDiv.innerHTML += txt1, toDiv.innerHTML = txt3, treDiv.innerHTML = txt2;
+
+            else if (txt2 <= txt3 && txt2 <= txt1 && txt3 <= txt1) infoDiv.innerHTML += txt2, toDiv.innerHTML = txt3, treDiv.innerHTML = txt1;
+            else if (txt2 <= txt3 && txt2 <= txt1 && txt1 <= txt3) infoDiv.innerHTML += txt2, toDiv.innerHTML = txt1, treDiv.innerHTML = txt3;
+
+            else if (txt3 <= txt2 && txt3 <= txt1 && txt1 <= txt2) infoDiv.innerHTML += txt3, toDiv.innerHTML = txt1, treDiv.innerHTML = txt2;
+            else if (txt3 <= txt2 && txt3 <= txt1 && txt2 <= txt1) infoDiv.innerHTML += txt3, toDiv.innerHTML = txt2, treDiv.innerHTML = txt1;
+        }
+    </script>
+</body>
+</html>

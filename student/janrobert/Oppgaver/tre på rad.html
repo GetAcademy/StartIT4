@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Tre på rad</title>
+    <style type="text/css">
+        div {
+            color: green;
+            background-color: lightgray;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 2px;
+            font-size: 500%;
+            font-family: helvetica;
+            text-align: center;
+            vertical-align: middle;
+        }
+        div.first {
+            clear: left;
+        }
+
+        h1.vinnbox {
+            width: 300px;
+            height: 200px;
+            background-color: white;
+            font-size: 500%;
+            font-family: helvetica;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="box1" onclick="setX(this)" class="first"></div>
+    <div id="box2" onclick="setX(this)"></div>
+    <div id="box3" onclick="setX(this)"></div>
+
+    <div id="box4" onclick="setX(this)" class="first"></div>
+    <div id="box5" onclick="setX(this)"></div>
+    <div id="box6" onclick="setX(this)"></div>
+
+    <div id="box7" onclick="setX(this)" class="first"></div>
+    <div id="box8" onclick="setX(this)"></div>
+    <div id="box9" onclick="setX(this)"></div>
+    <h1 id="test" class="vinnbox"></h1>
+
+    <script type="text/javascript">
+    var vinner = document.getElementById('test');
+        var isGameFinished = false;
+        var vant = 0;
+
+        var box1 = document.getElementById('box1');
+        var box2 = document.getElementById('box2');
+        var box3 = document.getElementById('box3');
+        var box4 = document.getElementById('box4');
+        var box5 = document.getElementById('box5');
+        var box6 = document.getElementById('box6');
+        var box7 = document.getElementById('box7');
+        var box8 = document.getElementById('box8');
+        var box9 = document.getElementById('box9');
+
+        function setX(divElement) {
+            if(isGameFinished == false) {
+                if (divElement.innerHTML !== 'X' && divElement.innerHTML !== 'O') {
+                    divElement.innerHTML = 'X';
+                    var divs1 = document.getElementsByTagName('div');
+                    var divs2 = new Array();
+                    for (var i = 0; i < divs1.length; i++) {
+                        if (divs1[i].innerHTML !== 'X' && divs1[i].innerHTML !== 'O') {
+                            divs2.push(divs1[i]);
+                        }
+                    }
+                    if (divs2.length > 0) {
+                        var index = Math.floor(Math.random() * divs2.length);
+                        divs2[index].innerHTML = 'O';
+                        divs2[index].style.color = 'blue';
+                    }
+                }
+            }
+            if(box1.innerHTML=='X' && box2.innerHTML=='X' && box3.innerHTML=='X' ||
+                box4.innerHTML=='X' && box5.innerHTML=='X' && box6.innerHTML=='X' ||
+                box7.innerHTML=='X' && box8.innerHTML=='X' && box9.innerHTML=='X' ||
+
+                box1.innerHTML=='X' && box4.innerHTML=='X' && box7.innerHTML=='X' ||
+                box2.innerHTML=='X' && box5.innerHTML=='X' && box8.innerHTML=='X' ||
+                box3.innerHTML=='X' && box6.innerHTML=='X' && box9.innerHTML=='X' ||
+                
+                box1.innerHTML=='X' && box5.innerHTML=='X' && box9.innerHTML=='X' ||
+                box3.innerHTML=='X' && box5.innerHTML=='X' && box7.innerHTML=='X') {
+                    vinner.innerHTML = ('X vant!');
+            }
+            else if(box1.innerHTML=='O' && box2.innerHTML=='O' && box3.innerHTML=='O' ||
+                box4.innerHTML=='O' && box5.innerHTML=='O' && box6.innerHTML=='O' ||
+                box7.innerHTML=='O' && box8.innerHTML=='O' && box9.innerHTML=='O' ||
+
+                box1.innerHTML=='O' && box4.innerHTML=='O' && box7.innerHTML=='O' ||
+                box2.innerHTML=='O' && box5.innerHTML=='O' && box8.innerHTML=='O' ||
+                box3.innerHTML=='O' && box6.innerHTML=='O' && box9.innerHTML=='O' ||
+                
+                box1.innerHTML=='O' && box5.innerHTML=='O' && box9.innerHTML=='O' ||
+                box3.innerHTML=='O' && box5.innerHTML=='O' && box7.innerHTML=='O') {
+                    vinner.innerHTML = ('O vant!');
+            }
+            if (vinner.innerHTML == 'X vant!' || vinner.innerHTML == 'O vant!'){
+                isGameFinished = true;
+            }
+        }
+            
+            
+        
+    </script>
+</body>
+</html>
