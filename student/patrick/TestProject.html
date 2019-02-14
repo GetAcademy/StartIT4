@@ -199,6 +199,11 @@
 				object-fit: cover;
 				width: 45%;
 			}
+        .BackgroundImage {
+            background-image: url(https://images.unsplash.com/photo-1534142499731-a32a99935397?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+
+        }
+        
 		.IndexBox {
 			grid-area: IndexBox;
 			background-color: cornflowerblue;
@@ -212,7 +217,7 @@
 	<div class="mainGrid">
 		<div class="MainHeader">
 			<h1>
-				Class
+				Class   <button onclick="BackgroundMode('Light');" style="float:right;">LightMode</button> <button onclick="BackgroundMode('Dark');" style="float:right;">DarkMode</button> <button onclick="BackgroundMode('Image');" style="float:right;">ImageMode</button>
 			</h1>
 		</div>
 		<div class="SecondHeader">
@@ -973,6 +978,32 @@
 		</div>
 	</div>
 
+
+
+    <script>
+        document.body.classList.remove("div");
+        function BackgroundMode(Mode)
+        {
+            switch (Mode)
+            {
+
+                case "Dark":
+                    document.body.classList.remove("BackgroundImage");
+                    document.body.style.backgroundColor = "gray";
+                    break;
+                case "Light":
+                    document.body.classList.remove("BackgroundImage");
+                    document.body.style.backgroundColor = "white";
+                    break;
+                case "Image":
+                    document.body.classList.toggle("BackgroundImage");
+                    break;
+                default: "Light";
+            }
+        }
+            
+        
+    </script>
 
 </body>
 </html>
