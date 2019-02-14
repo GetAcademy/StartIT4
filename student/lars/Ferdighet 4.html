@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        button {
+            float: left;
+            padding: 7px;
+            margin: 5px;
+        }
+        .nyLinje {
+            clear: left;
+        }
+        div {
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+    <p>Ferdighet 4 - Variabel utenfor funksjon og innenfor funksjon, samt sette sammen tekst av flere deler</p>
+    <button onclick="print(this)">1</button>
+    <button onclick="print(this)">2</button>
+    <button onclick="print(this)">3</button>
+    <button class="nyLinje" onclick="print(this)">4</button>
+    <button onclick="print(this)">5</button>
+    <button onclick="print(this)">6</button>
+    <button class="nyLinje" onclick="print(this)">7</button>
+    <button onclick="print(this)">8</button>
+    <button onclick="print(this)">9</button>
+
+    <div id="output">Kode: </div>
+    
+    <script>
+        function print(element) {
+            document.getElementById('output').innerHTML += element.innerHTML;
+        }
+    </script>
+</body>
+</html>
