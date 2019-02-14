@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>KodeLås</h1>
+    <button onclick="kodelås(this)">1</button>
+    <button onclick="kodelås(this)">2</button>
+    <button onclick="kodelås(this)">3</button>
+    <br>
+    <button onclick="kodelås(this)">4</button>
+    <button onclick="kodelås(this)">5</button>
+    <button onclick="kodelås(this)">6</button>
+    <br>
+    <button onclick="kodelås(this)">7</button>
+    <button onclick="kodelås(this)">8</button>
+    <button onclick="kodelås(this)">9</button>
+
+    <div id="info"></div>
+
+    <script>
+        var nummer = document.getElementById("nummer");
+        var infoDiv = document.getElementById('info');
+        var correctCode = '8-5-2-1';
+        var enteredSoFar = '';
+
+
+        function kodelås(knapp) {
+            info.innerHTML += knapp.innerHTML + "-";
+
+            if (enteredSoFar == correctCode) {
+                info.innerHTML += 'Åpen!';
+            }
+            if
+            (!correctCode.startsWith( enteredSoFar)) infoDiv.innerHTML += 'Correct';
+        }
+
+   
+</script>
+</body>
+</html>
