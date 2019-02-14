@@ -6,7 +6,8 @@
 	<title>
 		the project
 	</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<style>
 		body 
 		{
@@ -130,11 +131,11 @@
 			margin-left:10em;
 			padding:0;
 		}
-		.Bombs 
-		{
-			grid-area:Bombs;
-			margin-left:10em;
-		}
+        .Bombs 
+        {
+            grid-area: Bombs;
+            margin-left: 10em;
+        }
 		.BrewPotion 
 		{
 			grid-area:BrewPotion;
@@ -287,10 +288,10 @@
 		</div>
 		<div class="Alchemy">
 			<h3>
-				Alchemy<sup>(Ex)</sup>
+                <button data-toggle="collapse" data-target="#AlchemyDescription">Alchemy<sup>(Ex)</sup></button>
 			</h3>
 			
-			<p>
+			<p id="AlchemyDescription" class="collapse">
 				Alchemists are masters of creating alchemical substances such as alchemist’s fire,
 				smokesticks as well as other alchemical extracts, but the reason he is a true master of potion crafting,
 				is his ability to craft extraordinary amounts of potions, poisons, oils and alchemical items in a single hour
@@ -985,7 +986,6 @@
         {
             switch (Mode)
             {
-
                 case "Dark":
                     document.body.classList.remove("BackgroundImage");
                     document.body.style.backgroundColor = "gray";
