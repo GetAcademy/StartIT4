@@ -52,17 +52,17 @@
 
         var correctCode = '0912';
         var enteredSoFar = document.getElementById('kode');
-        enteredSoFar = '';
+        
 
 
         function knapp(element) {
-
+            if (enteredSoFar.innerHTML.length >= 4) { return }
             document.getElementById('kode').innerHTML += element.innerHTML;
             if (enteredSoFar.innerHTML == correctCode) {
                 var right = document.getElementById('riktig');
                 right.innerHTML = 'Åpen';
             }
-            if (!correctCode.startsWith(enteredSoFar)) {
+            if (!correctCode.startsWith(enteredSoFar.innerHTML)) {
                 enteredSoFar.innerHTML = '';
             }
         }
