@@ -2,217 +2,238 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8" />
-	<title>
-		the project
-	</title>
+    <meta charset="utf-8" />
+    <title>
+        the project
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<style>
-		body 
-		{
-			margin: 0;
-			padding: 0;
-		}
-		div.mainGrid 
-		{
-			display: grid;
-			
-			grid-gap: 1em;
-			
-			grid-template-areas: 
-				'MainHeader' 'SecondHeader' 'ThirdHeader' 
-				'IntroductionText' 'Alignment' 'HitDice' 
-				'StartingWealth' 'ClassSkills' 'ClassSkillsText' 
-				'SkillRanksPerLevel' 'TableAlchemist' 'TableAlchemistTable'
-				'ClassFeatures' 'Proficiencies' 'Alchemy'
-				'Bombs' 'BrewPotion' 'Mutagen'
-				'ThrowAnything' 'Discovery' 'PoisonResistance' 
-				'PoisonUse' 'SwiftAlchemy' 'SwiftPoisoning' 
-				'PersistantMutagen' 'InstantAlchemy' 
-				'GrandDiscovery' 'AlchemistPhoto' 'IndexBox';
-			font-family:'Times New Roman', Times, serif;
-			
-		}
-
-		div.MainHeader {
-			/*color: cadetblue;*/
-			background-color:cornflowerblue;
-			grid-area: MainHeader;
-			text-anchor: start;
-			margin-left: 10em;
-		}
-
-		div.SecondHeader {
-			background-color:forestgreen;
-			grid-area: SecondHeader;
-			margin-left: 10em;
-		}
-
-		.ThirdHeader {
-			grid-area: ThirdHeader;
-			margin-right: auto;
-			margin-left: 10em;
-		}
-
-		.IntroductionText 
-		{
-			grid-area: IntroductionText;
-			grid-row: 3;
-			margin-left: 17em;
-			margin-top:1.3em;
-		}
-		.Alignment 
-		{
-			grid-area: Alignment;
-			grid-row: 4;
-			margin-left: 10em;
-			margin-right:40em;
-		}
-		.HitDice 
-		{
-			grid-area: HitDice;
-			margin-left: 10em;
-			margin-right:40em;
-		}
-		.StartingWealth {
-			margin-left: 10em;
-			margin-right:40em;
-			grid-area: StartingWealth;
-		}
-		.ClassSkills {
-			margin-left: 10em;
-			margin-right: 40em;
-			grid-area: ClassSkills;
-			margin-right: auto;
-		}
-		.ClassSkillsText {
-			grid-area: ClassSkillsText;
-			margin-left: 17em;
-			margin-right: 40em;
-			margin-top:1.3em;
-			grid-row: 8/9;
-		}
-		.SkillRanksPerLevel {
-			margin-left: 10em;
-			margin-right: 40em;
-			grid-area: SkillRanksPerLevel;
-		}
-		.TableAlchemist {
-			margin-left: 10em;
-			margin-right: 40em;
-			grid-area: TableAlchemist;
-		}
-		.TableAlchemistTable {
-			margin-left: 10em;
-			grid-area: TableAlchemistTable;
-		}
-			.TableAlchemistTable > img 
-			{
-				object-fit:cover;
-				width:100%;
-			}
-		.ClassFeatures 
-		{
-			grid-area:ClassFeatures;
-			
-			margin-left:10em;
-		}
-		.Proficiencies 
-		{
-			grid-area:Proficiencies;
-			
-			margin-left:10em;
-		}
-		.Alchemy 
-		{
-			grid-area:Alchemy;
-			
-			margin-left:10em;
-			padding:0;
-		}
-        .Bombs 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        button,p,ul,li
         {
+            font-size:initial !important;
+        }
+        h1
+        {
+            font-size:2em !important;
+            font-weight:bolder !important;
+        }
+        h2 {
+            font-size: 1.5em !important;
+            font-weight: bolder !important;
+        }
+        h3 {
+            font-size: 1.17em !important;
+            font-weight: bolder !important;
+        }
+        h4 {
+            font-size: 1em !important;
+            font-weight: bolder !important;
+        }
+        h5 {
+            font-size: 0.83em !important;
+            font-weight: bolder !important;
+        }
+        h6 {
+            font-size: 0.75em !important;
+            font-weight: bolder !important;
+        }
+        div.mainGrid {
+            display: grid;
+            grid-gap: 1em;
+            grid-template-areas: 'MainHeader' 'SecondHeader' 'ThirdHeader' 'IntroductionText' 'Alignment' 'HitDice' 'StartingWealth' 'ClassSkills' 'ClassSkillsText' 'SkillRanksPerLevel' 'TableAlchemist' 'TableAlchemistTable' 'ClassFeatures' 'Proficiencies' 'Alchemy' 'Bombs' 'BrewPotion' 'Mutagen' 'ThrowAnything' 'Discovery' 'PoisonResistance' 'PoisonUse' 'SwiftAlchemy' 'SwiftPoisoning' 'PersistantMutagen' 'InstantAlchemy' 'GrandDiscovery' 'AlchemistPhoto' 'IndexBox';
+            font-family: 'Times New Roman', Times, serif !important;
+            font-size: initial !important;
+            color: black !important;
+        }
+
+        div.MainHeader {
+            /*color: cadetblue;*/
+            background-color: cornflowerblue;
+            grid-area: MainHeader;
+            text-anchor: start;
+            margin-left: 10em;
+        }
+
+        div.SecondHeader {
+            background-color: forestgreen;
+            grid-area: SecondHeader;
+            margin-left: 10em;
+        }
+
+        .ThirdHeader {
+            grid-area: ThirdHeader;
+            margin-right: auto;
+            margin-left: 10em;
+        }
+
+        .IntroductionText {
+            grid-area: IntroductionText;
+            grid-row: 3;
+            margin-left: 17em;
+            margin-top: 1.3em;
+        }
+
+        .Alignment {
+            grid-area: Alignment;
+            grid-row: 4;
+            margin-left: 10em;
+            margin-right: 40em;
+        }
+
+        .HitDice {
+            grid-area: HitDice;
+            margin-left: 10em;
+            margin-right: 40em;
+        }
+
+        .StartingWealth {
+            margin-left: 10em;
+            margin-right: 40em;
+            grid-area: StartingWealth;
+        }
+
+        .ClassSkills {
+            margin-left: 10em;
+            margin-right: 40em;
+            grid-area: ClassSkills;
+            margin-right: auto;
+        }
+
+        .ClassSkillsText {
+            grid-area: ClassSkillsText;
+            margin-left: 17em;
+            margin-right: 40em;
+            margin-top: 1.3em;
+            grid-row: 8/9;
+        }
+
+        .SkillRanksPerLevel {
+            margin-left: 10em;
+            margin-right: 40em;
+            grid-area: SkillRanksPerLevel;
+        }
+
+        .TableAlchemist {
+            margin-left: 10em;
+            margin-right: 40em;
+            grid-area: TableAlchemist;
+        }
+
+        .TableAlchemistTable {
+            margin-left: 10em;
+            grid-area: TableAlchemistTable;
+        }
+
+            .TableAlchemistTable > img {
+                object-fit: cover;
+                width: 100%;
+            }
+
+        .ClassFeatures {
+            grid-area: ClassFeatures;
+            margin-left: 10em;
+        }
+
+        .Proficiencies {
+            grid-area: Proficiencies;
+            margin-left: 10em;
+        }
+
+        .Alchemy {
+            grid-area: Alchemy;
+            margin-left: 10em;
+            padding: 0;
+        }
+
+        .Bombs {
             grid-area: Bombs;
             margin-left: 10em;
         }
-		.BrewPotion 
-		{
-			grid-area:BrewPotion;
-			margin-left:10em;
-		}
-		.Mutagen 
-		{
-			grid-area:Mutagen;
-			margin-left:10em;
-		}
-		.ThrowAnything 
-		{
-			grid-area:ThrowAnything;
-			margin-left:10em;
-		}
-		.Discovery {
-			grid-area: Discovery;
-			margin-left: 10em;
-		}
-		.PoisonResistance 
-		{
-			grid-area:PoisonResistance;
-			margin-left:10em;
-		}
-		.PoisonUse 
-		{
-			grid-area:PoisonUse;
-			margin-left:10em;
-		}
-		.SwiftAlchemy 
-		{
-			grid-area:SwiftAlchemy;
-			margin-left:10em;
-		}
-		.SwiftPoisoning 
-		{
-			grid-area:SwiftPoisoning;
-			margin-left:10em;
-		}
-		.PersistantMutagen {
-			grid-area:PersistantMutagen;
-			margin-left: 10em;
-		}
-		.InstantAlchemy {
-			grid-area:InstantAlchemy;
-			margin-left: 10em;
-		}
-		.GrandDiscovery 
-		{
-			grid-area:GrandDiscovery;
-			margin-left:10em;
-		}
-		.AlchemistPhoto 
-		{
-			grid-area:AlchemistPhoto;
-			margin-left:60em;
-			grid-row:4/12;
-			
-		}
-			.AlchemistPhoto > img 
-			{
-				object-fit: cover;
-				width: 45%;
-			}
+
+        .BrewPotion {
+            grid-area: BrewPotion;
+            margin-left: 10em;
+        }
+
+        .Mutagen {
+            grid-area: Mutagen;
+            margin-left: 10em;
+        }
+
+        .ThrowAnything {
+            grid-area: ThrowAnything;
+            margin-left: 10em;
+        }
+
+        .Discovery {
+            grid-area: Discovery;
+            margin-left: 10em;
+        }
+
+        .PoisonResistance {
+            grid-area: PoisonResistance;
+            margin-left: 10em;
+        }
+
+        .PoisonUse {
+            grid-area: PoisonUse;
+            margin-left: 10em;
+        }
+
+        .SwiftAlchemy {
+            grid-area: SwiftAlchemy;
+            margin-left: 10em;
+        }
+
+        .SwiftPoisoning {
+            grid-area: SwiftPoisoning;
+            margin-left: 10em;
+        }
+
+        .PersistantMutagen {
+            grid-area: PersistantMutagen;
+            margin-left: 10em;
+        }
+
+        .InstantAlchemy {
+            grid-area: InstantAlchemy;
+            margin-left: 10em;
+        }
+
+        .GrandDiscovery {
+            grid-area: GrandDiscovery;
+            margin-left: 10em;
+        }
+
+        .AlchemistPhoto {
+            grid-area: AlchemistPhoto;
+            margin-left: 60em;
+            grid-row: 4/12;
+        }
+
+            .AlchemistPhoto > img {
+                object-fit: cover;
+                width: 45%;
+            }
+
         .BackgroundImage {
             background-image: url(https://images.unsplash.com/photo-1534142499731-a32a99935397?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
-
         }
-        
-		.IndexBox {
-			grid-area: IndexBox;
-			background-color: cornflowerblue;
-			grid-row-start: 1;
-			grid-row-end: span;
-			margin-right: 84.92em;
-		}
-	</style>
+
+        .IndexBox {
+            grid-area: IndexBox;
+            background-color: cornflowerblue;
+            grid-row-start: 1;
+            grid-row-end: span;
+            margin-right: 84.92em;
+        }
+    </style>
 </head>
 <body>
 	<div class="mainGrid">
@@ -287,445 +308,447 @@
 			</h3>
 		</div>
 		<div class="Alchemy">
-			<h3>
-                <button data-toggle="collapse" data-target="#AlchemyDescription">Alchemy<sup>(Ex)</sup></button>
+			<!--test-->
+            <h3>
+                <button data-toggle="collapse" data-target="#AlchemyThing">Alchemy<sup>(Ex)</sup></button>
 			</h3>
-			
-			<p id="AlchemyDescription" class="collapse">
-				Alchemists are masters of creating alchemical substances such as alchemist’s fire,
-				smokesticks as well as other alchemical extracts, but the reason he is a true master of potion crafting,
-				is his ability to craft extraordinary amounts of potions, poisons, oils and alchemical items in a single hour
-				at a fourth of the cost rounded up to the nearest copper worth of raw materials.<br /><br />
 
-				An Alchemist usually prepares his Extracts at the beginning of his day,
-				and may create any number of his daily allotment of extracts that he is able to craft without having to take a craft (alchemy) check.
-				This process takes 1 hour regardless of how many extracts he creates this is due to the fact that the creation process takes one hour regardless of the amount he makes.
-				The Alchemist starts play with a <a href="https://www.d20pfsrd.com/equipment/goods-and-services/tools-kits/#TOC-Lab-Alchemist-s">Lab, alchemist’s (portable)</a>, and may create his extracts as long as he has access to it or an equivalent set of items.
-				He may not prepare extracts without such items.<br /><br />
+                <p id="AlchemyThing" class="collapse">
+                    Alchemists are masters of creating alchemical substances such as alchemist’s fire,
+                    smokesticks as well as other alchemical extracts, but the reason he is a true master of potion crafting,
+                    is his ability to craft extraordinary amounts of potions, poisons, oils and alchemical items in a single hour
+                    at a fourth of the cost rounded up to the nearest copper worth of raw materials.<br /><br />
 
-				When using Craft (alchemy) to create a potion,
-				poison, oil or alchemical item, an alchemist gains a competence bonus equal to his class level on the Craft (alchemy) check.
-				In addition, an alchemist can use Craft (alchemy) to identify potions.
-				He must hold the potion for 1 round to make such a check.
-				The Difficulty Challenge of such a check is the same as the crafting check to make the potion in question.<br /><br />
+                    An Alchemist usually prepares his Extracts at the beginning of his day,
+                    and may create any number of his daily allotment of extracts that he is able to craft without having to take a craft (alchemy) check.
+                    This process takes 1 hour regardless of how many extracts he creates this is due to the fact that the creation process takes one hour regardless of the amount he makes.
+                    The Alchemist starts play with a <a href="https://www.d20pfsrd.com/equipment/goods-and-services/tools-kits/#TOC-Lab-Alchemist-s">Lab, alchemist’s (portable)</a>, and may create his extracts as long as he has access to it or an equivalent set of items.
+                    He may not prepare extracts without such items.<br /><br />
 
-				An alchemist can create three special types of items—extracts, bombs, and mutagens
-				are transformative elixirs that the Alchemist drinks to enhance his physical
-				abilities—both of these are detailed in their own sections below.<br /><br />
+                    When using Craft (alchemy) to create a potion,
+                    poison, oil or alchemical item, an alchemist gains a competence bonus equal to his class level on the Craft (alchemy) check.
+                    In addition, an alchemist can use Craft (alchemy) to identify potions.
+                    He must hold the potion for 1 round to make such a check.
+                    The Difficulty Challenge of such a check is the same as the crafting check to make the potion in question.<br /><br />
 
-				Extracts is essentially normal potions, poisons, oils and alchemical items
-				but is segregated under the name of extracts to avoid confusion when determining
-				how many of these you may create under the special rules mentioned above.
-				The difference between a potion created as an extract and a potion created with craft(alchemy)
-				is the expiration date which is further detailed below.<br /><br />
+                    An alchemist can create three special types of items—extracts, bombs, and mutagens
+                    are transformative elixirs that the Alchemist drinks to enhance his physical
+                    abilities—both of these are detailed in their own sections below.<br /><br />
 
-				An alchemist can create only a certain number of extracts of each level per day.
-				His base daily allotment of extracts is given on Table: Alchemist.
-				In addition, he receives bonus extracts per day if he has a high Intelligence score,
-				in the same way a wizard receives <a href="https://www.d20pfsrd.com/basics-ability-scores/ability-scores/">bonus spells per day</a>.
-				Since extracts are hastily made versions of themselves they deteriorate and expire at
-				a much faster rate than an equivalent crafted using craft(alchemy).
-				A potion extract is potent for 1 day, during the second day there is a 75% chance for the potion extract to function as normal,
-				otherwise the potion extract will cause mild drowsiness.
-				On the third day the potion extract is inert and will have lost its potency completely.
-				Poisons, oils or Alchemical item extracts, expire after 1 day.<br /><br />
+                    Extracts is essentially normal potions, poisons, oils and alchemical items
+                    but is segregated under the name of extracts to avoid confusion when determining
+                    how many of these you may create under the special rules mentioned above.
+                    The difference between a potion created as an extract and a potion created with craft(alchemy)
+                    is the expiration date which is further detailed below.<br /><br />
 
-				Extracts that the Alchemist does not use during the day and expires may be re-prepared the next day at no materials cost,
-				the extracts re-prepared in this way still consumes slots from the daily allotment of extracts.
-				An Alchemist has a formulae list which he carries around wherever he travels,
-				this list also determines what extracts he may create.
-				The alchemist uses his level as the caster level to determine any effect based on caster level.
-				An Alchemist may prepare any extract from his formulae list as long as the formulae is of a level the alchemist is able to create,
-				which is determined by Table: Alchemist.
-				To learn or prepare an extract,
-				an alchemist must have an Intelligence score equal to at least 10 + the extract’s level.<br /><br />
+                    An alchemist can create only a certain number of extracts of each level per day.
+                    His base daily allotment of extracts is given on Table: Alchemist.
+                    In addition, he receives bonus extracts per day if he has a high Intelligence score,
+                    in the same way a wizard receives <a href="https://www.d20pfsrd.com/basics-ability-scores/ability-scores/">bonus spells per day</a>.
+                    Since extracts are hastily made versions of themselves they deteriorate and expire at
+                    a much faster rate than an equivalent crafted using craft(alchemy).
+                    A potion extract is potent for 1 day, during the second day there is a 75% chance for the potion extract to function as normal,
+                    otherwise the potion extract will cause mild drowsiness.
+                    On the third day the potion extract is inert and will have lost its potency completely.
+                    Poisons, oils or Alchemical item extracts, expire after 1 day.<br /><br />
 
-				The Difficulty Class for a saving throw against an alchemist’s extract is 10 + the extract level + the alchemist’s Intelligence modifier.
-				An alchemist may know any number of formulae. He stores his formulae in writing,
-				whether that is a scroll or a book or a stone tablet is up to him but he must have his formulae in writing,
-				and must refer to it when creating an extract. An alchemist begins play with two 1st level formulae of his choice,
-				plus a number of additional formulae equal to his Intelligence modifier. At each new alchemist level,
-				he gains one new formula of any level that he can create plus a number of additional formulae equal to
-				his intelligence modifier that must match the same requirements.<br /><br />
+                    Extracts that the Alchemist does not use during the day and expires may be re-prepared the next day at no materials cost,
+                    the extracts re-prepared in this way still consumes slots from the daily allotment of extracts.
+                    An Alchemist has a formulae list which he carries around wherever he travels,
+                    this list also determines what extracts he may create.
+                    The alchemist uses his level as the caster level to determine any effect based on caster level.
+                    An Alchemist may prepare any extract from his formulae list as long as the formulae is of a level the alchemist is able to create,
+                    which is determined by Table: Alchemist.
+                    To learn or prepare an extract,
+                    an alchemist must have an Intelligence score equal to at least 10 + the extract’s level.<br /><br />
 
-				An Alchemists formulae's can't be learned by a wizard and a wizards spells can't be learned by an Alchemist.
-			</p>
-			<h4>
-				Formulae List:
-			</h4>
-			<h5>
-				Potions
-			</h5>
-			<h5>
-				Level 1
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/ant-haul/">ant haul</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/anticipate-peril/">anticipate peril</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bomber-s-eye/">bombers eye</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/c/crafter-s-fortune/">crafters fortune</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-light-wounds/">cure light wounds</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/e/endure-elements/">endure elements</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/e/enlarge-person/">enlarge person</a>(need 2 vials to make gear change with you)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/e/expeditious-retreat/">Expeditious retreat</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/j/jump/">Jump</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/k/keen-senses/">Keen senses</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/l/longshot/">Longshot</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/r/reduce-person/">Reduce person</a>(2 vials to make gear change with you)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/s/stone-fist/">stone fist</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/t/touch-of-the-sea/">touch of the sea</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/v/vocal-alteration/">vocal alteration</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/y/youthful-appearance/">youthful appearance</a></li>
-			</ul>
-			<h5>
-				Level 2
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/acute-senses/">acute senses</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/alter-self/">alter self</a>(if you change size you need a second vial to alter the gear)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/animal-aspect/">Animal aspect</a>(requires 2 vials 1 for drinking the other for gear)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/barkskin/">barkskin</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bear-s-endurance/">Bears endurance</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bull-s-strength/">bulls strength</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cat-s-grace/">cats grace</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/c/certain-grip/">certain grip</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-moderate-wounds/">cure moderate wounds</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/d/darkvision/">darkvision</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/d/delay-poison/">delay poison</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/e/eagle-s-splendor/">eagles splendor</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/f/fox-s-cunning/">foxs cunning</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/o/owl-s-wisdom/">owls wisdom</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/p/perceive-cues/">percieve cues</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/r/restoration/">restoration lesser</a>(it does not dispel magic)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/s/spider-climb/">spider climb</a></li>
-			</ul>
-			<h5>
-				Level 3
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">age resistance lesser</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/animal-aspect/">animal aspect greater</a>(need 2 vials one to drink and one to change gear to fit your new shape)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 1</a>(your size remains the same even if you take on properties of differently sized creatures)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bloodhound/">Bloodhound</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-serious-wounds/">cure serious wounds</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/e/eruptive-postules/">eruptive postules</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/h/haste/">haste</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">monstrous physique 1</a>(you take on partial appearance but not size)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/r/rage/">Rage</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/r/remove-blindness-deafness/">Remove Blindness/Deafness</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/r/remove-disease/">remove deasease</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/r/resinous-skin/">resinous skin</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/w/water-breathing/">water breathing</a></li>
-			</ul>
-			<h5>
-				Level 4
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">Age Resistance</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 2</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-critical-wounds/">cure critical wounds</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/d/darkvision/">darkvision greater</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 2</a>(same side notations as previous)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/">Stoneskin</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/n/neutralize-poison/">neutralize poison</a></li>
-			</ul>
-			<h5>
-				Level 5
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">Age resistance greater</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 3</a>(previous notation)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 3</a>(previous notation)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/p/polymorph/">polymorph</a>(except on self)</li>
-			</ul>
-			<h5>
-				Level 6
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 4</a>(previous notation)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/g/giant-form-i/">Giant form 1</a>(need 2 vials as with anything that alters size or shape drastically)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/h/heal/">Heal</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 4</a>(previous notations)</li>
-			</ul>
-			<h5>
-				Poisons
-			</h5>
-			<h5>
-				Level 1
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/arsenic/">Arsenic</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/black-adder-venom/">Black Adder venom</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/bloodroot/">Bloodroot</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/drow-poison/">Drow Poison</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/gelidburn-oil/">Gelidburn oil</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/goblins-eye/">Goblins eye</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/greenblood-oil/">Greenblood oil</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nitharit/">Nitharit</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/pupils-friend/">Pupils friend</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/small-centipede-poison/">Small centipede poison</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/striped-toadstool/">Striped toadstool</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/violet-venom/">Violet venom</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wasp-swarm-poison/">Wasp swarm poison</a></li>
-			</ul>
-			<h5>
-				Level 2
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/belladonna/">Belladonna</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/bloodpyre/">Bloodpyre</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blue-star/">Blue star</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blue-whinnis/">Blue Whinnis</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/cloudthorn-venom/">Cloudthorn venom</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/crones-curse/">Crones Curse</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/diplopic-serum/">Diplopic Serum</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/draughtcap-fungus/">Draughtcap fungus</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/dreaming-death/">Dreaming Death</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/grinding-joint-paste/">Grinding joint paste</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/id-moss/">Id moss</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/insanity-mist/">Insanity mist</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/juvebloom/">Juvebloom</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/medium-spider-venom/">Medium Spider venom</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nights-eye-dust/">Nights eye dust</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nymphs-lure/">Nymphs lure</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/rainbow-scarab-shell/">Rainbow scarab shell</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/red-bedlam/">Red bedlam</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sassone-leaf-residue/">Blood Leaf Residue</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/scholarblight/">Scholarblight</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/skinsap-extract/">Skinsap Extract</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/starving-nettle/">Starving nettle</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/tongue-twist/">Tongue twist</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/terinav-root/">Twister root</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ungol-dust/">Ungol dust</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wolfsbane/">Wolfsbane</a></li>
-			</ul>
-			<h5>
-				Level 3
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blackfingers-s-salt/">Blackfingers salt</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/burnt-othur-fumes/">Burnt othur fumes</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/dark-reaver-powder/">Dark Reaver powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/giant-wasp-poison/">Giant wasp poison</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/gray-justice/">Gray justice</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/halo-mushroom-toxin/">Halo mushroom toxin</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/hemlock/">Hemlock</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/jackalroot-essence/">Jackalroot essence</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/king-s-sleep/">Kings sleep</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/large-scorpion-venom/">Large scorpion venom</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/lengs-tears/">Lengs tears</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/lich-dust/">Lich dust</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nerveblast/">Nerveblast</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ossivane/">Ossivane</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ragespittle/">Ragespittle</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/shadow-essence/">Shadow essence</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/styx-sap/">Styx sap</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sweetdream/">Sweetdream</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sword-witch-hunters/">Witch hunters sword</a></li>
-				<li><a href="https://www.d20pfsrd.com/feats/general-feats/third-eye/">Third eye</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wyvern-poison/">Wyvern poison</a></li>
-			</ul>
-			<h5>
-				Level 4
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/black-lotus-extract/">Black lotus extract</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blistercap-spore-poison/">Blistercap spore</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/deathblade/">Deathblade</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/hydrofluoric-acid/">Hydrofluoric acid</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nightmare-vapor/">Nightmare vapor</a></li>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/tears-of-death/">Tears of death</a></li>
-			</ul>
-			<h5>
-				Level 5
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/widow-s-kiss/">Widows kiss</a></li>
-			</ul>
-			<h5>
-				Oils
-			</h5>
-			<h5>
-				Level 1
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/d/disguise-self/">disguise self</a>(put on clothes it does not alter you it alters the appearance of outfit)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/n/negate-aroma/">Negate Aroma</a></li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/t/targeted-bomb-admixture/">Targeted Bomb Admixture</a></li>
-			</ul>
-			<h5>
-				Level 3
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/a/amplify-elixir/">Amplify elixir</a>(added to potion before use)</li>
-				<li><a href="https://www.d20pfsrd.com/magic/all-spells/d/delayed-consumption/">Delayed Consuption</a>(delay decided upon crafting and then added to potion before use)</li>
-			</ul>
-			<h5>
-				Alchemical Items
-			</h5>
-			<h5>
-				Level 1
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Anointing">anointing oil</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Lamp">lamp oil</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Stalkers">stalker oil</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Wing">wing oil</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Air-Crystals">Air crystals</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Coal">alchemical coal</a>(blinding cinders)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Coal">alchemical coal</a>(choking smoke)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Preserves">alchemical preserves</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemist-s-Kindness">alchemists kindness</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ambrosia">Ambrosia</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Black-Fester">Black fester</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dye-Hide">Camouflage Dye</a>(dye, hide)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Hound-s-Blood">Hounds blood</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Incense">incense</a>(10 sticks)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Incense-Scentbane">incense scentbane</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ointment-Loping">Ointment, loping</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ooze-Petrified">ooze, petrified</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Blackfingers">paste, blackfingers</a>(1 doze)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Plaster-Casting">Plaster casting</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Insomnia">insomnia powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Normal">normal powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Salve-Stonechipper">stonechipper salve</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Shadowcloy">shadowcloy</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Sunderblock">Sunderblock</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Clear-Ear">Clear ear</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Mellowroot">Mellowroot</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Stillgut">Stillgut</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Tonic-Blight">blight tonic</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Woundweal">Woundweal</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Firecracker">Firecracker</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Paper-Candle-Firework">paper candle firework</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Star-Candle-Firework">star candle firework</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Jumping-Jenny">jumping jenny firework</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Shard-Gel">shard gel</a></li>
-			</ul>
-			<h5>
-				Level 2
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Kerosine">kerosine oil</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Buoyant-Balloon">buoyant balloon</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Water-Purification-Sponge">water purification sponge</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Cement">alchemical cement</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Cream-Chill">chill cream</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dye-Marker">marker dye</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Grease-Alchemical">alchemical grease</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Glowing">glowing ink</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(simple)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ointment-Armor">armor ointment</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Paper-Wall">paper wall paste</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Terrap-Sap-Distilled">terrap sap</a>(distilled)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Soothe-Syrup">soothe syrup</a></li>
-				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/sandstone-solution-su/">Sandstone solution</a>(the discovery but as a flask)</li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Acid">Acid</a>(flask)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Burst-Jar">burst jar</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Firecracker-Spirit">spirit firecracker</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Banshee-Ballerina-Firework">banshee ballerina firework</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Dancing-Peonies">dancing peonies firework</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Sparking-Pinwheel">sparking pinwheel firework</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Holy-Water">holy water</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Tanglefoot-Bag">tanglefoot bag</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Thunderstone">thunderstone</a></li>
-			</ul>
-			<h5>
-				Level 3
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Glue">alchemical glue</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Solvent">alchemical solvent</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alkali-Salt">alkali salt</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Clay-Blackfire">blackfire clay</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Foam-Impact">impact foam</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Hobgoblin-War-Draught">hobgoblin war draught</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(average)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Noxious-Aromatic">Noxious aromatic</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Flash">flash powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Foaming">foaming powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Repellent-Vermin">vermin repellent</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Scent-Cloak">scent cloak</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Spider-Sac">spider sac</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Peptus-Salix">Peptus salix</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Beast-Lure">Beast lure</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Alchemist-s-Fire">Alchemists fire</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Alkali-Flask">Alkali flask</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Starfountain-Firework">starfountain firework</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Tangleburn-Bag">tangleburn bag</a></li>
-			</ul>
-			<h5>
-				Level 4
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Essence-of-Night">Essence of night</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Sunrod">Sunrod</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Glue-Accelerant">Alchemical glue accelerant</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Brewed-Reek">Brewed reek</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Defoliant">Defoliant</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Deodorizing-Agent">Deodorizing agent</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dimmer-Dust">Dimmer dust</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Embalming-Fluid">Embalming fluid</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Fury-Drops">fury drops</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Gel-Fire-Ward">fire ward gel</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Gel-Frost-Ward">frost ward gel</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(good)</li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Liquid-Ice">liquid ice</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ooze-Grease">ooze grease</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Mending">mending paste</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Plague-Powder">plague powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Itching">itching powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Sneezing">sneezing powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Reanimating-Fluid">reanimating fluid</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Unstable-Accelerant">unstable accelerant</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Padzahr">vitus</a>(flask)</li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Antiplague">antiplague</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Antitoxin">antitoxin</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Bloodblock">bloodblock</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Bodybalm">bodybalm</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Tonic-Twitch">twitch tonic</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Troll-Styptic">troll styptic</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Beast-Scent">beast scent</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Skydragon-Firework">skydragon firework</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Skyrocket-Firework">skyrocket firework</a></li>
-			</ul>
-			<h5>
-				Level 5
-			</h5>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Blightburn-Paste">blightburn paste</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Fungal-Stun-Vial">fungal stun vial</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Rusting">rusting powder</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Soul-Stimulant">soul stimulant</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Troll-Oil">troll oil</a></li>
-			</ul>
-			<ul>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Fuse-Grenade">fuse grenade</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade iron</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade silver</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pelled grenade cold iron</a></li>
-				<li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade adamantine</a></li>
-			</ul>
+                    The Difficulty Class for a saving throw against an alchemist’s extract is 10 + the extract level + the alchemist’s Intelligence modifier.
+                    An alchemist may know any number of formulae. He stores his formulae in writing,
+                    whether that is a scroll or a book or a stone tablet is up to him but he must have his formulae in writing,
+                    and must refer to it when creating an extract. An alchemist begins play with two 1st level formulae of his choice,
+                    plus a number of additional formulae equal to his Intelligence modifier. At each new alchemist level,
+                    he gains one new formula of any level that he can create plus a number of additional formulae equal to
+                    his intelligence modifier that must match the same requirements.<br /><br />
+
+                    An Alchemists formulae's can't be learned by a wizard and a wizards spells can't be learned by an Alchemist.
+                </p>
+                <h4>
+                    Formulae List:
+                </h4>
+                <h5>
+                    Potions
+                </h5>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PotionOne">Level 1</button>
+                </h5>
+                <ul id="PotionOne" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/ant-haul/">ant haul</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/anticipate-peril/">anticipate peril</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bomber-s-eye/">bombers eye</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/crafter-s-fortune/">crafters fortune</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-light-wounds/">cure light wounds</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/endure-elements/">endure elements</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/enlarge-person/">enlarge person</a>(need 2 vials to make gear change with you)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/expeditious-retreat/">Expeditious retreat</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/j/jump/">Jump</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/k/keen-senses/">Keen senses</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/l/longshot/">Longshot</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/reduce-person/">Reduce person</a>(2 vials to make gear change with you)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/s/stone-fist/">stone fist</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/t/touch-of-the-sea/">touch of the sea</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/v/vocal-alteration/">vocal alteration</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/y/youthful-appearance/">youthful appearance</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PotionTwo">Level 2</button>
+                </h5>
+                <ul id="PotionTwo" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/acute-senses/">acute senses</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/alter-self/">alter self</a>(if you change size you need a second vial to alter the gear)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/animal-aspect/">Animal aspect</a>(requires 2 vials 1 for drinking the other for gear)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/barkskin/">barkskin</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bear-s-endurance/">Bears endurance</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bull-s-strength/">bulls strength</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cat-s-grace/">cats grace</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/certain-grip/">certain grip</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-moderate-wounds/">cure moderate wounds</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/darkvision/">darkvision</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/delay-poison/">delay poison</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/eagle-s-splendor/">eagles splendor</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/f/fox-s-cunning/">foxs cunning</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/o/owl-s-wisdom/">owls wisdom</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/p/perceive-cues/">percieve cues</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/restoration/">restoration lesser</a>(it does not dispel magic)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/s/spider-climb/">spider climb</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PotionThree">Level 3</button>
+                </h5>
+                <ul id="PotionThree" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">age resistance lesser</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/animal-aspect/">animal aspect greater</a>(need 2 vials one to drink and one to change gear to fit your new shape)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 1</a>(your size remains the same even if you take on properties of differently sized creatures)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bloodhound/">Bloodhound</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-serious-wounds/">cure serious wounds</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/eruptive-postules/">eruptive postules</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/h/haste/">haste</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">monstrous physique 1</a>(you take on partial appearance but not size)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/rage/">Rage</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/remove-blindness-deafness/">Remove Blindness/Deafness</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/remove-disease/">remove deasease</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/resinous-skin/">resinous skin</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/w/water-breathing/">water breathing</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PotionFour">Level 4</button>
+                </h5>
+                <ul id="PotionFour" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">Age Resistance</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 2</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-critical-wounds/">cure critical wounds</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/darkvision/">darkvision greater</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 2</a>(same side notations as previous)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/">Stoneskin</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/n/neutralize-poison/">neutralize poison</a></li>
+                </ul>
+                <h5 id="PotionLevel">
+                    <button data-toggle="collapse" data-target="#PotionFive">Level 5</button>
+                </h5>
+                <ul id="PotionFive" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">Age resistance greater</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 3</a>(previous notation)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 3</a>(previous notation)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/p/polymorph/">polymorph</a>(except on self)</li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PotionSix">Level 6</button>
+                </h5>
+                <ul id="PotionSix" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 4</a>(previous notation)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/g/giant-form-i/">Giant form 1</a>(need 2 vials as with anything that alters size or shape drastically)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/h/heal/">Heal</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 4</a>(previous notations)</li>
+                </ul>
+                <h5>
+                   Poisons
+                </h5>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PoisonOne">Level 1</button>
+                </h5>
+                <ul id="PoisonOne" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/arsenic/">Arsenic</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/black-adder-venom/">Black Adder venom</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/bloodroot/">Bloodroot</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/drow-poison/">Drow Poison</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/gelidburn-oil/">Gelidburn oil</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/goblins-eye/">Goblins eye</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/greenblood-oil/">Greenblood oil</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nitharit/">Nitharit</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/pupils-friend/">Pupils friend</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/small-centipede-poison/">Small centipede poison</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/striped-toadstool/">Striped toadstool</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/violet-venom/">Violet venom</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wasp-swarm-poison/">Wasp swarm poison</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PoisonTwo">Level 2</button>
+                </h5>
+                <ul id="PoisonTwo" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/belladonna/">Belladonna</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/bloodpyre/">Bloodpyre</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blue-star/">Blue star</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blue-whinnis/">Blue Whinnis</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/cloudthorn-venom/">Cloudthorn venom</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/crones-curse/">Crones Curse</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/diplopic-serum/">Diplopic Serum</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/draughtcap-fungus/">Draughtcap fungus</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/dreaming-death/">Dreaming Death</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/grinding-joint-paste/">Grinding joint paste</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/id-moss/">Id moss</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/insanity-mist/">Insanity mist</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/juvebloom/">Juvebloom</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/medium-spider-venom/">Medium Spider venom</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nights-eye-dust/">Nights eye dust</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nymphs-lure/">Nymphs lure</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/rainbow-scarab-shell/">Rainbow scarab shell</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/red-bedlam/">Red bedlam</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sassone-leaf-residue/">Blood Leaf Residue</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/scholarblight/">Scholarblight</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/skinsap-extract/">Skinsap Extract</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/starving-nettle/">Starving nettle</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/tongue-twist/">Tongue twist</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/terinav-root/">Twister root</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ungol-dust/">Ungol dust</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wolfsbane/">Wolfsbane</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PoisonThree">Level 3</button>
+                </h5>
+                <ul id="PoisonThree" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blackfingers-s-salt/">Blackfingers salt</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/burnt-othur-fumes/">Burnt othur fumes</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/dark-reaver-powder/">Dark Reaver powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/giant-wasp-poison/">Giant wasp poison</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/gray-justice/">Gray justice</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/halo-mushroom-toxin/">Halo mushroom toxin</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/hemlock/">Hemlock</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/jackalroot-essence/">Jackalroot essence</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/king-s-sleep/">Kings sleep</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/large-scorpion-venom/">Large scorpion venom</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/lengs-tears/">Lengs tears</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/lich-dust/">Lich dust</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nerveblast/">Nerveblast</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ossivane/">Ossivane</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ragespittle/">Ragespittle</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/shadow-essence/">Shadow essence</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/styx-sap/">Styx sap</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sweetdream/">Sweetdream</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sword-witch-hunters/">Witch hunters sword</a></li>
+                    <li><a href="https://www.d20pfsrd.com/feats/general-feats/third-eye/">Third eye</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wyvern-poison/">Wyvern poison</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PoisonFour">Level 4</button>
+                </h5>
+                <ul id="PoisonFour" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/black-lotus-extract/">Black lotus extract</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blistercap-spore-poison/">Blistercap spore</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/deathblade/">Deathblade</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/hydrofluoric-acid/">Hydrofluoric acid</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nightmare-vapor/">Nightmare vapor</a></li>
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/tears-of-death/">Tears of death</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#PoisonFive">Level 5</button>
+                </h5>
+                <ul id="PoisonFive" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/widow-s-kiss/">Widows kiss</a></li>
+                </ul>
+                <h5>
+                    Oils
+                </h5>
+                <h5>
+                    <button data-toggle="collapse" data-target="#OilOne">Level 1</button>
+                </h5>
+                <ul id="OilOne" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/disguise-self/">disguise self</a>(put on clothes it does not alter you it alters the appearance of outfit)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/n/negate-aroma/">Negate Aroma</a></li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/t/targeted-bomb-admixture/">Targeted Bomb Admixture</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#OilThree">Level 3</button>
+                </h5>
+                <ul id="OilThree" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/amplify-elixir/">Amplify elixir</a>(added to potion before use)</li>
+                    <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/delayed-consumption/">Delayed Consuption</a>(delay decided upon crafting and then added to potion before use)</li>
+                </ul>
+                <h5>
+                    Alchemical Items
+                </h5>
+                <h5>
+                    <button data-toggle="collapse" data-target="#AlchOne1,#AlchOne2,AlchOne3">Level 1</button>
+                </h5>
+                <ul id="AlchOne1" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Anointing">anointing oil</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Lamp">lamp oil</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Stalkers">stalker oil</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Wing">wing oil</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Air-Crystals">Air crystals</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Coal">alchemical coal</a>(blinding cinders)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Coal">alchemical coal</a>(choking smoke)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Preserves">alchemical preserves</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemist-s-Kindness">alchemists kindness</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ambrosia">Ambrosia</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Black-Fester">Black fester</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dye-Hide">Camouflage Dye</a>(dye, hide)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Hound-s-Blood">Hounds blood</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Incense">incense</a>(10 sticks)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Incense-Scentbane">incense scentbane</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ointment-Loping">Ointment, loping</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ooze-Petrified">ooze, petrified</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Blackfingers">paste, blackfingers</a>(1 doze)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Plaster-Casting">Plaster casting</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Insomnia">insomnia powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Normal">normal powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Salve-Stonechipper">stonechipper salve</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Shadowcloy">shadowcloy</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Sunderblock">Sunderblock</a></li>
+                </ul>
+                <ul id="AlchOne2" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Clear-Ear">Clear ear</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Mellowroot">Mellowroot</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Stillgut">Stillgut</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Tonic-Blight">blight tonic</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Woundweal">Woundweal</a></li>
+                </ul>
+                <ul id="AlchOne3" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Firecracker">Firecracker</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Paper-Candle-Firework">paper candle firework</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Star-Candle-Firework">star candle firework</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Jumping-Jenny">jumping jenny firework</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Shard-Gel">shard gel</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#AlchTwo1,#AlchTwo2">Level 2</button>
+                </h5>
+                <ul id="AlchTwo1" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Kerosine">kerosine oil</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Buoyant-Balloon">buoyant balloon</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Water-Purification-Sponge">water purification sponge</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Cement">alchemical cement</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Cream-Chill">chill cream</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dye-Marker">marker dye</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Grease-Alchemical">alchemical grease</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Glowing">glowing ink</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(simple)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ointment-Armor">armor ointment</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Paper-Wall">paper wall paste</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Terrap-Sap-Distilled">terrap sap</a>(distilled)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Soothe-Syrup">soothe syrup</a></li>
+                    <li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/sandstone-solution-su/">Sandstone solution</a>(the discovery but as a flask)</li>
+                </ul>
+                <ul id="AlchTwo2" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Acid">Acid</a>(flask)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Burst-Jar">burst jar</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Firecracker-Spirit">spirit firecracker</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Banshee-Ballerina-Firework">banshee ballerina firework</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Dancing-Peonies">dancing peonies firework</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Sparking-Pinwheel">sparking pinwheel firework</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Holy-Water">holy water</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Tanglefoot-Bag">tanglefoot bag</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Thunderstone">thunderstone</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#AlchThree1,#AlchThree2,#AlchThree3,#AlchThree4">Level 3</button>
+                </h5>
+                <ul id="AlchThree1" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Glue">alchemical glue</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Solvent">alchemical solvent</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alkali-Salt">alkali salt</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Clay-Blackfire">blackfire clay</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Foam-Impact">impact foam</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Hobgoblin-War-Draught">hobgoblin war draught</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(average)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Noxious-Aromatic">Noxious aromatic</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Flash">flash powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Foaming">foaming powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Repellent-Vermin">vermin repellent</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Scent-Cloak">scent cloak</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Spider-Sac">spider sac</a></li>
+                </ul>
+                <ul id="AlchThree2" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Peptus-Salix">Peptus salix</a></li>
+                </ul>
+                <ul id="AlchThree3" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Beast-Lure">Beast lure</a></li>
+                </ul>
+                <ul id="AlchThree4" class="collapse"> 
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Alchemist-s-Fire">Alchemists fire</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Alkali-Flask">Alkali flask</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Starfountain-Firework">starfountain firework</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Tangleburn-Bag">tangleburn bag</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#AlchFour1,#AlchFour2,#AlchFour3,#AlchFour4">Level 4</button>
+                </h5>
+                <ul id="AlchFour1" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Essence-of-Night">Essence of night</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Sunrod">Sunrod</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Glue-Accelerant">Alchemical glue accelerant</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Brewed-Reek">Brewed reek</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Defoliant">Defoliant</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Deodorizing-Agent">Deodorizing agent</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dimmer-Dust">Dimmer dust</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Embalming-Fluid">Embalming fluid</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Fury-Drops">fury drops</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Gel-Fire-Ward">fire ward gel</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Gel-Frost-Ward">frost ward gel</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(good)</li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Liquid-Ice">liquid ice</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ooze-Grease">ooze grease</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Mending">mending paste</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Plague-Powder">plague powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Itching">itching powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Sneezing">sneezing powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Reanimating-Fluid">reanimating fluid</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Unstable-Accelerant">unstable accelerant</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Padzahr">vitus</a>(flask)</li>
+                </ul>
+                <ul id="AlchFour2" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Antiplague">antiplague</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Antitoxin">antitoxin</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Bloodblock">bloodblock</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Bodybalm">bodybalm</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Tonic-Twitch">twitch tonic</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Troll-Styptic">troll styptic</a></li>
+                </ul>
+                <ul id="AlchFour3" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Beast-Scent">beast scent</a></li>
+                </ul>
+                <ul id="AlchFour4" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Skydragon-Firework">skydragon firework</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Skyrocket-Firework">skyrocket firework</a></li>
+                </ul>
+                <h5>
+                    <button data-toggle="collapse" data-target="#AlchFive1,#AlchFive2,AlchFive3">Level 5</button>
+                </h5>
+                <ul id="AlchFive1" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Blightburn-Paste">blightburn paste</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Fungal-Stun-Vial">fungal stun vial</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Rusting">rusting powder</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Soul-Stimulant">soul stimulant</a></li>
+                </ul>
+                <ul id="AlchFive2" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Troll-Oil">troll oil</a></li>
+                </ul>
+                <ul id="AlchFive3" class="collapse">
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Fuse-Grenade">fuse grenade</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade iron</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade silver</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pelled grenade cold iron</a></li>
+                    <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade adamantine</a></li>
+                </ul>
+            
 		</div>
 		<div class="Bombs">
 			<h3>
