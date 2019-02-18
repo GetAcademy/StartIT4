@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Låskode</title>
+    <title>Låskode Op9</title>
     <style>
         .lås {
             height: 300px;
@@ -48,28 +48,34 @@
     </div>
     <div id="kode" class="tall svar"></div>
     <div id="riktig" class="tall svar"></div>
+    <script>
 
-</body>
-<script>
-    var kode = document.getElementById('kode')
+        var correctCode = '0912';
+        var enteredSoFar = document.getElementById('kode');
+        
 
-    function knapp(element) {
-        if (kode.innerHTML.length >= 4) { return }
-        document.getElementById('kode').innerHTML += element.innerHTML
-        if (kode.innerHTML == '0912') {
-            var right = document.getElementById('riktig')
-            right.innerHTML = 'Riktig'
+
+        function knapp(element) {
+            if (enteredSoFar.innerHTML.length >= 4) { return }
+            document.getElementById('kode').innerHTML += element.innerHTML;
+            if (enteredSoFar.innerHTML == correctCode) {
+                var right = document.getElementById('riktig');
+                right.innerHTML = 'Åpen';
+            }
+            if (!correctCode.startsWith(enteredSoFar.innerHTML)) {
+                enteredSoFar.innerHTML = '';
+            }
+        }
+
+        function knepp() {
+            document.getElementById('kode').innerHTML = '';
+            document.getElementById('riktig').innerHTML = '';
 
         }
-    }
-
-    function knepp() {
-        document.getElementById('kode').innerHTML = ''
-        document.getElementById('riktig').innerHTML = ''
-
-    }
 
 
 
-</script>
+    </script>
+</body>
+
 </html>
