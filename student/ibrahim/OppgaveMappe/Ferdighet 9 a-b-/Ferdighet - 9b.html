@@ -24,19 +24,27 @@
     <script>
         var nummer = document.getElementById("nummer");
         var infoDiv = document.getElementById('info');
-        var correctCode = '8-5-2-1';
+        var correctCode = '8-5-2-1-';
         var enteredSoFar = '';
 
 
         function kodelås(knapp) {
             info.innerHTML += knapp.innerHTML + "-";
+            enteredSoFar += knapp.innerHTML+ "-";
+
 
             if (enteredSoFar == correctCode) {
-                info.innerHTML += 'Åpen!';
+                info.innerHTML += ' Låst opp! ';
+            
+            } 
+            else {
+                info.innerHTML = enteredSoFar;
             }
-            if
-            (!correctCode.startsWith( enteredSoFar)) infoDiv.innerHTML += 'Correct';
-        }
+                
+           
+           if
+            (!correctCode.startsWith( enteredSoFar)) enteredSoFar='';
+        }   
 
    
 </script>
