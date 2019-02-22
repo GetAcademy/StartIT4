@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input id="SliderA" type="range" min="1" max="500" step="1" oninput="calculate()" value="150" />
+        <input id="SliderB" type="range" min="1" max="500" step="1" oninput="calculate()" value="150" />
+    
+    
+        <div onclick="blabla(this)" id="Box" style="background-color:yellow">A</div>
+        <br>
+        <div onclick="blabla(this)" id="Box1" style="background-color:red">B</div>
+        <div id="Resultat"></ div>
+    
+    <script>
+        var ResultatDiv = document.getElementById('Resultat');
+        var BoxDiv = document.getElementById('Box');
+        // var BoxDiv2 = document.getElementById('Box2');
+        var sliderAInput = document.getElementById('SliderA');
+        var sliderBInput = document.getElementById('SliderB');
+        var ArialA = document.getElementById('SliderA');
+        var ArialB = document.getElementById('sliderB')
+        calculate();
+
+        function calculate() {
+            var SliderA = parseInt(sliderAInput.value);
+            var SliderB = parseInt(sliderBInput.value);
+            var Arial = SliderA * SliderB;
+            var Arial2 = SliderA * SliderB;
+            ResultatDiv.innerHTML = '';
+            BoxDiv.style.width = SliderA + 'px';
+            BoxDiv.style.height = SliderB + 'px';
+
+              if (SliderA > SliderB) {
+                  ResultatDiv.innerHTML += '<br/>' + ' Arialet til Box A er ' + Arial + 'm2 og er større enn Arialet til BoxB: ' + Arial2 + 'm2';
+              } else {
+                  ResultatDiv.innerHTML += '<br/>' + ' Arialet til Box B er ' + Arial2 + 'm2 og er større enn Arialet til BoxA: ' + Arial + 'm2';
+              }
+        }
+        function blabla(tag) {
+            BoxDiv.classList.remove('selected');
+            BoxDiv = tag;
+            BoxDiv.classList.add('selected');
+            sliderAInput.value = parseInt(BoxDiv.style.width)
+            SliderB.value = parseInt(BoxDiv.style.height)
+
+            // document.getElementById('SliderA').sliderAInput;
+            // document.getElementById('SliderB').sliderBInput;
+        }
+                // function blabla2(tag) {
+                //     BoxDiv2 = tag;
+                // }
+
+
+
+    </script>
+</body>
+</html>
