@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+
+    <style>
+
+        .MyClass
+        {
+            color:royalblue;
+        }
+        
+
+    </style>
+
+    <script>
+        function AgeCheck()
+        {
+            alert("welcome to chicks with dicks 24/7!")
+        }
+        if (confirm("This website displays explicit content not appropriate for minors!"))
+        {
+            AgeCheck();
+        }
+        else
+        {
+            window.stop();
+        }   
+
+
+
+        
+    </script>
+
+</head>
+
+<body onload="GetLoad()">
+   
+
+
+
+    
+    <input id="SizeChanger" type="range" min="1" max="10" step="1" oninput="ChangeSize()" />
+
+    <div id="Image">
+        <img src="https://media.wired.com/photos/5926d71eaf95806129f50cc9/master/pass/Microsoft10.jpg" alt="missing" style="width:5em; height:5em;" />
+    </div>
+
+    <button onclick="MakeParagraph(1,21)">
+        Roll D20!
+    </button>
+
+    <button onclick="ToggleMode()">
+        Dark Mode
+    </button>
+
+    <p onclick="ToggleStuff(this)">
+        hey hey hey hey hey hey hey.
+    </p>
+
+
+    
+    <p function="MakePersonStuff('patrick', 23, 150)" class="PersonClass">
+        Reveal Identity!
+    </p>
+
+    <input id="PepeSize" type="range" min="1" max="10" step="1" oninput="PepeSizeChanger()" />
+    <input id="BorderChanger" type="range" min="0" max="50" step="1" oninput="PepeSizeChanger()" />
+
+    <div id="TestImage">
+        <img src="https://outline-prod.imgix.net/20170424-4O1GHDF3vyAAcQfG8B1r?auto=format&q=60&w=1280&s=c49e730b235eed295a37aca197ca0259" alt="missing" style="width:5em; height:5em; border-radius:0%" />
+    </div>
+
+    <div id="MakeStuff">
+
+    </div>
+
+
+    <script>
+
+
+        //DND classes thing
+        var ArrayNumber = 0;
+        var CoreClasses =
+            [
+                "Barbarian",
+                "Fighter",
+                "Bard",
+                "Sorceror",
+                "Wizard",
+                "Ranger",
+                "Druid",
+                "Cleric",
+                "Rogue",
+                "Monk",
+                "Paladin"
+            ];
+
+        var images =
+            [
+                'https://ih1.redbubble.net/image.509653038.6551/pp,550x550.jpg',
+                'https://i.imgur.com/9fnb25E.jpg',
+                'http://pixelartmaker.com/art/325290f811a0c97.png',
+                'https://image.myanimelist.net/ui/CX3ngBwpzCosdceC8GCbonZTFLjaSHURShnB8RXBcpsn_gXKJqJ4FcDN36393qeRKWBnu4mjL8prBBnEOzqbMFGv8LdXQIZlePm841Imyrvz5fpgg1SAuKpkQ_hzQDKm',
+                'https://66.media.tumblr.com/477fee5bb71b44c60c551addca1901df/tumblr_noxtzaydkS1uwa0t9o1_1280.png',
+                'https://i.imgur.com/dgdlzqf.jpg'
+            ];
+
+        var PepeRay = images.map(createImageHtml);
+
+        function createImageHtml(url) {
+            var endX = RandomNumber(window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * 0.2, window.innerWidth / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']));
+            var endY = RandomNumber(window.innerHeight / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']) * 0.2, window.innerHeight / parseFloat(getComputedStyle(document.querySelector('html'))['font-size']));
+
+            var startX = RandomNumber(1, endX * 0.8);
+            var startY = RandomNumber(1, endY * 0.8);
+
+            var bredde = endX - startX;
+            var høyde = endY - startY;
+            return `
+                <img src="${url}" alt="missing" 
+                     style="
+                        position:absolute; 
+                        width: ${bredde}em;
+                        height: ${høyde}em;
+                        left: ${startX}em;
+                        right: ${endX}em;
+                        top: ${startY}em;
+                        bottom: ${endY}em;
+                        " 
+                />
+                `;
+        }
+        MakePepe();
+        function MakePepe() {
+            document.body.innerHTML += RandomPepe(RandomNumber(1, 20));
+        }
+        function RandomPepe(Loop) {
+            var html = '';
+            for (i = 0; i < Loop; i++) {
+                html += PepeRay[RandomNumber(0, 6)];
+            }
+            console.log(html);
+            return html;
+        }
+
+        
+
+        
+
+        
+
+        
+
+        var timer = setInterval(PrintClass, 1000);
+
+        function PrintClass() {
+
+            var value = CoreClasses[ArrayNumber];
+            document.getElementById("MakeStuff").innerHTML += '<h3>Class: </h3>' + '<em>' + value + '</em>';
+            ArrayNumber++;
+            if (ArrayNumber >= CoreClasses.length) clearInterval(timer);
+        }
+
+        //Windows Script
+        function ChangeSize() {
+            document.getElementById("Image").innerHTML = '<img src="https://media.wired.com/photos/5926d71eaf95806129f50cc9/master/pass/Microsoft10.jpg" alt="missing" style=" width:' + document.getElementById("SizeChanger").value + 'em; height: ' + document.getElementById("SizeChanger").value + 'em;"></>';
+        }
+
+        //Pepe Script
+        function PepeSizeChanger() {
+            document.getElementById("TestImage").innerHTML = '<img src="https://outline-prod.imgix.net/20170424-4O1GHDF3vyAAcQfG8B1r?auto=format&q=60&w=1280&s=c49e730b235eed295a37aca197ca0259" alt="missing" style="width:' + document.getElementById("PepeSize").value + 'em; height:' + document.getElementById("PepeSize").value + 'em; border-radius:' + document.getElementById("BorderChanger").value + '%" />'
+        }
+
+        //Paragrapg maker
+        function MakeParagraph(min, max) {
+            document.getElementById("MakeStuff").innerHTML += '<p>Rolled: ' + Math.floor(Math.random() * (max - min) + min) + '</p>';
+        }
+
+        //DarkMode
+        function DarkMode() {
+            document.body.style.backgroundColor = "gray";
+        }
+        function LightMode() {
+            document.body.style.backgroundColor = "white";
+        }
+        function ToggleMode() {
+            if (document.body.style.backgroundColor != "gray") {
+                DarkMode();
+            }
+            else {
+                LightMode();
+            }
+        }
+
+        //ClassToggler
+        function ToggleStuff(Clicked) {
+            Clicked.classList.toggle("MyClass");
+        }
+
+
+
+        //ParameterFunctionProject.
+        function MakePersonStuff(Name, Age, IQ)
+        {
+            return 'Name: ' + Name + '<br/> Age: ' + Age + '<br/> IQ: ' + IQ;
+        }
+
+        function GetLoad()
+        {
+            var Loads = document.getElementsByClassName('PersonClass');
+            for (let Load of Loads)
+            {
+                let raw = Load.getAttribute("function").toString();
+                Load.innerHTML = eval(raw);
+            }
+        }
+
+        
+
+        /*function MakePepe() {
+            document.body.innerHTML += '<div style="' +
+                PepeLocationEm('left', startX) +
+                PepeLocationEm('top', startY) +
+                PepeLocationEm('width', bredde) +
+                PepeLocationEm('height', høyde) +
+                '">' + RandomPepe(RandomNumber(1, 20)) + '</div>';
+        }*/
+
+        
+
+       
+
+        function RandomNumber(min, max)
+        {
+            return Math.floor(Math.random() * (max - min) + min)
+        }
+
+
+    </script>
+
+</body>
+
+</html>

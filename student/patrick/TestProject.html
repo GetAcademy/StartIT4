@@ -1,0 +1,921 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        the project
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        button,p,ul,li
+        {
+            font-size:initial !important;
+        }
+        h1
+        {
+            font-size:2em !important;
+            font-weight:bolder !important;
+        }
+        h2 {
+            font-size: 1.5em !important;
+            font-weight: bolder !important;
+        }
+        h3 {
+            font-size: 1.17em !important;
+            font-weight: bolder !important;
+        }
+        h4 {
+            font-size: 1em !important;
+            font-weight: bolder !important;
+        }
+        h5 {
+            font-size: 0.83em !important;
+            font-weight: bolder !important;
+        }
+        h6 {
+            font-size: 0.75em !important;
+            font-weight: bolder !important;
+        }
+        div.mainGrid {
+            display: grid;
+            grid-gap: 1em;
+            grid-template-areas: 'MainHeader' 'SecondHeader' 'ThirdHeader' 'IntroductionText' 'Alignment' 'HitDice' 'StartingWealth' 'ClassSkills' 'ClassSkillsText' 'SkillRanksPerLevel' 'TableAlchemist' 'TableAlchemistTable' 'ClassFeatures' 'Proficiencies' 'Alchemy' 'Bombs' 'BrewPotion' 'Mutagen' 'ThrowAnything' 'Discovery' 'PoisonResistance' 'PoisonUse' 'SwiftAlchemy' 'SwiftPoisoning' 'PersistantMutagen' 'InstantAlchemy' 'GrandDiscovery' 'AlchemistPhoto' 'IndexBox';
+            font-family: 'Times New Roman', Times, serif !important;
+            font-size: initial !important;
+            color: black !important;
+        }
+
+        div.MainHeader {
+            /*color: cadetblue;*/
+            background-color: cornflowerblue;
+            grid-area: MainHeader;
+            text-anchor: start;
+            margin-left: 10em;
+        }
+
+        div.SecondHeader {
+            background-color: forestgreen;
+            grid-area: SecondHeader;
+            margin-left: 10em;
+        }
+
+        .ThirdHeader {
+            grid-area: ThirdHeader;
+            margin-right: auto;
+            margin-left: 10em;
+        }
+
+        .IntroductionText {
+            grid-area: IntroductionText;
+            grid-row: 3;
+            margin-left: 17em;
+            margin-top: 1.3em;
+        }
+
+        .Alignment {
+            grid-area: Alignment;
+            grid-row: 4;
+            margin-left: 10em;
+            margin-right: 40em;
+        }
+
+        .HitDice {
+            grid-area: HitDice;
+            margin-left: 10em;
+            margin-right: 40em;
+        }
+
+        .StartingWealth {
+            margin-left: 10em;
+            margin-right: 40em;
+            grid-area: StartingWealth;
+        }
+
+        .ClassSkills {
+            margin-left: 10em;
+            margin-right: 40em;
+            grid-area: ClassSkills;
+            margin-right: auto;
+        }
+
+        .ClassSkillsText {
+            grid-area: ClassSkillsText;
+            margin-left: 17em;
+            margin-right: 40em;
+            margin-top: 1.3em;
+            grid-row: 8/9;
+        }
+
+        .SkillRanksPerLevel {
+            margin-left: 10em;
+            margin-right: 40em;
+            grid-area: SkillRanksPerLevel;
+        }
+
+        .TableAlchemist {
+            margin-left: 10em;
+            margin-right: 40em;
+            grid-area: TableAlchemist;
+        }
+
+        .TableAlchemistTable {
+            margin-left: 10em;
+            grid-area: TableAlchemistTable;
+        }
+
+            .TableAlchemistTable > img {
+                object-fit: cover;
+                width: 100%;
+            }
+
+        .ClassFeatures {
+            grid-area: ClassFeatures;
+            margin-left: 10em;
+        }
+
+        .Proficiencies {
+            grid-area: Proficiencies;
+            margin-left: 10em;
+        }
+
+        .Alchemy {
+            grid-area: Alchemy;
+            margin-left: 10em;
+            padding: 0;
+        }
+
+        .Bombs {
+            grid-area: Bombs;
+            margin-left: 10em;
+        }
+
+        .BrewPotion {
+            grid-area: BrewPotion;
+            margin-left: 10em;
+        }
+
+        .Mutagen {
+            grid-area: Mutagen;
+            margin-left: 10em;
+        }
+
+        .ThrowAnything {
+            grid-area: ThrowAnything;
+            margin-left: 10em;
+        }
+
+        .Discovery {
+            grid-area: Discovery;
+            margin-left: 10em;
+        }
+
+        .PoisonResistance {
+            grid-area: PoisonResistance;
+            margin-left: 10em;
+        }
+
+        .PoisonUse {
+            grid-area: PoisonUse;
+            margin-left: 10em;
+        }
+
+        .SwiftAlchemy {
+            grid-area: SwiftAlchemy;
+            margin-left: 10em;
+        }
+
+        .SwiftPoisoning {
+            grid-area: SwiftPoisoning;
+            margin-left: 10em;
+        }
+
+        .PersistantMutagen {
+            grid-area: PersistantMutagen;
+            margin-left: 10em;
+        }
+
+        .InstantAlchemy {
+            grid-area: InstantAlchemy;
+            margin-left: 10em;
+        }
+
+        .GrandDiscovery {
+            grid-area: GrandDiscovery;
+            margin-left: 10em;
+        }
+
+        .AlchemistPhoto {
+            grid-area: AlchemistPhoto;
+            margin-left: 60em;
+            grid-row: 4/12;
+        }
+
+            .AlchemistPhoto > img {
+                object-fit: cover;
+                width: 45%;
+            }
+
+        .BackgroundImage {
+            background-image: url(https://images.unsplash.com/photo-1534142499731-a32a99935397?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+        }
+
+        .IndexBox {
+            grid-area: IndexBox;
+            background-color: cornflowerblue;
+            grid-row-start: 1;
+            grid-row-end: span;
+            margin-right: 84.92em;
+        }
+    </style>
+</head>
+<body>
+	<div class="mainGrid">
+		<div class="MainHeader">
+			<h1>
+				Class   <button onclick="BackgroundMode('Light');" style="float:right;">LightMode</button> <button onclick="BackgroundMode('Dark');" style="float:right;">DarkMode</button> <button onclick="BackgroundMode('Image');" style="float:right;">ImageMode</button>
+			</h1>
+		</div>
+		<div class="SecondHeader">
+			<h2>
+				Alchemist
+			</h2>
+		</div>
+		<div class="ThirdHeader">
+			<h3>
+				Introduction
+			</h3>
+		</div>
+		<div class="IntroductionText">
+			The Alchemist is one who is especially interested and skilled in the alchemical arts and often do this as a profession or hobby. An Alchemist will often try to solve problems and challenges put before him using this skill set. Alchemists are often above average intelligent people as alchemy is limited to those with the intellect to grasp it. The Alchemist's reasons for adventuring often aligns with interests of finding other places with different knowledge of alchemy he can learn or to find new ingredients to either improve formulas with or develop new formulas with. That said this interest does not encumber the Alchemist from dedicating himself to other situations that may erupt during his travels.
+		</div>
+		<div class="Alignment">
+			<h3>
+				Alignment:<em> Any</em>
+			</h3>
+		</div>
+		<div class="HitDice">
+			<h3>
+				Hit Dice:<em> d8</em>
+			</h3>
+		</div>
+		<div class="StartingWealth">
+			<h3>
+				Starting Wealth:<em> 3d6 x 10gp (average 105gp.)<br /> in addition, each character starts out with an outfit worth up to 10gp or less.</em>
+			</h3>
+		</div>
+		<div class="ClassSkills">
+			<h3>
+				Class Skills:
+			</h3>
+		</div>
+		<div class="ClassSkillsText">
+			Appraise (Int), Craft (any) (Int), Disable Device (Dex),<br />
+			Fly (Dex), Heal (Wis), Knowledge (arcana) (Int),<br />
+			Knowledge(nature) (Int), Perception (Wis), Profession (Wis),<br />
+			Sleight of Hand (Dex), Spellcraft (Int), Survival (Wis), Use Magic Device (Cha).
+		</div>
+		<div class="SkillRanksPerLevel">
+			<h3>
+				Skill Ranks per Level:<em> 4 + Int modifier</em>
+			</h3>
+		</div>
+		<div class="TableAlchemist">
+			<h3>
+				Table Alchemist:
+			</h3>
+		</div>
+		<div class="TableAlchemistTable">
+			<img src="Table2.png" alt="Alchemist Table" />
+		</div>
+		<div class="ClassFeatures">
+			<h3>
+				Class Features<br />
+				<em>the following are class features of the Alchemist.</em>
+			</h3>
+		</div>
+		<div class="Proficiencies">
+			<h3>
+				Weapon and Armor proficiency<br />
+				<em>Alchemists are proficient with all simple weapons and bombs.<br />
+				They are also proficient with light armor, but not with shields.</em>
+			</h3>
+		</div>
+        <div class="Alchemy">
+            <!--test-->
+            <h3>
+                <button data-toggle="collapse" data-target="#AlchemyThing">Alchemy<sup>(Ex)</sup></button>
+            </h3>
+            
+            <p id="AlchemyThing" class="collapse">
+                Alchemists are masters of creating alchemical substances such as alchemist’s fire,  smokesticks as well as other alchemical extracts, but the reason he is a true master of potion crafting, is his ability to craft extraordinary amounts of potions, poisons, oils and alchemical items in a single hour at a fourth of the cost rounded up to the nearest copper worth of raw materials.<br /><br />
+
+                An Alchemist usually prepares his Extracts at the beginning of his day, and may create any number of his daily allotment of extracts that he is able to craft without having to take a craft (alchemy) check. This process takes 1 hour regardless of how many extracts he creates this is due to the fact that the creation process takes one hour regardless of the amount he makes. The Alchemist starts play with a <a href="https://www.d20pfsrd.com/equipment/goods-and-services/tools-kits/#TOC-Lab-Alchemist-s">Lab, alchemist’s (portable)</a>, and may create his extracts as long as he has access to it or an equivalent set of items. He may not prepare extracts without such items.<br /><br />
+
+                When using Craft (alchemy) to create a potion, poison, oil or alchemical item, an alchemist gains a competence bonus equal to his class level on the Craft (alchemy) check. In addition, an alchemist can use Craft (alchemy) to identify potions. He must hold the potion for 1 round to make such a check. The Difficulty Challenge of such a check is the same as the crafting check to make the potion in question.<br /><br />
+
+                An alchemist can create three special types of items—extracts, bombs, and mutagens are transformative elixirs that the Alchemist drinks to enhance his physical abilities—both of these are detailed in their own sections below.<br /><br />
+                Extracts is essentially normal potions, poisons, oils and alchemical items but is segregated under the name of extracts to avoid confusion when determining how many of these you may create under the special rules mentioned above. The difference between a potion created as an extract and a potion created with craft(alchemy) is the expiration date which is further detailed below.<br /><br />
+
+                An alchemist can create only a certain number of extracts of each level per day. His base daily allotment of extracts is given on Table: Alchemist. In addition, he receives bonus extracts per day if he has a high Intelligence score, in the same way a wizard receives <a href="https://www.d20pfsrd.com/basics-ability-scores/ability-scores/">bonus spells per day</a>. Since extracts are hastily made versions of themselves they deteriorate and expire at a much faster rate than an equivalent crafted using craft(alchemy). A potion extract is potent for 1 day, during the second day there is a 75% chance for the potion extract to function as normal, otherwise the potion extract will cause mild drowsiness. On the third day the potion extract is inert and will have lost its potency completely. Poisons, oils or Alchemical item extracts, expire after 1 day.<br /><br />
+
+                Extracts that the Alchemist does not use during the day and expires may be re-prepared the next day at no materials cost, the extracts re-prepared in this way still consumes slots from the daily allotment of extracts.
+                An Alchemist has a formulae list which he carries around wherever he travels, this list also determines what extracts he may create. The alchemist uses his level as the caster level to determine any effect based on caster level. An Alchemist may prepare any extract from his formulae list as long as the formulae is of a level the alchemist is able to create, which is determined by Table: Alchemist. To learn or prepare an extract, an alchemist must have an Intelligence score equal to at least 10 + the extract’s level.
+                <br /><br />
+
+                The Difficulty Class for a saving throw against an alchemist’s extract is 10 + the extract level + the alchemist’s Intelligence modifier. An alchemist may know any number of formulae. He stores his formulae in writing, whether that is a scroll or a book or a stone tablet is up to him but he must have his formulae in writing, and must refer to it when creating an extract. An alchemist begins play with two 1st level formulae of his choice, plus a number of additional formulae equal to his Intelligence modifier. At each new alchemist level, he gains one new formula of any level that he can create plus a number of additional formulae equal to his intelligence modifier that must match the same requirements.<br /><br />
+
+                An Alchemists formulae's can't be learned by a wizard and a wizards spells can't be learned by an Alchemist.
+            </p>
+            <h4>
+                Formulae List:
+            </h4>
+            <h5>
+                Potions
+            </h5>
+            <h5>
+                <button data-toggle="collapse" data-target="#PotionOne">Level 1</button>
+            </h5>
+            <ul id="PotionOne" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/ant-haul/">ant haul</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/anticipate-peril/">anticipate peril</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bomber-s-eye/">bombers eye</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/crafter-s-fortune/">crafters fortune</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-light-wounds/">cure light wounds</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/endure-elements/">endure elements</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/enlarge-person/">enlarge person</a>(need 2 vials to make gear change with you)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/expeditious-retreat/">Expeditious retreat</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/j/jump/">Jump</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/k/keen-senses/">Keen senses</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/l/longshot/">Longshot</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/reduce-person/">Reduce person</a>(2 vials to make gear change with you)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/s/stone-fist/">stone fist</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/t/touch-of-the-sea/">touch of the sea</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/v/vocal-alteration/">vocal alteration</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/y/youthful-appearance/">youthful appearance</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#PotionTwo">Level 2</button>
+            </h5>
+            <ul id="PotionTwo" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/acute-senses/">acute senses</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/alter-self/">alter self</a>(if you change size you need a second vial to alter the gear)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/animal-aspect/">Animal aspect</a>(requires 2 vials 1 for drinking the other for gear)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/barkskin/">barkskin</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bear-s-endurance/">Bears endurance</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bull-s-strength/">bulls strength</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cat-s-grace/">cats grace</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/certain-grip/">certain grip</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-moderate-wounds/">cure moderate wounds</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/darkvision/">darkvision</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/delay-poison/">delay poison</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/eagle-s-splendor/">eagles splendor</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/f/fox-s-cunning/">foxs cunning</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/o/owl-s-wisdom/">owls wisdom</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/p/perceive-cues/">percieve cues</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/restoration/">restoration lesser</a>(it does not dispel magic)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/s/spider-climb/">spider climb</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#PotionThree">Level 3</button>
+            </h5>
+            <ul id="PotionThree" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">age resistance lesser</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/animal-aspect/">animal aspect greater</a>(need 2 vials one to drink and one to change gear to fit your new shape)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 1</a>(your size remains the same even if you take on properties of differently sized creatures)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/bloodhound/">Bloodhound</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-serious-wounds/">cure serious wounds</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/e/eruptive-postules/">eruptive postules</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/h/haste/">haste</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">monstrous physique 1</a>(you take on partial appearance but not size)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/rage/">Rage</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/remove-blindness-deafness/">Remove Blindness/Deafness</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/remove-disease/">remove deasease</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/r/resinous-skin/">resinous skin</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/w/water-breathing/">water breathing</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#PotionFour">Level 4</button>
+            </h5>
+            <ul id="PotionFour" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">Age Resistance</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 2</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/c/cure-critical-wounds/">cure critical wounds</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/darkvision/">darkvision greater</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 2</a>(same side notations as previous)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/">Stoneskin</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/n/neutralize-poison/">neutralize poison</a></li>
+            </ul>
+            <h5 id="PotionLevel">
+                <button data-toggle="collapse" data-target="#PotionFive">Level 5</button>
+            </h5>
+            <ul id="PotionFive" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/age-resistance/">Age resistance greater</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 3</a>(previous notation)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 3</a>(previous notation)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/p/polymorph/">polymorph</a>(except on self)</li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#PotionSix">Level 6</button>
+            </h5>
+            <ul id="PotionSix" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/b/beast-shape/">Beast shape 4</a>(previous notation)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/g/giant-form-i/">Giant form 1</a>(need 2 vials as with anything that alters size or shape drastically)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/h/heal/">Heal</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/m/monstrous-physique-i/">Monstrous physique 4</a>(previous notations)</li>
+            </ul>
+            <h5>
+                Poisons
+            </h5>
+            <h5>
+                <button data-toggle="collapse" data-target="#PoisonOne">Level 1</button>
+            </h5>
+            <ul id="PoisonOne" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/arsenic/">Arsenic</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/black-adder-venom/">Black Adder venom</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/bloodroot/">Bloodroot</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/drow-poison/">Drow Poison</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/gelidburn-oil/">Gelidburn oil</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/goblins-eye/">Goblins eye</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/greenblood-oil/">Greenblood oil</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nitharit/">Nitharit</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/pupils-friend/">Pupils friend</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/small-centipede-poison/">Small centipede poison</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/striped-toadstool/">Striped toadstool</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/violet-venom/">Violet venom</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wasp-swarm-poison/">Wasp swarm poison</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#PoisonTwo">Level 2</button>
+            </h5>
+            <ul id="PoisonTwo" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/belladonna/">Belladonna</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/bloodpyre/">Bloodpyre</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blue-star/">Blue star</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blue-whinnis/">Blue Whinnis</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/cloudthorn-venom/">Cloudthorn venom</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/crones-curse/">Crones Curse</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/diplopic-serum/">Diplopic Serum</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/draughtcap-fungus/">Draughtcap fungus</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/dreaming-death/">Dreaming Death</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/grinding-joint-paste/">Grinding joint paste</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/id-moss/">Id moss</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/insanity-mist/">Insanity mist</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/juvebloom/">Juvebloom</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/medium-spider-venom/">Medium Spider venom</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nights-eye-dust/">Nights eye dust</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nymphs-lure/">Nymphs lure</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/rainbow-scarab-shell/">Rainbow scarab shell</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/red-bedlam/">Red bedlam</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sassone-leaf-residue/">Blood Leaf Residue</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/scholarblight/">Scholarblight</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/skinsap-extract/">Skinsap Extract</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/starving-nettle/">Starving nettle</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/tongue-twist/">Tongue twist</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/terinav-root/">Twister root</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ungol-dust/">Ungol dust</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wolfsbane/">Wolfsbane</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#PoisonThree">Level 3</button>
+            </h5>
+            <ul id="PoisonThree" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blackfingers-s-salt/">Blackfingers salt</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/burnt-othur-fumes/">Burnt othur fumes</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/dark-reaver-powder/">Dark Reaver powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/giant-wasp-poison/">Giant wasp poison</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/gray-justice/">Gray justice</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/halo-mushroom-toxin/">Halo mushroom toxin</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/hemlock/">Hemlock</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/jackalroot-essence/">Jackalroot essence</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/king-s-sleep/">Kings sleep</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/large-scorpion-venom/">Large scorpion venom</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/lengs-tears/">Lengs tears</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/lich-dust/">Lich dust</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nerveblast/">Nerveblast</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ossivane/">Ossivane</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/ragespittle/">Ragespittle</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/shadow-essence/">Shadow essence</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/styx-sap/">Styx sap</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sweetdream/">Sweetdream</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/sword-witch-hunters/">Witch hunters sword</a></li>
+                <li><a href="https://www.d20pfsrd.com/feats/general-feats/third-eye/">Third eye</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/wyvern-poison/">Wyvern poison</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#PoisonFour">Level 4</button>
+            </h5>
+            <ul id="PoisonFour" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/black-lotus-extract/">Black lotus extract</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/blistercap-spore-poison/">Blistercap spore</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/deathblade/">Deathblade</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/hydrofluoric-acid/">Hydrofluoric acid</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/nightmare-vapor/">Nightmare vapor</a></li>
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/tears-of-death/">Tears of death</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#PoisonFive">Level 5</button>
+            </h5>
+            <ul id="PoisonFive" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/gamemastering/afflictions/poison/widow-s-kiss/">Widows kiss</a></li>
+            </ul>
+            <h5>
+                Oils
+            </h5>
+            <h5>
+                <button data-toggle="collapse" data-target="#OilOne">Level 1</button>
+            </h5>
+            <ul id="OilOne" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/disguise-self/">disguise self</a>(put on clothes it does not alter you it alters the appearance of outfit)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/n/negate-aroma/">Negate Aroma</a></li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/t/targeted-bomb-admixture/">Targeted Bomb Admixture</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#OilThree">Level 3</button>
+            </h5>
+            <ul id="OilThree" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/a/amplify-elixir/">Amplify elixir</a>(added to potion before use)</li>
+                <li><a href="https://www.d20pfsrd.com/magic/all-spells/d/delayed-consumption/">Delayed Consuption</a>(delay decided upon crafting and then added to potion before use)</li>
+            </ul>
+            <h5>
+                Alchemical Items
+            </h5>
+            <h5>
+                <button data-toggle="collapse" data-target="#AlchOne1,#AlchOne2,AlchOne3">Level 1</button>
+            </h5>
+            <ul id="AlchOne1" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Anointing">anointing oil</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Lamp">lamp oil</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Stalkers">stalker oil</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Wing">wing oil</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Air-Crystals">Air crystals</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Coal">alchemical coal</a>(blinding cinders)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Coal">alchemical coal</a>(choking smoke)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Preserves">alchemical preserves</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemist-s-Kindness">alchemists kindness</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ambrosia">Ambrosia</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Black-Fester">Black fester</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dye-Hide">Camouflage Dye</a>(dye, hide)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Hound-s-Blood">Hounds blood</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Incense">incense</a>(10 sticks)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Incense-Scentbane">incense scentbane</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ointment-Loping">Ointment, loping</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ooze-Petrified">ooze, petrified</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Blackfingers">paste, blackfingers</a>(1 doze)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Plaster-Casting">Plaster casting</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Insomnia">insomnia powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Normal">normal powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Salve-Stonechipper">stonechipper salve</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Shadowcloy">shadowcloy</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Sunderblock">Sunderblock</a></li>
+            </ul>
+            <ul id="AlchOne2" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Clear-Ear">Clear ear</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Mellowroot">Mellowroot</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Stillgut">Stillgut</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Tonic-Blight">blight tonic</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Woundweal">Woundweal</a></li>
+            </ul>
+            <ul id="AlchOne3" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Firecracker">Firecracker</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Paper-Candle-Firework">paper candle firework</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Star-Candle-Firework">star candle firework</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Jumping-Jenny">jumping jenny firework</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Shard-Gel">shard gel</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#AlchTwo1,#AlchTwo2">Level 2</button>
+            </h5>
+            <ul id="AlchTwo1" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Oil-Kerosine">kerosine oil</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Buoyant-Balloon">buoyant balloon</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Water-Purification-Sponge">water purification sponge</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Cement">alchemical cement</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Cream-Chill">chill cream</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dye-Marker">marker dye</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Grease-Alchemical">alchemical grease</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Glowing">glowing ink</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(simple)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ointment-Armor">armor ointment</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Paper-Wall">paper wall paste</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Terrap-Sap-Distilled">terrap sap</a>(distilled)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Soothe-Syrup">soothe syrup</a></li>
+                <li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/sandstone-solution-su/">Sandstone solution</a>(the discovery but as a flask)</li>
+            </ul>
+            <ul id="AlchTwo2" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Acid">Acid</a>(flask)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Burst-Jar">burst jar</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Firecracker-Spirit">spirit firecracker</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Banshee-Ballerina-Firework">banshee ballerina firework</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Dancing-Peonies">dancing peonies firework</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Sparking-Pinwheel">sparking pinwheel firework</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Holy-Water">holy water</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Tanglefoot-Bag">tanglefoot bag</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Thunderstone">thunderstone</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#AlchThree1,#AlchThree2,#AlchThree3,#AlchThree4">Level 3</button>
+            </h5>
+            <ul id="AlchThree1" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Glue">alchemical glue</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Solvent">alchemical solvent</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alkali-Salt">alkali salt</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Clay-Blackfire">blackfire clay</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Foam-Impact">impact foam</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Hobgoblin-War-Draught">hobgoblin war draught</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(average)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Noxious-Aromatic">Noxious aromatic</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Flash">flash powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Foaming">foaming powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Repellent-Vermin">vermin repellent</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Scent-Cloak">scent cloak</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Spider-Sac">spider sac</a></li>
+            </ul>
+            <ul id="AlchThree2" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Peptus-Salix">Peptus salix</a></li>
+            </ul>
+            <ul id="AlchThree3" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Beast-Lure">Beast lure</a></li>
+            </ul>
+            <ul id="AlchThree4" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Alchemist-s-Fire">Alchemists fire</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Alkali-Flask">Alkali flask</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Starfountain-Firework">starfountain firework</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Tangleburn-Bag">tangleburn bag</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#AlchFour1,#AlchFour2,#AlchFour3,#AlchFour4">Level 4</button>
+            </h5>
+            <ul id="AlchFour1" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Essence-of-Night">Essence of night</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Sunrod">Sunrod</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Alchemical-Glue-Accelerant">Alchemical glue accelerant</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Brewed-Reek">Brewed reek</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Defoliant">Defoliant</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Deodorizing-Agent">Deodorizing agent</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Dimmer-Dust">Dimmer dust</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Embalming-Fluid">Embalming fluid</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Fury-Drops">fury drops</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Gel-Fire-Ward">fire ward gel</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Gel-Frost-Ward">frost ward gel</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ink-Invisible">invisible ink</a>(good)</li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Liquid-Ice">liquid ice</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Ooze-Grease">ooze grease</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Paste-Mending">mending paste</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Plague-Powder">plague powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Itching">itching powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Sneezing">sneezing powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Reanimating-Fluid">reanimating fluid</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Unstable-Accelerant">unstable accelerant</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Padzahr">vitus</a>(flask)</li>
+            </ul>
+            <ul id="AlchFour2" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Antiplague">antiplague</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Antitoxin">antitoxin</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Bloodblock">bloodblock</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Bodybalm">bodybalm</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Tonic-Twitch">twitch tonic</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Troll-Styptic">troll styptic</a></li>
+            </ul>
+            <ul id="AlchFour3" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Beast-Scent">beast scent</a></li>
+            </ul>
+            <ul id="AlchFour4" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Skydragon-Firework">skydragon firework</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Skyrocket-Firework">skyrocket firework</a></li>
+            </ul>
+            <h5>
+                <button data-toggle="collapse" data-target="#AlchFive1,#AlchFive2,AlchFive3">Level 5</button>
+            </h5>
+            <ul id="AlchFive1" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Blightburn-Paste">blightburn paste</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Fungal-Stun-Vial">fungal stun vial</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Powder-Rusting">rusting powder</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Soul-Stimulant">soul stimulant</a></li>
+            </ul>
+            <ul id="AlchFive2" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/goods-and-services/herbs-oils-other-substances/#TOC-Troll-Oil">troll oil</a></li>
+            </ul>
+            <ul id="AlchFive3" class="collapse">
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Fuse-Grenade">fuse grenade</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade iron</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade silver</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pelled grenade cold iron</a></li>
+                <li><a href="https://www.d20pfsrd.com/equipment/weapons/alchemical-weapons/#TOC-Pellet-Grenade">pellet grenade adamantine</a></li>
+            </ul>
+
+        </div>
+		<div class="Bombs">
+			<h3>
+                <button data-toggle="collapse" data-target="#BombText">Bomb<sup>(Ex)</sup></button>
+            </h3>
+            <p id="BombText" class="collapse">
+                in addition to extracts, alchemists are experts at mixing unstable pyrotechnical alchemical components with explosive results. The bombs are made from alchemical components that in its prepared state is unstable and subject to spontaneous combustion or worse, but in the hands of an alchemist is as safe as can be. These components are funneled into a form shaped like a ball where the components crystallize into a somewhat transparent crystal ball, comparable in scale to a baseball. This crystal ball is colorless and half transparent with visible internal cracking, but as the alchemist masters this craft the crystal ball will become less foggy and more clear and transparent with less cracks, if the bombs are altered with some elemental components the ball will be colored. Each element has its own color, acid for example would make the crystal ball green.<br /><br />
+
+                An alchemist can craft a number of bombs each day equal to his class level + his intelligence modifier, an alchemist usually crafts his bombs at the beginning of the day when he prepares his extracts. A bomb once stabilized remains in this state for 1 day before crumbling and the components rendered inert. The material costs of making a bomb is 1 gold piece per damage dice it inflicts. The time required to make these bombs is 1 hour regardless of quantity made since the alchemist requires deep concentration to mix the ingredients.<br /><br />
+
+                Drawing and throwing a bomb requires a standard action that provokes an attack of opportunity. Thrown bombs have a range of 20 feet and counts as a ranged touch attack. Bombs are considered weapons and can be selected using feats such as Point-Blank Shot and Weapon Focus. An alchemists bomb inflicts 1d6 points of fire damage + additional damage equal to the alchemists intelligence modifier with a 5 foot splash radius. The damage of an alchemist’s bomb increases by 1d6 points at every odd-numbered alchemist level (this bonus damage is not multiplied on a critical hit or by using feats such as Vital Strike). Those caught within the bombs range can attempt a Reflex save for half damage. The DC of this save  is equal to 10 + 1/2 the alchemist’s level + the alchemist’s Intelligence modifier. Choosing to save from this damage forces the target to quickly roll away from the bomb moving them one square away from the bomb, when the bomb detonates the target that successfully saves is considered prone in the moment of the save, but ends his round as he was before the save except one square away from the bomb. If he cannot move away from the bomb he ends his round prone in order to save from the bomb.<br /><br />
+
+                If the alchemist chooses to throw the bomb at a creature instead of a square and successfully hits the target, then that creature does not receive the Reflex save mentioned above. Alchemists can learn new types of bombs as discoveries (see the Discovery ability) as they level up.
+            </p>
+		</div>
+		<div class="BrewPotion">
+			<h3>
+                <button data-toggle="collapse" data-target="#BrewText">Brew Potion<sup>(Ex)</sup></button>
+            </h3>
+            <p id="BrewText" class="collapse">
+                At 1st level, alchemists can brew potions, poisons, oils or craft an alchemical item of any formulae he knows using his alchemist level as his caster level. He does this using craft(alchemy) at the normal components cost for crafting (1/3 base price), when calculating how much time the crafting process requires the minimum time required is 1 hour but crafting in this manner may require longer. Using craft(alchemy) requires use of a lab same as extracts.
+            </p>
+		</div>
+		<div class="Mutagen">
+			<h3>
+                <button data-toggle="collapse" data-target="#MutagenText">Mutagen<sup>(Ex)</sup></button>
+            </h3>
+            <p id="MutagenText" class="collapse">
+                At 1st level, an alchemist discovers how to create a mutagen that he can craft from monster parts as the main ingredient in order to heighten his physical prowess at the cost of his personality. It takes 1 hour to brew a dose of mutagen, and once brewed, it remains potent for 1 week.<br />
+                When an alchemist brews a mutagen, he selects one physical ability score—either Strength, Dexterity, or Constitution. Each of these scores have a different main ingredient that corresponds with the desired effect. It’s a standard action to drink a mutagen for non-alchemists and a move action for an alchemist. Upon being consumed, the mutagen causes the alchemist to grow bulkier and more bestial, taking on an appearance with similarities to the one the main ingredient originated from. This grants him a +2 natural armor bonus and a +4 alchemical bonus to the selected ability score for 10 minutes per alchemist level. In addition, while the mutagen is in effect, the alchemist takes a –2 penalty to one of his mental ability scores. If the mutagen enhances his Strength, it applies a penalty to his Intelligence. If it enhances his Dexterity, it applies a penalty to his Wisdom. If it enhances his Constitution, it applies a penalty to his Charisma.<br /><br />
+
+                Muscle tissue from a giant is used to enhance strength, tendons from dark folk is used to enhance dexterity, powdered bone dust from a troll is used to enhance constitution.
+                If someone were to consume a mutagen while already being under the effects of a mutagen the person must then make a Fortitude save (DC 10 + 1/2 the alchemists level + the alchemists intelligence modifier) if he succeeds he will immediately puke which provokes an attack of opportunity and he is considered flat footed, after puking both mutagens effects immediately ends.
+                <br /><br />
+
+                If he should fail then he suffers from the confused condition for the remaining duration of the first mutagen he consumed, when the duration of the mutagen ends so does the confusion. Once a minute he may attempt to retry the Fortitude save if successful he will go from being confused to suffering the panicked condition for 10 minutes before suffering the unconscious condition for 1 minute. During this minute of unconsciousness the monster like appearance recedes and his appearance returns to normal in addition the effects of the mutagens ends. After that minute is up he wakes up with a mild headache in addition to mild memory loss that starts from the beginning of confusion until waking up now, the mild memory loss is only bits and pieces here and there not the entire experience.
+            </p>
+		</div>
+		<div class="ThrowAnything">
+			<h3>
+                <button data-toggle="collapse" data-target="#ThrowText">Throw Anything<sup>(Ex)</sup></button>
+            </h3>
+            <p id="ThrowText" class="collapse">
+                All alchemists gain the Throw Anything feat as a bonus feat at 1st level. An alchemist adds his Intelligence modifier to damage done with splash weapons, including the splash damage if any. This bonus damage is already included in the bomb class feature.
+            </p>
+		</div>
+		<div class="Discovery">
+			<h3>
+                <button data-toggle="collapse" data-target="#DiscoveryText">Discovery<sup>(Ex)</sup></button>
+            </h3>
+            <p id="DiscoveryText" class="collapse">
+                At 2nd level, and then again every 2 levels thereafter (up to 18th level), an alchemist makes an incredible alchemical discovery. Unless otherwise noted, an alchemist cannot select an individual discovery more than once. Some discoveries can only be made if the alchemist has met certain prerequisites first, such as uncovering other discoveries. Discoveries that modify bombs that are marked with an asterisk (*) do not stack. Only one such discovery can be applied to an individual bomb. The DC of any saving throw called for by a discovery is equal to 10 + 1/2 the alchemist’s level + the alchemist’s Intelligence modifier.
+            </p>
+			<h4>
+                <button data-toggle="collapse" data-target="#DiscList">Alchemist Discovery List:</button>
+            </h4>
+			<ul id="DiscList" class="collapse">
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/acid-bomb/">Acid Bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/bitter-pill-su/">Bitter pill</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/blinding-bomb-su/">Blinding bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/bottled-ooze-su/">Bottled ooze</a></li>
+				<li><a href="https://www.d20pfsrd.com/races/other-races/uncommon-races/arg-grippli/bogborn-alchemist-alchemist-grippli/chameleon-su/">Chameleon</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/cognatogen-su/">Cognatogen</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/combine-extracts/">Combine extracts</a>(but only of the same category)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/concentrate-poison/">Concentrate Poison</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/concussive-bomb/">Concussive bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/confusion-bomb-su/">Confusion bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/cytillesh-bomb/">Cytillesh bomb</a>(*)</li>
+				<li><a href="https://www.d20pfsrd.com/races/core-races/half-elf/bramble-brewer-alchemist-half-elf/defoliant-bomb/">Defoliant bomb</a>(*)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/delayed-bomb/">Delayed bomb</a>(delay is decided upon crafting not use)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/dilution/">Dilution</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/directed-bomb/">Directed bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/explosive-bomb/">Explosive bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/extend-potion/">Extend potions</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/eternal-potion/">Eternal potion</a>(but only lasts 1 day)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/fast-bombs/">Fast bombs</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/feral-mutagen/">Feral mutagen</a>(requires a ground up tooth or claw from a predatorial creature)</li>
+				<li><a href="https://www.d20pfsrd.com/races/other-races/uncommon-races/arg-svirfneblin/deep-bomber-alchemist-svirfneblin/glassfoot-bomb/">Glassfoot bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/grand-cognatogen-su/">Grand cognaotgen</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/grand-mutagen/">Grand Mutagen</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/grease-bomb/">Grease bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/smoke-bomb/">Smoke bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/plague-bomb-su/">Plague bomb</a>(you need a sample of something infected with the contagion)</li>
+				<li><a href="https://www.d20pfsrd.com/races/other-races/featured-races/arg-ratfolk/plague-bringer-alchemist-ratfolk/greater-plague-bomb/">Greater plague bomb</a>(previous side note) (you dont need magic to cure)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/greater-cognatogen-su/">Greater Cognatogen</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/greater-mutagen/">Greater mutagen</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/grounding-goo-su/">Grounding goo</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/immolation-bomb/">Immolation bomb</a>(this bomb deals 1d6+modifier damage per round. the number of rounds is equal to the amount of dice the alchemists bomb would normally deal.)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/malignant-poison/">Malignant poison</a>(onset time is halved to the minimum of a full round)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/nauseating-flesh/">Nauseating flesh</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/ooze-blight/">Ooze Blight</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/pheromones-su/">Pheromones</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/pickled-quasit/">Pickled Quasit</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/alternate-classes/ninja/ninja-tricks/paizo-ninja-tricks/poison-bomb/">Poison Bomb</a>(except this is a bomb where you infuse a dose of contact poison in the bomb in addition to its normal damage)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/poison-bomb/">Poison Bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/purging-mutagen/">Purging Mutagen</a>(requires a sample of whatever ails you)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/remedy-extract/">Remedy Extract</a></li>
+				<li><a href="https://www.d20pfsrd.com/races/other-races/featured-races/arg-goblin/fire-bomber-alchemist-goblin/scrap-bomb-su/">Scrap bomb</a>(no goblin prerequisite) (prerequisite: alchemist 4)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/siege-bomb/">Siege Bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/solid-ground-su/">Solid Ground</a>(affects any stillstanding surface)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/sticky-poison/">Sticky poison</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/stink-bomb/">Stink bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/sunlight-bomb-su/">Sunlight bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/tanglefoot-bomb-su/">Tanglefoot bomb</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/tentacle-ex/">Tentacle</a>(requires a dried suction cup)</li>
+				<li><a href="https://www.d20pfsrd.com/races/other-races/uncommon-races/arg-grippli/bogborn-alchemist-alchemist-grippli/underwater-demolition-ex/">Underwater demolition</a>(Requires alchemist 4)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/vestigial-arm-ex/">Vestigial arm</a>(requires a dried finger from a humanoid creature) (the arm will have visual but no effectual similiarities from the creature the finger originated from)</li>
+				<li> <a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-discoveries/wings-ex/">Wings</a>(requires the talon from a bird creature) (the wingflesh of a humanoid winged creature also works as a substitute)</li>
+			</ul>
+		</div>
+		<div class="PoisonResistance">
+			<h3>
+                <button data-toggle="collapse" data-target="#ResistanceText">Poison Resistance<sup>(Ex)</sup></button>
+            </h3>
+            <p id="ResistanceText" class="collapse">
+                At 2nd level, an alchemist gains a +2 bonus on all saving throws against poison. This bonus increases to +4 at 5th level, and then again to +6 at 8th level. At 10th level, an alchemist becomes completely immune to poison.
+            </p>
+		</div>
+		<div class="PoisonUse">
+			<h3>
+                <button data-toggle="collapse" data-target="#UseText">Poison Use<sup>(Ex)</sup></button>
+            </h3>
+            <p id="UseText" class="collapse">
+                Alchemists are experienced in the use of poison and starting at 2nd level, cannot accidentally poison themselves when applying poison to a weapon.
+            </p>
+		</div>
+		<div class="SwiftAlchemy">
+			<h3>
+                <button data-toggle="collapse" data-target="#SwiftText">Swift Alchemy<sup>(Ex)</sup></button>
+            </h3>
+            <p id="SwiftText" class="collapse">
+                At 3rd level, an alchemist can create alchemical items at an even more astounding speed. It takes an alchemist half the normal amount of time to create alchemical items, and he can apply poison to a weapon as a move action. This alters the time it takes to prepare extracts to 30 minutes instead of 1 hour, and alters the minimum craft(alchemy) time to 30 minutes as well as the time required to craft bombs down to 30 minutes.
+            </p>
+		</div>
+		<div class="SwiftPoisoning">
+			<h3>
+                <button data-toggle="collapse" data-target="#PoisoningText">Swift Poisoning<sup>(Ex)</sup></button>
+            </h3>
+            <p id="PoisoningText" class="collapse">
+                At 6th level, an alchemist can apply a dose of poison to a weapon as a swift action.
+            </p>
+		</div>
+		<div class="PersistantMutagen">
+			<h3>
+                <button data-toggle="collapse" data-target="#PersistantText">Persistent Mutagen<sup>(Ex)</sup></button>
+            </h3>
+			<p id="PersistantText" class="collapse">
+				At 14th level, the effects of a mutagen last for 1 hour per level.
+			</p>
+		</div>
+		<div class="InstantAlchemy">
+			<h3>
+                <button data-toggle="collapse" data-target="#InstantText">Instant Alchemy<sup>(Ex)</sup></button>
+            </h3>
+            <p id="InstantText" class="collapse">
+                At 18th level, an alchemist can create alchemical items with almost supernatural speed. The use of Craft(alchemy) takes only minimum 5 minutes now in addition the crafting time required to create an item is halved again reducing it to 1/4 of the original time it would normally require. He is also able to reduce the time it takes to prepare extracts and bombs to 5 minutes. When he uses Craft(alchemy) he must still succeed at the Craft (alchemy) check and must have the appropriate resources at hand to fund the creation. He can apply poison to a weapon as an immediate action.
+            </p>
+		</div>
+		<div class="GrandDiscovery">
+			<h3>
+                <button data-toggle="collapse" data-target="#GrandText">Grand Discovery<sup>(Ex)</sup></button>
+            </h3>
+			<p id="GrandText" class="collapse">
+				At 20th level, the alchemist makes a grand discovery. He immediately learns two normal discoveries, but also learns a third discovery chosen from the linked list below, representing a truly astounding alchemical breakthrough of significant import. For many alchemists, the promise of one of these grand discoveries is the primary goal of their experiments and hard work.
+			</p>
+			<h4>
+                <button data-toggle="collapse" data-target="#GrandList">Grand Discoveries List:</button>
+            </h4>
+			<ul id="GrandList" class="collapse">
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-grand-discoveries/awakened-intellect/">Awakened Intellect</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-grand-discoveries/eternal-youth/">Eternal youth</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-grand-discoveries/fast-healing/">Fast Healing</a>(requires you to eat a fried devil)</li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-grand-discoveries/philosopher-s-stone/">Philosophers stone</a></li>
+				<li><a href="https://www.d20pfsrd.com/classes/base-classes/alchemist/discoveries/paizo-alchemist-grand-discoveries/true-mutagen/">True Mutagen</a></li>
+			</ul>
+		</div>
+		<div class="AlchemistPhoto">
+			<img src="AlchemistPhoto.jpg" alt="AlchemistPhoto" />
+		</div>
+		<div class="IndexBox">
+			placeholder
+		</div>
+	</div>
+
+
+
+    <script>
+        function BackgroundMode(Mode)
+        {
+            switch (Mode)
+            {
+                case "Dark":
+                    document.body.classList.remove("BackgroundImage");
+                    document.body.style.backgroundColor = "gray";
+                    break;
+                case "Light":
+                    document.body.classList.remove("BackgroundImage");
+                    document.body.style.backgroundColor = "white";
+                    break;
+                case "Image":
+                    document.body.classList.toggle("BackgroundImage");
+                    break;
+                default: "Light";
+            }
+        }
+    </script>
+
+</body>
+</html>

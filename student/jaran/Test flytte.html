@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            margin: 50px;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <input id="horiRange" type="range" min="50" max="450" step="10" value="250" oninput="showSVG()" />
+        <input id="vertRange" type="range" min="50" max="450" step="10" value="250" oninput="showSVG()" />
+        <br />
+
+        <svg width="1000" height="1000">
+            <rect class="board" height="500" width="500" fill="lightblue" stroke="lightpink" stroke-width="10" />
+            <circle id="changeSVG" cx="250" cy="250" r="40" stroke="blue" fill="red" stroke-width="5"></circle>
+        </svg>
+
+
+        <script>
+            var horiRange = document.getElementById('horiRange');
+            var vertRange = document.getElementById('vertRange');
+            var changeSVG = document.getElementById('changeSVG');
+            //showSVG();
+            function showSVG() {
+                var hori = horiRange.value;
+                var vert = vertRange.value;
+                changeSVG.setAttribute("cx", hori);
+                changeSVG.setAttribute("cy", vert);
+            }
+        </script>
+    </body>
+</html>

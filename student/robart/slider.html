@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+
+<body>
+    <p>jiadjadiawda</p>
+    <input id="sizeSlider" type="range" min="100" max="500" step="10" oninput="showDiv()" />
+    <br /><input id="textInput" type="text" oninput="showDiv()" value="endre teksten" />
+
+    <select id="colorChooser" onchange="showDiv()">
+        <option value="red">Red color</option>
+        <option selected value="green">Green color</option>
+        <option value="blue">Blue color</option>
+    </select>
+
+    <select id="resultatDiv" onchange="showDiv()">
+        <option value="black">Black</option>
+        <option selected value="pink">Pink</option>
+        <option value="yellow">yellow</option>
+    </select>
+
+    <div id="resultat"></div>
+    <div id="resultatHtml" style="font-family: monospace"></div>
+
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var resultatHtmlDiv = document.getElementById('resultatHtml');
+        var sizeSlider = document.getElementById('sizeSlider');
+        var textInput = document.getElementById('textInput');
+        var colorChooser = document.getElementById('colorChooser');
+        var borderChooser = document.getElementById('resultatDiv');
+
+        showDiv();
+
+        function showDiv() {
+            var size = sizeSlider.value;
+            var text = textInput.value;
+            var color = colorChooser.value;
+            var border = borderChooser.value;
+
+            var backgroundColor = 'background-color: ' + color + ';';
+            var border = 'border: 5px solid ' + border + ';';
+            var width = 'width: ' + size + 'px;';
+            var height = 'height: ' + size + 'px;';
+            var style = 'style="' + border +  backgroundColor + width + height + '"';
+            resultatDiv.innerHTML = '<div ' + style + '>' + text + '</div>';
+            resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+            // resultatHtmlDiv.style.border = '2px solid ' + border;
+        }
+
+    </script>
+</body>
+
+</html>

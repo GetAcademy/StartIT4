@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Låskode Op9</title>
+    <style>
+        .lås {
+            height: 300px;
+            width: 225px;
+            display: grid;
+            grid-template-columns: 75px 75px 75px;
+            grid-template-rows: 75px 75px 75px 75px;
+            grid-template-areas: 'sju åtte ni' 'fire fem seks' 'en to tre' 'tilbake null igjen';
+            margin: auto;
+            border: solid 4px black;
+        }
+
+        .tall {
+            background-color: darkgrey;
+            color: red;
+            text-align: center;
+            font-size: 300%;
+            border: solid 1px black;
+        }
+
+        .svar {
+            margin: auto;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lås">
+        <div id="seven" class="tall sju" onclick="knapp(this)">7</div>
+        <div id="eight" class="tall åtte" onclick="knapp(this)">8</div>
+        <div id="nine" class="tall ni" onclick="knapp(this)">9</div>
+        <div id="four" class="tall fire" onclick="knapp(this)">4</div>
+        <div id="five" class="tall fem" onclick="knapp(this)">5</div>
+        <div id="six" class="tall seks" onclick="knapp(this)">6</div>
+        <div id="one" class="tall en" onclick="knapp(this)">1</div>
+        <div id="two" class="tall to" onclick="knapp(this)">2</div>
+        <div id="three" class="tall tre" onclick="knapp(this)">3</div>
+        <div id="backspace" class="tall tilbake" onclick="knepp(this)">&#8592</div>
+        <div id="zero" class="tall null" onclick="knapp(this)">0</div>
+        <div id="refresh" class="tall igjen" onclick="knepp(this)">&#8634</div>
+    </div>
+    <div id="kode" class="tall svar"></div>
+    <div id="riktig" class="tall svar"></div>
+    <script>
+
+        var correctCode = '0912';
+        var enteredSoFar = document.getElementById('kode');
+        
+
+
+        function knapp(element) {
+            
+            document.getElementById('kode').innerHTML += element.innerHTML;
+            if (enteredSoFar.innerHTML == correctCode) {
+                var right = document.getElementById('riktig');
+                right.innerHTML = 'Åpen';
+            }
+            if (!correctCode.startsWith(enteredSoFar.innerHTML)) {
+                enteredSoFar.innerHTML = '';
+            }
+        }
+
+        function knepp() {
+            document.getElementById('kode').innerHTML = '';
+            document.getElementById('riktig').innerHTML = '';
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

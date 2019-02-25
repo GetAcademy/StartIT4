@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <input id="weight" type="range" min="1" max="1000" step="1" oninput="calculate()" value="2" />
+    <input id="hight" type="range" min="1" max="1000" step="1" oninput="calculate()" value="2" />
+    <div id="resultatDiv" style="background-color:firebrick">box</div>
+    <div id="weightInput" style="background-color:rgb(194, 156, 156)">box</div>
+    <div id="hightInput" style="background-color:rgb(36, 7, 7)">box</div>
+    
+    <!-- <input id="tallC" type="range" min="5" max="200" step="1" oninput="calculate2()" value="2" />
+    <input id="tallD" type="range" min="5" max="200" step="1" oninput="calculate2()" value="2" />
+    <div id="resultat2"></div> -->
+
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var weightInput = document.getElementById('weight')
+        var hightInput = document.getElementById('hight')
+
+        calculate();
+
+        function calculate() {
+            var weight = parseInt(weightInput.value);
+            var hight = parseInt(hightInput.value);
+            // var sum = tallA + tallB;
+            // var differense = tallA - tallB;
+            // var product = tallA * tallB;
+            // var kvotient = tallA / tallB;
+            // resultatDiv.innerHTML = '' +
+            //     tallA + '+' + tallB + '=' + sum + '<br/>' +
+            //     tallA + '-' + tallB + '=' + differense + '<br/>' +
+            //     tallA + '*' + tallB + '=' + product + '<br/>' +
+            //     tallA + '/' + tallB + '=' + kvotient;
+        }
+
+        // var resultatDiv = document.getElementById('resultat2');
+        // var tallCInput = document.getElementById('tallC')
+        // var tallDInput = document.getElementById('tallD')
+
+        // calculate2();
+
+        // function calculate2() {
+        //     var tallC = parseInt(tallCInput.value);
+        //     var tallD = parseInt(tallDInput.value);
+        //     var sum = tallC + tallD;
+        //     var differense = tallC - tallD;
+        //     var product = tallC * tallD;
+        //     var kvotient = tallC / tallD;
+        //     resultatDiv.innerHTML = '' +
+        //         tallC + '+' + tallD + '=' + sum + '<br/>' +
+        //         tallC + '-' + tallD + '=' + differense + '<br/>' +
+        //         tallC + '*' + tallD + '=' + product + '<br/>' +
+        //         tallC + '/' + tallD + '=' + kvotient;
+        // }
+
+    </script>
+
+</body>
+
+</html>

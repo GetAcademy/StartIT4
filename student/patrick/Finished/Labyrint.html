@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <style>
+        table {
+            border-spacing: 0;
+        }
+
+        td {
+            background-color: white;
+            padding: 0;
+        }
+
+            td.room {
+                width: 40px;
+                height: 40px;
+            }
+
+            td.wall {
+                background-color: black;
+            }
+
+            td.noWall {
+                background-color: white;
+            }
+
+            td.small {
+                width: 10px;
+                height: 10px;
+            }
+
+            td.wide {
+                width: 40px;
+            }
+
+            td.high {
+                height: 40px;
+            }
+
+    </style>
+</head>
+<body>
+    <div>
+        <table id="LABBY">
+
+        </table>
+    </div>
+
+    <!--<div id="labyrinth">
+
+    </div>-->
+
+
+    <script type="text/javascript">
+
+        /*
+        var size = 15;
+        var html = '';
+
+        function MakeLabyrinth() {
+            for (i = 0; i < size; i++) {
+                html += '<tr>';
+
+                for (r = 0; r < size; r++) {
+                    var wallOrNoWall = Math.random() < 0.5 ? 'wall' : 'noWall';
+                    html += '<td class="wall small"></td>';
+                    html += '<td class="' + wallOrNoWall + ' wide"></td>';
+                }
+
+                html += '<td class="wall small"></td>';
+                html += '</tr>';
+                html += '<tr>';
+
+                for (t = 0; t < size; t++) {
+                    var wallOrNoWall = Math.random() < 0.5 ? 'wall' : 'noWall';
+                    html += '<td class="' + wallOrNoWall + ' high"></td>';
+                    html += '<td class="room"></td>';
+                }
+
+                html += '<td class="wall high"></td>';
+                html += '</tr>';
+            }
+
+            html += '<tr>';
+
+            for (var columnIndex = 0; columnIndex < size; columnIndex++) {
+                html += '<td class="wall small"></td>';
+                html += '<td class="wall wide"></td>';
+            }
+
+            html += '<td class="wall small"></td>';
+            html += '</tr>';
+            html = '<table>' + html + '</table>';
+            document.getElementById('labyrinth').innerHTML = html;
+        }
+        MakeLabyrinth();
+        */
+    </script>
+
+   
+
+    <script>
+        var Size = 15;
+        var Space =
+            [
+                '<td class="wall small"></td>',
+                '<td class="wall wide"></td>',
+                '<td class="wall high"></td>',
+                '<td class="room"></td>',
+                '<td class="noWall small"></td>',
+                '<td class="noWall wide"></td>',
+                '<td class="noWall high"></td>'
+
+            ];
+
+        function RunFor(Times)
+        {
+            var stuff = "";
+            for (let i = 0; i < Times; i++)
+            {
+                stuff += Space[Math.floor(Math.random()*7)]
+            }
+            return stuff;
+        }
+
+        function MakeLabyrinth()
+        {
+            for (let i = 0; i < Size; i++)
+            {
+                
+                document.getElementById("LABBY").innerHTML += `<tr>${RunFor(5)}</tr >`;
+            }
+        }
+        MakeLabyrinth();
+    </script>
+</body>
+</html>

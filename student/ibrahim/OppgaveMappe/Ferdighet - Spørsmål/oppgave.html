@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2 id="riktig">Ibrahim er 22 år</h2>
+    <h3 id="feil1" onclick="doSomething(this)">Sant</h3>
+    <h3 id="feil" onclick="doSomething2(this)">Usant</h3>
+    
+
+    <script>
+        function doSomething(samme) {
+            samme.innerHTML = 'Rikting';
+        }
+        function doSomething2(ikkesamme) {
+            ikkesamme.innerHTML = 'Feil';
+        }
+    </script>
+</body>
+</html>

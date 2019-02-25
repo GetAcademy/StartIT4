@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <style>
+        .Circle
+        {
+            float:left;
+            border-radius:50%;
+            background-color:red;
+            width:8em;
+            height:8em;
+        }
+        .Clear
+        {
+            clear:left;
+        }
+        .LightOn
+        {
+            background-color:yellow;
+        }
+        .Score
+        {
+            position:absolute;
+            margin-left:40em;
+        }
+    </style>
+</head>
+<body>
+    <div id="Score" class="Score"></div>
+    
+
+    <script>
+        
+        // float left might cause trouble for clear.
+        var RowCounter = 0;
+        var Circles = 25;
+        var FirstRound = false;
+        var TotalOnRow = 5;
+        function MakeCircles()
+        {
+            for (i = 0; i < Circles; i++)
+            {
+                RowCounter++;
+                if (RowCounter <= TotalOnRow)
+                {
+                    document.body.innerHTML += `<div class="Circle"></div>`;
+                }
+                else
+                {
+                    document.body.innerHTML += `<div class="Circle Clear"></div>`;
+                    RowCounter = 0;
+                    if (!FirstRound)
+                    {
+                        TotalOnRow = 4;
+                        FirstRound = true;
+                    }
+                }
+
+            }
+        }
+        MakeCircles();
+
+        var StartTime;
+
+        function TurnCircleYellow()
+        {
+            var CircleList = document.getElementsByClassName("Circle");
+            var RandomCircle = Math.floor(Math.random() * CircleList.length);
+            var SelectedCircle = CircleList[RandomCircle];
+
+            
+
+            SelectedCircle.classList.add("LightOn");
+            SelectedCircle.setAttribute("onclick", "ClickYellow(this)");
+            StartTime = new Date().getTime();
+        }
+        TurnCircleYellow();
+
+        var FinishTime;
+
+        function ClickYellow(clicker)
+        {
+            clicker.classList.remove("LightOn");
+            clicker.removeAttribute("onclick", "ClickYellow(this)")
+            TurnCircleYellow();
+            TellScore();
+            
+            FinishTime = new Date().getTime();
+        }
+
+        function TellScore()
+        {
+            var SpentMilliseconds = Math.abs(FinishTime - StartTime);
+            var SpentSeconds = SpentMilliseconds / 1000;
+
+            document.getElementById("Score").innerHTML = `You spent: ${SpentSeconds} seconds to click yellow circle.`
+        }
+    </script>
+</body>
+</html>

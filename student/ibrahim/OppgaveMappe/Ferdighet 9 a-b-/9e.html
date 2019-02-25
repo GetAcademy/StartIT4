@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+
+</head>
+<body>
+<select id="colorChooser" onchange="colorDiv()">
+    <option id="color1" value="black">Svart</option>
+    <option id="color2" selected value="darkblue">MørkBlå</option>
+    <option id="color3" value="lightgrey">Lysgrå</option>
+    <option id="color4" value="lightgreen">LysGrønn</option>
+    <option id="color5" value="crimson">LysRød</option>
+</select>
+<div id="box">ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ</div>
+
+
+
+<script>
+var colorChooser = document.getElementById('colorChooser');
+var boxDiv= document.getElementById('box')
+var resultatDiv = document.getElementById('resultat');
+var color1Input = document.getElementById('color1');
+var color2Input = document.getElementById('color2');
+
+colorDiv();
+
+function colorDiv(){
+    var bredde = 400;
+    var høyde = 400;
+    var black = color1Input.value;
+    var drkBlue = color2Input.value;
+
+    boxDiv.style.width = bredde + 'px';
+    boxDiv.style.height = høyde + 'px';
+    boxDiv.style.backgroundColor = colorChooser.value;
+
+    if (colorChooser.value == black || colorChooser.value == drkBlue){
+        boxDiv.style.color = 'white';
+    }
+    else {
+        boxDiv.style.color = 'black';
+    }
+}
+
+
+
+
+
+</script>
+
+</body>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,12 @@
+﻿body
+{
+
+}
+table, td {
+    border: 1px solid black;
+    margin-top:1px;
+    margin-bottom:1px;
+}
+.MainList, .MainList > table, .MainList > tr, .MainList > tr > td  {
+    
+}

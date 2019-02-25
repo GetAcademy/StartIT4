@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+</head>
+<body>
+
+
+    <!--Dag: <input id="day" onchange="showDayAndTime()" type="range" min="1" max="7" step="1" /><br />
+    Time: <input id="hour" onchange="showDayAndTime()" type="range" min="0" max="23" /><br />
+    Minutter: <input id="minute" onchange="showDayAndTime()" type="range" min="0" max="59" /><br />-->
+
+    <div id="dayAndTime" style="padding-top: 20px;">
+
+    </div>
+
+    <div id="Pen">
+
+    </div>
+
+    <div id="Is">
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        var Days =
+            [
+                "Mandag",
+                "Tirsdag",
+                "Onsdag",
+                "Torsdag",
+                "Fredag",
+                "Lørdag",
+                "Søndag"
+            ]
+
+        function showDayAndTime() {
+            var Div = document.getElementById('dayAndTime');
+            var Open = document.getElementById('Pen');
+            var Isengard = document.getElementById('Is')
+            var D = new Date();
+            var Hour = D.getHours();
+            var Minute = D.getMinutes();
+            var DayNo = D.getDay();
+
+            Div.innerHTML = `Dag: ${Days[DayNo - 1]} Tid: ${Hour}:${Minute}`;
+
+            if (Days[DayNo - 1] <= Days[3]) {
+                Open.innerHTML = `Mandag - Torsdag`;
+                if (Hour >= 11 && Hour <= 16 || Hour == 17 && Minute == 0) {
+                    Isengard.innerHTML = `Åpent!`
+                }
+                else {
+                    Isengard.innerHTML = `Stengt!`
+                }
+            }
+            else if (Days[DayNo - 1] == Days[4]) {
+                Open.innerHTML = `Fredag`;
+                if (Hour >= 11 && Hour <= 17 || Hour == 18 && Minute == 0) {
+                    Isengard.innerHTML = `Åpent!`
+                }
+                else {
+                    Isengard.innerHTML = `Stengt!`
+                }
+            }
+            else if (Days[DayNo - 1] == Days[5]) {
+                Open.innerHTML = `Lørdag`;
+                if (Hour >= 11 && Hour <= 14 || Hour == 15 && Minute == 0) {
+                    Isengard.innerHTML = `Åpent!`
+                }
+                else {
+                    Isengard.innerHTML = `Stengt!`
+                }
+            }
+            else {
+                Open.innerHTML = `Søndag`;
+                Isengard.innerHTML = `Stengt!`
+            }
+        }
+        showDayAndTime();
+    </script>
+</body>
+</html>

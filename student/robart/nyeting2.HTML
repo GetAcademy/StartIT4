@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+        <script>
+                var resultatDiv = document.getElementById('resultat');
+                var resultatHtmlDiv = document.getElementById('resultatHtml');
+                var sizeSlider = document.getElementById('sizeSlider');
+                var textInput = document.getElementById('textInput');
+                var colorChooser = document.getElementById('colorChooser');
+                var borderChooser = document.getElementById("resultatDiv"); //Endret her
+    
+                showDiv();
+    
+                function showDiv() {
+                    var size = sizeSlider.value;
+                    var text = textInput.value;
+                    var color = colorChooser.value;
+                    var border = borderChooser.value;
+    
+                    var backgroundColor = 'background-color: ' + color + ';';
+                    var width = 'width: ' + size + 'px;';
+                    var height = 'height: ' + size + 'px;';
+                    var style = 'style="' + backgroundColor + width + height + '"';
+                    resultatDiv.innerHTML = '<div ' + style + '>' + text + '</div>';
+                    resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+                    resultatHtmlDiv.style.border = '2px solid '+ border;  //lagt til her
+                }
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <style>
+        div {
+            float: left;
+            background-color: beige;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            vertical-align: middle;
+            font-family: helvetica;
+            font-size: 200%;
+            border: #bbbbaa solid 4px;
+            border-radius: 10px;
+        }
+
+            div.resultBox {
+                width: 344px;
+                text-align: right;
+            }
+
+            div.firstInRow {
+                clear: left;
+            }
+
+    </style>
+</head>
+<body>
+    <div id="resultBox" class="resultBox"></div>
+
+    <div onclick="AddCharacter(this)" id="number" class="firstInRow">7</div>
+    <div id="number" onclick="AddCharacter(this)">8</div>
+    <div id="number" onclick="AddCharacter(this)">9</div>
+    <div id="operator" onclick="AddOperator('/')">÷</div>
+
+    <div id="number" onclick="AddCharacter(this)" class="firstInRow">4</div>
+    <div id="number" onclick="AddCharacter(this)">5</div>
+    <div id="number" onclick="AddCharacter(this)">6</div>
+    <div id="operator" onclick="AddOperator('*')">×</div>
+
+    <div id="number" onclick="AddCharacter(this)" class="firstInRow">1</div>
+    <div id="number" onclick="AddCharacter(this)">2</div>
+    <div id="number" onclick="AddCharacter(this)">3</div>
+    <div id="operator" onclick="AddOperator('-')">-</div>
+
+    <div id="number"class="firstInRow"onclick="AddCharacter(this)" >0</div>
+    <div id="Cbutton" onclick="DeleteAll()">C</div>
+    <div id="Equal" onclick="Calculate()">=</div>
+    <div id="operator" onclick="AddOperator('+')">+</div>
+
+    
+
+    <script>
+        var KeepNumber = null;
+        var KeepNumberTwo = null;
+        var KeepOperator = null;
+        var KeepResult = null;
+        var ResultUsed = false;
+        function AddCharacter(tall)
+        {
+                document.getElementById("resultBox").innerHTML += tall.innerHTML;
+        }
+        function AddOperator(operator)
+        {
+            if (KeepNumber == null) {
+                KeepNumber = document.getElementById("resultBox").innerHTML;
+            }
+            else if (KeepNumber != null)
+            {
+                KeepNumber = eval(parseInt(KeepNumber) + parseInt(document.getElementById("resultBox").innerHTML));
+            }
+            //KeepNumberTwo = document.getElementById("resultBox").innerHTML;
+            KeepOperator = operator;
+            document.getElementById("resultBox").innerHTML = null;
+        }
+        function DeleteAll()
+        {
+            KeepNumber = null;
+            KeepOperator = null;
+            document.getElementById("resultBox").innerHTML = null;
+            KeepResult = null;
+            KeepNumberTwo = null;
+            ResultUsed = false;
+        }
+        function Calculate()
+        {
+            
+            if (ResultUsed) {
+                KeepNumberTwo = document.getElementById("resultBox").innerHTML;
+                document.getElementById("resultBox").innerHTML = eval(parseInt(KeepResult) + KeepOperator + parseInt(KeepNumberTwo));
+                KeepNumber = null;
+                KeepOperator = null;
+                KeepNumberTwo = null;
+                KeepResult = document.getElementById("resultBox").innerHTML;
+            }
+            else
+            {
+                document.getElementById("resultBox").innerHTML = eval(parseInt(KeepNumber) + KeepOperator + parseInt(document.getElementById("resultBox").innerHTML));
+                KeepNumber = null;
+                KeepOperator = null;
+                KeepNumberTwo = null;
+                KeepResult = document.getElementById("resultBox").innerHTML;
+                ResultUsed = true;
+            }
+                
+        }
+    </script>
+</body>
+</html>

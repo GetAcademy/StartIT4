@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="testinload()">
+    <H1>Andersen Autospa</H1>
+    <input type="text" onchange="testonchange()" oninput="testoninput()"/>
+    <h3 onmouseover="testonmouseover()" onmouseout="testonmouseout()">Følg disse sidene!</h3>
+    <h2 id="info"></h2>
+    <img src="massebiler.jpg"/>
+
+    <a href="https://www.instagram.com/andersen_autospa/?hl=en">følg denne siden</a>
+
+    <br><a href="https://rene15151.wixsite.com/andersenautospa">følg denne siden</a></br>
+
+    <script>
+        function testonload() {
+            document.getElementById('info').innerHTML += '<li>instagram</li>'
+        }
+        
+        function testonchange() {
+            document.getElementById('info').innerHTML += '<li>hjemme side</li>'
+
+        }
+
+    </script>
+
+</body>
+</html>

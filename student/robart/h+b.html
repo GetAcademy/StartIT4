@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <input id="widthSlider" type="range" min="1" max="1000" step="10" oninput="showDiv()" />
+    <input id="heightSlider" type="range" min="1" max="1000" step="10" oninput="showDiv()" />
+    <div id="resultat">  </div>
+    <div id="resultatHtml" style="color:rgb(0, 0, 0)" style="font-family: monospace" ></div>
+
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var resultatHtmlDiv = document.getElementById('resultatHtml');
+        var widthSlider = document.getElementById('widthSlider');
+        var heightSlider = document.getElementById('heightSlider');
+
+        showDiv();
+
+
+        function showDiv() {
+            var width = 'width: ' + widthSlider.value + 'px;';
+            var height = 'height: ' + heightSlider.value + 'px;';
+            var style = 'style="background-color: dodgerblue ; ' + width + height + '"';
+            resultatDiv.innerHTML = '<div ' + style + '> </div>';
+            resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+        }
+    </script>
+</body>
+
+</html>

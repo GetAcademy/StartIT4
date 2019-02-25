@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <style>
+        .Square {
+            float: left;
+            margin:1em;
+            background-color: red;
+            width: 8em;
+            height: 8em;
+        }
+
+        .Clear {
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        var RowCounter = 0;
+        var Squares = 9;
+        var FirstRound = false;
+        var TotalOnRow = 3;
+        function MakeSquares() {
+            for (i = 0; i < Squares; i++) {
+                RowCounter++;
+                if (RowCounter <= TotalOnRow) {
+                    document.body.innerHTML += `<div class="Square" onclick="ClickForX(this)"></div>`;
+                }
+                else {
+                    document.body.innerHTML += `<div class="Square Clear" onclick="ClickForX(this)"></div>`;
+                    RowCounter = 0;
+                    if (!FirstRound) {
+                        TotalOnRow = 2;
+                        FirstRound = true;
+                    }
+                }
+
+            }
+        }
+        MakeSquares();
+
+        function ClickForX(clicker)
+        {
+            if (clicker.innerHTML == "X" || clicker.innerHTML == "O")
+            {
+                return;
+            }
+            clicker.innerHTML = "X";
+
+            var divs1 = document.getElementsByTagName('div');
+            var divs2 = new Array();
+            for (var i = 0; i < divs1.length; i++) {
+                if (divs1[i].innerHTML !== 'X' && divs1[i].innerHTML !== 'O') {
+                    divs2.push(divs1[i]);
+                }
+            }
+
+            if (divs2.length > 0) {
+                var index = Math.floor(Math.random() * divs2.length);
+                divs2[index].innerHTML = 'O';
+                divs2[index].style.color = 'blue';
+            }
+        }
+    </script>
+</body>
+</html>

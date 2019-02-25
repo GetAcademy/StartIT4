@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+
+<body>
+    <div id="main">
+        <h2>Hva heter hovedstaden i Norge</h2>
+        <div id="svarBoks">Trykk på det svaret du tror er riktig!</div>
+        <button onclick="wrongT()" >Trondheim</button> <br>
+        <button onclick="wrongB()" >Bergen</button> <br>
+        <button onclick="correct()" >Oslo</button>
+    </div>
+    <div id="nextButtonDiv"></div>
+    <script>
+        var status = 0; // 0 = ikke svart riktig ennå, 1 = har svart riktig
+
+        function correct() {
+            document.getElementById('svarBoks').innerHTML = 'Oslo er riktig';
+            document.getElementById('nextButtonDiv').innerHTML = '<button onclick="showQuestion2()">neste spørsmål</button>';
+            status = 1;
+        }
+
+        function wrongB() {
+            if (status == 0) {
+                document.getElementById('svarBoks').innerHTML = 'Bergen er feil!';
+            }
+        }
+        function wrongT() {
+            if (status == 0) {
+                document.getElementById('svarBoks').innerHTML = 'Trondheim feil!';
+            }
+        }
+
+        function showQuestion2() {
+            document.getElementById('main').innerHTML = `<h2>Hva heter hovedstaden i Danmark</h2>
+        <div id="svarBoks">Trykk på det svaret du tror er riktig!</div>
+        <button onclick="wrongT()" style="margin: 10px;">a</button> <br>
+        <button onclick="wrongB()" style="margin: 10px;">b</button> <br>
+        <button onclick="correct()" style="margin: 10px;">c</button>
+`;
+        }
+    </script>
+
+</body>
+
+</html>

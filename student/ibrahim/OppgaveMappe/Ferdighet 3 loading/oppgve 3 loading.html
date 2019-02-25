@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/A_blank_black_picture.jpg" onload="loading()" width="400" height="400">
+<div id='a'></div>
+
+    <script>
+        function loading(en){
+            document.getElementById('a').innerHTML = 'denne teksten' +
+            new Date().toTimeString() + ' ' + new Date().toDateString() ;
+        }
+    </script>
+</body>
+</html>
