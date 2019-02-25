@@ -11,68 +11,42 @@
     <div id="dayAndTime" style="padding-top: 20px;"></div>
     <script type="text/javascript">
     showDayAndTime()
+    var div;
     function showDayAndTime() {
-        var div = document.getElementById('dayAndTime');
-        // var day = document.getElementById('day').value;
-        // var hour = document.getElementById('hour').value;
-        // var minute = document.getElementById('minute').value;
-        // var dayNo = parseInt(day);
+        div = document.getElementById('dayAndTime');
+        var day = document.getElementById('day').value;
+        var hour = document.getElementById('hour').value;
+        var minute = document.getElementById('minute').value;
+        var dayNo = parseInt(day);
+        day = dayFnameFromNumber(dayNo);
 
-        var d = new Date();
-        var hour = d.getHours();
-        var minute = d.getMinutes();
-        var dayNo = d.getDay();
+        // var d = new Date();
+        // var hour = d.getHours();
+        // var minute = d.getMinutes();
+        // var dayNo = d.getDay();
 
-        if (dayNo == 1) {
-            day = 'Mandag';
-        }
-        else if (dayNo == 2) {
-            day = 'Tirsdag';
-        }
-        else if (dayNo == 3) {
-            day = 'Onsdag';
-        }
-        else if (dayNo == 4) {
-            day = 'Torsdag';
-        }
-        else if (dayNo == 5) {
-            day = 'Fredag';
-        }
-        else if (dayNo == 6) {
-            day = 'Lørdag';
-        }
-        else if (dayNo == 7) {
-            day = 'Søndag';
-        }
+        div.innerHTML = day + ' - kl: ' + hour + ':' + minute
         
-        div.innerHTML = day + ' Kl: ' + hour + ':' + minute
-        
+        if (dayNo < 5) show(hour <= 17 && hour >= 11);
+        else if (dayNo == 5) show(hour <= 18 && hour >= 11);
+        else if (dayNo == 6) show(hour <= 15 && hour >= 11);
+        else if (dayNo == 7) show(false);
+    }
 
-        if (dayNo == 1 || dayNo == 2 || dayNo == 3 || dayNo == 4) {
-            if (hour <= 17 && hour >= 11) {
-                div.innerHTML += '<br> Mandag - Torsdag: Åpent';
-            }
-            else {
-                div.innerHTML += '<br> Mandag - Torsdag: Stengt';
-            }
-            
-        }
-        else if (dayNo == 5) {
-            if (hour <= 18 && hour >= 11) {
-                div.innerHTML += '<br> Fredag: Åpent';
-            }
-            else {
-                div.innerHTML += '<br> Fredag: Stengt';
-            }
-        }
-        else if (dayNo == 6 || dayNo == 7) {
-            if (hour <= 15 && hour >= 11) {
-                div.innerHTML += '<br> Lørdag - Søndag: Åpent';
-            }
-            else {
-                div.innerHTML += '<br> Lørdag - Søndag: Stengt';
-            }
-        }
+    function show(isOpen) {
+        var text = isOpen ? 'Åpent' : 'Stengt';
+        div.innerHTML += '<p>' + text + '</p>';
+    }
+
+    function dayFnameFromNumber(dayNo) {
+        if (dayNo == 1) return 'Mandag';
+        if (dayNo == 2) return 'Tirsdag';
+        if (dayNo == 3) return 'Onsdag';
+        if (dayNo == 4) return 'Torsdag';
+        if (dayNo == 5) return 'Fredag';
+        if (dayNo == 6) return 'Lørdag';
+        if (dayNo == 7) return 'Søndag';
+        return 'Ukjent dag';
     }
     </script>
 </body>
