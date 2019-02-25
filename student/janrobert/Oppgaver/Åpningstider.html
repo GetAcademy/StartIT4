@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    Dag: <input id="day" onchange="showDayAndTime()" type="range" min="1" max="7"/><br/>
+    Time: <input id="hour" onchange="showDayAndTime()" type="range" min="0" max="23"/><br/>
+    Minutter: <input id="minute" onchange="showDayAndTime()" type="range" min="0" max="59"/><br/>
+    
+    <div id="dayAndTime" style="padding-top: 20px;"></div>
+    <script type="text/javascript">
+    showDayAndTime()
+    function showDayAndTime() {
+        var div = document.getElementById('dayAndTime');
+        // var day = document.getElementById('day').value;
+        // var hour = document.getElementById('hour').value;
+        // var minute = document.getElementById('minute').value;
+        // var dayNo = parseInt(day);
+
+        var d = new Date();
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var dayNo = d.getDay();
+
+        if (dayNo == 1) {
+            day = 'Mandag';
+        }
+        else if (dayNo == 2) {
+            day = 'Tirsdag';
+        }
+        else if (dayNo == 3) {
+            day = 'Onsdag';
+        }
+        else if (dayNo == 4) {
+            day = 'Torsdag';
+        }
+        else if (dayNo == 5) {
+            day = 'Fredag';
+        }
+        else if (dayNo == 6) {
+            day = 'Lørdag';
+        }
+        else if (dayNo == 7) {
+            day = 'Søndag';
+        }
+        
+        div.innerHTML = day + ' Kl: ' + hour + ':' + minute
+        
+
+        if (dayNo == 1 || dayNo == 2 || dayNo == 3 || dayNo == 4) {
+            if (hour <= 17 && hour >= 11) {
+                div.innerHTML += '<br> Mandag - Torsdag: Åpent';
+            }
+            else {
+                div.innerHTML += '<br> Mandag - Torsdag: Stengt';
+            }
+            
+        }
+        else if (dayNo == 5) {
+            if (hour <= 18 && hour >= 11) {
+                div.innerHTML += '<br> Fredag: Åpent';
+            }
+            else {
+                div.innerHTML += '<br> Fredag: Stengt';
+            }
+        }
+        else if (dayNo == 6 || dayNo == 7) {
+            if (hour <= 15 && hour >= 11) {
+                div.innerHTML += '<br> Lørdag - Søndag: Åpent';
+            }
+            else {
+                div.innerHTML += '<br> Lørdag - Søndag: Stengt';
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
