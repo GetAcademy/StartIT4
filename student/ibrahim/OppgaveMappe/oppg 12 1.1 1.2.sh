@@ -95,6 +95,20 @@ var ord = '';
             return tilfeldigKonstonant() + tilfeldigVokal() + tilfeldigKonstonant() + tilfeldigVokal() + tilfeldigKonstonant()
         }
 
+        /*var hasRun = false;
+        
+        function tilfeldigOrd()
+        {
+            if(!hasRun)
+            {
+                for(let i = 0; i < 5;i++)
+                    {
+                        ord += WhatTheHell();
+                    }
+                    hasRun = true;
+            }
+            return ord;
+        }*/
         function tilfeldigTall(minimum, maksimum) {
             return minimum + Math.floor(Math.random() * (maksimum - minimum)+ minimum);
         }
