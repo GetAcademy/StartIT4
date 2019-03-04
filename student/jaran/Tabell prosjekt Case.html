@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <style>
+        .wrapper {
+            background-color: #1c1c1c;
+            border: solid white 1px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 1200px;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: 'header header header header header' 'menu content content content content' 'menu content content content content' 'footer footer footer footer footer';
+        }
+
+        body {
+            background-color: dodgerblue;
+        }
+
+
+
+
+        .header {
+            grid-area: header;
+            border: solid white 1px;
+            background-color: #3a3a3a;
+            margin: 10px;
+        }
+
+
+        .menu {
+            grid-area: menu;
+            border: solid white 1px;
+            background-color: #3a3a3a;
+            margin: 10px;
+        }
+
+        .content {
+            grid-area: content;
+            border: solid white 1px;
+            background-color: #3a3a3a;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 5px;
+            grid-auto-rows: min-content;
+            overflow-y: scroll;
+            height: 310px;
+        }
+
+        .footer {
+            grid-area: footer;
+            border: solid white 1px;
+            background-color: #3a3a3a;
+            margin: 10px;
+        }
+
+        .menu-item {
+            list-style: none;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            border: solid white 1px;
+            background-color: #1e1e1e;
+            color: white;
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .madeby {
+            list-style: none;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            background-color: #1e1e1e;
+            color: white;
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .content {
+            list-style: none;
+            grid-area: content;
+            margin: 10px;
+            padding: 10px;
+            background-color: #3a3a3a;
+            grid-row-gap: 5px;
+            grid-column-gap: 5px;
+        }
+
+        .top {
+            list-style: none;
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            background-color: #1e1e1e;
+            color: white;
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .cell {
+            border: solid white 1px;
+            color: white;
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            height: 20px;
+            line-height: 20px;
+            background-color: #1e1e1e;
+        }
+
+        ::-ms-clear {
+            display: none;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        textarea {
+            border: 0px;
+        }
+
+        caption {
+            font-size: 30px;
+        }
+        .ferdig {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="header">
+            <div class="top">header</div>
+        </div>
+        <div class="menu">
+            <li class="menu-item">menu</li>
+            <li class="menu-item">menu</li>
+            <li class="menu-item">menu</li>
+            <li class="menu-item">menu</li>
+            <li class="menu-item">menu</li>
+        </div>
+        <div id="content" class="content">
+            
+        </div>
+        <div class="footer">
+            <div class="madeby">footer</div>
+        </div >
+    </div>
+
+    <script>
+        
+        visMenu();
+
+        function visMenu() {
+            document.getElementById('content').innerHTML = `
+                    <table style="width:100%">
+                        <caption>Menu</caption>
+                        <tr>
+                            <th>Dato</th>
+                            <th>Nøkkelvaner</th>
+                            <th>Oppsumering</th>
+                            <th>Oppgaver</th>
+                            <th>Andre</th>
+                        </tr>
+                        <tr>
+                            <td>01.01<button onclick="visEdit1()">Edit</button></td>
+                            <td id="rute1" class.inherit></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>02.01<button onclick="visEdit1()">Edit</button></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>03.01<button onclick="visEdit1()">Edit</button></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </table>
+                    `;
+        }
+        function visEdit1() {
+            document.getElementById('content').innerHTML = `
+                    <table>
+                        <tr>
+                            <th>01.01</th>
+                            <th><input type="checkbox" id="chk1" onchange="toggleStyle()" />Nøkkelvaner</th>
+                            <th><input type="checkbox" />Oppsumering</th>
+                            <th><input type="checkbox" />Oppgaver</th>
+                            <th><input type="checkbox" />Andre</th>
+                        </tr>
+                        <tr>
+                            <td><button onclick="visMenu()">Save</button></td>
+                            <td><textarea></textarea></td>
+                            <td><textarea></textarea></td>
+                            <td><textarea></textarea></td>
+                            <td><textarea></textarea></td>
+
+                        </tr>
+                    </table>
+                    `;
+        }
+        var rute1 = document.getElementById('rute1')
+        function toggleStyle() {
+            var isChecked1 = document.getElementById('chk1').checked;
+            rute1.classList.add('ferdig', isChecked1);
+        }
+    </script>
+
+
+
+</body>
+</html>

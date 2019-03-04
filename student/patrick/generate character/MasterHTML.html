@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <script src="RandomiserJava.js"></script>
+</head>
+
+<body>
+    <div>
+        <h2>Character Name: <em>Lucas Morgan</em></h2>
+    </div>
+    <div>
+        <h2>Race: <em>Human</em></h2>
+    </div>
+    <div>
+        <h2>Class: <em>Fighter</em></h2>
+    </div>
+    <div>
+        <h2>Level: <em id="level">3</em></h2>
+    </div>
+    <div>
+        <h2>HitPoints: <em id="Health"></em></h2>
+    </div>
+    <div>
+        <h2>AbilityScores:</h2>
+        <h3>Strength: <em id="str"></em></h3>
+        <h3>Dexterity: <em id="dex"></em></h3>
+        <h3>Constitution: <em id="con"></em></h3>
+        <h3>Intelligence: <em id="int"></em></h3>
+        <h3>Wisdom: <em id="wis"></em></h3>
+        <h3>Charisma: <em id="cha"></em></h3>
+
+    </div>
+    <div>
+        <h2>SkillPoints: <em id="skillpoints"></em></h2>
+    </div>
+
+    <script>
+        document.getElementById("str").innerHTML = RandomAbilityScore() +2;
+        document.getElementById("dex").innerHTML = RandomAbilityScore();
+        document.getElementById("con").innerHTML = RandomAbilityScore();
+        document.getElementById("int").innerHTML = RandomAbilityScore();
+        document.getElementById("wis").innerHTML = RandomAbilityScore();
+        document.getElementById("cha").innerHTML = RandomAbilityScore();
+        document.getElementById("level").innerHTML = RandomLevel();
+        document.getElementById("Health").innerHTML =
+
+            Math.ceil
+            (
+            RandomHealth
+                (
+                    parseInt
+                        (
+                            document.getElementById("level").innerHTML
+                        )
+                )
+                +
+                (
+                    (
+                        parseInt
+                            (
+                                document.getElementById("con").innerHTML
+                            )
+                    )
+                / 2 - 5
+                )
+                *
+                (
+                    parseInt
+                        (
+                        document.getElementById("level").innerHTML
+                        )
+                )
+            );
+
+        document.getElementById("skillpoints").innerHTML = Math.ceil(2 + parseInt(document.getElementById("int").innerHTML) / 2 - 5) * parseInt(document.getElementById("level").innerHTML);
+
+    </script>
+
+</body>
+
+
+</html>
