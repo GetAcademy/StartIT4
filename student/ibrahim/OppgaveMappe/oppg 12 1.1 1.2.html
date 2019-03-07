@@ -35,7 +35,7 @@ var ord = '';
                 delAvStylePx('height', høyde) +
                 delAvStyle('background-color', farge) +
                 '"> ' + 
-                KonsOgVokal()
+                tilfeldigBokstav()
                 + '</div>';
             document.write(divHtml);
             if (Math.random() < 0.9) tilfeldigFirkant();
@@ -65,97 +65,18 @@ var ord = '';
             const charCodeA = 'a'.charCodeAt(0);
             return String.fromCharCode(tall - 10 + charCodeA);
         }
-       
-        function tilfeldigVokal()
-        {
-            var vokal = tilfeldigTall(0, 8);
-            if (vokal == 0 ) return 'a';
-            else if (vokal == 1) return 'e';
-            else if (vokal == 2) return 'i';
-            else if (vokal == 3) return 'o';
-            else if (vokal == 4) return 'u';
-            else if (vokal == 5) return 'y';
-            else if (vokal == 6) return 'æ';
-            else if (vokal == 7) return 'ø';
-            else if (vokal == 8) return 'å';
-        }
-         /*function tilfeldigBokstav(){
+
+         function tilfeldigBokstav(){
             var bokstav = tilfeldigTall(0, 28);
             if (bokstav == 28) return 'å';
             else if (bokstav == 27) return 'ø';
             else if (bokstav == 26) return 'æ';
             const charCodeA = 'a'.charCodeAt(0);
             return String.fromCharCode(bokstav + charCodeA);
-           /* return String.fromCharCode(bokstav + 1 + charCodeA);
-            return String.fromCharCode(bokstav + 2 + charCodeA);
-            return String.fromCharCode(bokstav + 3 + charCodeA);
-            return String.fromCharCode(bokstav + 4 + charCodeA);
-            return String.fromCharCode(bokstav + 5 + charCodeA);
-            return String.fromCharCode(bokstav + 6 + charCodeA);
-            return String.fromCharCode(bokstav + 7 + charCodeA);
-            return String.fromCharCode(bokstav + 8 + charCodeA);
-            return String.fromCharCode(bokstav + 9 + charCodeA);
-            return String.fromCharCode(bokstav + 10 + charCodeA);
-            return String.fromCharCode(bokstav + 11 + charCodeA);
-            return String.fromCharCode(bokstav + 12 + charCodeA);
-            return String.fromCharCode(bokstav + 13 + charCodeA);
-            return String.fromCharCode(bokstav + 14 + charCodeA);
-            return String.fromCharCode(bokstav + 15 + charCodeA);
-            return String.fromCharCode(bokstav + 16 + charCodeA);
-            return String.fromCharCode(bokstav + 17 + charCodeA);
-            return String.fromCharCode(bokstav + 18 + charCodeA);
-            return String.fromCharCode(bokstav + 19 + charCodeA);
-            return String.fromCharCode(bokstav + 20 + charCodeA);
-            return String.fromCharCode(bokstav + 21 + charCodeA);
-            return String.fromCharCode(bokstav + 22 + charCodeA);
-            return String.fromCharCode(bokstav + 23 + charCodeA);
-            return String.fromCharCode(bokstav + 24 + charCodeA);
-            return String.fromCharCode(bokstav + 25 + charCodeA);
-
+           
         }
-         function WhatTheHell()
-        {
-            var Teller = 0;
-            Teller++;
-            if(Teller%1==0)
-            {
-                return tilfeldigKonstonant();
-            }
-            else
-            {
-                return tilfeldigVokal();
-            }
-        }*/
-
-        function tilfeldigKonstonant()
-        {
-            var Konsonanter =
-            [
-                'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'
-            ];
-            return Konsonanter[tilfeldigTall(0,20)];
-    
-        }
-
-        function KonsOgVokal()
-        {
-            return tilfeldigKonstonant() + tilfeldigVokal() + tilfeldigKonstonant() + tilfeldigVokal() + tilfeldigKonstonant()
-        }
-
-        /*var hasRun = false;
         
-        function tilfeldigOrd()
-        {
-            if(!hasRun)
-            {
-                for(let i = 0; i < 5;i++)
-                    {
-                        ord += WhatTheHell();
-                    }
-                    hasRun = true;
-            }
-            return ord;
-        }*/
+
         function tilfeldigTall(minimum, maksimum) {
             return minimum + Math.floor(Math.random() * (maksimum - minimum)+ minimum);
         }

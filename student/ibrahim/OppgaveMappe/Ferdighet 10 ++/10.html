@@ -1,36 +1,28 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
-<body onload="showDiv()">
+
+<body onload="test('onload')">
     <p>Ferdighet 2a - Alternative eventhandlere: onchange osv.</p>
-    <input type="text" onchange="showDiv()" oninput="testOnInput()" />
-    <h3 onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()">Test test test</h3>
+    <input type="text" onchange="test('onchange')" oninput="test('oninput')" />
+    <h3 onmouseover="test('onmouseover')" onmouseout="test('onmouseout')">Test test test</h3>
     <h2 id="info"></h2>
+    <div id="resultat"></div>
 
     <script>
-        function testOnLoad() {
-            document.getElementById('info').innerHTML += '<li>onload</li>';
+        var resultatDiv = document.getElementById('resultat');
+
+        function test(text) {
+            text = text;
+            resultatDiv.innerHTML += '<br>' + text;
         }
 
-        function testOnChange() {
-            document.getElementById('info').innerHTML += '<li>onchange</li>';
-        }
-
-        function testOnInput() {
-            document.getElementById('info').innerHTML += '<li>oninput</li>';
-        }
-
-        function testOnMouseOver() {
-            document.getElementById('info').innerHTML += '<li>onmouseover</li>';
-        }
-
-        function testOnMouseOut() {
-            document.getElementById('info').innerHTML += '<li>onmouseout</li>';
-        }
     </script>
 </body>
+
 </html>

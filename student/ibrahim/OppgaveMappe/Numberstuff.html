@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <style type="text/css">
+        #info {
+            background-color: lightblue;
+            font-size: 300%;
+            border: red 1px solid;
+        }
+
+        /* lat og && / ikke lat og &
+   lat eller || / ikke lat eller |
+   ikke lik (!) / !== ikke samme var
+
+
+*/
+    </style>
+
+    <div id="info"></div>
+
+
+    <script type="text/javascript">
+        window.onresize = windowSizeChanged;
+        windowSizeChanged()
+        function windowSizeChanged() {
+            var element = document.getElementById('info');
+            var height = window.innerHeight;
+            var width = window.innerWidth;
+            element.innerHTML = width + 'x' + height;
+            var totalPixelCount = height * width;
+
+            if (totalPixelCount > 1000000) {
+                element.innerHTML += ' større enn 1Mpx';
+            }
+            else if (totalPixelCount > 500000) {
+                element.innerHTML += ' større enn 1/2 av en Mpx';
+            }
+            else if (totalPixelCount > 250000) {
+                element.innerHTML += ' større enn 1/4 av en Mpx';
+            }
+            else if (totalPixelCount > 125000) {
+                element.innerHTML += ' større enn 1/8 av en Mpx';
+            } else {
+                element.innerHTML += ' mindre enn 1/8 av en Mpx';
+
+
+            } element.innerHTML += '<br/>';
+
+            if (width < 300 & height > 400) {
+                element.innerHTML += ' Høy og smal ';
+            }
+            if (width > 1200 | height > 600) {
+                element.innerHTML += ' stor bredde og/eller høyde ';
+            }
+            if (width === height) {
+                element.innerHTML += ' like stor bredde og høyde '
+            }
+
+            totalPixelCount = Math.floor(totalPixelCount / 1000);
+            element.innerHTML += ' (' + totalPixelCount + 'k' + ')';
+        }
+    </script>
+</body>
+
+</html>

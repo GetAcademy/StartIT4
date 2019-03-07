@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title></title>
@@ -10,6 +11,7 @@
         }
     </style>
 </head>
+
 <body>
     <p>Ferdighet 12 - Funksjoner med returverdi</p>
     <script>
@@ -30,8 +32,8 @@
                 delAvStylePx('width', bredde) +
                 delAvStylePx('height', høyde) +
                 delAvStyle('background-color', farge) +
-                '"> ' + 
-                tilfeldigBokstav() 
+                '"> ' +
+                tilfeldigBokstav()
                 + '</div>';
             document.write(divHtml);
             if (Math.random() < 0.9) tilfeldigFirkant();
@@ -61,7 +63,7 @@
             const charCodeA = 'a'.charCodeAt(0);
             return String.fromCharCode(tall - 10 + charCodeA);
         }
-        function tilfeldigBokstav(){
+        function tilfeldigBokstav() {
             var bokstav = tilfeldigTall(0, 28);
             if (bokstav == 28) return 'å';
             else if (bokstav == 27) return 'ø';
@@ -101,4 +103,5 @@
         }
     </script>
 </body>
+
 </html>
