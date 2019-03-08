@@ -12,67 +12,90 @@
 
 <body>
     <style type="text/css">
-    div {
-        background-color: lightblue;
-        color:black;
-        float: left;
-        margin: 2px;
-        width: 100px;
-        height: 100px;
-        font-family: helvetica;
-        font-size: 500%;
-        text-align: center;
-        vertical-align: middle;
-    }
-    div.first{
-        clear: left;
-    }
+        div.xBox,
+        div.first {
+            background-color: lightblue;
+            color: black;
+            float: left;
+            margin: 2px;
+            width: 100px;
+            height: 100px;
+            font-family: helvetica;
+            font-size: 500%;
+            text-align: center;
+            vertical-align: middle;
+        }
 
+        div.first {
+            clear: left;
+        }
     </style>
+    <a id="info" href="javascript:location.reload()"> Start på nytt</a><br>
+
 
     <div onclick="clickForX(this)" class="first"></div>
-    <div onclick="clickForX(this)"></div>
-    <div onclick="clickForX(this)"></div>
-    
+    <div class="xBox" onclick="clickForX(this)"></div>
+    <div class="xBox" onclick="clickForX(this)"></div>
+
     <div onclick="clickForX(this)" class="first"></div>
-    <div onclick="clickForX(this)"></div>
-    <div onclick="clickForX(this)"></div>
-    
+    <div class="xBox" onclick="clickForX(this)"></div>
+    <div class="xBox" onclick="clickForX(this)"></div>
+
     <div onclick="clickForX(this)" class="first"></div>
-    <div onclick="clickForX(this)"></div>
-    <div onclick="clickForX(this)"></div>
+    <div class="xBox" onclick="clickForX(this)"></div>
+    <div class="xBox" onclick="clickForX(this)"></div>
 
 
 
 
     <script type="text/javascript">
+        var isGameStopped = false;
+        var infoBox = document.getElementById('info');
 
+        function clickForX(clickX) {
+            if (!isGameStopped && clickX.innerHTML !== 'x' && clickX.innerHTML !== 'o') {
+                clickX.innerHTML = 'x';
 
+                if (isGameStopped == true) return;
+                checkWinning()
 
-    function clickForX(clickX){
-        if(clickX.innerHTML !== 'x' && clickX.innerHTML !== 'o') {
-            clickX.innerHTML = 'x';
+                var divs1 = document.getElementsByTagName('div');
+                var divs2 = new Array();
 
-        var divs1 = document.getElementsByTagName('div');
-        var divs2 = new Array();
-        
-            for (var i = 0; i < divs1.length; i++) {
-	        
-            if (divs1[i].innerHTML !== 'x' && divs1[i].innerHTML !== 'o') {
-		        divs2.push(divs1[i]);
-	        }
-        }
+                for (var i = 0; i < divs1.length; i++) {
 
-            if (divs2.length > 0) {
-	        var index = Math.floor(Math.random() * divs2.length);
-	            divs2[index].innerHTML = 'o';
-	            divs2[index].style.color = 'blue';
+                    if (divs1[i].innerHTML !== 'x' && divs1[i].innerHTML !== 'o') {
+                        divs2.push(divs1[i]);
+                    }
+                }
+
+                if (divs2.length > 0) {
+                    var index = Math.floor(Math.random() * divs2.length);
+                    divs2[index].innerHTML = 'o';
+                    divs2[index].style.color = 'blue';
+                    if (isGameStopped == true) return;
+
+                    checkWinning()
+                }
             }
         }
-    }
-
+        function checkWinning() {
+            var divs = document.getElementsByTagName('div');
+            var content1 = divs[0].innerHTML;
+            var content2 = divs[1].innerHTML;
+            var content3 = divs[2].innerHTML;
+            if (((content1 === 'x' || content1 === 'o')
+                && content2 === content1) && content3 === content1) {
+                var winner = content1 === 'x' ? 'Du' : 'Datamaskinen'
+                document.getElementById('info').innerHTML = winner + ' Vant start på nytt';
+                isGameStopped = true;
+            }
+        }
+        function restart() {
+            location.reload();
+        }
     </script>
+
 </body>
 
 </html>
-
