@@ -18,12 +18,12 @@
 -->
     <div id="dayAndTime" style="padding-top: 20px;"></div>
     <script type="text/javascript">
-        function showDayAndTime() {
+        //function showDayAndTime() {
             var div = document.getElementById('dayAndTime');
-         /*   var day = document.getElementById('day').value;
-            var hour = document.getElementById('hour').value;
-            var minute = document.getElementById('minute').value;
-            var dayNo = parseInt(day);*/
+            /*   var day = document.getElementById('day').value;
+               var hour = document.getElementById('hour').value;
+               var minute = document.getElementById('minute').value;
+               var dayNo = parseInt(day);*/
             var d = new Date();
             var hour = d.getHours();
             var minute = d.getMinutes();
@@ -41,33 +41,30 @@
 
 
             if (dayNo == 1 || dayNo == 2 || dayNo == 3 || dayNo == 4) {
-                if (hour > 11 && hour < 17) {
+                if (hour > 11 && hour < 17) 
                     div.innerHTML = day + ' - ' + hour + ':' + minute + ' - Åpen! ';
-                } else {
+                 else 
                     div.innerHTML = day + ' - ' + hour + ':' + minute + ' - Stengt ';
                 }
 
-            }
-            else if (dayNo == 5) {
-                if (hour > 11 && hour < 18) {
+            else if (dayNo === 5) {
+                if (hour > 11 && hour < 18) 
                     div.innerHTML = hour + ':' + minute + ' Fredag - Åpen! ';
-                } else {
+                 else
                     div.innerHTML = hour + ':' + minute + ' Fredag - Stengt ';
-                }
-
             }
-            else if (dayNo == 6) {
-                if (hour > 11 && hour < 15) {
+            else if (dayNo === 6) {
+                if (hour > 11 && hour < 15)
                     div.innerHTML = hour + ':' + minute + ' Lørdag - Åpen! ';
-                } else {
+                else
                     div.innerHTML = hour + ':' + minute + ' Lørdag - Stengt ';
-                }
+            }
 
-            } else {
+            else if(dayNo === 7) {
                 div.innerHTML = 'Søndag - Stengt'
             }
 
-        }
+
 
 
 

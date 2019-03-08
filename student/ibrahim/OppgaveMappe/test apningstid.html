@@ -13,12 +13,7 @@
     -->
     <div id="dayAndTime" style="padding-top: 20px;"></div>
     <script type="text/javascript">
-        //function showDayAndTime() {
             var div = document.getElementById('dayAndTime');
-            /*
-            var day = document.getElementById('day').value;
-            var dayNo = parseInt(day);
-            */
             var d = new Date();
             var hour = d.getHours();
             var minute = d.getMinutes();
@@ -31,8 +26,6 @@
             else if (dayNo === 5) day = 'Fredag';
             else if (dayNo === 6) day = 'Lørdag';
             else if (dayNo === 7) day = 'Søndag';
-            //var hour = document.getElementById('hour').value;
-            //var minute = document.getElementById('minute').value;
             div.innerHTML = day + ' - ' + hour + ':' + minute;
             // Mandag - torsdag 11-17
             if (dayNo < 5) {
