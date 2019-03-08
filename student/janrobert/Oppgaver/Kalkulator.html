@@ -47,16 +47,23 @@
         <div onclick="addCharacter('-')">-</div>
         
         <div class="firstInRow" onclick="addCharacter('0')">0</div>
-        <div onclick="addCharacter('C')">C</div>
-        <div onclick="addCharacter('=')">=</div>
+        <div onclick="clearResult()">C</div>
+        <div onclick="calculate()">=</div>
         <div onclick="addCharacter('+')">+</div>
 
     <script>
-    function addCharacter(x) {
         var rBox = document.getElementById('resultBox');
-
+    function addCharacter(x) {
         rBox.innerHTML += x;
+    }
 
+    function clearResult() {
+        rBox.innerHTML = '';
+    }
+
+    function calculate() {
+        var math = rBox.innerHTML;
+        return math;
     }
     </script>
 </body>
