@@ -3,27 +3,95 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Tommy sin side</title>
-    <style>
-        body{
-            background-color: lightblue;
-        }
-        p{
-            margin: 25px;
-            border: 10px solid grey;
-            max-width: 200px
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <script src="C:\Users\Tjomm\source\repos\Alien survivor guide spill\js\p5.play.js"></script>
+</head>
+<body>
+    <script>
+        let squares = [];
+        let player = [];
+        let px = 300;
+        let py = 200;
+        let bullet = [];
+        var SCENE_W = 1200;
+        var SCENE_H = 800;
+        
+        function setup() {
+            createCanvas(600, 400);
+            background(0);
+            let hw = 25;
+            for (let i = 0; i < 600; i = i + hw) {
+                for (let j = 0; j < 400; j = j + hw ) {
+                    squares.push(new Square(i, j, hw))
+                }
+            }
+            player = new Player(300, 200);
+
+        
             
         }
 
+        function draw() {
+            for (let i = 0; i < squares.length; i++) {
+                squares[i].show();
+            }
+           
+           
+            player.playerShow();
+            player.playerMove();
+            player.playerMove();
+            
+            
+            
+        }
 
-    </style>
-</head>
-<body>
-    Dette er min side - og jeg heter Tommy!
-    <br/>
-    <div style="text-align:center;">
-        <a href="/StartIT4/main/index.html" >Tilbake til hovedsiden til Start IT</a>
-    </div>
-    <p style="text-align:center; color:red;">Hello World</p>
+        class Square {
+            constructor(xx, yy, hw = 10) {
+                this.xx = xx;
+                this.yy = yy;
+                this.hw = hw;
+
+                
+            }
+            show() {
+                stroke(255);
+                strokeWeight(1);
+                fill(255,0,100);
+                rect(this.xx, this.yy, this.hw, this.hw);
+            }
+        }
+
+        class Player {
+            constructor(px, py, ps) {
+                this.px = px;
+                this.py = py
+                this.ps = 25;
+              
+            }
+            playerShow() {
+                stroke(0);
+                fill(0, 0, 255);
+                ellipse(this.px, this.py, this.ps, this.ps);
+            }
+
+            playerMove() {
+                // W or up arrow
+                if (keyIsDown(87) || keyIsDown(UP_ARROW)) this.py = py--;
+
+                // A or left arrow
+                if (keyIsDown(65) || keyIsDown(LEFT_ARROW))this.px = px--;
+
+                // S or down arrow
+                if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) this.py = py++;
+
+                // D or right arrow
+                if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) this.px = px++;
+            }
+          
+        }
+       
+        
+    </script>
 </body>
 </html>
