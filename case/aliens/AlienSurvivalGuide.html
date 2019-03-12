@@ -56,6 +56,24 @@
   color: black;
 }
 
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+    }
+
 /* Style the content */
 .content {
   margin-left: 200px;
@@ -105,29 +123,39 @@ h3 {
 </head>
 <body>
 
-<div class="sidenav">
-  <h3><img src="https://img.icons8.com/ios/50/000000/menu-filled.png"></h3>
-  <a href="#">H O M E</a>
-  <a href="#">A B O U T</a>
-  <a href="#">V I D E O S</a>
-  <a href="#">P O S T E R</a>
-  <a href="#">P R E S S</a>
-  <a href="#">E X P E R I E N C E</a>
+    <div id="mySidenav" class="sidenav">
+        <h3><img href="javascript:void(0)" class="closebtn" onclick="closeNav()" src="https://img.icons8.com/ios/100/000000/multiply.png"></h3>
+        <a href="#">H O M E</a>
+        <a href="#">A B O U T</a>
+        <a href="#">V I D E O S</a>
+        <a href="#">P O S T E R</a>
+        <a href="#">P R E S S</a>
+        <a href="#">E X P E R I E N C E</a>
 
-</div>
-
-<div class="footer">
- <p>Copyright &copy; StartIT4 2019</p>
-</div>
-
-<div class="content">
-  <h1>Alien Survival Guide</h1>
-  <h2>Vi tester masse forskjellig.</h2>
-    <div id="video">
-        <iframe width="720" height="500"src="https://www.youtube.com/embed/2pmgu6Yfbb8?&autoplay=1" frameborder="1" allow="accelerometer; autoplay; encrypted; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
     </div>
-</div>
+
+    <div class="footer">
+        <p>Copyright &copy; StartIT4 2019</p>
+    </div>
+
+    <div class="content">
+        <h1>Alien Survival Guide</h1>
+        <h2>Vi tester masse forskjellig.</h2>
+        <div id="video">
+            <iframe width="720" height="500" src="https://www.youtube.com/embed/2pmgu6Yfbb8?&autoplay=1" frameborder="1" allow="accelerometer; autoplay; encrypted; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 
 </body>
 </html>
