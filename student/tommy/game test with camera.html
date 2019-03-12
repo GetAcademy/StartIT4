@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <script src="C:\Users\Tjomm\source\repos\Alien survivor guide spill\js\p5.play.js"></script>
+</head>
+<body>
+    <script>
+        let player;
+        let squares = []
+        let SCENE_W = 1200;
+        let SCENE_H = 800;
+
+
+
+        function setup() {
+            createCanvas(600, 400);
+            background(0);
+            player = createSprite(300, 200, 25, 25);
+            let hw = 25;
+            for (let i = 0; i < 600; i = i + hw) {
+                for (let j = 0; j < 400; j = j + hw) {
+                    squares.push(new Square(i, j, hw))
+                }
+            } for (let i = 0; i < squares.length; i++) {
+                squares[i].show();
+            }
+            
+        }
+        function draw() {
+            
+            player.velocity.x = (camera.mouseX - player.position.x) / 20;
+            player.velocity.y = (camera.mouseY - player.position.y) / 20;
+
+            if (mouseIsPressed) {
+                camera.zoom = 0.5;
+            } else {
+                camera.zoom = 1;
+            }
+
+            camera.position.x = player.position.x;
+            camera.position.y = player.position.y;
+
+            if (player.position.x < 0)
+                player.position.x = 0;
+            if (player.position.y < 0)
+                player.position.y = 0;
+            if (player.position.x > SCENE_W)
+                player.position.x = SCENE_W;
+            if (player.position.y > SCENE_H)
+                player.position.y = SCENE_H;
+
+
+            noStroke();
+            fill(0, 0, 0, 20);
+            ellipse(player.position.x, player.position.y + 90, 80, 30);
+
+            drawSprite(player);
+            camera.on();
+              
+
+               
+            }
+
+            class Square {
+                constructor(xx, yy, hw = 10) {
+                    this.xx = xx;
+                    this.yy = yy;
+                    this.hw = hw;
+
+
+                }
+                show() {
+                    stroke(255);
+                    strokeWeight(1);
+                    fill(255, 0, 100);
+                    rect(this.xx, this.yy, this.hw, this.hw);
+                }
+            }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 0;
+        }
+
+        td {
+            background-color: white;
+            padding: 0;
+        }
+
+        td.room {
+            width: 40px;
+            height: 40px;
+        }
+
+        td.wall {
+            background-color: black;
+        }
+
+        td.noWall {
+            background-color: white;
+        }
+
+        td.small {
+            width: 10px;
+            height: 10px;
+        }
+
+        td.wide {
+            width: 40px;
+        }
+
+        td.high {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <table id="info">
+
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        var size = 15;
+        var dispaly = '';
+        var Rooms = '';
+        Laborint();
+        function Laborint() {
+            RoomLoop();
+            document.getElementById("info").innerHTML += dispaly;
+            //document.write(tableHTML);
+        }
+        function Room() {
+            let Rooms = 0;
+            for (let i = 0; i < 15; i++) {
+                if (i % 2 == 0) {
+                    Rooms += '<tr>' +
+                        '<td class="wall high"></td>' +
+                        '<td class="room"></td>' +
+                        '<td class="wall high"></td>' +
+                        '<td class="room"></td>' +
+                        '<td class="wall high"></td>' +
+                        '</tr>';
+                }
+                else {
+                    Rooms += '<tr> ' +
+		                '<td class="wall small"></td>'+
+		                '<td class="wall wide"></td>'+
+		                '<td class="wall small"></td>'+
+		                '<td class="wall wide"></td>'+
+		                '<td class="wall small"></td>'+
+	                    '</tr>';
+                }
+            }
+
+            return Rooms;
+
+        }
+
+        function RoomLoop() {
+            for (let i = 0; i < size; i++) {
+                dispaly += Room();
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

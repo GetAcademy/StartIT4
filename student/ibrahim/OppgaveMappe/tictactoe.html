@@ -30,7 +30,7 @@
             clear: left;
         }
     </style>
-    <a id="info" href="javascript:location.reload()"> Start på nytt</a><br>
+    <a id="info" href="javascript:location.reload()"></a><br>
 
 
     <div onclick="clickForX(this)" class="first"></div>
@@ -83,10 +83,51 @@
             var content1 = divs[0].innerHTML;
             var content2 = divs[1].innerHTML;
             var content3 = divs[2].innerHTML;
+            var content4 = divs[3].innerHTML;
+            var content5 = divs[4].innerHTML;
+            var content6 = divs[5].innerHTML;
+            var content7 = divs[6].innerHTML;
+            var content8 = divs[7].innerHTML;
+            var content9 = divs[8].innerHTML;
             if (((content1 === 'x' || content1 === 'o')
                 && content2 === content1) && content3 === content1) {
                 var winner = content1 === 'x' ? 'Du' : 'Datamaskinen'
-                document.getElementById('info').innerHTML = winner + ' Vant start på nytt';
+                document.getElementById('info').innerHTML = winner + ' vant start på nytt';
+                isGameStopped = true;
+            } else if (((content1 === 'x' || content1 === 'o') && content4 === content1)
+                && content7 === content1) {
+                var winner = content1 === 'x' ? 'Du' : 'Datamaskinen'
+                document.getElementById('info').innerHTML = winner + ' vant start på nytt';
+                isGameStopped = true;
+            } else if (((content1 === 'x' || content1 === 'o') && content5 === content1)
+                && content9 === content1) {
+                var winner = content1 === 'x' ? 'Du' : 'Datamaskinen'
+                document.getElementById('info').innerHTML = winner + ' vant start på nytt';
+                isGameStopped = true;
+            } else if (((content2 === 'x' || content2 === 'o') && content5 === content2)
+                && content8 === content2) {
+                var winner = content2 === 'x' ? 'Du' : 'Datamaskinen'
+                document.getElementById('info').innerHTML = winner + ' vant start på nytt';
+                isGameStopped = true;
+            } else if (((content3 === 'x' || content3 === 'o') && content5 === content3)
+                && content7 === content3) {
+                var winner = content3 === 'x' ? 'Du' : 'Datamaskinen'
+                document.getElementById('info').innerHTML = winner + ' vant start på nytt';
+                isGameStopped = true;
+            } else if (((content3 === 'x' || content3 === 'o') && content6 === content3)
+                && content9 === content3) {
+                var winner = content3 === 'x' ? 'Du' : 'Datamaskinen'
+                document.getElementById('info').innerHTML = winner + ' vant start på nytt';
+                isGameStopped = true;
+            } else if (((content4 === 'x' || content4 === 'o') && content5 === content4)
+                && content6 === content4) {
+                var winner = content4 === 'x' ? 'Du' : 'Datamaskinen'
+                document.getElementById('info').innerHTML = winner + ' vant start på nytt';
+                isGameStopped = true;
+            } else if (((content7 === 'x' || content7 === 'o') && content8 === content7)
+                && content9 === content7) {
+                var winner = content7 === 'x' ? 'Du' : 'Datamaskinen'
+                document.getElementById('info').innerHTML = winner + ' vant start på nytt';
                 isGameStopped = true;
             }
         }
