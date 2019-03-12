@@ -14,14 +14,14 @@
     <style type="text/css">
         div.xBox,
         div.first {
-            background-color: lightblue;
+            background-color: rgb(0, 107, 9);
             color: black;
             float: left;
             margin: 2px;
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             font-family: helvetica;
-            font-size: 500%;
+            font-size: 1000%;
             text-align: center;
             vertical-align: middle;
         }
@@ -56,7 +56,6 @@
             if (!isGameStopped && clickX.innerHTML !== 'x' && clickX.innerHTML !== 'o') {
                 clickX.innerHTML = 'x';
 
-                if (isGameStopped == true) return;
                 checkWinning()
 
                 var divs1 = document.getElementsByTagName('div');
@@ -72,8 +71,8 @@
                 if (divs2.length > 0) {
                     var index = Math.floor(Math.random() * divs2.length);
                     divs2[index].innerHTML = 'o';
-                    divs2[index].style.color = 'blue';
-                    if (isGameStopped == true) return;
+                    divs2[index].style.color = 'red';
+
 
                     checkWinning()
                 }
@@ -95,7 +94,6 @@
             location.reload();
         }
     </script>
-
 </body>
 
 </html>
