@@ -126,7 +126,9 @@ h3 {
 span{
     font-size: 60px;
 }
-   
+ .hide{
+     display: none;
+ }  
         
        
   
@@ -144,7 +146,7 @@ span{
         <a href="#">E X P E R I E N C E</a>
 
     </div>
-    <span onclick="openNav()">open</span>
+    <span id="openBtn" onclick="openNav()">open</span>
     <div class="footer">
         <p>Copyright &copy; StartIT4 2019</p>
     </div>
@@ -159,14 +161,19 @@ span{
     </div>
 
     <script>
+        var open = document.getElementById("open");
         /* Set the width of the side navigation to 250px */
         function openNav() {
+            
             document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("openBtn").classList.add("hide");
         }
 
         /* Set the width of the side navigation to 0 */
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("openBtn").classList.remove("hide");
+            
         }
 
 
