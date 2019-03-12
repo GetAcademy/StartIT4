@@ -124,7 +124,7 @@ h3 {
 <body>
 
     <div id="mySidenav" class="sidenav">
-        <h3><img href="javascript:void(0)" class="closebtn" onclick="closeNav()" src="https://img.icons8.com/ios/100/000000/multiply.png"></h3>
+        <h3><img href="javascript:void(0)" class="closebtn" onclick="btnNav()" src="https://img.icons8.com/ios/100/000000/multiply.png"></h3>
         <a href="#">H O M E</a>
         <a href="#">A B O U T</a>
         <a href="#">V I D E O S</a>
@@ -148,13 +148,16 @@ h3 {
     </div>
 
     <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
+        let open = true
+        function btnNav(open) {
+            if (open = true) {
+                document.getElementById("mySidenav").style.width = "0";
+            } else if (open = false) {
+                document.getElementById("mySidenav").style.width = "250";
+            }
         }
 
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
+        
     </script>
 
 </body>
