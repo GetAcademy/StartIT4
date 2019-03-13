@@ -4,14 +4,19 @@
 
     </head>
     <body>
-        <input id="kalkulator">
+        <input id="kalkulator" type="text" oninput="utregning()">
         <div id="svar">Resultatet kommer her.</div>
+
         <script>
-            var Fahrenheit = 130
-            var celcius = (Fahrenheit - 32) * 5 / 9
+            var fahrenheit = document.getElementById("kalkulator");
+            var Svar = document.getElementById("svar");
+
 
             function utregning() {
-                document.getElementById("svar").innerHTML = celcius;
+            //  var celcius = (fahrenheit - 32) * 5 / 9;
+                var celcius = fahrenheit + 12;
+
+                Svar.innerHTML = celcius;
             }
         </script>
     </body>

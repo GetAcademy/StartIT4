@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title></title>
@@ -11,19 +12,20 @@
         }
     </style>
 </head>
+
 <body>
     <p>Ferdighet 9c - Valgsetninger - Sammenligne to objekter (f.eks. er det samme div-element i to elementer?)</p>
     <div id="a" onclick="doClick(this)" style="background-color: pink">A</div>
     <div id="b" onclick="doClick(this)" style="background-color: lightgreen">B</div>
     <div id="c" onclick="doClick(this)" style="background-color: lightblue">C</div>
-    <div id="info"  onclick="doClick(this)">Tykk på en firkant!</div>
+    <div id="info" onclick="doClick(this)">Tykk på en firkant!</div>
 
     <script>
         var infoDiv = document.getElementById('info');
         var divA = document.getElementById('a');
         var divB = document.getElementById('b');
         var divC = document.getElementById('c');
-        var buttonLastClicked ;
+        var buttonLastClicked;
         var buttonBeforeLastClick;
 
         function doClick(buttonClicked) {
@@ -36,13 +38,14 @@
                 infoDiv.innerHTML += ' (samme som forrige gang)';
 
             if (buttonBeforeLastClick == buttonClicked)
-                infoDiv.innerHTML +=' (samme som for to ganger siden) ';
-            
-            buttonBeforeLastClick = buttonLastClicked;            
+                infoDiv.innerHTML += ' (samme som for to ganger siden) ';
+
+            buttonBeforeLastClick = buttonLastClicked;
             buttonLastClicked = buttonClicked;
-           
+
 
         }
     </script>
 </body>
+
 </html>

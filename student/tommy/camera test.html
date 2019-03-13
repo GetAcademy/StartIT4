@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="C:\Users\Tjomm\source\repos\Alien survivor guide spill\js\p5.js"></script>
+    <script src="C:\Users\Tjomm\source\repos\Alien survivor guide spill\js\p5.play.js"></script>
+</head>
+<body>
+    <script>
+        var player;
+        
+        
+        var px = 400;
+        var py = 200;
+        var SCENE_W = 1600;
+        var SCENE_H = 800;
+
+        function setup() {
+            createCanvas(800, 400);
+
+            player = createSprite(px, py, 50, 100);
+
+            
+        }
+
+        function draw() {
+            background(200, 180, 20);
+            camera.position.x = mouseX;
+            camera.position.y = mouseY;
+            player.position.x = px;
+            player.position.y = py;
+
+            if (mouseIsPressed) {
+                camera.zoom = 0.5;
+            } else {
+                camera.zoom = 1;
+            }
+
+            
+            
+
+
+
+            noStroke();
+            fill(0, 0, 0, 20);
+            ellipse(player.position.x, player.position.y + 90, 80, 30);
+
+            drawSprite(player);
+            controls();
+            camera.on();
+            
+        } 
+
+        function controls() {
+            if (keyIsDown(87) || keyIsDown(UP_ARROW)) {
+                py += -2;
+            } else if (keyIsDown(65) || keyIsDown(LEFT_ARROW)) {
+                px += -2;
+            } else if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) {
+                 py += +2;
+            } else if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) {
+                px += +2;
+            }
+        }
+
+    </script>
+</body>
+</html>
