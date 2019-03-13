@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-style: ridge;
+            float: left;
+        }
+        td {
+            width: 10px;
+            height: 10px;
+        }
+        td.snake {
+            background-color: blueviolet;
+        }
+        td.food {
+            background-color: red;
+        }
+        div {
+            position: relative;
+            clear: left;
+        }
+    </style>
+</head>
+<body onkeydown="return controlSnake(event)">
+    <div><h2 id="scoreboard">SCORE:</h2></div>
+    <table id="snakeTable"></table>
+
+    <script>
+        var scoreboard = document.getElementById("scoreboard")
+        var score = 0;
+        var snakeModel;
+        initModel();
+        updateView();
+
+        setInterval(move, 150);
+
+        function updateView() {
+            var snakeTable = document.getElementById('snakeTable');
+            snakeTable.innerHTML = '';
+
+            for (var rowIndex = 0; rowIndex < snakeModel.size; rowIndex++) {
+                var tr = snakeTable.insertRow();
+                for (var columnIndex = 0; columnIndex < snakeModel.size; columnIndex++) {
+                    var td = tr.insertCell();
+                }
+            }
+
+            var bodyPart = snakeModel.snakeHead;
+            while (bodyPart != null) {
+                var td = snakeTable.rows[bodyPart.y].cells[bodyPart.x];
+                td.classList.add('snake');
+                bodyPart = bodyPart.nextBodyPart;
+            }
+
+            var food = snakeModel.food;
+            var td = snakeTable.rows[food.y].cells[food.x];
+            td.classList.add('food');
+
+            scoreboard.innerHTML = 'SCORE:' + score;
+
+        }
+
+        function initModel() {
+                snakeModel = { size: 30 };
+                snakeModel.snakeHead = randPos();
+                snakeModel.food = randPos();
+                snakeModel.growCount = 2;
+                snakeModel.nextBodyPart = null;
+        }
+        
+
+        function randPos() {
+            return {
+                x: Math.floor(Math.random()*snakeModel.size),
+                y: Math.floor(Math.random()*snakeModel.size)
+            }
+        }
+
+        function createNewSnakeHead() {
+                return {
+                    x: snakeModel.snakeHead.x + snakeModel.direction.x,
+                    y: snakeModel.snakeHead.y + snakeModel.direction.y,
+                    nextBodyPart: snakeModel.snakeHead
+                };
+        }
+
+        function move() {
+            if(!snakeModel.direction) return;
+            snakeModel.snakeHead = createNewSnakeHead();
+            if (snakeModel.growCount > 0) {
+                snakeModel.growCount--;
+            }else {
+                // Slette siste element
+                var bodyPart = snakeModel.snakeHead;
+                var lastBodyPart = null;
+                while (bodyPart.nextBodyPart != null) {
+                    lastBodyPart = bodyPart;
+                    bodyPart = bodyPart.nextBodyPart;
+                }
+                if (lastBodyPart != null) {
+                    lastBodyPart.nextBodyPart = null;
+                }
+
+            }
+
+            if (
+                snakeModel.snakeHead.x === snakeModel.food.x &&
+                snakeModel.snakeHead.y === snakeModel.food.y) {
+                    snakeModel.food = randPos();
+                    snakeModel.growCount = 1;
+                    score = score + 10;
+
+                }
+            if (snakeModel.snakeHead.x > snakeModel.size ||
+                snakeModel.snakeHead.y > snakeModel.size ||
+                snakeModel.snakeHead.x < 0 ||
+                snakeModel.snakeHead.y < 0) {
+                    snakeModel.snakeHead = randPos();
+                    snakeModel.growCount = 2;
+                    score = 0;
+            }
+            updateView();
+        }
+
+        function controlSnake(e) {
+            if( e.keyCode == 37) {//left
+                snakeModel.direction = { x: -1, y: 0};
+            } else if( e.keyCode == 39) {//right
+                snakeModel.direction = { x: 1, y: 0};
+            } else if( e.keyCode == 38) {//up
+                snakeModel.direction = { x: 0, y: -1};
+            } else if( e.keyCode == 40) {//down
+                snakeModel.direction = { x: 0, y: 1};
+            }
+        }
+
+   </script>
+</body>
+
+</html>
