@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+
+    <style>
+        table, tr, td, th {
+            border: 1px solid lightgray;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 4px;
+        }
+
+        th {
+            background-color: darkblue;
+            border: 1px solid darkblue;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: antiquewhite;
+        }
+    </style>
+
+</head>
+
+    <body>
+
+        <table id="TaskTable">
+
+        </table>
+        <input id="Description" type="text" /> <input id="Person" type="text" /> <input id="Deadline" type="date" /> <button onclick="AddTask()">Add</button>
+
+        <script>
+
+            //Model
+            var Tasks =
+                [
+                    
+                ];
+
+            //Controller
+            function AddTask()
+            {
+                Tasks.push({
+                    Description: document.getElementById("Description").value,
+                    Person: document.getElementById("Person").value,
+                    Deadline: new Date(document.getElementById('Deadline').value),
+                    Done: false,
+                    Finished: "Not Finished"
+                });
+                document.getElementById("Description").value = null;
+                document.getElementById("Person").value = null;
+                document.getElementById("Deadline").value = null;
+
+                View();
+            }
+
+            //View
+            View();
+            function View()
+            {
+                var TableContent =
+                    `<tr>
+                        <th>Task</th>
+                        <th>Person</th>
+                        <th>Deadline</th>
+                        <th>Done</th>
+                        <th>Finished</th>
+                        <th></th>
+                    </tr>`;
+
+                for (let i = 0; i < Tasks.length; i++)
+                {
+                    TableContent += CreateTableContentRow(i);
+                }
+                document.getElementById("TaskTable").innerHTML = TableContent;
+            }
+
+            function CreateTableContentRow(Change)
+            {
+                const CheckDone = Tasks[Change].Done ? 'checked="checked"' : '';
+
+                if (!Tasks[Change].EditMode) {
+                    return `<tr>
+                                <td>${Tasks[Change].Description}</td>
+                                <td>${Tasks[Change].Person}</td>
+                                <td>${Tasks[Change].Deadline.toLocaleDateString()}</td>
+                                <td><input onchange="ChangeDone(this, ${Change})" type="checkbox" ${CheckDone} /></td>
+                                <td>${Tasks[Change].Finished}</td>
+                                <td>
+                                    <button onclick="DeleteTask(${Change})">Delete</button>
+                                    <button onclick="EditTask(${Change})">Edit</button>
+                                </td>
+                            </tr>
+                        `;
+                }
+                else
+                {
+                    return `<tr>
+                                <td><input id="EditDescription${Change}" type="text" value="${Tasks[Change].Description}"/></td>
+                                <td><input id="EditPerson${Change}" type="text" value="${Tasks[Change].Person}"/></td>
+                                <td><input id="EditDate${Change}" type="date" value="${Tasks[Change].Deadline.toISOString().substr(0,10)}"/></td>
+                                <td><input onchange="ChangeDone(this, ${Change})" type="checkbox" ${CheckDone} /></td>
+                                <td>${Tasks[Change].Finished}</td>
+                                <td>
+                                    <button onclick="UpdateTask(${Change})">Save</button>
+                                </td>
+                            </tr>
+                            `;
+                }
+            }
+
+            function ChangeDone(Checkbox, Index)
+            {
+                if (Tasks[Index].Done != true)
+                {
+                    Tasks[Index].Done = Checkbox.checked;
+                    Tasks[Index].Done.disabled = true;
+                    FinishedDate(Index);
+                }
+                View();
+            }
+
+
+            function FinishedDate(Index)
+            {
+                Tasks[Index].Finished = new Date().getDate() + "." + new Date().getMonth() + "." +  new Date().getFullYear();
+            }
+
+            function DeleteTask(Index)
+            {
+                Tasks.splice(Index, 1);
+                View();
+            }
+
+            function EditTask(Index)
+            {
+                Tasks[Index].EditMode = true;
+                View();
+            }
+
+            function UpdateTask(Index)
+            {
+                Tasks[Index].Description = document.getElementById(`EditDescription${Index}`).value;
+                Tasks[Index].Person = document.getElementById(`EditPerson${Index}`).value;
+                Tasks[Index].Deadline = new Date(document.getElementById(`EditDate${Index}`).value);
+                Tasks[Index].EditMode = false;
+                View();
+            }
+
+            function GetDate()
+            {
+                return new Date();
+            }
+
+        </script>
+
+    </body>
+
+</html>
