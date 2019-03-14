@@ -46,7 +46,17 @@
         div.mainGrid {
             display: grid;
             grid-gap: 1em;
-            grid-template-areas: 'MainHeader' 'SecondHeader' 'ThirdHeader' 'IntroductionText' 'Alignment' 'HitDice' 'StartingWealth' 'ClassSkills' 'ClassSkillsText' 'SkillRanksPerLevel' 'TableAlchemist' 'TableAlchemistTable' 'ClassFeatures' 'Proficiencies' 'Alchemy' 'Bombs' 'BrewPotion' 'Mutagen' 'ThrowAnything' 'Discovery' 'PoisonResistance' 'PoisonUse' 'SwiftAlchemy' 'SwiftPoisoning' 'PersistantMutagen' 'InstantAlchemy' 'GrandDiscovery' 'AlchemistPhoto' 'IndexBox';
+            grid-template-areas: 
+                'MainHeader' 'SecondHeader' 'ThirdHeader'
+                'IntroductionText' 'Alignment' 'HitDice' 
+                'StartingWealth' 'ClassSkills' 'ClassSkillsText' 
+                'SkillRanksPerLevel' 'TableAlchemist' 'TableAlchemistTable'
+                'ClassFeatures' 'Proficiencies' 'Alchemy' 
+                'Bombs' 'BrewPotion' 'Mutagen' 
+                'ThrowAnything' 'Discovery' 'PoisonResistance' 
+                'PoisonUse' 'SwiftAlchemy' 'SwiftPoisoning' 
+                'PersistantMutagen' 'InstantAlchemy' 'GrandDiscovery' 
+                'AlchemistPhoto' 'SideBar' 'IndexBox';
             font-family: 'Times New Roman', Times, serif !important;
             font-size: initial !important;
             color: black !important;
@@ -226,6 +236,21 @@
             background-image: url(https://images.unsplash.com/photo-1534142499731-a32a99935397?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
         }
 
+        .SideBar {
+            position:fixed;
+            margin-right: 84.92em;
+            width: 10em;
+            grid-area:IndexBox;
+            grid-row-start:1;
+            grid-row-end: span;
+        }
+        
+        .SideBar > a
+        {
+            color:black;
+            border:double;
+        }
+
         .IndexBox {
             grid-area: IndexBox;
             background-color: cornflowerblue;
@@ -247,7 +272,7 @@
 				Alchemist
 			</h2>
 		</div>
-		<div class="ThirdHeader">
+		<div class="ThirdHeader"> 
 			<h3>
 				Introduction
 			</h3>
@@ -890,8 +915,11 @@
 			<img src="AlchemistPhoto.jpg" alt="AlchemistPhoto" />
 		</div>
 		<div class="IndexBox">
-			placeholder
+			
 		</div>
+        <div class="SideBar">
+            <a href="https://www.d20pfsrd.com/classes">Class List</a>
+        </div>
 	</div>
 
 
@@ -915,6 +943,16 @@
                 default: "Light";
             }
         }
+        /*
+        document.getElementById("ToolBar").addEventListener("wheel", Scroll());
+
+        function Scroll()
+        {
+            document.getElementById("ToolBar").scrollIntoView();
+        }
+        */
+        
+        
     </script>
 
 </body>

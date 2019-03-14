@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    
+    <div id="box" style="background-color: black; border-color: red;">hei</div>
+
+    <script>
+        var widthInput = document.getElementById("width");
+        var heightInput = document.getElementById("height");
+        var borderInput = document.getElementById("border");
+        var boxDiv = document.getElementById("box");
+        tilfeldig()
+
+        function tilfeldig() {
+            var border = 1  + Math.floor(Math.random() * 500);
+            var width = 100 + Math.floor(Math.random() * 500);
+            var height = 100 + Math.floor(Math.random() * 30);
+
+            boxDiv.style.width = width + "px";
+            boxDiv.style.height = height + "px";
+            boxDiv.style.border = border + "px";
+        
+        }
+    </script>
+</body>
+</html>
