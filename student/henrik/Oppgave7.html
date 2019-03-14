@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <p>Ferdighet 7 - Sette variabel til resultat av et regnestykke. </p>
+    <input id="tallA" type="range" min="1" max="100" step="1" oninput="calculate()" value="2" />
+    <input id="tallB" type="range" min="1" max="100" step="1" oninput="calculate()" value="2" />
+    <input id="width" type="range" min="1" max="1000" step="1" oninput="utregning()" />
+    <input id="height" type="range" min="1" max="1000" step="1" oninput="utregning()" />
+    <div id="resultat"></div>
+    <div id="matte">test</div>
+    <div id="box" style="background-color: green;">test</div>
+
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var tallAInput = document.getElementById('tallA');
+        var tallBInput = document.getElementById('tallB');
+        var boxDiv = document.getElementById('box');
+        var heightInput = document.getElementById("height");
+        var widthInput = document.getElementById("width");
+        calculate();
+        function calculate() {
+            var tallA = parseInt(tallAInput.value);
+            var tallB = parseInt(tallBInput.value);
+            var sum = tallA + tallB;
+            var differense = tallA - tallB;
+            var produkt = tallA * tallB;
+            var kvotient = tallA / tallB;
+            resultatDiv.innerHTML = '' +
+                tallA + '+' + tallB + '=' + sum + '<br/>' +
+                tallA + '-' + tallB + '=' + differense + '<br/>' +
+                tallA + '*' + tallB + '=' + produkt + '<br/>' +
+                tallA + '/' + tallB + '=' + kvotient;x  
+        }
+
+
+
+        function utregning() {
+            var height = parseInt(heightInput.value);
+            var width = parseInt(widthInput.value);
+            document.getElementById("matte").innerHTML = height * width;
+            boxDiv.style.width = width + 'px';
+            boxDiv.style.height = height + 'px';
+        }
+    </script>
+</body>
+
+</html>
