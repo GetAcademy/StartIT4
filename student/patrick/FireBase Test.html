@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+
+
+</head>
+<body>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDzKfV0A1nCddkKHHxIeD61vHbThqQ2ncw",
+            authDomain: "best-project-d2b0a.firebaseapp.com",
+            databaseURL: "https://best-project-d2b0a.firebaseio.com",
+            projectId: "best-project-d2b0a",
+            storageBucket: "best-project-d2b0a.appspot.com",
+            messagingSenderId: "525630162603"
+        };
+        firebase.initializeApp(config);
+        var DataBase = firebase.firestore();
+
+
+        DataBase.collection("MasterName").add({
+            first: "Moe",
+            last: "Lester",
+            born: 1942
+        })
+            .then(function (docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function (error) {
+                console.error("Error adding document: ", error);
+            });
+        // Add a second document with a generated ID.
+        DataBase.collection("MasterName").add({
+            first: "Ray",
+            middle: "William",
+            last: "Johnson",
+            born: 2007
+        })
+            .then(function (docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function (error) {
+                console.error("Error adding document: ", error);
+            });
+        DataBase.collection("MasterName").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`);
+            });
+        });
+        DataBase.collection("items").add({
+            SkillRanksPerLevel: 4 + "+ int"
+        })
+
+    </script>
+</body>
+</html>

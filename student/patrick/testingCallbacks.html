@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="MyDiv"></div>
+
+    <script>
+        OrderPizza();
+        async function OrderPizza()
+        {
+            try
+            {
+                await MakePizza()
+                document.getElementById("MyDiv").innerHTML = await MakePizza();
+            }
+            catch(error)
+            {
+                document.getElementById("MyDiv").innerHTML = error;
+            }
+        }
+
+        function MakePizza()
+        {
+            var Pizza = `<img height="${Math.random() * 500}px" width="${Math.random() * 500}px" src="http://www.zaleskibros.com/desktop/img/pizza.jpg" />`;
+            return new Promise(function (resolve, reject)
+            {
+                resolve(document.getElementById("MyDiv").innerHTML = Pizza);
+                reject( () => document.getElementById("MyDiv").innerHTML += `<h1>my god this sucks blyat <em>maybe shit and cum</em></h1>` );
+            })
+         
+            
+
+            
+        }
+    </script>
+
+</body>
+</html>
