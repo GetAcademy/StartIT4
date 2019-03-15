@@ -10,10 +10,9 @@
     <input id="bredde" type="range" min="1" max="1000" step="1" oninput="calculate()" value="2" />
     <input id="height" type="range" min="1" max="1000" step="1" oninput="calculate()" value="2" />
     <div id="resultat"></div>
-    <div id="resultatHtml" style="font-family: monospace"></div>
+    
     <script>
         var resultatDiv = document.getElementById('resultat');
-        var resultatHtmlDiv = document.getElementById('resultatHtml');
         var breddeInput = document.getElementById('bredde');
         var heightInput = document.getElementById('height');
         calculate();
@@ -24,10 +23,9 @@
             var omkrets = bredde + bredde + height + height;
 
             resultatDiv.innerHTML = '' +
+            '<div style="background-color: green; width: ' + bredde + 'px; height: ' + height + 'px">' + '' +
                 bredde + '*' + height + '=' + areal + ' Areal' + '<br/>' +
-                bredde + '+' + height + '+' + bredde + '+' + height + '=' + omkrets + ' Omkrets' +
-                '<div style="background-color: green; width: ' + bredde + 'px; height: ' + height + 'px">...</div>';
-
+                bredde + '+' + height + '+' + bredde + '+' + height + '=' + omkrets + ' Omkrets' + '</div>';
         }
     </script>
 </body>
