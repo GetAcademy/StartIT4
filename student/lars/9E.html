@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <select id="colorChooser" onchange="colorDiv()">
+        <option id="1" value="black">Svart</option>
+        <option id="2" selected value="darkblue">Mørkeblå</option>
+        <option id="3" value="grey">Lysegrå</option>
+        <option id="4" value="lightgreen">Lysegrønn</option>
+        <option id="5" value="red">Lyserød</option>
+    </select>
+    <div id="resultat">Denne teksten skal bli hvit viss det er svart eller mørkeblå farge valgt.</div>
+
+    <script>
+        var colorChooser = document.getElementById('colorChooser');
+        var resultatDiv = document.getElementById('resultat');
+        var color1Input = document.getElementById('1');
+        var color2Input = document.getElementById('2');
+
+        colorDiv();
+
+
+        function colorDiv() {
+
+            var bredde = 400;
+            var hoyde = 400;
+            var black = color1Input.value;
+            var darkblue = color2Input.value;
+
+            resultatDiv.style.width = bredde + 'px';
+            resultatDiv.style.height = hoyde + 'px';
+            resultatDiv.style.backgroundColor = colorChooser.value;
+
+            if (colorChooser.value == black || colorChooser.value == darkblue) {
+                resultatDiv.style.color = 'white';
+            } else {
+                resultatDiv.style.color = 'black';
+            }
+        }
+    </script>
+</body>
+</html>
