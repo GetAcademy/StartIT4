@@ -1,0 +1,62 @@
+    <script>
+            var ResultatDiv = document.getElementById('Resultat');
+            var BoxDiv1 = document.getElementById('Box1');
+            var BoxDiv2 = document.getElementById('Box2');
+            var sliderAInput = document.getElementById('SliderA');
+            var sliderBInput = document.getElementById('SliderB');
+            var sliderDivA_width = 0;
+            var sliderDivA_height = 0;
+            var sliderDivB_width = 0;
+            var sliderDivB_height = 0;
+            var areal1 = 0;
+            var areal2 = 0;
+
+            calculate();
+
+            function calculate() {
+                var SliderA = parseInt(sliderAInput.value);
+                var SliderB = parseInt(sliderBInput.value);
+
+                if (BoxDiv1.classList.contains('selected')){
+                    sliderDivA_width = SliderA;
+                    sliderDivA_height = SliderB;
+                    BoxDiv1.style.width = SliderA + 'px';
+                    BoxDiv1.style.height = SliderB + 'px';
+                } else {
+                    sliderDivB_width = SliderA;
+                    sliderDivB_height = SliderB;
+                    BoxDiv2.style.width = SliderA + 'px';
+                    BoxDiv2.style.height = SliderB + 'px';
+                }
+                areal1 = sliderDivA_width * sliderDivA_height;
+                areal2 = sliderDivB_width * sliderDivB_height;
+                var resultat = 'Box1 = ' + areal1 + '\tBox2 = ' + areal2;
+
+                if (areal1 < areal2) {
+                    resultat += '<br />Box 2 er større enn Box 1';
+                } else if (areal2 < areal1){
+                    resultat += '<br />Box 1 er større enn Box 2';
+                } else {
+                    resultat += '<br />De er like store';
+                }
+                ResultatDiv.innerHTML = resultat;
+            }
+            function blabla(tag) {
+                BoxDiv1.classList.remove('selected');
+                BoxDiv2.classList.remove('selected');
+                tag.classList.add('selected');
+
+                if (tag.id == "Box1") {
+                    sliderAInput.value = sliderDivA_height;
+                    sliderBInput.value = sliderDivA_width;
+                } else {
+                    sliderAInput.value = sliderDivB_height;
+                    sliderBInput.value = sliderDivB_width;
+                }
+
+            }
+                       
+
+
+
+        </script>
