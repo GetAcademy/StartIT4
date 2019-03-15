@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            width: 450px;
+            height: 450px;
+            border:lightgreen solid;
+        }
+    </style>
+
+</head>
+
+<body>
+<select id="colorChooser" onchange="showDiv()">
+    <option id="1" value="black">Black</option>
+    <option id="2" value="darkblue">Darkblue</option>
+    <option id="3" value="lightgreen">lightgreen</option>
+    <option id="4" value="lightgrey">Lightgrey</option>
+    <option id="5" value="lightred">Lightred</option>
+</select>
+<div id="resultat"></div>
+
+<script>
+    var resultatDiv = document.getElementById('resultat');
+    var colorChooser = document.getElementById('colorChooser');
+    var color1 = document.getElementById('1');
+    var color2 = document.getElementById('2');
+    var color3 = document.getElementById('3');
+    var color4 = document.getElementById('4');
+    var color5 = document.getElementById('5');
+
+    showDiv()
+
+    function showDiv() {
+        var color = colorChooser.value;
+
+    }
+</script>
+</body>
+
+</html>

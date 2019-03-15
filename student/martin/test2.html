@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div id="text"></div>
+    <div id="info" />
+    <script type="text/javascript">
+        var x = Math.floor(Math.random() * ((1000 - 412) + 1) + 412);
+        var y = Math.floor(Math.random() * ((700 - 90) + 1) + 90);
+        window.onresize = windowSizeChanged;
+        windowSizeChanged();
+
+        function windowSizeChanged() {
+            var div = document.getElementById('info');
+            var height = window.innerHeight;
+            var width = window.innerWidth;
+
+            div.innerHTML = 'Gjør bredden og høyden til ' + x + '×' + y + '<br/>'
+                + width + '×' + height + '<br/>';
+
+            if (x == width) {
+                div.innerHTML += 'Bra jobbet!';
+            } else if (x > 0.8 * width && x < 1.2 * width) {
+                div.innerHTML += 'Bredden er nesten der. ';
+            }
+            if (y==height) {
+                div.innerHTML +='Bra jobbet!';
+            } else if (y > 0.8 * height && y < 1.2 * height) {
+                div.innerHTML += ' Høyden er nesten der.';
+            }
+            if (x==width && y==height){
+                //div.innerHTML = alert="Du klarte det!";
+                alert("Du klarte det!");
+            }
+            /*if (width > height) {
+                document.getElementById('text').innerHTML = 'Bredden er større en høyden';
+            } else if (width == height) {
+                document.getElementById('text').innerHTML = 'Bredden er lik som høyden';
+            } else { // betyr at height > width
+                document.getElementById('text').innerHTML = 'Høyden er større en bredden';
+            }*/
+        }
+    </script>
+</body>
+
+</html>

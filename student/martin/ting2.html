@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+
+<body>
+    <input id="SliderA" type="range" min="1" max="500" step="1" oninput="calculate()" value="150" />
+    <input id="SliderB" type="range" min="1" max="500" step="1" oninput="calculate()" value="150" />
+
+
+    <div onclick="blabla(this)" id="Box" style="background-color:aquamarine">A</div>
+    <br>
+    <div onclick="blabla(this)" id="Box" style="background-color:aquamarine">A</div>
+    <div id="Resultat"></div>
+
+    <script>
+        var ResultatDiv = document.getElementById('Resultat');
+        var BoxDiv = document.getElementById('Box');
+        var sliderAInput = document.getElementById('SliderA');
+        var sliderBInput = document.getElementById('SliderB');
+
+        calculate();
+
+        function calculate() {
+            var SliderA = parseInt(sliderAInput.value);
+            var SliderB = parseInt(sliderBInput.value);
+            var Arial = SliderA * SliderB;
+            var Arial2 = SliderB * SliderA;
+            ResultatDiv.innerHTML = '';
+            BoxDiv.style.width = SliderA + 'px';
+            BoxDiv.style.height = SliderB + 'px';
+
+            if (SliderA > SliderB) {
+                ResultatDiv.innerHTML += '<br/>' + ' Arialet til Box A er ' + Arial + 'cm og er større enn Arialet til BoxB: ' + Arial2 + 'm2';
+            }
+            else if (SliderA > SliderB) {
+                ResultatDiv.innerHTML += '<br/>' + ' Arialet til Box B er ' + Arial + 'm2 og er større enn Arialet til BoxA: ' + Arial + 'm2';
+            }
+            else  {
+                ResultatDiv.innerHTML += '<br/>' + ' Arialet til BoxA er like stor som BoxB  ' + Arial2;
+            }           
+        }
+        function blabla(tag) {
+            BoxDiv = tag;
+            SliderA.value = parseInt(BoxDiv.style.width);
+            SliderB.value = parseInt(BoxDiv.style.height);
+        }
+    </script>
+</body>
+
+</html>

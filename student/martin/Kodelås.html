@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        button {
+            padding: 3px;
+            margin: 3px;
+            height: 50px;
+            width: 50px;
+        }
+        body {
+            margin: 110px;
+            padding: 70px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>Finn ut koden!</h2>
+    <div id="kode"></div>
+    
+    <button onclick="tell(this)">1</button>
+    <button onclick="tell(this)">2</button>
+    <button onclick="tell(this)">3</button>
+    <br>
+    <button onclick="tell(this)">4</button>
+    <button onclick="tell(this)">5</button>
+    <button onclick="tell(this)">6</button>
+    <br>
+    <button onclick="tell(this)">7</button>
+    <button onclick="tell(this)">8</button>
+    <button onclick="tell(this)">9</button>
+
+    <script>
+        var kodeDiv = document.getElementById('kode');
+        var correctNumbers = '3 9 2 9 ';
+        var doneSoFar = '';
+
+        function tell(btn) {
+            kodeDiv.innerHTML += btn.innerHTML + " ";
+            doneSoFar += btn.innerHTML + " ";
+
+            if (doneSoFar == correctNumbers) {
+                kodeDiv.innerHTML += '-  Gratulerer! ';
+            }
+            else {
+                kodeDiv.innerHTML = doneSoFar;
+            }
+            if
+                (!correctNumbers.startsWith(doneSoFar)) doneSoFar = '';
+        }         
+    </script>
+</body>
+
+</html>

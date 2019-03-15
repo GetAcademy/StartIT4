@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+
+<body>
+        <p>F. </p>
+        <div id="resultat"></div>
+        <div id="resultat2"></div>
+        <div id="resultatHtml" style="font-family: monospace"></div>
+
+<script>
+    var resultatDiv = document.getElementById('resultat');
+    var resultatDiv2 = document.getElementById('resultat2')
+    var resultatHtmlDiv = document.getElementById('resultatHtml');
+    calculate()
+
+    function calculate() {
+        var tallA = 100 + Math.floor(Math.random() * 10);
+        var tallB = 100 + Math.floor(Math.random() * 10);
+        var height = 100 + Math.floor(Math.random() * 500);
+        var width = 100 + Math.floor(Math.random() * 500);
+        var border = 5 + Math.floor(Math.random() * 20);
+
+        var sum = tallA + tallB;
+        var differense = tallA - tallB;
+        var produkt = tallA * tallB;
+        var kvotient = tallA / tallB;
+
+        resultatDiv.innerHTML = '' +
+            tallA + '+' + tallB + '=' + sum + '<br/>' +
+            tallA + '-' + tallB + '=' + differense + '<br/>' +
+            tallA + '*' + tallB + '=' + produkt + '<br/>' +
+            tallA + '/' + tallB + '=' + kvotient; 
+
+            resultatDiv2.innerHTML = '<div style="background-color: black; width: ' + width + 
+                                            'px; height:' + height + 'px; border: solid blue ' + 
+                                            border + 'px "></div>';
+                                            resultatHtmlDiv.innerText = resultatDiv2.innerHTML;
+    }
+</script>
+</body>
+
+</html>

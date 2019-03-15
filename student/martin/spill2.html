@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <style>
+        div {
+            background-color: rgba(119, 118, 51, 0.664);
+            width: 100px;
+            height: 100px;
+            border: solid;
+            float: left;
+            padding: 5px;
+            font-size: 90px;
+            text-align: center;
+        }
+
+        div.første {
+            clear: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="r1k1" onclick="popup(this)"></div>
+    <div id="r1k2" onclick="popup(this)"></div>
+    <div id="r1k3" onclick="popup(this)"></div>
+
+    <div id="r2k1" onclick="popup(this)" class="første"></div>
+    <div id="r2k2" onclick="popup(this)"></div>
+    <div id="r2k3" onclick="popup(this)"></div>
+
+    <div id="r3k1" onclick="popup(this)" class="første"></div>
+    <div id="r3k2" onclick="popup(this)"></div>
+    <div id="r3k3" onclick="popup(this)"></div>
+
+    <script>
+        function popup(element) {
+            element.innerHTML = 'X';
+
+            if (document.getElementById('r1k1').innerHTML == 'X'
+                && document.getElementById('r1k2').innerHTML == 'X'
+                && document.getElementById('r1k3').innerHTML == 'X') {
+                alert("Du vant");
+            }
+            else if (document.getElementById('r2k1').innerHTML == 'X'
+                && document.getElementById('r2k2').innerHTML == 'X'
+                && document.getElementById('r2k3').innerHTML == 'X') {
+                alert("Du vant");
+            }
+            else if (document.getElementById('r1k1').innerHTML == 'X'
+                && document.getElementById('r2k2').innerHTML == 'X'
+                && document.getElementById('r3k3').innerHTML == 'X') {
+                alert("Du vant");
+            }
+        }
+    </script>
+</body>
+
+</html>

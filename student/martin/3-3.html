@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+
+<body>
+        <p>F. </p>
+        <input id="widthSlider" type="range" min="50" max="1000" step="10" oninput="calculate()" value="2" />
+        <input id="heightSlider" type="range" min="50" max="1000" step="10" oninput="calculate()" value="2" />
+        <div id="resultat"></div>
+        <div id="resultat"></div>
+        <div id="resultatHtml" style="font-family: monospace"></div>
+
+<script>
+    var resultatDiv = document.getElementById('resultat');
+    var widthSlider = document.getElementById('widthSlider');
+    var heightSlider = document.getElementById('heightSlider');
+    var resultatHtmlDiv = document.getElementById('resultatHtml');
+
+
+    calculate()
+
+    function calculate() {
+
+        var width = 'width: ' + widthSlider.value + 'px;';
+            var height = 'height: ' + heightSlider.value + 'px;';
+            var style = 'style="background-color: dodgerblue ; ' + width + height + '"';
+            resultatDiv.innerHTML = '<div ' + style + '> </div>';
+            resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+          
+    }
+</script>
+</body>
+
+</html>

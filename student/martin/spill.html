@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <style>
+        div {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            border: solid;
+            float: left;
+            font-size: 500%;
+            text-align: center;
+        }
+
+        div.first {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="r1k1" onclick="trykk(this,'r1k2','r2k1')">1</div>
+    <div id="r1k2" onclick="trykk(this,'r1k1','r1k3','r2k2')">2</div>
+    <div id="r1k3" onclick="trykk(this,'r1k2','r2k3')">3</div>
+
+    <div id="r2k1" class="first" onclick="trykk(this,'r2k2','r1k1','r3k1','r3k1')">4</div>
+    <div id="r2k2" onclick="trykk(this,'r2k1','r2k3','r3k2','r1k2')">5</div>
+    <div id="r2k3" onclick="trykk(this,'r1k3','r2k2','r3k3')">6</div>
+
+    <div id="r3k1" class="first" onclick="trykk(this,'r2k1','r3k2')">7</div>
+    <div id="r3k2" onclick="trykk(this,'r3k1','r3k3','r2k2')">8</div>
+    <div id="r3k3" onclick="trykk(this,'r3k2','r2k3')"></div>
+
+    <script>
+        function trykk(tagElement, alt1, alt2, alt3, alt4) {
+            if (alt1 && document.getElementById(alt1).innerHTML == '') {
+                document.getElementById(alt1).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            else if (alt2 && document.getElementById(alt2).innerHTML == '') {
+                document.getElementById(alt2).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            else if (alt3 && document.getElementById(alt3).innerHTML == '') {
+                document.getElementById(alt3).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            else if (alt4 && document.getElementById(alt4).innerHTML == '') {
+                document.getElementById(alt4).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+
+            if ( document.getElementById('r1k1').innerHTML == '1'
+                && document.getElementById('r1k2').innerHTML == '2'
+                && document.getElementById('r1k3').innerHTML == '3'
+                && document.getElementById('r2k1').innerHTML == '4'
+                && document.getElementById('r2k2').innerHTML == '5'
+                && document.getElementById('r2k3').innerHTML == '6'
+                && document.getElementById('r3k1').innerHTML == '7'
+                && document.getElementById('r3k2').innerHTML == '8'
+                && document.getElementById('r3k3').innerHTML == ''
+            ) {
+                alert('Du har vunnet!');
+            }
+        }
+    </script>
+</body>
+
+</html>
