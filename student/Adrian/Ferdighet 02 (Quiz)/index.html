@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ferdighet 02</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebas" type="text/css"/>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>QUIZ</h1>
+            <p>Test kunskap din i <strong>Programmering</strong></p>
+        </header>
+        <section>
+            <div id="resultat"></div>
+            <form name="quizForm" onsubmit="return submitAnswers()">
+                <h3>1. I hvilken HTML element putter vi Javascript koden i?</h3>
+                <input type="radio" name="q1" value="a" id="q1a">a. &lt;Js&gt;<br>
+                <input type="radio" name="q1" value="b" id="q1b">b. &lt;script&gt;<br>
+                <input type="radio" name="q1" value="c" id="q1c">c. &lt;Body&gt;<br>
+                <input type="radio" name="q1" value="d" id="q1d">d. &lt;Link&gt;<br>
+
+                <h3>2. Hvilken HTML attribute brukes for refere en ekstern javascript fil?</h3>
+                <input type="radio" name="q2" value="a" id="q2a">a. src<br>
+                <input type="radio" name="q2" value="b" id="q2b">b. rel<br>
+                <input type="radio" name="q2" value="c" id="q2c">c. type<br>
+                <input type="radio" name="q2" value="d" id="q2d">d. href<br>
+
+                <h3>3. Hvordan ville du skrivd "Hallo" i en alertbox</h3>
+                <input type="radio" name="q3" value="a" id="q3a">a. msg("Hallo")<br>
+                <input type="radio" name="q3" value="b" id="q3b">b. alertBox("Hallo")<br>
+                <input type="radio" name="q3" value="c" id="q3c">c. alert("Hallo")<br>
+                <input type="radio" name="q3" value="d" id="q3d">d. document.write("Hallo")<br>
+
+                <h3>4. Er Javascript direkte relatert til "Java"?</h3>
+                <input type="radio" name="q4" value="a" id="q4a">a. &lt;Sant&gt;<br>
+                <input type="radio" name="q4" value="b" id="q4b">b. &lt;Usant&gt;<br>
+
+                <h3>5. En variable i Javascript må starte med en spesiel karakter. Hvilken?</h3>
+                <input type="radio" name="q5" value="a" id="q5a">a. @<br>
+                <input type="radio" name="q5" value="b" id="q5b">b. $<br>
+                <input type="radio" name="q5" value="c" id="q5c">c. #<br>
+                <input type="radio" name="q5" value="d" id="q5d">d. Ingen<br><br>
+
+                <input type="submit" value="Submit Answers">
+            </form>
+        </section>
+        <footer>
+            YEET
+        </footer>
+    </div>
+</body>
+</html>
