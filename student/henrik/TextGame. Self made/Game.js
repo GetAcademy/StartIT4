@@ -1,4 +1,4 @@
-playGame();
+
 
 function playGame() {
     var openTreasure = confirm("You come after a long day to find an closed chest in your living room. Do you open it?");
