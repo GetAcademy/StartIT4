@@ -80,16 +80,16 @@ function LikeAndDislike(Button) {
 function AddChat()
 {
     document.getElementById("Messages").innerHTML += 
-        `<div class="container">
-        <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Avatar">
-        <p>${document.getElementById("ChatBox").value}</p>
-        <span class="time-right">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
+        `<div class="container mechat">
+        <img class="mechat" src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Avatar">
+        <p class="mechat">${document.getElementById("ChatBox").value}</p>
+        <span class="time-left mechat">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
         `;
     document.getElementById("Messages").innerHTML +=
-        `<div class="container darker">
-        <img src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar" class="right">
-        <p>${RandomAnswer()}</p>
-        <span class="time-left">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
+        `<div class="container darker youchat">
+        <img class="youchat" src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar" class="right">
+        <p class="youchat" style="text-align:right">${RandomAnswer()}</p>
+        <span class="time-right youchat">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
         </div>`;
     document.getElementById("ChatBox").value = null;
 }
@@ -125,36 +125,15 @@ function RandomAnswer()
 function MessagePage()
 {
     document.getElementById("content").innerHTML = 
-    `<div id="Messages">
+    `<div id="Messages" class="menu">
         <div>
         hei meldingside
         <button onclick="SwipePage()">Swipe Page</button>
         <button onclick="SettingsPage()">Settings Page</button>
+        </div>
+    
     </div>
-    <div class="container">
-        <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Avatar">
-        <p>Hello. How are you today?</p>
-        <span class="time-right">11:00</span>
-    </div>
-
-    <div class="container darker">
-        <img src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar" class="right">
-        <p>Hey! I'm fine. Thanks for asking!</p>
-        <span class="time-left">11:01</span>
-    </div>
-
-    <div class="container">
-        <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Avatar">
-        <p>Sweet! So, what do you wanna do today?</p>
-        <span class="time-right">11:02</span>
-    </div>
-
-    <div class="container darker">
-        <img src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar" class="right">
-        <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-        <span class="time-left">11:05</span>
-    </div>
-    </div>
+<div class="contact">hei</div>
 <input type="text" id="ChatBox"/> <button onclick="AddChat()">Send</button>`;
 }
 function SettingsPage()
