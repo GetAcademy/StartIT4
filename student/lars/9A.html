@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <input id="SliderA" type="range" min="1" max="200" step="1"
+           oninput="calculate()" value="60" />
+    <input id="SliderB" type="range" min="1" max="200" step="1"
+           oninput="calculate()" value="60" />
+
+    <div id="Boks1" style="background-color:darkslategray">1</div>
+    <br>
+    <div id="Boks2" style="background-color:hotpink">2</div>
+    <div id="Resultat"></div>
+
+    <script>
+        var ResultatDiv = document.getElementById('Resultat');
+        var Boks1Div = document.getElementById('Boks1');
+        var Boks2Div = document.getElementById('Boks2');
+        var sliderAInput = document.getElementById('SliderA');
+        var sliderBInput = document.getElementById('SliderB');
+        calculate();
+
+        function calculate() {
+            var SliderA = parseInt(sliderAInput.value);
+            var SliderB = parseInt(sliderBInput.value);
+            var Areal = SliderA * SliderA;
+            var Areal2 = SliderB * SliderB;
+            ResultatDiv.innerHTML = '';
+            Boks1Div.style.width = SliderA + 'px';
+            Boks1Div.style.height = SliderA + 'px';
+            Boks2Div.style.width = SliderB + 'px';
+            Boks2Div.style.height = SliderB + 'px';
+
+            if (SliderA > SliderB) {
+                ResultatDiv.innerHTML += '<br/>' + ' Arealet til Boks1 er ' + Areal + 'px2 og er større enn Arealet til Boks2: ' + Areal2 + 'px2';
+            } else {
+                ResultatDiv.innerHTML += '<br/>'  + ' Arealet til Boks2 er ' + Areal2 + 'px2 og er større enn Arealet til Boks1: ' + Areal + 'px2';
+            }
+        }
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿body
+{
+    padding:0px;
+    margin:0px;
+}
+.GridContainer 
+{
+    display: grid;
+    grid-template-areas: 'menu menu menu menu menu', 'contact mechat mechat youchat youchat', 'contact mechat mechat youchat youchat','contact mechat mechat youchat youchat','contact mechat mechat youchat youchat';
+}
+
+.Grid-1 
+{
+    background: rgba(236, 68, 251, 0.75);
+    border: 1px solid #AD00FF;
+    width:100%;
+    height:40px;
+}
+    .Grid-1 > h1 {
+        text-align: center;
+        font-family: Quantico;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        position:relative;
+        bottom:20px;
+        width:100%;
+        height:40px;
+        color: #000000;
+        text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+    }
+    .Grid-1 > p {
+        text-align: center;
+        width:100%;
+        height:40px;
+        font-size:40px;
+        color: #AD00FF;
+        position:relative;
+        bottom:105px;
+        z-index: -1;
+    }
+    .Grid-1 > button
+    {
+        position:relative;
+        bottom:180px;
+    }
+    .Grid-2
+    {
+        font-weight:bolder;
+        margin-left:345px;
+    }
+    .Grid-3
+    {
+        
+    }
+        .Grid-3 > img {
+            height: 100px;
+            width: 80px;
+            margin-left:345px;
+        }
+    .Grid-4
+    {
+        position:relative;
+        left:345px;
+    }
+    /*Phone Styles*/
+    [Class*="Grid-"] 
+    {
+    /*width:100%;
+        height:100%;*/
+    }
+    /*Tablet Styles*/
+    @media screen and (min-width:479px)
+    {
+
+    }
+/* Chat containers */
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    display: grid;
+    grid-template-areas: 'menu menu menu menu menu', 'contact mechat mechat youchat youchat', 'contact mechat mechat youchat youchat','contact mechat mechat youchat youchat','contact mechat mechat youchat youchat'
+}
+
+/* Darker chat container */
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+/* Clear floats */
+.container::after {
+    content: "";
+    
+    
+}
+
+/* Style images */
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+    /* Style the right image */
+    .container img.right {
+        float: right;
+        margin-left: 20px;
+        margin-right: 0;
+    }
+
+/* Style time text */
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: #999;
+}
+
+.contact
+{
+    background-color:gray;
+    border:1px solid red;
+}
+
+.mechat {
+    border: 1px solid red;
+}
+
+.youchat
+{
+    float:right;
+    border:1px solid red;
+}
+
+.menu {
+    border: 1px solid red;
+}

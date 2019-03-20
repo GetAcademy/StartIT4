@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div{
+            background-color: aquamarine;
+            border: green solid 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="info"></div>
+<script type="text/javascript">
+        /* 
+        Valgsetninger
+            - Basert på samme tall
+            - en logisk verdi (av typen "boolean")
+            - ellers (else)
+            - ellers, hvis (else if)
+        */
+    var lagerThanSymbol = '&gt';
+    var smallerThanSymbol = '&gt';
+
+
+    window.onresize = windowSizeChanged;
+    windowSizeChanged();
+
+    function windowSizeChanged(){
+        var div = document.getElementById('info');
+        var height = window.innerHeight;
+        var width = window.innerWidth;
+        div.innerHTML = height + 'x' + width;
+        div.style.width = width / 2;
+        var totalPixelCount = height * width;
+        if(totalPixelCount > 125000){
+            div.innerHTML += '>1/8 megapixel';
+        }else{
+            div.innerHTML += '<1/8 megapixel';
+        }
+    }
+</script>
+</body>
+</html>

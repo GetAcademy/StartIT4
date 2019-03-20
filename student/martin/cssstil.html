@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div.selected::before {
+            content: "🡆";
+        }
+
+        div.selected::after {
+            content: "🡄";
+        }
+        .stilig {
+            background-color: black;
+        }
+
+        .stiligg {
+            color: blue;
+        }
+
+        .stiligg1 {
+            color: green;
+        }
+
+        .stiligg2 {
+            color: yellow;
+        }
+
+        .stiligg3 {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div onclick="blabla(this)" id="bla">Bla bla bla</div>
+    <div onclick="blabla(this)" id="bla">Bla bla bla</div>
+    <input id="chk" type="checkbox" onchange="toggleStyle()" />
+    <input id="chkk" type="checkbox" onchange="toggleStyle()" />
+    <input id="chkk1" type="checkbox" onchange="toggleStyle()" />
+    <input id="chkk2" type="checkbox" onchange="toggleStyle()" />
+    <input id="chkk3" type="checkbox" onchange="toggleStyle()" />
+    <script>
+        var blablatag = document.getElementById('bla');
+
+        function toggleStyle() {
+            var isChecked1 = document.getElementById('chk').checked;
+            blablatag.classList.toggle('stilig', isChecked1);
+
+            var isChecked2 = document.getElementById('chkk').checked;
+            blablatag.classList.toggle('stiligg', isChecked2);
+
+            var isChecked3 = document.getElementById('chkk1').checked;
+            blablatag.classList.toggle('stiligg3', isChecked3);
+
+            var isChecked4 = document.getElementById('chkk2').checked;
+            blablatag.classList.toggle('stiligg2', isChecked4);
+
+            var isChecked5 = document.getElementById('chkk3').checked;
+            blablatag.classList.toggle('stiligg1', isChecked5);
+        }
+        
+        function blabla(tag) {
+            // blablatag .classList.remove('selected');
+            blablatag = tag;
+            // blablatag.classList.add('selected');
+            document.getElementById('chk').checked = blablatag.classList.contains('stilig');
+            document.getElementById('chkk').checked = blablatag.classList.contains('stiligg');
+            document.getElementById('chkk1').checked = blablatag.classList.contains('stiligg1');
+            document.getElementById('chkk2').checked = blablatag.classList.contains('stiligg2');
+            document.getElementById('chkk3').checked = blablatag.classList.contains('stiligg3');
+        }
+    </script>
+</body>
+
+</html>

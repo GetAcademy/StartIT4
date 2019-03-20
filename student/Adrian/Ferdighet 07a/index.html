@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #btn{
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            margin-left: 50px;
+            border: solid 5px black;
+        }
+        #thefile {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+    }
+    </style>
+</head>
+
+<body>
+    <audio id="myAudio">
+        <source src="Rick.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+        <button id="btn" onclick="playAudio()" type="button">Play Audio</button>
+        <button id="btn" onclick="pauseAudio()" type="button">Pause Audio</button>
+    <p>Ferdighet 7a - Sette variabel til tilfeldig tall</p>
+    
+    <div id="resultat"></div>
+    <div id="resultatDiv" style="background-color:white"></div> 
+    
+    <script>
+        var x = document.getElementById("myAudio"); 
+
+        function playAudio() { 
+            x.play(); 
+        } 
+
+        function pauseAudio() { 
+            x.pause(); 
+        } 
+        var resultatDiv = document.getElementById('resultatDiv');
+
+        calculate();
+        
+        function calculate() {
+            var tallA = 500 + Math.floor(Math.random() * 100);
+            var tallB = 500 + Math.floor(Math.random() * 100);
+            var tallC = Math.floor(Math.random() * 50);
+        
+            resultatDiv.style.width = tallA + 'px';
+            resultatDiv.style.height = tallB + 'px';
+            resultatDiv.style.border = tallC + 'px solid black';
+            setInterval(calculate, 500);
+
+        }
+        function random_bg_color() {
+            var x = Math.floor(Math.random() * 256);
+            var y = Math.floor(Math.random() * 256);
+            var z = Math.floor(Math.random() * 256);
+            var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+            console.log(bgColor);
+            resultatDiv.style.backgroundColor = bgColor;
+            setInterval(random_bg_color, 500);
+
+    }
+
+random_bg_color();
+        </script>
+</body>
+
+</html>

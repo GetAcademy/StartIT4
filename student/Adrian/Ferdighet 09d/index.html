@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="info"></div>
+                
+    <input type="text" id="txt1" oninput="findFirst()" value="Per" /><br />
+    <input type="text" id="txt2" oninput="findFirst()" value="Pål" /><br />
+    <input type="text" id="txt3" oninput="findFirst()" value="Espen" /><br />
+    <input type="text" id="txt3" oninput="findFirst()" value="Daskeladden" /><br />
+</body>
+<script>
+    var infoDiv = document.getElementById('info');
+    var txtDiv1 = document.getElementById('txt1');
+    var txtDiv2 = document.getElementById('txt2');
+    var txtDiv3 = document.getElementById('txt1')
+
+    findFirst();
+    
+        function findFirst() {
+            var txt1 = txtDiv1.value;
+            var txt2 = txtDiv2.value;
+            var txt3 = txtDiv3.value;
+            var txt4 = txtDiv4.value;
+            infoDiv.innerHTML = 'Om vi sorterer de tre tekstene, er denne den første:<br/>';
+            if (txt4 <= txt1 && txt4 <= txt2 && txt4 < txt3) {
+                infoDiv.innerHTML += txt4;
+        }   else if (txt1 <= txt2 && txt1 <= txt3) {
+                infoDiv.innerHTML += txt1;
+        }   else if (txt2 <= txt3) {
+                infoDiv.innerHTML += txt2;
+        }   else {
+                infoDiv.innerHTML += txt3;
+        }
+    }
+
+</script>
+</html>

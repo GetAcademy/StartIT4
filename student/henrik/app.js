@@ -1,11 +1,13 @@
+//Henter informasjonen som skrives inn.
 const celciusInput = document.querySelector("#celcius > input");
 const fahrenheitInput = document.querySelector("#fahrenheit > input");
 const kelvinInput = document.querySelector("#kelvin > input");
 
+//runder nummeret, slik at du ikke får dust mange desimaler
 function roundNum(num) {
     return Math.round(num*100)/100;
 }
-
+//Matten for celcius til kelvin og fahrenheit
 function celciusToFahrenheitAndKelvin() {
     const cTemp = parseFloat(celciusInput.value);
     const fTemp = (cTemp * (9/5)) + 32;
@@ -13,7 +15,7 @@ function celciusToFahrenheitAndKelvin() {
     fahrenheitInput.value = roundNum(fTemp);
     kelvinInput.value = roundNum(kTemp);
 }
-
+//Matten for fahrenheit til kelvin og celcius
 function fahrenheitToCelciusAndKelvin() {
     const fTemp = parseFloat(fahrenheitInput.value);
     const cTemp = (fTemp - 32) * (5/9);
@@ -21,7 +23,7 @@ function fahrenheitToCelciusAndKelvin() {
     celciusInput.value = roundNum(cTemp);
     kelvinInput.value = roundNum(kTemp);
 }
-
+//Matten for kelvin til celcius og fahrenheit
 function kelvinToCelciusAndFahrenheit() {
     const kTemp = parseFloat(kelvinInput.value);
     const cTemp = kTemp - 273.15;
@@ -29,11 +31,11 @@ function kelvinToCelciusAndFahrenheit() {
     celciusInput.value = roundNum(cTemp);
     fahrenheitInput.value = roundNum(fTemp);
 }
-
+//kjører funksjonen når du taster inn tall
 function main() {
     celciusInput.addEventListener('input', celciusToFahrenheitAndKelvin)
     fahrenheitInput.addEventListener('input', fahrenheitToCelciusAndKelvin);
     kelvinInput.addEventListener('input', kelvinToCelciusAndFahrenheit);
 }
-
+//Main man.
 main();

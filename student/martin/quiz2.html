@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        button {
+            margin: 10px;
+            font-family: Verdana;            
+        }
+        body {
+            margin:30px;
+        }
+        div.menuKlikk {
+            padding: 20px;
+            margin:20px;
+            background-color: brown;
+            width: 100px;
+            color:rgb(18, 219, 85);
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>Min side</h2>
+    <div id="quiz1">
+        <h3>Quiz</h3>
+        <div id="svarHer">Hvilken browser bruker du?</div> <br>
+        <button onclick="googleChrome()">Google Chrome</button> <br>
+        <button onclick="dårligSvar()">Edge</button> <br>
+        <button onclick="firefox()">Firefox</button>
+    </div>
+
+    <script>
+        var correct = 0; 
+
+        function googleChrome() {
+            document.getElementById('svarHer').innerHTML = 'Bra valg!';
+            document.getElementById('svarHer').innerHTML += '<button onclick="quiz2()">La oss gå videre</button>';
+            correct = 1; 
+        }
+        function firefox() {
+            if (correct == 0) {
+            document.getElementById('svarHer').innerHTML = 'Det er helt ok';
+            }
+        }
+        function dårligSvar() {
+            if (correct == 0) {
+            document.getElementById('svarHer').innerHTML = 'Du burde bytte';
+            }
+        }
+        function quiz2() {
+            document.getElementById('quiz1').innerHTML = `  <h2 ondblclick="dobbelKlikk()">Dobbel klikk meg</h2> <br>
+            <input type="text" onkeydown="skrevet()"> <br> 
+            <div id="info">skriv her^</div> <br>
+            <div oncontextmenu="myMenu()" class="menuKlikk">Høyre klikk meg</div>`
+        }
+        function myMenu() {
+            console.log("myMenu");
+        }
+        function dobbelKlikk() {
+            console.log("dobbelklikk");
+        }
+        function skrevet() {
+            console.log("skrevet");
+        }
+        
+    </script>
+</body>
+
+</html>
