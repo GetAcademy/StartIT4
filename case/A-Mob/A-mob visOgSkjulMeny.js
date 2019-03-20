@@ -1,3 +1,3 @@
 function visOgSkjulMeny() {
-    document.getElementById('page').classList.toggle(pageUtenMeny);
+    document.getElementById('page').classList.toggle('pageUtenMeny');
 }
