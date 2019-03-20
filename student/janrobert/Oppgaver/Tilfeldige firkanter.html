@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <svg width="1200" height="800"></svg>
+    <script>
+      class Box {
+        constructor() {
+          this._color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+          this._x = Math.floor(Math.random() * 600);
+          this._y = Math.floor(Math.random() * 400);
+          this._width = 100 + Math.floor(Math.random() * 500);
+          this._height = 100 + Math.floor(Math.random() * 300);
+        }
+      }
+
+      class BoxView {
+        constructor(box) {
+          this._svg = document.getElementsByTagName("svg")[0];
+          this._box = box;
+        }
+
+        show() {
+          this._svg.innerHTML += '<rect '
+          + 'color="' + this._color + '" '
+          + 'x="' + this.x + '" '
+          + 'y="' + this.y + '" '
+          + 'width="' + this._width + '" '
+          + 'height="' + this._height + '"></rect>'
+        }
+      }
+
+      var box = new Box();
+      var boxView = new BoxView(box);
+      boxView.show();
+    </script>
+  </body>
+</html>
