@@ -14,3 +14,27 @@ function siIfra() {
             </table>
         `;
 }
+function visMeny() {
+    document.getElementById('innhold').innerHTML = 
+    `
+    <table>
+    <tbody>
+        <tr>
+            <td onclick=""()>Si ifra om mobbing</td>
+        </tr>
+        <tr>
+            <td onclick=""()>Hva er mobbing</td>
+        </tr>
+        <tr>
+            <td onclick=""()>Hvordan ta vare på andre</td>
+        </tr>
+        <tr>
+            <td onclick=""()>Selvauering</td>
+        </tr>
+        <tr>
+            <td>Logg ut</td>
+        </tr>
+    </tbody>
+</table>
+`;
+}
