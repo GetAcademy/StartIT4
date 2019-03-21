@@ -1,3 +1,5 @@
+
+//Arrayen til bygningene
 var data = {
     buildings: [
         {
@@ -75,6 +77,8 @@ var data = {
     ]   
 };
 
+
+//knappene som viser bygningene
 show();
 function show() {
     var html = '<ul>';
@@ -87,7 +91,7 @@ function show() {
     document.getElementById('buildings').innerHTML = html;
 
 }
-
+//Henter informasjon fra array
 function selectBuilding(index) {
     let building = data.buildings[index];
     document.getElementById('buildings').innerHTML = 
