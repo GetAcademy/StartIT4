@@ -20,16 +20,16 @@ function visMeny() {
     <table>
     <tbody>
         <tr>
-            <td onclick=""()>Si ifra om mobbing</td>
+            <td onclick="visSiIfraOmMobbing()">Si ifra om mobbing</td>
         </tr>
         <tr>
-            <td onclick=""()>Hva er mobbing</td>
+            <td onclick="visHvaErMobbing()">Hva er mobbing</td>
         </tr>
         <tr>
-            <td onclick=""()>Hvordan ta vare på andre</td>
+            <td onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</td>
         </tr>
         <tr>
-            <td onclick=""()>Selvauering</td>
+            <td onclick="visSelvauering()">Selvauering</td>
         </tr>
         <tr>
             <td>Logg ut</td>
