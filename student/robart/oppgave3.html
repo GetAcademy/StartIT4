@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #hei {
+            color: dodgerblue;
+            
+
+        }
+        #he {
+            color: rgb(255, 30, 30);
+
+        }
+        #h {
+            color: rgb(49, 255, 30);
+
+        }
+        #e {
+            color: rgb(236, 30, 255);
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>Ferdighet 2 - Onclick => Kjøre funksjon som endrer innerHTML til element ut fra Id</p>
+    <!-- <h2 id="aaa">AAAAAAAAAAAAAAAA</h2> -->
+    <h2 onclick="doSomething(this)">AAA</h2>
+    <h2 onclick="doSomething2(this)">BBB</h2>
+
+    <table style="width:60%">
+        <tr>
+            <td id="hei" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="hei" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="hei" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="hei" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td id="he" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="he" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="he" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="he" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td id="h" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="h" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="h" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="h" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td id="e" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="e" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="e" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+            <td id="e" onmouseover="hei(this)" onmouseout="hadet(this)">O</td>
+        </tr>
+    </table>
+
+
+
+    <script>
+        function hei(cool) {
+            cool.innerHTML = 'X';
+        }
+        function hadet(cool) {
+            cool.innerHTML = 'O';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <h2> Matte quiz 2.0</h2>
+    <div id="innhold">
+        Hva er 2+2=? <br />
+        <input id="spørsmål1" type="text" /> <button onclick="SvarMaskin()">Tipp</button>
+    </div>
+    <script>
+        function SvarMaskin() {
+            if (document.getElementById('spørsmål1').value == 4) {
+
+                document.getElementById('innhold').innerHTML = `
+        Du skrev 4 - og det er riktig! 😀<br/>
+        `;
+
+            }
+            else {
+
+                document.getElementById('innhold').innerHTML = `
+        Du tippet `+ document.getElementById('spørsmål1').value + `. 2+2=? - tipp igjen!<br />
+        <input id="spørsmål1" type="text" /> <button onclick="SvarMaskin()">Tipp</button>
+        `;
+
+            }
+        }
+    </script>
+</body>
+
+</html>

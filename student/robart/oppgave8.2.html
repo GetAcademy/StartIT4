@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        .stiling {
+            border: 5px;
+            color: dodgerblue;
+        }
+
+        .stiling2 {
+            background-color: dodgerblue;
+            color: lightgreen;
+        }
+
+        .stiling3 {
+            margin: 5px;
+            color: pink;
+        }
+
+        .stiling4 {
+            padding: 8px;
+            color: aquamarine;
+        }
+
+        .stiling5 {
+            border: 20px;
+            color: lightpink;
+        }
+
+        div.selected::before {
+            content: "🡄";
+        }
+
+        div.selected::after {
+            content: "🡆";
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <div id="bla" onclick="select(this)">Bla</div>
+    <div id="bla" onclick="select(this)">Bla</div>
+    <div id="bla" onclick="select(this)">Bla</div>
+
+    <input id="chk" type="checkbox" onchange="toggleStyle()" />
+    <input id="chk2" type="checkbox" onchange="toggleStyle()" />
+    <input id="chk3" type="checkbox" onchange="toggleStyle()" />
+    <input id="chk4" type="checkbox" onchange="toggleStyle()" />
+    <input id="chk5" type="checkbox" onchange="toggleStyle()" />
+
+    <script>
+        var selectedTag = document.getElementById('bla')
+        //den diven heter stilling!
+        function toggleStyle(en) {
+            var isChecked = document.getElementById('chk').checked;
+            selectedTag.classList.toggle('stiling', isChecked);
+
+            var isChecked2 = document.getElementById('chk2').checked;
+            selectedTag.classList.toggle('stiling2', isChecked2);
+            
+            var isChecked3 = document.getElementById('chk3').checked;
+            selectedTag.classList.toggle('stiling3', isChecked3);
+
+            var isChecked4 = document.getElementById('chk4').checked;
+            selectedTag.classList.toggle('stiling4', isChecked4);  
+
+            var isChecked5 = document.getElementById('chk5').checked;
+            selectedTag.classList.toggle('stiling5', isChecked5);
+        }
+
+        function select(tag) {
+            selectedTag.classList.remove('selected');
+            selectedTag = tag;
+            selectedTag.classList.add('selected');
+            document.getElementById('chk').checked = selectedTag.classList.contains('stiling');
+            document.getElementById('chk2').checked = selectedTag.classList.contains('stiling2');
+            document.getElementById('chk3').checked = selectedTag.classList.contains('stiling3');
+            document.getElementById('chk4').checked = selectedTag.classList.contains('stiling4');
+            document.getElementById('chk5').checked = selectedTag.classList.contains('stiling5');
+        }
+    </script>
+
+</body>
+
+</html>
