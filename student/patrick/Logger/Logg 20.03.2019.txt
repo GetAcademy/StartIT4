@@ -1,0 +1,13 @@
+Logg 20.03.2019
+
+Problemer:
+
+- SideBar strekker seg ikke lengden til sitt grid area.
+
+- MessageContainer elementene legger ikke til riktig mengde med tom plass for å plassere meldingen på kryss av værandre.
+
+- MessageContainer sin overflow-y:auto; scroller hele browser window og ikke MessageContainer grid-area slik jeg ønsket.
+
+- CSS Grid er en smerte å bruke, må finne library og eller andre third party verktøy som gjør livet digg igjen.
+
+- paragrafen til autosvar i chat vindu floater ikke riktig distanse må finne en god fiks.

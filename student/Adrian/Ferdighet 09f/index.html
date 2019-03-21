@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info" style="padding-bottom: 20px;">YEET</div>
+
+    Bunn: <input id="tykkBunn" type="radio" name="bunn" onchange="info()" />Tykk
+          <input id="tynnBunn" type="radio" name="bunn" onchange="info()" />Tynn 
+          <input id="rundBunn" type="radio" name="bunn" onchange="info()" />Rund
+          <input id="firkantaBunn" type="radio" name="bunn" onchange="info()" />Firkanta </br>
+<br>
+    Fyll: <input id="fyllBiff" type="radio" name="fyll" onchange="info()" />Biff
+          <input id="fyllPepperoni" type="radio" name="fyll" onchange="info()" />Pepperoni
+          <input id="fyllSkinke" type="radio" name="fyll" onchange="info()" />Skinke
+          <input id="fyllKebab" type="radio" name="fyll" onchange="info()" />Kebab <br>
+<br>
+    Strl: <input id="stor" type="radio" name="str" onchange="info()" />Stor
+          <input id="medium" type="radio" name="str" onchange="info()" />Medium
+          <input id="liten" type="radio" name="str" onchange="info()" />Liten <br>
+<br>
+    <button id="bestill" disabled="" onclick="alert('Bestilt!');">Bestill</button>
+</body>
+<script>
+    var btnBestill = document.getElementById('bestill');
+    var infoDiv = document.getElementById('info');
+    var bunnTykk = document.getElementById('tykkBunn');
+    var bunnTynn = document.getElementById('tykkBunn');
+    var bunnRund = document.getElementById('rundBunn');
+    var bunnFirkanta = document.getElementById('firkantaBunn');
+    var fyllBiff = document.getElementById('fyllBiff');
+    var fyllPepperoni = document.getElementById('fyllPepperoni');
+    var fyllSkinke = document.getElementById('fyllSkinke');
+    var fyllKebab = document.getElementById('fyllKebab');
+    var strStor = document.getElementById('stor');
+    var strMedium = document.getElementById('medium');
+    var strLiten = document.getElementById('liten');
+
+    function info(){
+        if((bunnTykk.checked || bunnTynn.checked || bunnRund.checked || bunnFirkanta.checked) &&
+        (fyllBiff.checked || fyllPepperoni.checked || fyllSkinke.checked || fyllKebab.checked) &&
+        (strStor.checked || strMedium.checked || strLiten.checked)) {
+            infoDiv.innerHTML = 'Du har fylt ut alt og er klar til å bestille!';
+            btnBestill.disabled = false;
+        }else{
+            infoDiv.innerHTML = 'Du har ikke valgt'
+            //if (bunnTykk.checked || bunnTynn.checked) {                    
+            //} else {
+            //    infoDiv.innerHTML += '<li>bunn</li>';
+            //
+        }
+        if(!bunnTykk.checked && !bunnTynn.checked && !bunnRund.checked && !bunnFirkanta) {
+            infoDiv.innerHTML = '<li>bunn</li>';
+        }
+        if(!fyllBiff.checked && !fyllPepperoni.checked && !fyllSkinke.checked && !fyllKebab.checked){
+            infoDiv.innerHTML = '<li>fyll</li>';
+        }
+        if(!strStor.checked && !strMedium.checked && strLiten.checked){
+            infoDiv.innerHTMl = '<li>størrelse</li>';
+        }
+    }
+</script>
+</html>

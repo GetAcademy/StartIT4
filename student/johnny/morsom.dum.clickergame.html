@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>0 Snus</title>
+</head>
+<body>
+
+    <p id="snusspersecond">You are gaining 0 Snus per/s</p>
+
+    <a href=# onclick="add()"><img src="https://snusdirect-cdogmznyrpmopylvt4jd.netdna-ssl.com/media/catalog/product/cache/1/image/x123/040ec09b1e35df139433887a97daa66f/g/3/xg3_volt_snus_slimwhitedry_superstrong_70_se.png.pagespeed.ic.xcJgs1OkTp.webp"></a>
+    <br><br>
+    You got:
+    <input type="text" id="text" disabled style=text-align:center value=0>
+
+    snus
+    <br><br>
+
+    <button><a href="#" onClick="save()">Save</a></button>
+    <button><a href="#" onclick="load()">Load</a></button>
+    <br><br>
+
+    <p id="ammountMultiplier">Multiplier Upgrade x2</p>
+    <button><a href="#" onClick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
+    <p id="costMultiplier">Cost: 200 snus</p>
+    <p id="currentMultiplier">Your current Multiplier is x1</p>
+    <br>
+
+    <p>Buy 1 Lab 22</p>
+    <button><a href="#" onClick="buyAutoClick()"><img src=https://d1uhqbuz1wh8yf.cloudfront.net/media/catalog/product/cache/2/image/430x344/9df78eab33525d08d6e5fb8d27136e95/4/4/448-1-the-lab-22-mint-xylitol-slim-white-portion_kopie.jpg width="100px" height="100px"></a></button>
+    <p id="costAutoClick">Cost: 12 snus</p>
+    <p id="ammountAutoClick">You Own 0 Lab 22</p>
+    <p>Every time you buy 1 "Lab 22" you get +1 snus per/s</p>
+
+    <br>
+
+    <p>Buy 1 Nick And Johnny</p>
+    <button><a href="#" onClick="buyFarm()"><img src="https://www.snuscentral.com/1358-large_default/nick-johnny-crushed-ice-white-xtra-strong-portion-snus.jpg" width="100px" height="100px"></a></button>
+    <p id="costFarms">Cost: 15 snus</p>
+    <p id="ammountFarms">You Own 0 Nick and Johnny</p>
+    <p>Everytime you buy 1 "Nick and Johnny you get +2 snus per/s</p>
+
+    <script>
+
+        function update() {
+            document.getElementById('text').value = snuscount;
+            document.title = snuscount + " Snus";
+
+            document.getElementById('ammountMultiplier').innerHTML = "Multiplier Upgrade x" + (multiplier + 1);
+            document.getElementById('ammountMultiplier2').innerHTML = "x" + (multiplier + 1);
+            document.getElementById('costMultiplier').innerHTML = ((multiplier + 1) * 100) + " Snus";
+            document.getElementById('currentMultiplier').innerHTML = "Your current Multiplier is x" + (multiplier);
+
+            document.getElementById('ammountAutoClick').innerHTML = "You Own " + autoClick + " Lab 22";
+            document.getElementById('costAutoClick').innerHTML = ((autoClick + 1) * 12) + " Snus";
+
+            document.getElementById('ammountFarms').innerHTML = "You Own " + farms + " Nick and Johnny";
+            document.getElementById('costFarms').innerHTML = ((farms + 1) * 15) + " Snus";
+
+            document.getElementById('snusspersecond').innerHTML = "You are gaining " + (((autoClick) + (farms * 2)) * multiplier) + " Snus per/s";
+        }
+
+        var multiplier = 1;
+        var snuscount = 0;
+        var autoClick = 0;
+        var farms = 0;
+
+        function timer() {
+            snuscount = snuscount + autoClick * multiplier;
+            snuscount = snuscount + farms * 2 * multiplier;
+            update()
+        }
+        setInterval(timer, 1000)
+
+        function add() {
+            snuscount = snuscount + 1
+            update()
+        }
+
+        function save() {
+            localStorage.setItem("snuscount", snuscount);
+            localStorage.setItem("autoClick", autoClick);
+            localStorage.setItem("farms", farms);
+            localStorage.setItem("multiplier", multiplier);
+        }
+        function load() {
+            snuscount = localStorage.getItem("snuscount");
+            snuscount = parseInt(snuscount);
+            autoClick = localStorage.getItem("autoClick");
+            autoClick = parseInt(autoClick);
+            farms = localStorage.getItem("farms");
+            farms = parseInt(farms);
+            multiplier = localStorage.getItem("multiplier");
+            multiplier = parseInt(multiplier);
+            update()
+        }
+
+        function buyAutoClick() {
+            if (snuscount >= ((autoClick + 1) * 12)) {
+                snuscount = snuscount - ((autoClick + 1) * 12);
+                autoClick = autoClick + 1;
+                update()
+            }
+        }
+
+        function buyFarm() {
+            if (snuscount >= ((farms + 1) * 15)) {
+                snuscount = snuscount - ((farms + 1) * 15);
+                farms = farms + 1;
+                update()
+            }
+        }
+
+        function buyMultiplier() {
+            if (snuscount >= ((multiplier + 1) * 100)) {
+                snuscount = snuscount - ((multiplier + 1) * 50);
+                multiplier = multiplier + 1;
+                update()
+            }
+        }
+
+    </script>
+
+</body>
+</html>

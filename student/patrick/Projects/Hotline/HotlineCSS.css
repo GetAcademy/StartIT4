@@ -1,0 +1,165 @@
+﻿body
+{
+    margin:0px;
+    padding:0px;
+}
+
+.HotlineLogo 
+{
+    font-family: Quantico;
+    text-align: center;
+    color: #000000;
+    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+}
+
+/*Main Grid*/
+.GridContainer
+{
+    height:100vh;
+    display:grid;
+    grid-template-columns:auto;
+    grid-template-rows:100px auto 100px;
+    grid-template-areas: 
+        'Menu' 
+        'Middle'
+        'Bottom';
+}
+.Menu 
+{
+    grid-area: Menu;
+    background: rgba(236, 68, 251, 0.75);
+    border: 1px solid #AD00FF;
+}
+.Middle
+{
+    grid-area:Middle;
+    border:1px solid red;
+}
+
+.Bottom
+{
+    grid-area:Bottom;
+    border:1px solid red;
+}
+
+/*LogIn Page Grid*/
+.LogInPageGridContainer
+{
+    display:grid;
+    grid-template-columns:;
+    grid-template-rows:;
+    grid-template-areas:;
+}
+
+/*Message Page Grid*/
+.MessagePageContainer {
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-rows: auto;
+    grid-template-areas: 'SideBar MessageContainer';
+}
+
+.SideBar 
+{
+    grid-area: SideBar;
+    background-color:gray;
+    border: 1px solid red;
+    height:100%;
+}
+
+/*Actual Message Area Grid*/
+.MessageContainer {
+    grid-area: MessageContainer;
+    border: 1px solid red;
+    display: grid;
+    height: 100%;
+    grid-template-columns:auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: 'MyChat YouChat';
+    overflow-y: auto;
+}
+
+.MyChat 
+{
+    border: 1px solid blue;
+    grid-area: MyChat;
+}
+
+.YouChat
+{
+    border:1px solid blue;
+    grid-area: YouChat;
+}
+
+.AddMarginTop
+{
+    margin-top:60px;
+}
+
+.AddMarginBottom
+{
+    margin-bottom:60px;
+}
+
+.right
+{
+    float:right;
+    margin-right:50px;
+}
+
+/* Chat containers */
+.container 
+{
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Darker chat container */
+.darker 
+{
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+.container::after 
+{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/* Style images */
+.container img 
+{
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+    /* Style the right image */
+    .container img.right 
+    {
+        float: right;
+        margin-left: 20px;
+        margin-right: 0;
+    }
+
+/* Style time text */
+.time-right 
+{
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.time-left 
+{
+    float: left;
+    color: #999;
+}
