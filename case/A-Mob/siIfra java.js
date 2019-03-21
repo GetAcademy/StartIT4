@@ -31,6 +31,9 @@ function visSiIfraOmMobbing() {
     <table>
         <tbody>
             <tr>
+                <h1>Ta kontakt</h1>
+            </tr>
+            <tr>
                 <td onclick="visSendInn()">Send inn</td>
             </tr>
         </tbody>
@@ -43,7 +46,7 @@ function visSendInn() {
     <table>
         <tbody>
             <tr>
-                <td> Fint at du valgte og ta kontakt!</td>
+                <h1> Fint at du valgte og ta kontakt!</h1>
             </tr>
             <tr>
                 <td onclick="visMeny()">Meny</td>
@@ -59,7 +62,7 @@ function visHvaErMobbing() {
     <table>
         <tbody>
             <tr>
-                <td onclick="visHvaErMobbing()">hei paa meg</td>
+                <h1 onclick="visHvaErMobbing()">Hva er Mobbing?</h1>
             <tr>
         </tbody>
     </table>
@@ -71,7 +74,7 @@ function visHvordanTaVarePåAndre() {
     <table>
         <tbody>
             <tr>
-                <td onclick="()">osen kan vi jeg gjøre dette da?</td>
+                <h1 onclick="()">Hvordan ta vare på andre?</h1>
             </tr>
         <tbody>
     </table>
