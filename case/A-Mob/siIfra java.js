@@ -78,3 +78,15 @@ function visHvaErMobbing() {
     </table>
     `;
 }
+function visHvordanTaVarePåAndre() {
+    document.getElementById('innhold').innerHTML =
+    `
+    <table>
+        <tbody>
+            <tr>
+                <td onclick="()">osen kan vi jeg gjøre dette da?</td>
+            </tr>
+        <tbody>
+    </table>
+    `;
+}
