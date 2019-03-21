@@ -38,6 +38,33 @@ function visMeny() {
     </table>
     `;
 }
+function visSiIfraOmMobbing() {
+    document.getElementById('innhold').innerHTML = 
+    `
+    <table>
+        <tbody>
+            <tr>
+                <td onclick="(visSendInn)">Send inn</td>
+            </tr>
+        </tbody>
+    </table>
+    ` ;
+}
+function visSendInn() {
+    document.getElementById('innhold').innerHTML =
+    `
+    <table>
+        <tbody>
+            <tr>
+                <td> Fint at du valgte og ta kontakt!</td>
+            </tr>
+            <tr>
+                <td onclick="vismeny()">Meny</td>
+            </tr>
+        </tbody>
+    </table>
+    `;
+}
 function visHvaErMobbing() {
     document.getElementById('innhold').innerHTML =
     `
