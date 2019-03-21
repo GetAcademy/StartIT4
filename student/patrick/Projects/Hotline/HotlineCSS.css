@@ -52,53 +52,71 @@
         'LoginGridSeven LoginGridEight LoginGridNine';
 }
 
-.LoginGridOne
-{
-    grid-area:LoginGridOne;
+.LoginGridOne {
+    grid-area: LoginGridOne;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
 }
 
-.LoginGridTwo 
-{
-    grid-area:LoginGridTwo;
+.LoginGridTwo {
+    grid-area: LoginGridTwo;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
 }
 
-.LoginGridThree 
-{
-    grid-area:LoginGridThree;
-}
-
-
-.LoginGridFour 
-{
-    grid-area:LoginGridFour;
-}
-
-
-.LoginGridFive 
-{
-    grid-area:LoginGridFive;
+.LoginGridThree {
+    grid-area: LoginGridThree;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
 }
 
 
-.LoginGridSix 
-{
-    grid-area:LoginGridSix;
+.LoginGridFour {
+    grid-area: LoginGridFour;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
 }
 
 
-.LoginGridSeven 
-{
-    grid-area:LoginGridSeven;
+.LoginGridFive {
+    grid-area: LoginGridFive;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
 }
 
-.LoginGridEight 
-{
-    grid-area:LoginGridEight;
+
+.LoginGridSix {
+    grid-area: LoginGridSix;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
 }
 
-.LoginGridNine 
-{
-    grid-area:LoginGridNine;
+
+.LoginGridSeven {
+    grid-area: LoginGridSeven;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
+}
+
+.LoginGridEight {
+    grid-area: LoginGridEight;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
+}
+
+.LoginGridNine {
+    grid-area: LoginGridNine;
+    border: 1px solid red;
+    width: 33%;
+    height: 33%;
 }
 
 
