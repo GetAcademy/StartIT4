@@ -44,7 +44,7 @@ function visSiIfraOmMobbing() {
     <table>
         <tbody>
             <tr>
-                <td onclick="(visSendInn)">Send inn</td>
+                <td onclick="visSendInn()">Send inn</td>
             </tr>
         </tbody>
     </table>
@@ -59,7 +59,7 @@ function visSendInn() {
                 <td> Fint at du valgte og ta kontakt!</td>
             </tr>
             <tr>
-                <td onclick="vismeny()">Meny</td>
+                <td onclick="visMeny()">Meny</td>
             </tr>
         </tbody>
     </table>
@@ -89,4 +89,16 @@ function visHvordanTaVarePåAndre() {
         <tbody>
     </table>
     `;
+}
+function visSelvevaluering() {
+    document.getElementById('innhold').innerHTML =
+        `
+            <table>
+                <tr>
+                    <th>Hvordan har denne uken vært for deg?</th>
+
+
+                </tr>
+            </table>
+        `;
 }
