@@ -4,6 +4,9 @@ function visMeny() {
     <table>
     <tbody>
         <tr>
+            <h1>Meny</h1>
+        </tr>
+        <tr>
             <td onclick="visSiIfraOmMobbing()">Si ifra om mobbing</td>
         </tr>
         <tr>
