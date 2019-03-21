@@ -29,16 +29,16 @@ function visMeny() {
             <td onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</td>
         </tr>
         <tr>
-            <td onclick="visSelvauering()">Selvauering</td>
+            <td onclick="visSelvevaluering()">Selvevaluering</td>
         </tr>
         <tr>
             <td>Logg ut</td>
         </tr>
     </tbody>
-</table>
-`;
+    </table>
+    `;
 }
-function visHvaErMobbng(); {
+function visHvaErMobbing() {
     document.getElementById('innhold').innerHTML =
     `
     
