@@ -18,23 +18,36 @@ function visMeny() {
     document.getElementById('innhold').innerHTML = 
     `
     <table>
-    <tbody>
-        <tr>
-            <td onclick="visSiIfraOmMobbing()">Si ifra om mobbing</td>
-        </tr>
-        <tr>
-            <td onclick="visHvaErMobbing()">Hva er mobbing</td>
-        </tr>
-        <tr>
-            <td onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</td>
-        </tr>
-        <tr>
-            <td onclick="visSelvauering()">Selvauering</td>
-        </tr>
-        <tr>
-            <td>Logg ut</td>
-        </tr>
-    </tbody>
-</table>
+        <tbody>
+            <tr>
+                <td onclick="visSiIfraOmMobbing()">Si ifra om mobbing</td>
+            </tr>
+            <tr>
+                <td onclick="visHvaErMobbing()">Hva er mobbing</td>
+            </tr>
+            <tr>
+                <td onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</td>
+            </tr>
+            <tr>
+                <td onclick="visSelvauering()">Selvauering</td>
+            </tr>
+            <tr>
+                <td>Logg ut</td>
+            </tr>
+        </tbody>
+    </table>
 `;
+}
+function visHvaErMobbing(); {
+    document.getElementById('innhold').innerHTML =
+    `
+    
+    <table>
+        <tbody>
+            <tr>
+                <td onclick="visHvaErMobbing()">hei paa meg</td>
+            <tr>
+        </tbody>
+    </table>
+    `;
 }
