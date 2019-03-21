@@ -83,14 +83,14 @@ function AddChat()
 {
     document.getElementById("Messages").innerHTML += 
         `<div class="container mechat">
-        <img class="mechat" src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Avatar"/>
+        <img class="mechat" src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Avatar">
         <p class="mechat">${document.getElementById("ChatBox").value}</p>
         <span class="time-left mechat">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
         `;
     document.getElementById("Messages").innerHTML +=
         `<div class="container darker youchat">
-        <img class="youchat" src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar"/>
-        <p class="youchat" style="text-align:right">${RandomAnswer()}</p>
+        <img class="youchat right" src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar">
+        <p class="youchat">${RandomAnswer()}</p>
         <span class="time-right youchat">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
         </div>`;
     document.getElementById("ChatBox").value = null;
@@ -127,7 +127,7 @@ function RandomAnswer()
 function MessagePage()
 {
     document.getElementById("content").innerHTML = 
-    `<div id="Messages" class="GridContainer">
+    `<div id="Messages" class="MessageClass">
         <div class="menu">
         
         <button onclick="SwipePage()">Swipe Page</button>
@@ -135,8 +135,8 @@ function MessagePage()
         </div>
     
     </div>
-<div class="contact"><img src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar"/></div>
-<input type="text" id="ChatBox"/> <button onclick="AddChat()">Send</button>`;
+<div class="contact"></div>
+<input class="ChatBox" type="text" id="ChatBox"/> <button class="Send" onclick="AddChat()">Send</button>`;
 }
 function SettingsPage()
 {
