@@ -16,8 +16,4 @@ Gjenstående Problemer fra igår:
 
 Nye Problemer:
 
-- LogInPageGridContainer legger alle gridsa på første column istedenfor å legge opp rutenettet jeg trodde jeg hadde skrevet.
-
-- LogInPageGridContainer setter ikke størrelsen til vær grid som ikke skal ha content automatisk.
-
 - Finne ut hvordan jeg kan dele opp prosjektet slik at det blir lettere for de andre på laget å begynne å jobbe med meg.

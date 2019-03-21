@@ -139,7 +139,7 @@ function RandomAnswer() {
 function MessagePage()
 {
     if (loginPage) {
-        Middle.classList.remove("LogInPageContainer");
+        Middle.classList.remove("LogInPageGridContainer");
     }
     if (CreateAccountPage) {
 
@@ -190,7 +190,7 @@ function MessagePage()
 function SettingsPage()
 {
     if (loginPage) {
-        Middle.classList.remove("LogInPageContainer");
+        Middle.classList.remove("LogInPageGridContainer");
     }
     if (CreateAccountPage) {
 
@@ -222,7 +222,7 @@ function SettingsPage()
 function SwipePage()
 {
     if (loginPage) {
-        Middle.classList.remove("LogInPageContainer");
+        Middle.classList.remove("LogInPageGridContainer");
     }
     if (CreateAccountPage) {
 
@@ -271,7 +271,7 @@ function LoginPage()
 {
     if (loginPage)
     {
-        Middle.classList.remove("LogInPageContainer");
+        Middle.classList.remove("LogInPageGridContainer");
     }
     if (CreateAccountPage) {
 
@@ -293,6 +293,8 @@ function LoginPage()
     MessagePage = false;
     SettingsPage = false;
 
+    Middle.classList.add("LogInPageGridContainer");
+
     Middle.innerHTML = `
             
             <div id="LoginGridOne" class="LoginGridOne"></div>
@@ -301,7 +303,7 @@ function LoginPage()
             <div id="LoginGridFour" class="LoginGridFour"></div>
             <div id="LoginGridFive" class="LoginGridFive">
             
-            <table style="border: 1px double black">
+            <table class="TableClass" style="border: 1px double black">
             <tr>
                 <td><div>Username: </div></td>
                 <td><input type="text" id="Username" /></td>
@@ -314,9 +316,9 @@ function LoginPage()
             
             </div>
             <div id="LoginGridSix" class="LoginGridSix"></div>
-            <div id="LoginGridSeven" class="LoginGridSeven"><button onclick="LoginCheck()">Login</button></div>
-            <div id="LoginGridEight" class="LoginGridEight"><button onclick="NewAccount()">New Account</button></div>
-            <div id="LoginGridNine" class="LoginGridNine"><button>Forgot Password</button></div>
+            <div id="LoginGridSeven" class="LoginGridSeven"><button class="TableButton" onclick="LoginCheck()">Login</button></div>
+            <div id="LoginGridEight" class="LoginGridEight"><button class="TableButton" onclick="NewAccount()">New Account</button></div>
+            <div id="LoginGridNine" class="LoginGridNine"><button class="TableButton">Forgot Password</button></div>
             
             
             `;
@@ -325,7 +327,7 @@ function LoginPage()
 function NewAccountPage()
 {
     if (loginPage) {
-        Middle.classList.remove("LogInPageContainer");
+        Middle.classList.remove("LogInPageGridContainer");
     }
     if (CreateAccountPage) {
 
