@@ -8,7 +8,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	//theme: "light2", // "light1", "light2", "dark1", "dark2"
 	animationEnabled: true,
 	title:{
-		text: "Internet users"  
+		text: "Power consumed by buildings in kw/h"  
 	},
 	subtitles: [{
 		text: "Try Clicking and Hovering over Legends!"
@@ -19,8 +19,8 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	},
 	axisY2: {
       	gridThickness: 0,
-		title: "% of Population",
-		suffix: "%",
+		title: "Amount of kw/h",
+		suffix: "kw/h",
 		titleFontColor: "black",
 		labelFontColor: "black"
 	},
@@ -54,7 +54,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		markerSize: 5,
       	axisYType: "secondary",
 		xValueFormatString: "YYYY",
-		yValueFormatString: "#,##0.0\"%\"",
+		yValueFormatString: "#,##0.0\"kw/h\"",
 		showInLegend: true,
 		dataPoints: [
     {"date":"2019-01-01T09:00:00.000Z","power":4.0170341476524865},
@@ -89,7 +89,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		markerSize: 5,
 		axisYType: "secondary",
 		xValueFormatString: "YYYY",
-		yValueFormatString: "#,##0.0\"%\"",
+		yValueFormatString: "#,##0.0\"kw/h\"",
 		showInLegend: true,
 		dataPoints: [
 			{ x: new Date(2000, 00), y: 26.8 },
@@ -99,7 +99,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 			{ x: new Date(2011, 00), y: 85.4 },
 			{ x: new Date(2012, 00), y: 87.5 },
 			{ x: new Date(2013, 00), y: 89.8 },
-			{ x: new Date(2014, 00), y: 91.6 }
+			{ x: new Date(2019, 00), y: 91.6 }
 		]
 	},
 	{
@@ -108,7 +108,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		markerSize: 5,
 		axisYType: "secondary",
 		xValueFormatString: "YYYY",
-		yValueFormatString: "#,##0.0\"%\"",
+		yValueFormatString: "#,##0.0\"kw/h\"",
 		showInLegend: true,
 		dataPoints: [
 			{ x: new Date(2000, 00), y: 23.6 },
@@ -118,7 +118,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 			{ x: new Date(2011, 00), y: 78 },
 			{ x: new Date(2012, 00), y: 85 },
 			{ x: new Date(2013, 00), y: 86 },
-			{ x: new Date(2014, 00), y: 90.4 }
+			{ x: new Date(2025, 00), y: 90.4 }
 		]
 	},
 	{
@@ -127,7 +127,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		name: "Building 4",
 		markerSize: 5,
 		axisYType: "secondary",
-		yValueFormatString: "#,##0.0\"%\"",
+		yValueFormatString: "#,##0.0\"kw/h\"",
 		xValueFormatString: "YYYY",
 		dataPoints: [
 			{ x: new Date(2000, 00), y: 43.1 },
@@ -137,7 +137,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 			{ x: new Date(2011, 00), y: 69.7 },
 			{ x: new Date(2012, 00), y: 79.3 },
 			{ x: new Date(2013, 00), y: 84.2 },
-			{ x: new Date(2014, 00), y: 87 }
+			{ x: new Date(2019, 00), y: 87 }
 		]
 	},
 	]
