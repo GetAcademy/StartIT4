@@ -1,0 +1,16 @@
+Logg 22.03.2019
+
+Løste Problemer:
+
++ CSS grid er en smerte å bruke, må finne library og eller andre third party verktøy som gjør livet digg > etter å ha skrevet grids 17 ganger går det raskere hvem vet med tid kan det kansje gå som en løsning.
+
++ Finne ut hvordan jeg kan dele opp prosjektet slik at det blir lettere for de andre på laget å begynne å jobbe med meg. > spurte Bettina om hun kunne se på MessageContainer problemet.
+
+Gjenstående problemer fra igår:
+
+- MessageContainer elementene legger ikke til riktig mengde med tom plass for å plassere meldingen på kryss av værandre.
+
+Nye Problemer:
+
++ PCen kjører ikke optimalt et teknisk problem og har ikke en alt for stor konsekvens for arbeidet bare litt irriterende. løsningen er å kjøpe en ram brikke å stappe inn i pcen.
+
