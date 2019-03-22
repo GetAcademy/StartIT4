@@ -34,7 +34,6 @@ function visSiIfraOmMobbing() {
                 <h1>Ta kontakt</h1>
             </tr>
             <tr>
-                <div id="info">Dette suger.</div>
                 <h4>Har du blitt mobbet?</h4>
                 <input onchange="takontakt()" name="enern" id="harJa" type="radio" />ja
                 <input onchange="takontakt()" name="enern" id="harNei" type="radio" />nei
@@ -61,7 +60,7 @@ function visSiIfraOmMobbing() {
                  <input type="text"><br>
             </tr>
             <tr>
-                <br><button id="drit" disabled="" onclick="alert('sendt inn');">Send Inn</button>
+                <br><button id="drit" disabled="" onclick="visSendInn();">Send Inn</button>
             </tr>
         </tbody>
     </table>
