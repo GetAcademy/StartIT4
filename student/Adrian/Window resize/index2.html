@@ -31,14 +31,23 @@
 
     function windowSizeChanged(){
         var div = document.getElementById('info');
-        var height = window.innerHeight;
-        var width = window.innerWidth;
-        div.innerHTML = height + 'x' + width;
-        var erBred = width > 500;
-        div.innerHTML += '</br>erBred = ' + erBred;
-        if(!erBred){
-            div.innerHTML += '</br>Bredden er større enn 500';
-        }
+
+        var a, b;
+        a = 100;
+        b = 400;
+        var sum = a / b;
+        div.innerHTML = sum;
+
+
+
+        //var height = window.innerHeight;
+        //var width = window.innerWidth;
+        //div.innerHTML = height + 'x' + width;
+        //var erBred = width > 500;
+        //div.innerHTML += '</br>erBred = ' + erBred;
+        //if(erBred){
+        //div.innerHTML += '</br>Bredden er ikke større enn 500';
+        // }
     }
 </script>
 </body>
