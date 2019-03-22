@@ -31,7 +31,7 @@
     </style>
 </head>
 
-<body>
+<body onload="KonvertedDate()">
     <input type="date" />
     Oppgaver
     <ol>
@@ -61,9 +61,9 @@
     <script>
         // Model
         var tasks = [
-            { description: 'Handle til middag', isDone: true, navn: 'Ibrahim', dateDeadline: '', assignmentDone: '' },
-            { description: 'Lage middag', isDone: false, navn: 'Georg', dateDeadline: '', assignmentDone: '' },
-            { description: 'Spise middag', isDone: false, navn: 'Nikko', dateDeadline: '', assignmentDone: '' },
+            { description: 'Handle til middag', isDone: true, navn: 'Ibrahim', dateDeadline: '<input  type="date"/>', assignmentDone: '<input type="text" id="Done" onchange="doneWithTask()"/>' },
+            { description: 'Lage middag', isDone: false, navn: 'Georg', dateDeadline: '<input type="date"/>' },
+            { description: 'Spise middag', isDone: false, navn: 'Nikko', dateDeadline: '<input  type="date"/>' },
         ];
         // Controller
         var DoneInput = document.getElementById('Done');
@@ -72,14 +72,15 @@
         var taskDescriptionInput = document.getElementById('taskDescription');
         function addTask() {
             tasks.push({
-                assignmentDone: '',
-                dateDeadline: '',
+                assignmentDone: DoneInput.value,
+                dateDeadline: dateOnAssingmentInput.value,
                 navn: namesOnPersonInput.value,
                 description: taskDescriptionInput.value,
                 isDone: false
 
             });
-
+            DoneInput.value = '';
+            dateOnAssingmentInput.value = '';
             namesOnPersonInput.value = '';
             taskDescriptionInput.value = '';
             show();
@@ -111,10 +112,10 @@
             if (!task.editMode)
                 return `<tr>
                             <td>${task.description}</td>
-                            <td><input id="checkBox${i}" onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
+                            <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                             <td>${task.navn}</td>
-                            <td><input type="date" onload="KonvertedDate(this, ${i})" value="${task.dateDeadline}"/></td>
-                            <td><input id="doneInput${i}" type="text" value="${task.assignmentDone}"</td>
+                            <td>${task.dateDeadline}</td>
+                            <td>${task.assignmentDone}</td>
                             <td>
                                 <button onclick="deleteTask(${i})">Slett</button>
                                 <button onclick="editTask(${i})">Rediger</button>
@@ -124,7 +125,7 @@
                         `;
             return `<tr>
                             <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
-                            <td><input id="checkBoxing${i}" onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
+                            <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                             <td><input id="editName${i}" type="text" value="${task.navn}"/></td>
                             <td>${task.dateDeadline}</td>
                             <td>${task.assignmentDone}</td>
@@ -136,9 +137,7 @@
 
         }
         function changeIsDone(checkbox, index) {
-            console.log(checkbox.checked, index);
             tasks[index].isDone = checkbox.checked;
-            tasks[index].assignmentDone = checkbox.checked ? new Date().toLocaleDateString() : '';
 
             show();
         }
@@ -161,10 +160,8 @@
             task.editMode = false;
             show();
         }
-        function KonvertedDate(index) {
-            var dato = new Date().toISOString().substr(0, 10)
-            tasks[index].dateDeadline = dato;
-            show();
+        function KonvertedDate() {
+            var ts = new Date().toISOString().substr(0, 10);
         }
 
 

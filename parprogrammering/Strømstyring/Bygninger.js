@@ -104,3 +104,4 @@ function selectBuilding(index) {
     Areal: ${building.Areal}<br/>
     `;
 }
+
