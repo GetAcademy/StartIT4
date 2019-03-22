@@ -56,7 +56,7 @@ function visSiIfraOmMobbing() {
                 <input type="text">
             </tr>
             <tr>
-                <td onclick="visSendInn()">Send inn</td>
+                <td id="sendInn" disabled="" onclick="visSendInn()">Send inn</td>
             </tr>
         </tbody>
     </table>
