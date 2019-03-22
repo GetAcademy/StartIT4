@@ -35,22 +35,22 @@ function visSiIfraOmMobbing() {
             </tr>
             <tr>
                 <h4>Har du blitt mobbet?</h4>
-                <input type="radio">ja
-                <input type="radio">nei
+                <input id="bittMobbetJa" type="radio" name="blitt">ja
+                <input id="bittMobbetNei" type="radio" name="blitt">nei
             </tr>
             <tr>
                 <h4>Hvordan ble du mobbet?</h4>
-                <input type="radio">Dyttet
-                <input type="radio">Utestengt
-                <input type="radio">Ledd av
-                <input type="radio">Plaget/ertet
+                <input id="bleMobbetDyttet type="radio">Dyttet
+                <input id="bleMobbetUtestengt type="radio">Utestengt
+                <input id="bleMobbetLedd type="radio">Ledd av
+                <input id="bleMobbetPlaget type="radio">Plaget/ertet
             </tr>
             <tr>
                 <h4>Kjenner du noen som har blitt mobbet?</h4>
             </tr>
             <tr>
-                <input type="radio">ja
-                <input type="radio">nei
+                <input id="harBlittMobbetJa" type="radio">ja
+                <input id="harBlittMobbetNei type="radio">nei
             </tr>
             <tr>
                 <input type="text">
