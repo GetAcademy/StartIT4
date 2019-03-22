@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    Fra: <input id="from" type="datetime-local" value="2019-01-01T10:00" /><br />
+    Til: <input id="to" type="datetime-local" value="2019-01-01T15:00" /><br />
+    <button onclick="createData()">Lag data</button>
+    <script>
+        var buildings;
+
+        function createData() {
+            const timeFrom = document.getElementById('from').value;
+            const timeTo = document.getElementById('to').value;
+            const dateFrom = new Date(timeFrom);
+            const dateTo = new Date(timeTo);
+
+             buildings = [];
+            for (let buildingNo = 1; buildingNo < 10; buildingNo++) {
+                const buildingObj = {
+                    name: 'Building ' + buildingNo,
+                    data: []
+                }
+                let power = randomPower(1 + Math.random() * 99);
+                for (let myDate = dateFrom; myDate <= dateTo; myDate = addOneHour(myDate)) {
+                    buildingObj.data.push({
+                        date: myDate.toISOString(),
+                        power: randomPower(power)
+                    });
+                }
+                buildings.push(buildingObj);
+            }
+            console.log(JSON.stringify(buildings));
+        }
+
+        function randomPower(oldValue) {
+            return (Math.random() * 0.4 + 0.8) * oldValue;
+        }
+
+        function addOneHour(oldDate) {
+            const newDate = new Date();
+            newDate.setTime(oldDate.getTime() + 1000 * 60 * 60);
+            return newDate;
+        }
+    </script>
+</body>
+
+</html>
