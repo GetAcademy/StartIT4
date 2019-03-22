@@ -18,6 +18,7 @@ var createAccountPage = false;
 var swipePage = false;
 var messagePage = false;
 var settingsPage = false;
+var optionsPage = false;
 
 var AccountList =
     [
@@ -153,14 +154,19 @@ function MessagePage()
         Middle.classList.remove("OverflowWindow");
     }
     if (settingsPage) {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
 
     }
 
-     loginPage = false;
-     createAccountPage = false;
-     swipePage = false;
-     messagePage = true;
-     settingsPage = false;
+        loginPage = false;
+        createAccountPage = false;
+        swipePage = false;
+        messagePage = true;
+        settingsPage = false;
+        optionsPage = false;
 
     
     Middle.classList.add("MessagePageContainer");
@@ -204,6 +210,10 @@ function SettingsPage()
         Middle.classList.remove("OverflowWindow");
     }
     if (settingsPage) {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
 
     }
 
@@ -212,12 +222,18 @@ function SettingsPage()
     swipePage = false;
     messagePage = false;
     settingsPage = true;
+    optionsPage = false;
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
-    Middle.innerHTML = `<div>
-                                                    hei settings page;
-                                                  </div>`;
+    Middle.classList.add("SettingsPageGridContainer");
+    Middle.innerHTML = `
+    <div id="MyProfile" class="MyProfile">
+         <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Profile Picture">
+    </div>
+    <div id="SettingsButton" class="SettingsButton">
+         <button onclick="OptionsPage()">Settings</button>
+    </div>`;
     document.getElementById("Bottom").innerHTML = "";
 }
 function SwipePage()
@@ -237,6 +253,10 @@ function SwipePage()
     }
     if (settingsPage)
     {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
 
     }
 
@@ -245,10 +265,11 @@ function SwipePage()
     swipePage = true;
     messagePage = false;
     settingsPage = false;
+    optionsPage = false;
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
-
+    //fix SwipePageContainer supposed to be add class to Middle not its own div dumbo;
     Middle.innerHTML =`
         <div id="SwipePageContainer" class="SwipePageContainer">
         
@@ -285,7 +306,7 @@ function LoginPage()
         Middle.classList.remove("OverflowWindow");
     }
     if (settingsPage) {
-
+        Middle.classList.remove("SettingsPageGridContainer");
     }
 
     loginPage = true;
@@ -341,7 +362,7 @@ function NewAccountPage()
         Middle.classList.remove("OverflowWindow");
     }
     if (settingsPage) {
-
+        Middle.classList.remove("SettingsPageGridContainer");
     }
 
     loginPage = false;
