@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .round {
+            border:3px solid rgb(102, 255, 0);
+            border-radius: 10px;
+            color: white;
+            padding: 10px;
+            margin: 3px;
+        }
+        .stilig {
+            border: 3px solid rgb(0, 255, 255);
+            border-radius: 10px;
+            color: pink;
+            padding: 30px;
+            margin: 15px;
+            background-color: rgb(145, 6, 145);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bla"> </div>
+    <input id="chk" type="checkbox" onchange="toggleStyle()" />
+
+
+
+    <p>ferdighet 8 - endre andre ting enn innerHTML: value, style</p>
+    <input id="text" type="text" class="doSomethingA doSomethingB"/>
+    <h2 id="overskrift">overskrift</h2>
+    <button onclick="doSomethingA(this)">A</button>
+    <button onclick="doSomethingB(this)">B</button>
+
+
+    <script>
+        var textInput = document.getElementById('text');
+        var h2element = document.getElementById('overskrift');
+
+
+        function toggleStyle() {
+            var isChecked = document.getElementById('chk').checked;
+            document.getElementById('bla').classList.toggle('stilig', isChecked);
+        }
+
+        function doSomethingA(clickedElement) {
+            textInput.style.backgroundColor = 'purple';
+            h2element.style.backgroundColor = 'grey';
+            clickedElement.style.backgroundColor = 'dodgerblue';
+
+            textInput.classList.add('round');
+            h2element.classList.add('round');
+            clickedElement.classList.add('round');
+
+            textInput.value = "trykket på knapp A";
+        }
+
+
+        function doSomethingB(clickedElement) {
+            textInput.style.backgroundColor = 'grey';
+            h2element.style.backgroundColor = 'blue';
+            clickedElement.style.backgroundColor = 'lightgreen';
+
+            textInput.classList.add('whitesmoke');
+            h2element.classList.add('whitesmoke');
+            clickedElement.classList.add('whitesmoke');
+
+            textInput.style.fontWeight = 'bolder';
+            h2element.style.fontWeight = 'bolder';
+            clickedElement.style.fontWeight = 'bolder';
+
+            textInput.classList.add('stilig');
+            h2element.classList.add('stilig');
+            clickedElement.classList.add('stilig');
+
+            textInput.value = "trykket på knapp B";
+        }
+        // function doSomethingC(clickedElement) {
+        //     textInput.style.backgroundColor = 'lightgreen';
+        //     h2element.style.backgroundColor = 'grey';
+        //     clickedElement.style.backgroundColor = 'blue';
+
+        //     textInput.classList.add('whitesmoke');
+        //     h2element.classList.add('whitesmoke');
+        //     clickedElement.classList.add('whitesmoke');
+
+        //     textInput.style.fontWeight = 'bolder';
+        //     h2element.style.fontWeight = 'bolder';
+        //     clickedElement.style.fontWeight = 'bolder';
+
+        //     textInput.classList.remove('stilig');
+        //     h2element.classList.remove('stilig');
+        //     clickedElement.classList.remove('stilig');
+
+        //     textInput.value = "trykket på knapp C";
+        // }
+    
+    </script>
+
+
+</body>
+</html>

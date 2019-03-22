@@ -2,6 +2,22 @@
 var BirthDateDay;
 var BirthDateMonth;
 var BirthDateFull;
+var date = new Date();
+var year = date.getFullYear();
+var month = date.getMonth();
+var day = date.getDate();
+var CheckAge = new Date(year - 18, month, day)
+var BirthDate;
+
+var Menu = document.getElementById("Menu");
+var Middle = document.getElementById("Middle");
+var Bottom = document.getElementById("Bottom");
+
+var loginPage = false;
+var createAccountPage = false;
+var swipePage = false;
+var messagePage = false;
+var settingsPage = false;
 
 var AccountList =
     [
@@ -76,22 +92,23 @@ function LikeAndDislike(Button)
 
 function AddChat()
 {
-    document.getElementById("MyChat").innerHTML += `<div class="container AddMarginBottom">
-        <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Avatar">
-        <p>${document.getElementById("ChatBox").value}</p>
-        <span class="time-left">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
+    document.getElementById("MyChat").innerHTML += `
+        <div class="container LeftGrid">
+        <img class="img" src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Profile Picture">
+        <p class="Text left">${document.getElementById("ChatBox").value}</p>
+        <span class="time left">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
         </div>
         `;
     
     document.getElementById("YouChat").innerHTML +=`
-        <div class="container"></div>
+        <div style="display:hidden;" class="container"></div>
 
-        <div class="container darker AddMarginTop">
-        <img class="right" src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar">
-        <p class="right">${RandomAnswer()}</p>
-        <span class="time-right">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
+        <div class="container darker RightGrid">
+        <img class="img right" src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar">
+        <p class="Text right">${RandomAnswer()}</p>
+        <span class="time right">${new Date().getHours() + ":" + new Date().getMinutes()}</span>
         </div>`;
-    document.getElementById("MyChat").innerHTML += `<div class="container darker"></div>`;
+    document.getElementById("MyChat").innerHTML += `<div style="display:hidden;" class="container darker"></div>`;
     document.getElementById("ChatBox").value = null;
 }
 
@@ -121,34 +138,118 @@ function RandomAnswer() {
 //page HTML's
 function MessagePage()
 {
+    if (loginPage)
+    {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+
+    }
+    if (swipePage) {
+
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+
+    }
+
+     loginPage = false;
+     createAccountPage = false;
+     swipePage = false;
+     messagePage = true;
+     settingsPage = false;
+
+    
+    Middle.classList.add("MessagePageContainer");
+    Middle.classList.add("OverflowWindow");
+
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("Bottom").innerHTML = `<input class="ChatBox" type="text" id="ChatBox"/> <button class="Send" onclick="AddChat()">Send</button>`;
-    document.getElementById("Middle").innerHTML = 
-        `<div id="MessagePageContainer" class="MessagePageContainer">
+    
+    Middle.innerHTML = 
+        `
         <div id="SideBar" class="SideBar">
-            
+            Contact List
         </div>
-        <div id="MessageContainer" class="MessageContainer">
-            <div id="MyChat" class="MyChat"></div>
-            <div id="YouChat" class="YouChat"></div>
+        
+        <div id="MyChat" class="MyChat">
+        
         </div>
-    </div>
+
+        <div id="YouChat" class="YouChat">
+        
+        
+        </div>
+        
+    
     `;
 }
-function SettingsPage() {
+function SettingsPage()
+{
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+
+    }
+    if (swipePage) {
+
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+
+    }
+
+    loginPage = false;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = true;
+
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
-    document.getElementById("Middle").innerHTML = `<div>
+    Middle.innerHTML = `<div>
                                                     hei settings page;
                                                   </div>`;
     document.getElementById("Bottom").innerHTML = "";
 }
 function SwipePage()
 {
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+
+    }
+    if (swipePage) {
+
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage)
+    {
+
+    }
+
+    loginPage = false;
+    createAccountPage = false;
+    swipePage = true;
+    messagePage = false;
+    settingsPage = false;
+
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
-    document.getElementById("Middle").innerHTML =`
+
+    Middle.innerHTML =`
         <div id="SwipePageContainer" class="SwipePageContainer">
         
         <div id="SwipeName" class="SwipeName">
@@ -169,7 +270,41 @@ function SwipePage()
 
 function LoginPage()
 {
-    document.getElementById("Middle").innerHTML = `<table style="border: 1px double black">
+    if (loginPage)
+    {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+
+    }
+    if (swipePage) {
+
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+
+    }
+
+    loginPage = true;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
+
+    Middle.classList.add("LogInPageGridContainer");
+
+    Middle.innerHTML = `
+            
+            <div id="LoginGridOne" class="LoginGridOne"></div>
+            <div id="LoginGridTwo" class="LoginGridTwo"></div>
+            <div id="LoginGridThree" class="LoginGridThree"></div>
+            <div id="LoginGridFour" class="LoginGridFour"></div>
+            <div id="LoginGridFive" class="LoginGridFive">
+            
+            <table class="TableClass" style="border: 1px double black">
             <tr>
                 <td><div>Username: </div></td>
                 <td><input type="text" id="Username" /></td>
@@ -178,12 +313,44 @@ function LoginPage()
                 <td><div>Password: </div></td>
                 <td><input type="password" id="Password" /></td>
             </tr>
-        </table>
-        <button onclick="LoginCheck()">Login</button> <button onclick="NewAccount()">New Account</button> <button>Forgot Password</button>`;
-    document.getElementById("Bottom").innerHTML = "";
+            </table>
+            
+            </div>
+            <div id="LoginGridSix" class="LoginGridSix"></div>
+            <div id="LoginGridSeven" class="LoginGridSeven"><button class="TableButton" onclick="LoginCheck()">Login</button></div>
+            <div id="LoginGridEight" class="LoginGridEight"><button class="TableButton" onclick="NewAccount()">New Account</button></div>
+            <div id="LoginGridNine" class="LoginGridNine"><button class="TableButton">Forgot Password</button></div>
+            
+            
+            `;
+            document.getElementById("Bottom").innerHTML = "";
 }
-function NewAccountPage() {
-    document.getElementById("Middle").innerHTML =`<table>
+function NewAccountPage()
+{
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+
+    }
+    if (swipePage) {
+
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+
+    }
+
+    loginPage = false;
+    createAccountPage = true;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
+
+    Middle.innerHTML =`<table>
     <tr>
         <td><div>Create Account</div></td>
     </tr>
