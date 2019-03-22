@@ -138,7 +138,8 @@ function RandomAnswer() {
 //page HTML's
 function MessagePage()
 {
-    if (loginPage) {
+    if (loginPage)
+    {
         Middle.classList.remove("LogInPageGridContainer");
     }
     if (CreateAccountPage) {
