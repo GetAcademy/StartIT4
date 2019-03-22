@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dices {
+            font-size: 500%;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="diceInput" type="text" size="5" oninput="extractdiceValues(this); showDice();" />
+    <button onclick="throwDice(); showDice();">5 tilfeldige terninger</button>
+    <div id="dices"></div>
+    <div id="scoreBoard"></div>
+    <script>
+        var dice = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+        var diceValues;
+        function throwDice() {
+            diceValues = [];
+            for (let index = 0; index < 5; index++) {
+                diceValues.push(Math.ceil(Math.random() * 6));
+            }
+            document.getElementById('diceInput').value = diceValues.join('');
+        }
+
+        function extractdiceValues(inputTag) {
+            let diceValuesTxt = inputTag.value;
+            diceValues = [];
+            for (var index = 0; index < diceValuesTxt.length; index++) {
+                let dieValue = parseInt(diceValuesTxt[index])
+                diceValues.push(dieValue);
+            }
+        }
+
+        function showDice() {
+            let txt = '';
+            for (var index = 0; index < diceValues.length; index++) {
+                let dieValue = diceValues[index];
+                let dieIndex = dieValue - 1;
+                txt += dice[dieIndex];
+            }
+            document.getElementById('dices').innerHTML = txt;
+            updateScoreBorard();
+        }
+        function updateScoreBorard() {
+            document.getElementById('scoreBoard').innerHTML = `
+                <table>
+                    <tr><td>Enere</td><td>${getScoreOf(1)}</td></tr>
+                    <tr><td>Toere</td><td>${getScoreOf(2)}</td></tr>
+                    <tr><td>Trere</td><td>${getScoreOf(3)}</td></tr>
+                    <tr><td>Firere</td><td>${getScoreOf(4)}</td></tr>
+                    <tr><td>Femere</td><td>${getScoreOf(5)}</td></tr>
+                    <tr><td>Seksere</td><td>${getScoreOf(6)}</td></tr>
+                    <tr><td>Ett par</td><td>${getScoreOfAKind(2)}</td></tr>
+                    <tr><td>To par</td><td>${getScoreOfTwoPairs()}</td></tr>
+                    <tr><td>Tre like</td><td>${getScoreOfAKind(3)}</td></tr>
+                    <tr><td>Fire like</td><td>${getScoreOfAKind(4)}</td></tr>
+                    <tr><td>Liten straight</td><td>${getScoreOfStraight(true)}</td></tr>
+                    <tr><td>Stor straight</td><td>${getScoreOfStraight(false)}</td></tr>
+                    <tr><td>Hus</td><td>${getScoreHouse()}</td></tr>
+                    <tr><td>Sjanse</td><td>${getScoreSum()}</td></tr>
+                    <tr><td>Yatzy</td><td>${getScoreOfYatzy()}</td></tr>
+                </table>
+            `;
+        }
+        function getScoreOfStraight(isSmall) {
+            let counts = getCounts();
+            for (let index = 0; index < counts.length; index++) {
+                let currentCount = counts[index];
+                if (currentCount > 1) {
+                    return 0
+                }
+            }
+            let dieIndexOf6 = 5;
+            let dieIndexOf1 = 0;
+            let indexToHaveNoneOf = isSmall ? dieIndexOf6 : dieIndexOf1;
+            return counts[indexToHaveNoneOf] === 0 ? getScoreSum() : 0;
+        }
+        function getScoreHouse() {
+            var counts = getCounts();
+            var nonZeroCount = 0;
+            for (var index = 0; index < counts.length; index++) {
+                let currentCount = counts[index];
+                if (currentCount > 0) {
+                    nonZeroCount++;
+                }
+                if (nonZeroCount > 2 || [1, 4, 5].includes(currentCount)) {
+                    return 0;
+                }
+            }
+            return getScoreSum();
+        }
+        function getScoreSum() {
+            var sum = 0;
+            for (let index = 0; index < diceValues.length; index++) {
+                let currentValue = diceValues[index];
+                sum += currentValue;
+            }
+            return sum;
+        }
+
+
+
+
+        function getScoreOfYatzy() {
+            let tempScore = getScoreOfAKind(5);
+            return tempScore > 0 ? 50 : 0;
+        }
+
+        function getScoreOf(value) {
+            var sum = 0;
+            for (let index = 0; index < diceValues.length; index++) {
+                let currentValue = diceValues[index];
+                if (currentValue == value) {
+                    sum += currentValue;
+                }
+            }
+            return sum;
+        }
+        function getScoreOfAKind(count) {
+            counts = getCounts()
+            for (let index = counts.length - 1; index >= 0; index--) {
+                let currentCount = counts[index];
+                if (currentCount >= count) {
+                    let diceValue = index + 1;
+                    return diceValue * count;
+                }
+            }
+            return 0;
+        }
+        function getScoreOfTwoPairs() {
+            counts = getCounts()
+            var score = 0;
+            for (let index = counts.length - 1; index >= 0; index--) {
+                let currentCount = counts[index];
+                if (currentCount >= 2) {
+                    let isSecondPair = score > 0;
+                    let diceValue = index + 1;
+                    score += diceValue * 2;
+                    if (isSecondPair) {
+                        return score;
+                    }
+                }
+            }
+            return 0;
+        }
+
+        function getCounts() {
+            var counts = [0, 0, 0, 0, 0, 0];
+            for (let index = 0; index < diceValues.length; index++) {
+                let diceValue = diceValues[index];
+                let countIndex = diceValue - 1;
+                counts[countIndex]++;
+            }
+            return counts;
+        }
+
+
+    </script>
+</body>
+
+</html>
