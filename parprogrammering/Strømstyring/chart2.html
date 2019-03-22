@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+window.onload = function () {
+	
+var chart = new CanvasJS.Chart("chartContainer", {
+	//theme: "light2", // "light1", "light2", "dark1", "dark2"
+	animationEnabled: true,
+	title:{
+		text: "Internet users"  
+	},
+	subtitles: [{
+		text: "Try Clicking and Hovering over Legends!"
+	}],
+	axisX: {
+		lineColor: "black",
+		labelFontColor: "black"
+	},
+	axisY2: {
+      	gridThickness: 0,
+		title: "% of Population",
+		suffix: "%",
+		titleFontColor: "black",
+		labelFontColor: "black"
+	},
+	legend: {
+		cursor: "pointer",
+		itemmouseover: function(e) {
+			e.dataSeries.lineThickness = e.chart.data[e.dataSeriesIndex].lineThickness * 2;
+			e.dataSeries.markerSize = e.chart.data[e.dataSeriesIndex].markerSize + 2;
+			e.chart.render();
+		},
+		itemmouseout: function(e) {
+			e.dataSeries.lineThickness = e.chart.data[e.dataSeriesIndex].lineThickness / 2;
+			e.dataSeries.markerSize = e.chart.data[e.dataSeriesIndex].markerSize - 2;
+			e.chart.render();
+		},
+		itemclick: function (e) {
+			if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+				e.dataSeries.visible = false;
+			} else {
+				e.dataSeries.visible = true;
+			}
+			e.chart.render();
+		}
+	},
+	toolTip: {
+		shared: true
+	},
+	data: [{
+		type: "spline",
+		name: "Building 1",
+		markerSize: 5,
+      	axisYType: "secondary",
+		xValueFormatString: "YYYY",
+		yValueFormatString: "#,##0.0\"%\"",
+		showInLegend: true,
+		dataPoints: [
+    {"date":"2019-01-01T09:00:00.000Z","power":4.0170341476524865},
+    {"date":"2019-01-01T10:00:00.000Z","power":4.335133189406978},
+    {"date":"2019-01-01T11:00:00.000Z","power":3.681311771082061},
+    {"date":"2019-01-01T12:00:00.000Z","power":3.329849325552704},
+    {"date":"2019-01-01T13:00:00.000Z","power":4.108685555312149},
+    {"date":"2019-01-01T14:00:00.000Z","power":3.1204850243826803},
+    {"date":"2019-01-01T15:00:00.000Z","power":3.0485753783152942},
+    {"date":"2019-01-01T16:00:00.000Z","power":3.9005911195845746},
+    {"date":"2019-01-01T17:00:00.000Z","power":4.345465692511018},
+    {"date":"2019-01-01T18:00:00.000Z","power":3.0519657349468616},
+    {"date":"2019-01-01T19:00:00.000Z","power":3.4081153721599833},
+    {"date":"2019-01-01T20:00:00.000Z","power":3.097169508706444},
+    {"date":"2019-01-01T21:00:00.000Z","power":3.9252574626441064},
+    {"date":"2019-01-01T22:00:00.000Z","power":3.67969001017535},
+    {"date":"2019-01-01T23:00:00.000Z","power":3.9707166043901645},
+    {"date":"2019-01-02T00:00:00.000Z","power":3.074340948519437},
+    {"date":"2019-01-02T01:00:00.000Z","power":4.2553659303137295},
+    {"date":"2019-01-02T02:00:00.000Z","power":3.2446012486947926},
+    {"date":"2019-01-02T03:00:00.000Z","power":4.082809222091423},
+    {"date":"2019-01-02T04:00:00.000Z","power":3.7290543023221083},
+    {"date":"2019-01-02T05:00:00.000Z","power":3.9748108132795847},
+    {"date":"2019-01-02T06:00:00.000Z","power":3.7757491752785866},
+    {"date":"2019-01-02T07:00:00.000Z","power":3.3555119416752444},
+    {"date":"2019-01-02T08:00:00.000Z","power":3.2329193644859684},
+    {"date":"2019-01-02T09:00:00.000Z","power":3.7750401367609214}
+]}, 
+	{
+		type: "spline",
+        name: "Building 2",
+		markerSize: 5,
+		axisYType: "secondary",
+		xValueFormatString: "YYYY",
+		yValueFormatString: "#,##0.0\"%\"",
+		showInLegend: true,
+		dataPoints: [
+			{ x: new Date(2000, 00), y: 26.8 },
+			{ x: new Date(2005, 00), y: 70 },
+			{ x: new Date(2009, 00), y: 83.6 },
+			{ x: new Date(2010, 00), y: 85 },
+			{ x: new Date(2011, 00), y: 85.4 },
+			{ x: new Date(2012, 00), y: 87.5 },
+			{ x: new Date(2013, 00), y: 89.8 },
+			{ x: new Date(2014, 00), y: 91.6 }
+		]
+	},
+	{
+		type: "spline",
+		name: "Building 3",
+		markerSize: 5,
+		axisYType: "secondary",
+		xValueFormatString: "YYYY",
+		yValueFormatString: "#,##0.0\"%\"",
+		showInLegend: true,
+		dataPoints: [
+			{ x: new Date(2000, 00), y: 23.6 },
+			{ x: new Date(2005, 00), y: 40 },
+			{ x: new Date(2009, 00), y: 64 },
+			{ x: new Date(2010, 00), y: 68 },
+			{ x: new Date(2011, 00), y: 78 },
+			{ x: new Date(2012, 00), y: 85 },
+			{ x: new Date(2013, 00), y: 86 },
+			{ x: new Date(2014, 00), y: 90.4 }
+		]
+	},
+	{
+		type: "spline",
+		showInLegend: true,
+		name: "Building 4",
+		markerSize: 5,
+		axisYType: "secondary",
+		yValueFormatString: "#,##0.0\"%\"",
+		xValueFormatString: "YYYY",
+		dataPoints: [
+			{ x: new Date(2000, 00), y: 43.1 },
+			{ x: new Date(2005, 00), y: 68 },
+			{ x: new Date(2009, 00), y: 71 },
+			{ x: new Date(2010, 00), y: 71.7 },
+			{ x: new Date(2011, 00), y: 69.7 },
+			{ x: new Date(2012, 00), y: 79.3 },
+			{ x: new Date(2013, 00), y: 84.2 },
+			{ x: new Date(2014, 00), y: 87 }
+		]
+	},
+	]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
