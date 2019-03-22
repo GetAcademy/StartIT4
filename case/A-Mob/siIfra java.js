@@ -60,7 +60,7 @@ function visSiIfraOmMobbing() {
                  <input type="text"><br>
             </tr>
             <tr>
-                <br><button id="drit" disabled="" onclick="alert('sendt inn');">Send Inn</button>
+                <br><button id="drit" disabled="" onclick="visSendInn();">Send Inn</button>
             </tr>
         </tbody>
     </table>
