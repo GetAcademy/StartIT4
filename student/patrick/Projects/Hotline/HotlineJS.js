@@ -14,10 +14,10 @@ var Middle = document.getElementById("Middle");
 var Bottom = document.getElementById("Bottom");
 
 var loginPage = false;
-var CreateAccountPage = false;
-var SwipePage = false;
-var MessagePage = false;
-var SettingsPage = false;
+var createAccountPage = false;
+var swipePage = false;
+var messagePage = false;
+var settingsPage = false;
 
 var AccountList =
     [
@@ -142,13 +142,13 @@ function MessagePage()
     {
         Middle.classList.remove("LogInPageGridContainer");
     }
-    if (CreateAccountPage) {
+    if (createAccountPage) {
 
     }
-    if (SwipePage) {
+    if (swipePage) {
 
     }
-    if (MessagePage) {
+    if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
@@ -157,10 +157,10 @@ function MessagePage()
     }
 
      loginPage = false;
-     CreateAccountPage = false;
-     SwipePage = false;
-     MessagePage = true;
-     SettingsPage = false;
+     createAccountPage = false;
+     swipePage = false;
+     messagePage = true;
+     settingsPage = false;
 
     
     Middle.classList.add("MessagePageContainer");
@@ -193,13 +193,13 @@ function SettingsPage()
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
-    if (CreateAccountPage) {
+    if (createAccountPage) {
 
     }
-    if (SwipePage) {
+    if (swipePage) {
 
     }
-    if (MessagePage) {
+    if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
@@ -208,10 +208,10 @@ function SettingsPage()
     }
 
     loginPage = false;
-    CreateAccountPage = false;
-    SwipePage = false;
-    MessagePage = false;
-    SettingsPage = true;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = true;
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
@@ -225,26 +225,26 @@ function SwipePage()
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
-    if (CreateAccountPage) {
+    if (createAccountPage) {
 
     }
-    if (SwipePage) {
+    if (swipePage) {
 
     }
-    if (MessagePage) {
+    if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
-    if (SettingsPage)
+    if (settingsPage)
     {
 
     }
 
     loginPage = false;
-    CreateAccountPage = false;
-    SwipePage = true;
-    MessagePage = false;
-    SettingsPage = false;
+    createAccountPage = false;
+    swipePage = true;
+    messagePage = false;
+    settingsPage = false;
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
@@ -274,25 +274,25 @@ function LoginPage()
     {
         Middle.classList.remove("LogInPageGridContainer");
     }
-    if (CreateAccountPage) {
+    if (createAccountPage) {
 
     }
-    if (SwipePage) {
+    if (swipePage) {
 
     }
-    if (MessagePage) {
+    if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
-    if (SettingsPage) {
+    if (settingsPage) {
 
     }
 
     loginPage = true;
-    CreateAccountPage = false;
-    SwipePage = false;
-    MessagePage = false;
-    SettingsPage = false;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
 
     Middle.classList.add("LogInPageGridContainer");
 
@@ -330,25 +330,25 @@ function NewAccountPage()
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
-    if (CreateAccountPage) {
+    if (createAccountPage) {
 
     }
-    if (SwipePage) {
+    if (swipePage) {
 
     }
-    if (MessagePage) {
+    if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
-    if (SettingsPage) {
+    if (settingsPage) {
 
     }
 
     loginPage = false;
-    CreateAccountPage = true;
-    SwipePage = false;
-    MessagePage = false;
-    SettingsPage = false;
+    createAccountPage = true;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
 
     Middle.innerHTML =`<table>
     <tr>
