@@ -9,7 +9,7 @@
                 //theme: "light2", // "light1", "light2", "dark1", "dark2"
                 animationEnabled: true,
                 title: {
-                    text: "Internet users"
+                    text: "Consumption of Electricity"
                 },
                 subtitles: [{
                     text: "Try Clicking and Hovering over Legends!"
@@ -49,17 +49,32 @@
                 toolTip: {
                     shared: true
                 },
+
                 data: [{
                     type: "spline",
-                    name: "Sweden",
+                    name: "Building 1",
                     markerSize: 5,
                     axisYType: "secondary",
                     xValueFormatString: "DD MM,YY",
-                    yValueFormatString: "#,##0.0\"%\"",
+                    yValueFormatString: "#,##0.0\"kw/h\"",
                     showInLegend: true,
                     dataPoints: niceData,
+                },
+                {
+                
+
+                    type: "spline",
+                    name: "Building 2",
+                    markerSize: 5,
+                    azisYType: "secondary",
+                    xValueFormatString: "DD MM, YY",
+                    yValueFormatString: "#,##0.0\"kw/h\"",
+                    showInLegend: true,
+                    dataPoints: niceData1,
                 }]
             });
+            
+            
             chart.render();
 
         }
