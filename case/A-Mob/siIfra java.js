@@ -34,6 +34,28 @@ function visSiIfraOmMobbing() {
                 <h1>Ta kontakt</h1>
             </tr>
             <tr>
+                <h4>Har du blitt mobbet?</h4>
+                <input type="radio">ja
+                <input type="radio">nei
+            </tr>
+            <tr>
+                <h4>Hvordan ble du mobbet?</h4>
+                <input type="radio">Dyttet
+                <input type="radio">Utestengt
+                <input type="radio">Ledd av
+                <input type="radio">Plaget/ertet
+            </tr>
+            <tr>
+                <h4>Kjenner du noen som har blitt mobbet?</h4>
+            </tr>
+            <tr>
+                <input type="radio">ja
+                <input type="radio">nei
+            </tr>
+            <tr>
+                <input type="text">
+            </tr>
+            <tr>
                 <td onclick="visSendInn()">Send inn</td>
             </tr>
         </tbody>
