@@ -8,7 +8,11 @@
     <script src="ny nøkkelvane.js"></script>
     <script src="ny aktivitet.js"></script>
     <script src="ny evaluering.js"></script>
-    
+    <script src="add text.js"></script>
+    <script src="info screen.js"></script>
+    <script src="daglig evaluering.js"></script>
+    <script src="ukentlig evaluering.js"></script>
+    <script src="finn coach.js"></script>
     <style>
         .overskrift {
             float: left;
@@ -28,17 +32,7 @@
     <script>
         var content = document.getElementById('content');
         newGoal();
-        
-        function infoScreen() {
-            content.innerHTML =`
-                <div class="overskrift back" onclick="newGoal()">←</div> 
-                <h2 class="overskrift">Informasjon</h2>
-        `}
-        function addtxt() {
-            var textDiv = document.getElementById('textDiv');
-            textDiv.innerHTML += '<textarea></textarea><br />';
-        }
-        
+       
     </script>
 </body>
 </html>

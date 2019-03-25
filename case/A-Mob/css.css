@@ -6,12 +6,12 @@ body {
 div.page {
     display: grid;
     height: 100vh;
-    grid-template-columns: 2fr 8fr;
-    grid-template-rows: 2fr 8fr;
+    grid-template-columns: 100px; auto 50px;
+    grid-template-rows: 80px auto;
     grid-template-areas: 
-        'header header header'
-        'innhold innhold innhold'
-        'innhold innhold innhold'
+        'header innhold innhold'
+        'header innhold innhold'
+        'header innhold innhold'
 
 }
 div.header {
@@ -24,15 +24,32 @@ div.innhold {
 }
 .meny {
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 300px;
+    /* left: 0;
+    top: 0; */
+    width: 35%;
     height: 100vh;
     background-color: #EC8B5E
 }
-/* div.meny {
-    height: 10px;
+ .fixed {
+    border-radius: 10%;
+    width: 50%;
+    height: 7%;
+    margin-left: 24%;
+    margin-bottom: 10px;
+    text-align: center;
+    border: solid;
+    border-color: black;
+    background-color: #5F6389;
 }
-div.fixed {
-    display: grid;
-} */
+.komOgDraMeny {
+    font-size: 110%;
+    background-color: #5F6389;
+    border: solid;
+    border-color: #5F6389;
+}
+.komOgDraMeny2 {
+    font-size: 110%;
+    background-color:#EC8B5E;
+    border: solid;
+    border-color: #EC8B5E;
+}
