@@ -9,7 +9,9 @@
     background-color: #006EB6;
     font-size: 340%;
 }
-
+.chartContainer {
+    grid-area: main;
+}
 .menuContainer {
     grid-area: menuContainer;
     display:grid;
@@ -22,6 +24,7 @@
     background-color: ghostwhite;
     font-size: 30px;
 }
+
 
 .footer {
     grid-area: footer;
