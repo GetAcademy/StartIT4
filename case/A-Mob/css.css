@@ -22,6 +22,14 @@ div.innhold {
     grid-area: innhold;
     background-color: #5F6389
 }
+.meny {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #EC8B5E
+}
 /* div.meny {
     height: 10px;
 }
