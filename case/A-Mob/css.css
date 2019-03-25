@@ -1,1 +1,30 @@
-// JavaScript source code
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 120;
+}
+div.page {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 2fr 8fr;
+    grid-template-areas: 
+        'header header header'
+        'innhold innhold innhold'
+        'innhold innhold innhold'
+
+}
+div.header {
+    grid-area: header;
+    background-color: purple
+}
+div.innhold {
+    grid-area: innhold;
+    background-color: #5F6389
+}
+/* div.meny {
+    height: 10px;
+}
+div.fixed {
+    display: grid;
+} */
