@@ -1,0 +1,9 @@
+Logg 25.03.2019
+
+Løste Problemer:
+
++ pcen kjører ikke optimalt > pcen kjører helt akseptabelt.
+
+Nye Problemer:
+
+- på tide å legge inn funksjonalitet inn OptionsPage og SettingsPage og ekspandere Logg inn med å lagre hvem som er logget inn i en variabel til å kunne si hvilken profil en skal vise.
