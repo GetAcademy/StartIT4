@@ -2,22 +2,22 @@
 
 
 
-    <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-        <link rel="stylesheet" href="StromappCSSV2.css" />
-    </head>
-    <body>
-        <div class="grid-container">
-            <div class="header">Kommunal Strømstyring</div>
-            <div class="menuContainer"><button class="button">Liste over bygg</button><button class="button">Søk etter bygg</button><button class="button">Legg til bygg</button><button class="button">Kart</button></div>
-            <div class="main">Velkommen til Larvik kommune sin kommunale strømstyring side.<br />Vennligst velg:</div>
-            <div class="footer">Laget av: Per, Henrik, Ibrahim og Adrian</div>
-            <div class="chartContainer" id="chartContainer" style="height: 300px; width: 100%;"></div>
-        </div>
-    
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="StromappCSSV2.css" />
+
+<body>
+    <div class="grid-container">
+        <div class="header">Kommunal Strømstyring</div>
+        <div class="menuContainer"><button class="button">Liste over bygg</button><button class="button">Søk etter
+                bygg</button><button class="button">Legg til bygg</button><button class="button">Kart</button></div>
+        <div class="main">Velkommen til Larvik kommune sin kommunale strømstyring side.<br />Vennligst velg:</div>
+        <div class="footer">Laget av: Per, Henrik, Ibrahim og Adrian</div>
+        <div class="chartContainer" id="chartContainer" style="height: 300px; width: 100%;"></div>
+    </div>
 
     <script>
         window.onload = function () {
@@ -66,12 +66,8 @@
                 toolTip: {
                     shared: true
                 },
-
-
-//Bygningene som er lagt inn legges her.
-//Skal du legge inn fler bygninger, husk å også hente data fra data.js og plugg det inn i dataConverter.js.
-
-
+                //Bygningene som er lagt inn legges her.
+                //Skal du legge inn fler bygninger, husk å også hente data fra data.js og plugg det inn i dataConverter.js.
                 data: [{
                     type: "line",
                     name: "Bergeskogen Barnehage",
@@ -112,19 +108,23 @@
                     showInLegend: true,
                     dataPoints: niceData3,
                 }
-            ],
+                ],
+
             });
-            
-            
+
+
             chart.render();
+
         }
+
     </script>
-</head>
+    </head>
 
+    <body>
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <script src="charts.js"></script>
+        <script src="dataConverter.js"></script>
+    </body>
 
-
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="dataConverter.js"></script>
-</body>
 
 </html>
