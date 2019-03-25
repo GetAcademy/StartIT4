@@ -18,6 +18,8 @@ var createAccountPage = false;
 var swipePage = false;
 var messagePage = false;
 var settingsPage = false;
+var optionsPage = false;
+var profilePage = false;
 
 var AccountList =
     [
@@ -143,24 +145,34 @@ function MessagePage()
         Middle.classList.remove("LogInPageGridContainer");
     }
     if (createAccountPage) {
-
+        Middle.classList.remove("CreateAccountPageContainer");
     }
     if (swipePage) {
-
+        Middle.classList.remove("SwipePageContainer");
     }
     if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
     if (settingsPage) {
-
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage)
+    {
+        Middle.classList.remove("ProfilePageGridContainer");
     }
 
-     loginPage = false;
-     createAccountPage = false;
-     swipePage = false;
-     messagePage = true;
-     settingsPage = false;
+        loginPage = false;
+        createAccountPage = false;
+        swipePage = false;
+        messagePage = true;
+        settingsPage = false;
+        optionsPage = false;
+        profilePage = false;
 
     
     Middle.classList.add("MessagePageContainer");
@@ -194,17 +206,25 @@ function SettingsPage()
         Middle.classList.remove("LogInPageGridContainer");
     }
     if (createAccountPage) {
-
+        Middle.classList.remove("CreateAccountPageContainer");
     }
     if (swipePage) {
-
+        Middle.classList.remove("SwipePageContainer");
     }
     if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
     if (settingsPage) {
-
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage)
+    {
+        Middle.classList.remove("ProfilePageGridContainer");
     }
 
     loginPage = false;
@@ -212,12 +232,19 @@ function SettingsPage()
     swipePage = false;
     messagePage = false;
     settingsPage = true;
+    optionsPage = false;
+    profilePage = false;
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
-    Middle.innerHTML = `<div>
-                                                    hei settings page;
-                                                  </div>`;
+    Middle.classList.add("SettingsPageGridContainer");
+    Middle.innerHTML = `
+    <div id="MyProfile" class="MyProfile">
+         <img onclick="ProfilePage()" src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Profile Picture">
+    </div>
+    <div id="SettingsButton" class="SettingsButton">
+         <button onclick="OptionsPage()">Settings</button>
+    </div>`;
     document.getElementById("Bottom").innerHTML = "";
 }
 function SwipePage()
@@ -226,10 +253,11 @@ function SwipePage()
         Middle.classList.remove("LogInPageGridContainer");
     }
     if (createAccountPage) {
-
+        Middle.classList.remove("CreateAccountPageContainer");
     }
-    if (swipePage) {
-
+    if (swipePage)
+    {
+        Middle.classList.remove("SwipePageContainer");
     }
     if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
@@ -237,7 +265,15 @@ function SwipePage()
     }
     if (settingsPage)
     {
-
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage)
+    {
+        Middle.classList.remove("ProfilePageGridContainer");
     }
 
     loginPage = false;
@@ -245,12 +281,14 @@ function SwipePage()
     swipePage = true;
     messagePage = false;
     settingsPage = false;
+    optionsPage = false;
+    profilePage = false;
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
-
+    Middle.classList.add("SwipePageContainer");
     Middle.innerHTML =`
-        <div id="SwipePageContainer" class="SwipePageContainer">
+        
         
         <div id="SwipeName" class="SwipeName">
             John Doe
@@ -263,7 +301,7 @@ function SwipePage()
             <button onclick="LikeAndDislike(this)">Dislike</button>
         </div>
 
-        </div>
+        
     `;
     document.getElementById("Bottom").innerHTML = "";
 }
@@ -275,17 +313,25 @@ function LoginPage()
         Middle.classList.remove("LogInPageGridContainer");
     }
     if (createAccountPage) {
-
+        Middle.classList.remove("CreateAccountPageContainer");
     }
     if (swipePage) {
-
+        Middle.classList.remove("SwipePageContainer");
     }
     if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
     if (settingsPage) {
-
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage)
+    {
+        Middle.classList.remove("ProfilePageGridContainer");
     }
 
     loginPage = true;
@@ -293,6 +339,8 @@ function LoginPage()
     swipePage = false;
     messagePage = false;
     settingsPage = false;
+    optionsPage = false;
+    profilePage = false;
 
     Middle.classList.add("LogInPageGridContainer");
 
@@ -331,17 +379,25 @@ function NewAccountPage()
         Middle.classList.remove("LogInPageGridContainer");
     }
     if (createAccountPage) {
-
+        Middle.classList.remove("CreateAccountPageContainer");
     }
     if (swipePage) {
-
+        Middle.classList.remove("SwipePageContainer");
     }
     if (messagePage) {
         Middle.classList.remove("MessagePageContainer");
         Middle.classList.remove("OverflowWindow");
     }
     if (settingsPage) {
-
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage)
+    {
+        Middle.classList.remove("ProfilePageGridContainer");
     }
 
     loginPage = false;
@@ -349,8 +405,17 @@ function NewAccountPage()
     swipePage = false;
     messagePage = false;
     settingsPage = false;
+    optionsPage = false;
+    profilePage = false;
 
-    Middle.innerHTML =`<table>
+    Middle.classList.add("CreateAccountPageContainer");
+    Middle.innerHTML =`
+    
+    <div id="EmptyCreateLeft" class="EmptyCreateLeft"></div>
+
+    <div id="CreateAccountTable" class="CreateAccountTable">
+
+    <table style="border:1px double black">
     <tr>
         <td><div>Create Account</div></td>
     </tr>
@@ -390,6 +455,162 @@ function NewAccountPage()
         </select></td>
     </tr>
     </table>
-    <button onclick="CreateAccount()">Create Account</button>`;
+    <button onclick="CreateAccount()">Create Account</button>
+
+    </div>
+
+    <div id="EmptyCreateRight" class="EmptyCreateRight"></div>`;
     document.getElementById("Bottom").innerHTML = "";
+}
+
+function OptionsPage()
+{
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+        Middle.classList.remove("CreateAccountPageContainer");
+    }
+    if (swipePage) {
+        Middle.classList.remove("SwipePageContainer");
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage)
+    {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage)
+    {
+        Middle.classList.remove("ProfilePageGridContainer");
+    }
+
+    loginPage = false;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
+    optionsPage = true;
+    profilePage = false;
+
+    Middle.classList.add("OptionsPageGridContainer");
+    Middle.innerHTML = `
+        <table class="OptionsTable">
+
+        <tr><div id="DatingPreference">
+
+        <td><div id="PreferenceTitle" style="font-weight:bolder">Dating Preference: </div></td>
+        <td><select id="PreferenceChoice">
+            <option value="Women">Women</option>
+            <option value="Men">Men</option>
+            <option value="Alien">Alien</option>
+            <option value="Men and Women">Men & Women</option>
+            <option value="Men and Alien">Men & Alien</option>
+            <option value="Women and Alien">Women & Alien</option>
+            <option value="Men and Alien and Women">Men & Alien & Women</option>
+        </select></td>
+
+        </div></tr>
+
+        <tr><div id="SearchDistance">
+
+        <td><div id="SearchDistanceTitle" style="font-weight:bolder">Search Distance: </div></td>
+        <td><div><input id="SearchDistanceValue" type="number" min="1" max="100"/><em>KM</em></div></td>
+
+        </div></tr>
+
+        <tr><div id="AgePreference">
+
+        <td><div id="AgePreferenceTitle" style="font-weight:bolder">Age Preference: </div></td>
+        <td><div><input id="AgePreferenceValueOne" type="number" min="18" max="150" step="1"/>-<input id="AgePreferenceValueTwo" type="number" min="18" max="150" step="1"/><em>år</em></div></td>
+
+        </div></tr>
+
+        <tr><div id="SaveOptionsButton">
+
+        <td><div id="SaveOptionsTitle" style="font-weight:bolder"></div></td>
+        <td><button>Save</button></td>
+
+        </div></tr>
+
+        </table>
+        `;
+}
+
+function ProfilePage()
+{
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+        Middle.classList.remove("CreateAccountPageContainer");
+    }
+    if (swipePage) {
+        Middle.classList.remove("SwipePageContainer");
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage) {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage)
+    {
+        Middle.classList.remove("ProfilePageGridContainer");
+    }
+
+    loginPage = false;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
+    optionsPage = false;
+    profilePage = true;
+
+    Middle.classList.add("ProfilePageGridContainer");
+    Middle.innerHTML = `
+    
+    <div id="EmptyProfileLeft" class="EmptyProfileLeft"></div>
+    
+    <div id="ProfileName" class="ProfileName">Patrick</div>
+
+    <div id="EmptyProfileRight" class="EmptyProfileRight"></div>
+
+    <div id="ProfileImageSelect" class="ProfileImageSelect">
+    
+    <button></button> <button></button>
+    
+    </div>
+
+    <div id="ProfileImageDisplay" class="ProfileImageDisplay">
+    
+    <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Profile Picture">
+    
+    </div>
+
+    <div id="ProfileBio" class="ProfileBio">
+
+    <div>
+    hei, jeg heter patrick dette er mitt eksempel på en bio, og den er satt sammen av ord, ordene former setninger!</br></br>
+    
+    Disse setningene mener jeg er kjempe fantastiske til å utfylle sitt formål, som er å være et eksempel på en bio.</br></br>
+    
+    En eller annen dag skal jeg sette meg ned å lære lorem ipsum så jeg slipper dette her, men den dagen var ikke idag.</br>
+    Med vennlig hilsen en utvikler som er veldig lei av CSS grid akkuratt nå.
+    
+    </div>
+    
+    </div>
+    
+    `;
+
 }
