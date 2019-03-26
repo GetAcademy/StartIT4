@@ -22,6 +22,48 @@
     </div>
 
     <script>
+        var data = [{
+                    type: "line",
+                    name: "Bergeskogen Barnehage",
+                    markerSize: 5,
+                    axisYType: "secondary",
+                    xValueFormatString: "DD MM,YY",
+                    yValueFormatString: "#,##0.0\"kw/h\"",
+                    showInLegend: true,
+                    dataPoints: niceData,
+                },
+                {
+                    type: "line",
+                    name: "Valby Grendehus",
+                    markerSize: 5,
+                    azisYType: "secondary",
+                    xValueFormatString: "DD MM, YY",
+                    yValueFormatString: "#,##0.0\"kw/h\"",
+                    showInLegend: true,
+                    dataPoints: niceData1,
+                },
+                {
+                    type: "line",
+                    name: "Solstad Barnehage",
+                    markerSize: 5,
+                    azisYType: "secondary",
+                    xValueFormatString: "DD MM, YY",
+                    yValueFormatString: "#,##0.0\"kw/h\"",
+                    showInLegend: true,
+                    dataPoints: niceData2,
+                    
+                },
+                {
+                    type: "line",
+                    name: "Rødbøl Barnehage",
+                    markerSize: 5,
+                    azixYType: "secondary",
+                    xValueFormatString: "DD MM, YY",
+                    yValueFormatString: "#,##0.0\"kw/h\"",
+                    showInLegend: true,
+                    dataPoints: niceData3,
+                }
+                ];
         window.onload = function () {
 
             var chart = new CanvasJS.Chart("chartContainer", {
@@ -68,55 +110,24 @@
                 toolTip: {
                     shared: true
                 },
-                //Bygningene som er lagt inn legges her.
-                //Skal du legge inn fler bygninger, husk å også hente data fra data.js og plugg det inn i dataConverter.js.
-                data: [{
-                    type: "line",
-                    name: "Bergeskogen Barnehage",
-                    markerSize: 5,
-                    axisYType: "secondary",
-                    xValueFormatString: "DD MM,YY",
-                    yValueFormatString: "#,##0.0\"kw/h\"",
-                    showInLegend: true,
-                    dataPoints: niceData,
-                },
-                {
-                    type: "line",
-                    name: "Valby Grendehus",
-                    markerSize: 5,
-                    azisYType: "secondary",
-                    xValueFormatString: "DD MM, YY",
-                    yValueFormatString: "#,##0.0\"kw/h\"",
-                    showInLegend: true,
-                    dataPoints: niceData1,
-                },
-                {
-                    type: "line",
-                    name: "Solstad Barnehage",
-                    markerSize: 5,
-                    azisYType: "secondary",
-                    xValueFormatString: "DD MM, YY",
-                    yValueFormatString: "#,##0.0\"kw/h\"",
-                    showInLegend: true,
-                    dataPoints: niceData2,
-                },
-                {
-                    type: "line",
-                    name: "Rødbøl Barnehage",
-                    markerSize: 5,
-                    azixYType: "secondary",
-                    xValueFormatString: "DD MM, YY",
-                    yValueFormatString: "#,##0.0\"kw/h\"",
-                    showInLegend: true,
-                    dataPoints: niceData3,
-                }
-                ],
+                data: calcStats(),
 
             });
 
 
+           
             chart.render();
 
+
+            function calcStats()
+            {
+                var newArray = [];
+                for(let record of data){
+                    record.yValueFormatString += '<br/>Hurra!';
+                    newArray.push(record);
+                }
+                return newArray;
+            }
         }
 
     </script>
