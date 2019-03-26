@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Ferdighet 9a - Valgsetninger Sammenligne to tall: ==, !=, &lt;, &lt;=, >, >=</p>
+    <input id="tallA" type="range" min="1" max="100" step="1" oninput="calculate()" value="2" />
+    <input id="tallB" type="range" min="1" max="100" step="1" oninput="calculate()" value="2" />
+    <input id="width" type="range" min="1" max="1000" step="10" oninput="utregning()" />
+    <input id="height" type="range" min="1" max="1000" step="10" oninput="utregning()" />
+    <div id="resultat"></div>
+    <br />
+    <div id="resultat2"></div>
+    <div id="matte">test</div>
+    <div id="box" style="background-color: green;">test</div>
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var tallAInput = document.getElementById('tallA');
+        var tallBInput = document.getElementById('tallB');
+        var widthInput = document.getElementById('width');
+        var heightInput = document.getElementById('height');
+        var boxDiv = document.getElementById('box');
+        var resultatDiv2 = document.getElementById('resultat2');
+        calculate();
+        function calculate() {
+            var tallA = parseInt(tallAInput.value);
+            var tallB = parseInt(tallBInput.value);
+            resultatDiv.innerHTML = '';
+            if (tallA == tallB) {
+                resultatDiv.innerHTML += '== Tallene er like';
+            } else {
+                resultatDiv.innerHTML += '== <del>Tallene er like</del>';
+            }
+            if (tallA != tallB) {
+                resultatDiv.innerHTML += '<br/>!= Tallene er ulike';
+            } else {
+                resultatDiv.innerHTML += '<br/>!= <del>Tallene er ulike</del>';
+            }
+            if (tallA >= tallB) {
+                resultatDiv.innerHTML += '<br/>>= ' + tallA + ' er større enn eller lik ' + tallB;
+            } else {
+                resultatDiv.innerHTML += '<br/>>= <del>' + tallA + ' er større enn eller lik ' + tallB + '</del>';
+            }
+            if (tallA > tallB) {
+                resultatDiv.innerHTML += '<br/>> ' + tallA + ' er større enn ' + tallB;
+            } else {
+                resultatDiv.innerHTML += '<br/>> <del>' + tallA + ' er større enn ' + tallB + '</del>';
+            }
+            if (tallA <= tallB) {
+                resultatDiv.innerHTML += '<br/><= ' + tallA + ' er mindre enn eller lik ' + tallB;
+            } else {
+                resultatDiv.innerHTML += '<br/><= <del>' + tallA + ' er mindre enn eller lik ' + tallB + '</del>';
+            }
+            if (tallA < tallB) {
+                resultatDiv.innerHTML += '<br/>< ' + tallA + ' er mindre enn ' + tallB;
+            } else {
+                resultatDiv.innerHTML += '<br/>< <del>' + tallA + ' er mindre enn ' + tallB + '</del>';
+            }
+        }
+        function utregning() {
+            var height = parseInt(heightInput.value);
+            var width = parseInt(widthInput.value);
+            resultatDiv2.innerHTML = '';
+            if (height == width) {
+                resultatDiv2.innerHTML += '== Høyde og bredde er lik';
+            } else {
+                resultatDiv2.innerHTML += '<del> Høyde og Bredde er lik';
+            }
+            if (height != width) {
+                resultatDiv2.innerHTML += '<br/>!= Høyde og bredde er ulike';
+            } else {
+                resultatDiv2.innerHTML += '<br/>!= <del>Høyde og bredde er ulike</del>';
+            }
+            if (height >= width) {
+                resultatDiv2.innerHTML += '<br/>>= ' + height + ' er større enn eller lik ' + width;
+            } else {
+                resultatDiv2.innerHTML += '<br/>>= <del>' + height + ' er større enn eller lik ' + width + '</del>';
+            }
+            if (height > width) {
+                resultatDiv2.innerHTML += '<br/>> ' + height + ' er større enn ' + width;
+            } else {
+                resultatDiv2.innerHTML += '<br/>> <del>' + height + ' er større enn ' + width + '</del>';
+            }
+            if (height <= width) {
+                resultatDiv2.innerHTML += '<br/><= ' + height + ' er mindre enn eller lik ' + width;
+            } else {
+                resultatDiv2.innerHTML += '<br/><= <del>' + height + ' er mindre enn eller lik ' + width + '</del>';
+            }
+            if (height < width) {
+                resultatDiv2.innerHTML += '<br/>< ' + height + ' er mindre enn ' + width;
+            } else {
+                resultatDiv2.innerHTML += '<br/>< <del>' + height + ' er mindre enn ' + width + '</del>';
+            }
+            document.getElementById("matte").innerHTML = height * width;
+            boxDiv.style.width = width + 'px';
+            boxDiv.style.height = height + 'px';
+        }
+
+    </script>
+</body>
+</html>

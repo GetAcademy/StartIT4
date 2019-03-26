@@ -6,7 +6,7 @@ body {
 div.page {
     display: grid;
     height: 100vh;
-    grid-template-columns: 100px; auto 50px;
+    grid-template-columns: 100px auto 50px;
     grid-template-rows: 80px auto;
     grid-template-areas: 
         'header innhold innhold'
@@ -16,11 +16,11 @@ div.page {
 }
 div.header {
     grid-area: header;
-    background-color: purple
+    background-color: purple;
 }
 div.innhold {
     grid-area: innhold;
-    background-color: #5F6389
+    background-color: #5F6389;
 }
 .meny {
     position: fixed;
@@ -28,18 +28,18 @@ div.innhold {
     top: 0; */
     width: 35%;
     height: 100vh;
-    background-color: #EC8B5E
+    background-color: #EC8B5E;
 }
  .fixed {
     border-radius: 10%;
-    width: 50%;
+    width: 66%;
     height: 7%;
-    margin-left: 24%;
+    margin-left: 15%;
     margin-bottom: 10px;
     text-align: center;
-    border: solid;
-    border-color: black;
+    border: solid #5F6389;
     background-color: #5F6389;
+    font-size: 87%;
 }
 .komOgDraMeny {
     font-size: 110%;

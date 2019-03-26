@@ -10,15 +10,6 @@ var data = {
             Kategori: "Barnehage",
             Areal: 724,
             Oppvarming: "El",
-            powerConsumptionHistory: [
-                {
-                    date: '2019-03-02 14:00',
-                    energy: 5.3
-                }, {
-                    date: '2019-03-02 13:00',
-                    energy: 4.3
-                },
-            ]
         },
         {
             name: 'Valby Grendehus',
@@ -28,15 +19,6 @@ var data = {
             Kategori: "Barnehage",
             Areal: 373,
             Oppvarming: "El",
-            powerConsumptionHistory: [
-                {
-                    date: '2019-03-02 14:00',
-                    energy: 5.3
-                }, {
-                    date: '2019-03-02 13:00',
-                    energy: 4.3
-                },
-            ]
         },
         {
             name: "Solstad Barnehage",
@@ -46,15 +28,6 @@ var data = {
             Kategori: "Barnehage",
             Areal: 885,
             Oppvarming: "El, Varmepumpe",
-            powerConsumptionHistory: [
-                {
-                    date: '2019-03-02 14:00',
-                    energy: 5.3
-                }, {
-                    date: '2019-03-02 13:00',
-                    energy: 4.3
-                }, 
-            ]
         },
         {
             name: "Rødbøl",
@@ -64,15 +37,6 @@ var data = {
             Kategori: "Barnehage",
             Areal: 777,
             Oppvarming: "El, Bio",
-            powerConsumptionHistory: [
-                {
-                    date: '2019-03-02 15.00',
-                    energy: 8.3
-                }, {
-                    date: '2019-03-02 16.00',
-                    energy: 3.8
-                },
-            ]
         },    
     ]   
 };
