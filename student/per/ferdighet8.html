@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        .stilig {
+            background-color: blueviolet;
+        }
+        .txtColor {
+            color: white;
+        }
+        .txtSize {
+            font-size: 100px;
+        }
+        .border {
+            border:dashed 1px;
+            border-color: red;
+        }
+        .font {
+            font-family: 'Comic Sans MS';
+        }
+        div.selected::before {
+            content: "🡆";
+        }
+
+        div.selected::after {
+            content: "🡄";
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="bla" onclick="selected(this)">I'm a div</div>
+    <div id="bla" onclick="selected(this)">This another div</div>
+
+    <input id="chk" type="checkbox" onchange="toggleStyle()" />
+    <input id="chk2" type="checkbox" onchange="toggleStyle2()" />
+    <input id="chk3" type="checkbox" onchange="toggleStyle3()" />
+    <input id="chk4" type="checkbox" onchange="toggleStyle4()" />
+    <input id="chk5" type="checkbox" onchange="toggleStyle5()" />
+
+    <script>
+        var selectedTag = document.getElementById('bla');
+
+        function toggleStyle() {
+            var isChecked = document.getElementById('chk').checked;
+            selectedTag.classList.toggle('stilig', isChecked);
+        }
+        function toggleStyle2() {
+            var isChecked = document.getElementById('chk2').checked;
+            selectedTag.classList.toggle('txtColor', isChecked);
+        }
+        function toggleStyle3() {
+            var isChecked = document.getElementById('chk3').checked;
+            selectedTag.classList.toggle('txtSize', isChecked);
+        }
+        function toggleStyle4() {
+            var isChecked = document.getElementById('chk4').checked;
+            selectedTag.classList.toggle('border', isChecked);
+        }
+        function toggleStyle5() {
+            var isChecked = document.getElementById('chk5').checked;
+            selectedTag.classList.toggle('font', isChecked);
+        }
+        function selected(tag) {
+            selectedTag.classList.remove('selected');
+            selectedTag = tag;
+            selectedTag.classList.add('selected');
+            document.getElementById('chk').checked = selectedTag.classList.contains('stilig');
+            document.getElementById('chk2').checked = selectedTag.classList.contains('txtColor');
+            document.getElementById('chk3').checked = selectedTag.classList.contains('txtSize');
+            document.getElementById('chk4').checked = selectedTag.classList.contains('border');
+            document.getElementById('chk5').checked = selectedTag.classList.contains('font');
+        }
+    </script>
+</body>
+</html>
