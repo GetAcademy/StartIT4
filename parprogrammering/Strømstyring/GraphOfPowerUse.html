@@ -22,7 +22,8 @@
     </div>
 
     <script>
-        var data = [{
+        var data = [
+            {
                     type: "line",
                     name: "Bergeskogen Barnehage",
                     markerSize: 5,
@@ -30,6 +31,7 @@
                     xValueFormatString: "DD MM,YY",
                     yValueFormatString: "#,##0.0\"kw/h\"",
                     showInLegend: true,
+                    Areal: 724,
                     dataPoints: niceData,
                 },
                 {
@@ -123,14 +125,56 @@
             {
                 var newArray = [];
                 for(let record of data){
-                    record.yValueFormatString += '<br/>Hurra!';
+                    record.yValueFormatString += '<br/>' + record.Areal;
                     newArray.push(record);
                 }
                 return newArray;
             }
         }
 
+
+    var informasjon = {
+        buildings: [
+        {
+            name: 'Bergeskoge Barnehage',
+            Adresse: "Brekkegata 31",
+            PostNr: "3260",
+            Sted: "Larvik",
+            Kategori: "Barnehage",
+            Areal: 724,
+            Oppvarming: "El",
+        },
+        {
+            name: 'Valby Grendehus',
+            Adresse: "Søvstråveien 44",
+            PostNr: "3261",
+            Sted: "Larvik",
+            Kategori: "Barnehage",
+            Areal: 373,
+            Oppvarming: "El",
+        },
+        {
+            name: "Solstad Barnehage",
+            Adresse: "Agnesveien 14",
+            PostNr: "3292",
+            Sted: "Stavern",
+            Kategori: "Barnehage",
+            Areal: 885,
+            Oppvarming: "El, Varmepumpe",
+        },
+        {
+            name: "Rødbøl",
+            Adresse: "Ganke Ravei 312",
+            PostNr: "3267",
+            Sted: "Larvik",
+            Kategori: "Barnehage",
+            Areal: 777,
+            Oppvarming: "El, Bio",
+        },    
+    ]   
+};
     </script>
+
     </head>
 
 
