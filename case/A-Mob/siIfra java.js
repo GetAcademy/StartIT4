@@ -106,15 +106,3 @@ function visHvordanTaVarePåAndre() {
     </table>
     `;
 }
-function visSelvevaluering() {
-    document.getElementById('innhold').innerHTML =
-        `
-            <table>
-                <tr>
-                    <th>Hvordan har denne uken vært for deg?</th>
-
-
-                </tr>
-            </table>
-        `;
-}
