@@ -46,7 +46,7 @@
     }
 .button {
     background-color: #006EB6;
-    border: none;
+    border: 1px solid white;
     color: white;
     text-align: center;
     font-size: 50%;

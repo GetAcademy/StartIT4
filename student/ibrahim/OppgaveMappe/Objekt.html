@@ -72,14 +72,12 @@
         var taskDescriptionInput = document.getElementById('taskDescription');
         function addTask() {
             tasks.push({
-                assignmentDone: DoneInput.value,
                 dateDeadline: dateOnAssingmentInput.value,
                 navn: namesOnPersonInput.value,
                 description: taskDescriptionInput.value,
                 isDone: false
 
             });
-            DoneInput.value = '';
             dateOnAssingmentInput.value = '';
             namesOnPersonInput.value = '';
             taskDescriptionInput.value = '';
@@ -138,6 +136,7 @@
         }
         function changeIsDone(checkbox, index) {
             tasks[index].isDone = checkbox.checked;
+            
 
             show();
         }
