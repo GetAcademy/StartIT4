@@ -1,29 +1,26 @@
 function visMeny() {
     document.getElementById('innhold').innerHTML = 
-    `
-    <table>
+    `<table>
     <tbody>
         <tr>
-            <h1>Meny</h1>
+            <h1 class="to">Meny</h1>
         </tr>
         <tr>
-            <td onclick="visSiIfraOmMobbing()">Si ifra om mobbing</td>
+            <td><button class="fixed1" onclick="visSiIfraOmMobbing()">Si ifra om mobbing</button></td>
+        <tr>
+            <td><button class="fixed1" onclick="visHvaErMobbing()">Hva er mobbing</button></td>
         </tr>
         <tr>
-            <td onclick="visHvaErMobbing()">Hva er mobbing</td>
+            <td><button class="fixed1" onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</button></td>
         </tr>
         <tr>
-            <td onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</td>
+            <td><button class="fixed1" onclick="visSelvevaluering()">Selvevaluering</button></td>
         </tr>
         <tr>
-            <td onclick="visSelvevaluering()">Selvevaluering</td>
-        </tr>
-        <tr>
-            <td>Logg ut</td>
+            <td><button class="fixed2">Logg ut</td></button>
         </tr>
     </tbody>
-    </table>
-    `;
+    </table>`
 }
 function visSiIfraOmMobbing() {
     document.getElementById('innhold').innerHTML = 
