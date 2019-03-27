@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .jada1 {grid-area: header;}
+        .jada2 {grid-area: header1;}
+        .jada3 {grid-area: header2;}
+        .jada4 {grid-area: left}
+        .jada5 {grid-area: menu}
+        .jada6 {grid-area: right}
+        .jada7 {grid-area: leftFooter}
+        .jada8 {grid-area: Footer}
+        .jada9 {grid-area: rightFooter}
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header1 header1 header2 header2'
+                'left left menu menu right right'
+                'leftFooter leftFooter Footer Footer rightFooter';
+            grid-gap: 10px;
+            background-color: brown;
+            padding: 10px;
+        }
+        .grid-container {
+            background-color: rgba(255, 255, 255, )
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="jada1">1</div>
+        <div class="jada2">2</div>
+        <div class="jada3">3</div></br >
+        <div class="jada4">4</div>
+        <div class="jada5">5</div>
+        <div class="jada6">6</div></br >
+        <div class="jada7">7</div>
+        <div class="jada8">8</div>
+        <div class="jada9">9</div>
+    </div>
+</body>
+</html>

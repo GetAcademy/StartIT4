@@ -1,14 +1,18 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml%22%3E
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title></title>
     <link rel="stylesheet" href="css.css"/>
     <script src="A-Mob visOgSkjulMeny.js"></script>
     <script src="siIfra java.js"></script>
     <script src="takontakt.js"></script>
     <script src="Selvevaluering.js"></script>
+    <script src="HovedMeny.js"></script>
+    <script src="SendInn.js"></script>
+    <script src="HvaErMobbing.js"></script>
+    <script src="HvordanTaVarePåAndre.js"></script>
 
 </head>
 <body>
@@ -19,40 +23,25 @@
         <div class="innhold" id="innhold">
         </div>
         <div class="meny" id="meny">
-           <button class="komOgDraMeny2" onclick="visOgSkjulMeny()">☰</button>
+            <div class="komOgDraMeny2" onclick="visOgSkjulMeny()">☰</div>
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <button class="fixed" onclick="visMeny()" type=>Meny</button>
-            <br />
-            <button class="fixed" onclick="visSiIfraOmMobbing()">Si ifra om mobbing</button>
-            <br />
-            <button class="fixed" onclick="visHvaErMobbing()">Hva er mobbing</button>
-            <br />
-            <button class="fixed" onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</button>
-            <br />
-            <button class="fixed" onclick="visSelvevaluering()">Selvevaluering</button>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <button class="fixed" onclick="visLoggUt()">Logg Ut</button>
+            <button class="fixed" onclick="visMeny();visOgSkjulMeny()">Meny</button>
+
+            <button class="fixed" onclick="visSiIfraOmMobbing();visOgSkjulMeny()">Si ifra om mobbing</button>
+
+            <button class="fixed" onclick="visHvaErMobbing();visOgSkjulMeny()">Hva er mobbing</button>
+
+            <button class="fixed" onclick="visHvordanTaVarePåAndre();visOgSkjulMeny()">Hvordan ta vare på andre</button>
+
+            <button class="fixed" onclick="visSelvevaluering();visOgSkjulMeny()">Selvevaluering</button>
+
+            <button class="fixed" onclick="visLoggUt();visOgSkjulMeny()">Logg Ut</button>
         </div>
     </div>
 
     <script>
-        visMeny();
-        visOgSkjulMeny();
+        visOgSkjulMeny()
+        visMeny() 
     </script>
 </body>
 </html>
-

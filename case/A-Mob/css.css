@@ -3,35 +3,79 @@ body {
     margin: 0;
     font-size: 120;
 }
+
 div.page {
     display: grid;
     height: 100vh;
-    grid-template-columns: 100px auto 50px;
+    grid-template-columns: 10% auto 50px;
     grid-template-rows: 80px auto;
-    grid-template-areas: 
-        'header innhold innhold'
-        'header innhold innhold'
-        'header innhold innhold'
-
+    grid-template-areas: 'header innhold innhold' 
+                         'header innhold innhold'
+                         'header innhold innhold'
 }
+
 div.header {
     grid-area: header;
-    background-color: purple;
+    background-color: #5F6389;
 }
+
 div.innhold {
     grid-area: innhold;
     background-color: #5F6389;
+    text-align: center;
 }
+
+button.fixed1 {
+    position: relative;
+    border-radius: 10px;
+    width: 40%;
+    height: 70px;
+    margin-right: 15%;
+    margin-bottom: 2%;
+    padding: 20px;
+    text-align: center;
+    border: solid #EC8B5E;
+    background-color: #EC8B5E;
+    font-size: 70%;
+}
+
+button.fixed2 {
+    border-radius: 10px;
+    width: 25%;
+    height: 50px;
+    margin-right: 15%;
+    margin: 150px;
+    margin-left: 40px;
+    text-align: center;
+    border: solid #EC8B5E;
+    background-color: #EC8B5E;
+    font-size: 70%;
+}
+
+.to {
+    color: #EC8B5E;
+    text-align: center;
+    margin-right: 15%;
+    font-size: 120px;
+}
+
+.innhold {
+    grid-area: innhold;
+    background-color: #EC8B5E;
+    font-size: 160%;
+}
+
 .meny {
-    position: fixed;
-    /* left: 0;
-    top: 0; */
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 35%;
     height: 100vh;
     background-color: #EC8B5E;
 }
- .fixed {
-    border-radius: 10%;
+
+.fixed {
+    border-radius: 10px;
     width: 66%;
     height: 7%;
     margin-left: 15%;
@@ -41,15 +85,17 @@ div.innhold {
     background-color: #5F6389;
     font-size: 87%;
 }
+
 .komOgDraMeny {
-    font-size: 110%;
+    font-size: 260%;
     background-color: #5F6389;
     border: solid;
     border-color: #5F6389;
 }
+
 .komOgDraMeny2 {
-    font-size: 110%;
-    background-color:#EC8B5E;
+    font-size: 200%;
+    background-color: #EC8B5E;
     border: solid;
     border-color: #EC8B5E;
 }
