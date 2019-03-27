@@ -13,14 +13,22 @@ class Enemy {
     move() {
         if (this.x < 400) {
             this.x += 2;
-        } else if (this.x > 400 || this.x < 0) {
+        }
+
+        if (this.x > 400 || this.x < 0) {
             this.x -= 2;
         }
 
         if (this.y < 400) {
             this.y -= 2;
-        } else if (this.y > 400 || this.y < 0) {
+        }
+
+        if (this.y < 0) {
             this.y += 2;
+        }
+
+        if (this.y > 400) {
+            this.y -= 2;
         }
 
     }
