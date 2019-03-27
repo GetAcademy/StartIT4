@@ -7,5 +7,8 @@
 
 
 //     //document.getElementById('page').classList.toggle('pageUtenMeny');
- 
+    function nåErMenyBorte() {
+        let meny = document.getElementById('meny');
+        meny.style.display = displayNow == 'none';
+    }
 
