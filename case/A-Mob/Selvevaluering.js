@@ -1,12 +1,12 @@
 function visSelvevaluering() {
-    document.getElementById('innhold').innerHTML =
+document.getElementById('innhold').innerHTML =
         `
             <table>
                 <tr>
                     <h1>Evaluering</h1>
                 </tr>
                 <tr>
-                    <div>osen har dagen vært?</div>
+                    <div>åssen har dagen vært?</div>
                 </tr>
                 <tr>
                     <div> 
@@ -33,7 +33,7 @@ function visSelvevaluering() {
                     </div></br>
                 </tr>
                 <tr>
-                    <p> skriv gjerne need en kommentar om uken.</p>
+                    <p> skriv gjerne ned en kommentar om uken.</p>
                     <input type="text">
                 </tr>
             </table>
