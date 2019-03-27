@@ -66,17 +66,17 @@ function preload() {
 
 function setup() {
     createCanvas(800, 600);
-    map = new Map();
+    map = new Map(tileSheet, world);
     player = createSprite(400, 300, 20, 20);
     for (let i = 0; i < 5; i++) {
         enemys.push(new Enemy());
     }
-    map.render();
+    
 }
 
 function draw() {
     background(0);
-   //map.render();
+    map.render();
     drawSprite(player)
     controls();
     for (let i = 0; i < enemys.length; i++) {
