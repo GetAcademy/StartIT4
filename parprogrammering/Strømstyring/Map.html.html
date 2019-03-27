@@ -1,15 +1,12 @@
-<style>
-    #map {
-        height: 900px;
-        /* The height is 400 pixels */
-        width: 100%;
-        /* The width is the width of the web page */
-    }
-</style>
+<link rel="stylesheet" href="Map.css">
 
 <body>
     <div id="map"></div>
     <script>
+        function showMap() {
+            var myMap = document.getElementById('map').value;
+            return document.getElementById('main').innerHTML = myMap;
+        }
         function initMap() {
             var larvik = { lat: 59.05328, lng: 10.03517 };
             var BergeskogenBarnehage = { lat: 59.033773, lng: 10.078426 };

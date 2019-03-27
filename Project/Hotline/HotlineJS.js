@@ -21,10 +21,34 @@ var settingsPage = false;
 var optionsPage = false;
 var profilePage = false;
 
-var AccountList =
+var SinglePerson;
+
+var ShowingBio = false;
+
+var ListOfSingles =
+    [
+        { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePicture: 'https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
+        { Username: 'Ola Normann', Password: 'Brunost', Email: 'LangrennMannen@hotmail.com', Age: 30, Birthday: new Date(1989, 06, 04), DatingPreference: 'Women', ProfilePicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQntWDc40PuyKsnKYwySGh6HWDc0pDlo_6VFyTUQMeP4ZPZ-4xb', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue nisi vitae suscipit tellus mauris a diam maecenas. Felis donec et odio pellentesque diam volutpat commodo sed. Et magnis dis parturient montes. Odio eu feugiat pretium nibh. Volutpat consequat mauris nunc congue nisi vitae. Placerat vestibulum lectus mauris ultrices eros. Cras ornare arcu dui vivamus arcu felis bibendum ut. Tempor orci dapibus ultrices in. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci. At imperdiet dui accumsan sit. Amet nisl purus in mollis nunc sed id semper. Pharetra et ultrices neque ornare aenean euismod elementum. Arcu ac tortor dignissim convallis aenean et tortor. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Morbi tincidunt augue interdum velit euismod in pellentesque massa.'},
+        { Username: 'Ibrahim Ibrahimsen', Password: 'Bordtennis', Email: 'IbrahimPong@hotmail.com', Age: 22, Birthday: new Date(1996, 10, 17), DatingPreference: 'Women', ProfilePicture: 'https://st2.depositphotos.com/2777531/6505/v/950/depositphotos_65058673-stock-illustration-hipster-man-avatar-user.jpg', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Varius duis at consectetur lorem donec. Risus in hendrerit gravida rutrum. Mi ipsum faucibus vitae aliquet nec ullamcorper. Habitant morbi tristique senectus et netus et. Pharetra magna ac placerat vestibulum. Purus sit amet volutpat consequat mauris nunc congue nisi vitae. Enim facilisis gravida neque convallis a cras semper auctor neque. Sapien faucibus et molestie ac feugiat sed. Nunc scelerisque viverra mauris in aliquam sem fringilla. Lacus sed viverra tellus in hac habitasse platea dictumst. Tellus mauris a diam maecenas sed enim ut sem viverra. Dictum varius duis at consectetur lorem donec massa sapien.'},
+        { Username: 'Jonas Gledesdreper', Password: 'KlumperIMelka', Email: 'KlumpeLumpen@hotmail.com', Age: 25, Birthday: new Date(1994, 08, 07), DatingPreference: 'Alien', ProfilePicture: 'https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Bearded_Man-17-512.png', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat duis ultricies lacus sed turpis tincidunt. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi. Viverra aliquet eget sit amet. Eleifend donec pretium vulputate sapien nec sagittis. Leo urna molestie at elementum eu facilisis. Amet mauris commodo quis imperdiet. Tortor at auctor urna nunc id cursus. Auctor eu augue ut lectus arcu bibendum at varius vel.'},
+        { Username: 'Hermann Hermannsen', Password: 'Karsk', Email: 'HermannJobb12@hotmail.com', Age: 50, Birthday: new Date(1969, 01, 10), DatingPreference: 'Men & Alien & Women', ProfilePicture: 'https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed velit. Nisl nunc mi ipsum faucibus vitae aliquet nec. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Massa eget egestas purus viverra accumsan in. Ac felis donec et odio pellentesque diam volutpat. Est ante in nibh mauris cursus. Sodales neque sodales ut etiam. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Sit amet aliquam id diam maecenas ultricies. Sed egestas egestas fringilla phasellus faucibus. Vestibulum rhoncus est pellentesque elit ullamcorper. Ac tortor dignissim convallis aenean et tortor at. Nulla aliquet enim tortor at auctor urna nunc id cursus. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Ac tortor dignissim convallis aenean et tortor at risus viverra. Malesuada pellentesque elit eget gravida cum.'}
+    ]
+
+function RandomNumber(min, max)
+{
+    return Math.floor(Math.random() * (max - min) + min)
+}
+
+function RandomSinglePerson()
+{
+    return ListOfSingles[RandomNumber(0, 5)];
+}
+
+
+/*var AccountList =
     [
         { Username: 'patrick', Password: '123abc', Email: 'patrickjoh33@hotmail.com', Age: 23, Birthday: new Date(1995, 09, 03), DatingPreference: 'Women' }
-    ];
+    ];*/
 
 function LoginCheck()
 {
@@ -107,17 +131,24 @@ function DateChange() {
 
 function LikeAndDislike(Button)
 {
+    SinglePerson = RandomSinglePerson();
     if (Button.innerText == "Like")
     {
-        document.getElementById("SwipeImage").innerHTML = `<img src="data:image/png;base64,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"/>`;
-        alert("You Liked John Doe!");
+        document.getElementById("SwipeName").innerHTML = SinglePerson.Username;
+        document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePicture}" />`;
+        document.getElementById('SwipeBio').innerHTML = '';
+        ShowingBio = false;
+
         if (Math.random() >= 0.5) {
-            alert("You Matched With John Doe!!!");
+            alert(`You Matched With Someone, Go Talk To Them!!!`);
         }
     }
-    else {
-        document.getElementById("SwipeImage").innerHTML = `<img src="http://www.landscapingbydesign.com.au/wp-content/uploads/2018/11/img-person-placeholder.jpg" />`;
-        alert("You Disliked John Doe");
+    else
+    {
+        document.getElementById("SwipeName").innerHTML = SinglePerson.Username;
+        document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePicture}" />`;
+        document.getElementById('SwipeBio').innerHTML = '';
+        ShowingBio = false;
     }
 }
 
@@ -168,6 +199,20 @@ function RandomAnswer() {
 function RegisterUserToBackend(username,password,email,age,birthday,datingpreference)
 {
     db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference });
+}
+
+function ShowBio()
+{
+    if (!ShowingBio)
+    {
+        document.getElementById('SwipeBio').innerHTML = SinglePerson.Bio;
+        ShowingBio = true;
+    }
+    else if (ShowingBio)
+    {
+        document.getElementById('SwipeBio').innerHTML = '';
+        ShowingBio = false;
+    }
 }
 
 
@@ -318,6 +363,8 @@ function SwipePage()
     optionsPage = false;
     profilePage = false;
 
+    SinglePerson = RandomSinglePerson();
+
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
     Middle.classList.add("SwipePageContainer");
@@ -325,10 +372,12 @@ function SwipePage()
         
         
         <div id="SwipeName" class="SwipeName">
-            John Doe
+            ${SinglePerson.Username}
         </div>
-        <div id="SwipeImage" class="SwipeImage">
-            <img src="https://www.vrc.crim.cam.ac.uk/VRCconferences/conference/cplenaries/pelnspeakers/person-placeholder.jpg/image" />
+        <div onclick="ShowBio()" id="SwipeImage" class="SwipeImage">
+            <img  src="${SinglePerson.ProfilePicture}" />
+        </div>
+        <div id="SwipeBio" class="SwipeBio">
         </div>
         <div id="SwipeButtons" class="SwipeButtons">
             <button onclick="LikeAndDislike(this)">Like</button>
