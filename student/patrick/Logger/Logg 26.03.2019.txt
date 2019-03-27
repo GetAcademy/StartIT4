@@ -1,0 +1,14 @@
+Logg 26.03.2019
+
+Løste Problemer:
+
+(ingenting) men jeg fikk gjort det slik at jeg kan registrere og logge inn fra backend med FireStore idag, så det er jo noe.
+
+Gjenstående problemer fra igår:
+
+- på tide å legge inn funksjonalitet inn OptionsPage og SettingsPage og ekspandere Logg inn med å lagre hvem som er logget inn i en variabel til å kunne si hvilken profil en skal vise.
+
+Nye Problemer:
+
+- måten jeg sjekker innloggingen på er ved å laste ned alle brukere inn i en lokal array som jeg så bruker til å sjekke om noen av brukernavn og passord matcher de i listene, dette blir et problem med masse brukere og er et sikkerhetsproblem.
+

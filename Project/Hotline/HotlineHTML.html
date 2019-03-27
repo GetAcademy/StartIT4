@@ -16,7 +16,23 @@
         <div id="Middle" class="Middle"></div>
         <div id="Bottom" class="Bottom"></div>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDxpTDB2O4oLTOPxJ17oJxXHtH0QFWr2P4",
+            authDomain: "hotline-007.firebaseapp.com",
+            databaseURL: "https://hotline-007.firebaseio.com",
+            projectId: "hotline-007",
+            storageBucket: "",
+            messagingSenderId: "1018015890774"
+        };
+        firebase.initializeApp(config);
+        var db = firebase.firestore();
+        
+    </script>
     <script src="HotlineJS.js"></script>
     <script>LoginPage();</script>
 </body>

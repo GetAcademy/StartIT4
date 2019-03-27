@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-/*---------------------------------------------------------------------------------------- 
+/*-------------------------------------------------------------------------- 
 |    HOW TO ADD MORE MARKERS                                                              |
 |                                                                                         |
 |     1. DECLARE THE VARIABLE OF THE LOCATION. DECLARE IT LIKE THIS!                      |
@@ -10,24 +6,12 @@
 |                                                                                         |
 |     2. DECLARE THE MARKER LIKE THIS!                                                    |
 |        var map = new google.maps.Marker({position: <variable name>, map: map});         |
--------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------*/
 
 
 
 
 
-       /* Set the size of the div element that contains the map */
-      #map {
-        height: 900px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
-    </style>
-  </head>
-  <body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <script>
 // Initialize and add the map
 function initMap() {
  // LOCATIONS DECLARED HERE!!
@@ -46,13 +30,10 @@ function initMap() {
   var marker = new google.maps.Marker({position: Rødbøl, map: map});
   var marker = new google.maps.Marker({position: larvik, map: map});
 }
-    </script>
-    <!--Load the API from the specified URL
+    /*Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
     * The key parameter will contain your own API key (which is not needed for this tutorial)
     * The callback parameter executes the initMap() function
-    -->
-    <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpRnjLpiGEoPxMt7I78RGftYx_wT0vKK4&callback=initMap"></script>
-  </body>
-</html>
+    */
+   document.getElementById('main').innerHTML = initMap();
+    

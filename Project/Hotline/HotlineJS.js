@@ -23,19 +23,46 @@ var profilePage = false;
 
 var AccountList =
     [
-        { Username: 'patrick', Password: '123abc', Email: 'patrickjoh33@hotmail.com', Age: 23, Birthday: new Date(1995, 09, 03) }
+        { Username: 'patrick', Password: '123abc', Email: 'patrickjoh33@hotmail.com', Age: 23, Birthday: new Date(1995, 09, 03), DatingPreference: 'Women' }
     ];
 
 function LoginCheck()
 {
-    for (let i = 0; i < AccountList.length; i++)
+    /*for (let i = 0; i < AccountList.length; i++)
     {
         if (document.getElementById("Username").value == AccountList[i].Username && document.getElementById("Password").value == AccountList[i].Password)
         {
             alert("Welcome " + AccountList[i].Username);
             SwipePage();
         }
-    }
+    }*/
+    db.collection("Users").get().then(function (querySnapshot)
+    {
+        if (querySnapshot.size > 0)
+        {
+            querySnapshot.forEach(function (documentSnapshot)
+            {
+                var data = querySnapshot.docs.map(function (documentSnapshot)
+                {
+                    return documentSnapshot.data();
+                });
+                for (let i = 0; i < data.length; i++)
+                {
+                    if (document.getElementById("Username").value == data[i].Username && document.getElementById("Password").value == data[i].Password)
+                    {
+                        alert("Welcome " + data[i].Username);
+                        SwipePage();
+                    }
+                }
+                data = null;
+            });
+        }
+        else
+        {
+            console.log('No Users in DataBase!?');
+        }
+        
+    })
 }
 
 function NewAccount()
@@ -50,18 +77,20 @@ function CreateAccount() {
     let EmailTwo = document.getElementById("E-mailTwo").value;
     let PasswordOne = document.getElementById("PasswordOne").value;
     let PasswordTwo = document.getElementById("PasswordTwo").value;
-
+    let Preference = document.getElementById("Preference").value;
 
     if (UsernameOne == UsernameTwo && EmailOne == EmailTwo && PasswordOne == PasswordTwo && BirthDateFull <= CheckAge) {
         alert("A confirmation email has been sent!");
-        AccountList.push({ Username: UsernameTwo, Password: PasswordTwo, Age: parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), Birthday: BirthDateFull })
-
+        AccountList.push({ Username: UsernameTwo, Password: PasswordTwo, Email: EmailTwo, Age: parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), Birthday: BirthDateFull, DatingPreference: Preference })
+        RegisterUserToBackend(UsernameTwo, PasswordTwo, EmailTwo, parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), BirthDateFull, Preference);
+        
         document.getElementById("UsernameOne").value = null;
         document.getElementById("UsernameTwo").value = null;
         document.getElementById("E-mailOne").value = null;
         document.getElementById("E-mailTwo").value = null;
         document.getElementById("PasswordOne").value = null;
         document.getElementById("PasswordTwo").value = null;
+        document.getElementById("Preference").value = null;
 
         LoginPage();
     }
@@ -136,6 +165,11 @@ function RandomAnswer() {
     }
 }
 
+function RegisterUserToBackend(username,password,email,age,birthday,datingpreference)
+{
+    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference });
+}
+
 
 //page HTML's
 function MessagePage()
@@ -180,7 +214,7 @@ function MessagePage()
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
-    document.getElementById("Bottom").innerHTML = `<input class="ChatBox" type="text" id="ChatBox"/> <button class="Send" onclick="AddChat()">Send</button>`;
+    document.getElementById("Bottom").innerHTML = `<input onkeydown="if(event.keyCode==13){AddChat()}" class="ChatBox" type="text" id="ChatBox"/> <button class="Send" onclick="AddChat()">Send</button>`;
     
     Middle.innerHTML = 
         `
@@ -359,7 +393,7 @@ function LoginPage()
             </tr>
             <tr>
                 <td><div>Password: </div></td>
-                <td><input type="password" id="Password" /></td>
+                <td><input onkeydown="if(event.keyCode==13){LoginCheck()}" type="password" id="Password" /></td>
             </tr>
             </table>
             
@@ -444,7 +478,7 @@ function NewAccountPage()
     <td><div>
         Dating Preference:
     </div></td>
-    <td><select name="Preference">
+    <td><select id="Preference" name="Preference">
             <option value="Women">Women</option>
             <option value="Men">Men</option>
             <option value="Alien">Alien</option>
@@ -455,7 +489,7 @@ function NewAccountPage()
         </select></td>
     </tr>
     </table>
-    <button onclick="CreateAccount()">Create Account</button>
+    <button onkeydown="if(event.keyCode==13){CreateAccount()}" onclick="CreateAccount()">Create Account</button>
 
     </div>
 
