@@ -23,6 +23,8 @@
     grid-area: main;
     background-color: ghostwhite;
     font-size: 30px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 
@@ -55,4 +57,7 @@
 }
 .button:hover{
     background-color: dodgerblue;
+}
+.toggler{
+    display: none;
 }
