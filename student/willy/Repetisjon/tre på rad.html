@@ -4,16 +4,64 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <style>
+        .div {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 10px auto 50px;
+            grid-template-rows: 80px auto;
+            grid-template-areas:
+                'jada1 jada2 jada3'
+                'jada4 jada5 jada6'
+                'jada7 jada8 jada9'
+        }
+        .jada1 {
+            grid-area: jada1;
+            background-color: brown;
+        }
+        .jada2 {
+            grid-area: jada2;
+            background-color: aquamarine;
+        }
+        .jada3 {
+            grid-area: jada3;
+            background-color: blueviolet;
+        }
+        .jada4 {
+            grid-area: jada4;
+            background-color: green;
+        }
+        .jada5 {
+            grid-area: jada5;
+            background-color: chocolate
+        }
+        .jada6 {
+            grid-area: jada6;
+            background-color: crimson
+        }
+        .jada7 {
+            grid-area: jada7;
+            background-color: firebrick
+        }
+        .jada8 {
+            grid-area: jada8;
+            background-color: deeppink
+        }
+        .jada9 {
+            grid-area: jada9;
+            background-color: yellowgreen
+        }
+    </style>
 </head>
 <body>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div></br >
-    <div>4</div>
-    <div>5</div>
-    <div>6</div></br >
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+    <div class="jada1">1</div>
+    <div class="jada2">2</div>
+    <div class="jada3">3</div></br >
+    <div class="jada4">4</div>
+    <div class="jada5">5</div>
+    <div class="jada6">6</div></br >
+    <div class="jada7">7</div>
+    <div class="jada8">8</div>
+    <div class="jada9">9</div>
 </body>
 </html>
