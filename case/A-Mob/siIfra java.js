@@ -1,27 +1,3 @@
-function visMeny() {
-    document.getElementById('innhold').innerHTML = 
-    `<table>
-    <tbody>
-        <tr>
-            <h1 class="to">Meny</h1>
-        </tr>
-        <tr>
-            <div><button class="fixed1" onclick="visSiIfraOmMobbing()">Si ifra om mobbing</button></div>
-        <tr>
-            <div><button class="fixed1" onclick="visHvaErMobbing()">Hva er mobbing</button></div>
-        </tr>
-        <tr>
-            <div><button class="fixed1" onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</button></div>
-        </tr>
-        <tr>
-            <div><button class="fixed1" onclick="visSelvevaluering()">Selvevaluering</button></div>
-        </tr>
-        <tr>
-            <div><button class="fixed2">Logg ut</div></button>
-        </tr>
-    </tbody>
-    </table>`
-}
 function visSiIfraOmMobbing() {
     document.getElementById('innhold').innerHTML = 
     `
@@ -62,44 +38,4 @@ function visSiIfraOmMobbing() {
         </tbody>
     </table>
     ` ;
-}
-function visSendInn() {
-    document.getElementById('innhold').innerHTML =
-    `
-    <table>
-        <tbody>
-            <tr>
-                <h1> Fint at du valgte og ta kontakt!</h1>
-            </tr>
-            <tr>
-                <td onclick="visMeny()">Meny</td>
-            </tr>
-        </tbody>
-    </table>
-    `;
-}
-function visHvaErMobbing() {
-    document.getElementById('innhold').innerHTML =
-    `
-    
-    <table>
-        <tbody>
-            <tr>
-                <h1 onclick="visHvaErMobbing()">Hva er Mobbing?</h1>
-            <tr>
-        </tbody>
-    </table>
-    `;
-}
-function visHvordanTaVarePåAndre() {
-    document.getElementById('innhold').innerHTML =
-    `
-    <table>
-        <tbody>
-            <tr>
-                <h1 onclick="()">Hvordan ta vare på andre?</h1>
-            </tr>
-        <tbody>
-    </table>
-    `;
 }
