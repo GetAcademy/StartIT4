@@ -1,5 +1,5 @@
 function visSelvevaluering() {
-    document.getElementById('innhold').innerHTML =
+document.getElementById('innhold').innerHTML =
         `
             <table>
                 <tr>
