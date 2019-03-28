@@ -6,7 +6,9 @@ function visMeny() {
             <h1 class="to">Meny</h1>
         </tr>
         <tr>
-            <div><button class="fixed1" onclick="visSiIfraOmMobbing()">Si ifra om mobbing</button></div>
+            <div>
+                <button class="fixed1" onclick="visSiIfraOmMobbing()">Si ifra om mobbing</button>
+            </div>
         <tr>
             <div><button class="fixed1" onclick="visHvaErMobbing()">Hva er mobbing</button></div>
         </tr>

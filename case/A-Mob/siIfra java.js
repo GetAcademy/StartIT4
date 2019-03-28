@@ -28,7 +28,6 @@ function visSiIfraOmMobbing() {
                     <li>Med å si ifra så kan du bedre din og andre sin psykiske helse!</li>
             </tr>
             <tr>
-                    <br><br>
                  <p> Her kan du skrive en kommentar viss du ønsker! :)</p>
                  <input type="text"><br>
             </tr>
