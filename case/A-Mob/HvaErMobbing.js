@@ -11,14 +11,14 @@ function visHvaErMobbing() {
                 <u><h5 style="underline";> Kjennetegn p&#229; mobbing. </h5></u>
             </tr>
             <tr>
-                <li>Det &#229; bli dyttet rundt av andre.</li>
-                <li>Bli sl&#229;tt av andre.</li>
-                <li>Det &#229; bli baksnakket av andre/grupper.</li>
+                <li>Det å bli dyttet rundt av andre.</li>
+                <li>Bli slått av andre.</li>
+                <li>Det å bli baksnakket av andre/grupper.</li>
                 <li>Bli spredt rykter om.</li>
-                <li>Bli presset til &#229; gj&#248;re ting for andre som du ikke vil.</li>
+                <li>Bli presset til å gjøre ting for andre som du ikke vil.</li>
                 <li>Negativ eller ondsinnet atferd mot andre.</li>
-                <li>N&#229;r noe negativt foreg&#229;r over lengre tid.</li>
-                <li>Noen &#248;delegger tingene dine eller stjeler dem.</li>
+                <li>Når noe negativt foregår over lengre tid.</li>
+                <li>Noen ødelegger tingene dine eller stjeler dem.</li>
             </tr>
         </tbody>
     </table>
