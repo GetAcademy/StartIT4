@@ -11,7 +11,7 @@ function visMeny() {
             <div><button class="fixed1" onclick="visHvaErMobbing()">Hva er mobbing</button></div>
         </tr>
         <tr>
-            <div><button class="fixed1" onclick="visHvordanTaVarePåAndre()">Hvordan ta vare på andre</button></div>
+            <div><button class="fixed1" onclick="visHvordanTaVarePåAndre();nåErMenyBorte();">Hvordan ta vare på andre</button></div>
         </tr>
         <tr>
             <div><button class="fixed1" onclick="visSelvevaluering()">Selvevaluering</button></div>
