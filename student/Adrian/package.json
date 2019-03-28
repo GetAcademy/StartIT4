@@ -1,0 +1,14 @@
+{
+  "name": "adrian",
+  "version": "1.0.0",
+  "description": "",
+  "main": "npm init",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "ADRIAN NORDAHL",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
