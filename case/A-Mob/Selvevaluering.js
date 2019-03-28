@@ -10,7 +10,7 @@ document.getElementById('innhold').innerHTML =
                 </tr>
                 <tr>
                     <div> 
-                        <div><button>:)</button><button>:/</button><button>:(</button></br >
+                        <div><button>&#9786;</button><button>&#12320;</button><button>&#9785;</button></br >
                         bra ok dårlig</div>
                     </div></br>
                 </tr>
