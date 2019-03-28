@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .div {
+            background-color: brown;
+            border:darkgoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div id="info"></div>
+    <script>
+
+        window.onresize = windowSizeChanged;
+
+        function windowSizeChanged() {
+            var element = document.getElementById('info');
+            var height = window.innerHeight;
+            var width = window.innerWidth;
+            element.innerHTML= height + 'x' + width;
+            element.style.width = width / 2;
+        }
+    </script>
+
+</body>
+</html>
