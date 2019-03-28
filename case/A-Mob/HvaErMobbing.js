@@ -18,6 +18,7 @@ function visHvaErMobbing() {
                 <li>Bli presset til &#229; gj&#248;re ting for andre som du ikke vil.</li>
                 <li>Negativ eller ondsinnet atferd mot andre.</li>
                 <li>N&#229;r noe negativt foreg&#229;r over lengre tid.</li>
+                <li>Noen &#248;delegger tingene dine eller stjeler dem.</li>
             </tr>
         </tbody>
     </table>
