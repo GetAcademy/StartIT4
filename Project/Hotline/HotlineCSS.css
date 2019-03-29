@@ -292,7 +292,7 @@
     grid-template-rows:10% auto 80% auto 10%;
     grid-template-areas:
         'EmptyLeft SwipeName EmptyRight'
-        'EmptyLeft SwipeImageSelect EmptyRight'
+        'EmptyLeft SwipeImageSelector EmptyRight'
         'EmptyLeft SwipeImage EmptyRight'
         'EmptyLeft SwipeBio EmptyRight'
         'EmptyLeft SwipeButtons EmptyRight';
@@ -313,18 +313,19 @@
     font-weight:bolder;
 }
 
-.SwipeImageSelect
+.SwipeImageSelector
 {
-    grid-area:SwipeImageSelect;
+    grid-area:SwipeImageSelector;
     text-align:center;
     border:1px solid red;
 }
 
-.SwipeImageSelect > button
+.SwipeImageSelector > button
 {
     border-radius:15%;
     height:2.5%;
-    margin:1px;
+    margin-left:1px;
+    margin-right:1px;
 }
 
 .SwipeImage

@@ -140,6 +140,8 @@ function LikeAndDislike(Button)
         document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePictures[0]}" />`;
         document.getElementById('SwipeBio').innerHTML = '';
         ShowingBio = false;
+        document.getElementById('SwipeImageSelector').innerHTML = '';
+        ShowingSwipeImageSelector = false;
 
         if (Math.random() >= 0.5) {
             alert(`You Matched With Someone, Go Talk To Them!!!`);
@@ -151,6 +153,8 @@ function LikeAndDislike(Button)
         document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePictures[0]}" />`;
         document.getElementById('SwipeBio').innerHTML = '';
         ShowingBio = false;
+        document.getElementById('SwipeImageSelector').innerHTML = '';
+        ShowingSwipeImageSelector = false;
     }
 }
 function ChangeImage(image)
@@ -177,6 +181,7 @@ function ShowSwipeImageSelector()
     }
 }
 
+// visste du at du kan lage napalm med isopor og diesel? #FunFact of the day
 function AddChat()
 {
     document.getElementById("MyChat").innerHTML += `
@@ -391,7 +396,6 @@ function SwipePage()
     SinglePerson = RandomSinglePerson();
 
 
-    alert(SinglePerson.ProfilePictures[0]);
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
     Middle.classList.add("SwipePageContainer");
