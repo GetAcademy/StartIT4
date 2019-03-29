@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color:black;
+                color:white;
+            }    
+            
+            
+        </style>
+    </head>
+    <body>
+        <form name="myForm" onsubmit="Calculate()">
+
+            <input type="radio" name="class" value="aWarrior">Arms Warrior <br>
+            <input type="radio" name="class" value="fWarrior">Fury Warrior <br>
+            <br>
+            <input type="radio" name="class" value="aMage">Arcane Mage <br>
+            <input type="radio" name="class" value="fiMage">Fire Mage <br>
+            <input type="radio" name="class" value="frMage">Frost Mage <br>
+            <br>
+            <input type="radio" name="class" value="desWarlock">Destruction Warlock <br>
+            <input type="radio" name="class" value="demWarlock">Demo Warlock <br>
+            <input type="radio" name="class" value="aWarlock">Affliction Warlock <br>
+            <br>
+            <input type="radio" name="class" value="bHunter">BM Hunter <br>
+            <input type="radio" name="class" value="mHunter">MM Hunter <br>
+            <input type="radio" name="class" value="sHunter">Survival Hunter <br>
+            <br>
+            <input type="radio" name="class" value="Priest">Shadow Priest <br>
+            <br>
+            <input type="radio" name="class" value="oRogue">Outlaw Rogue <br>
+            <input type="radio" name="class" value="sRogue">Sub Rogue <br>
+            <input type="radio" name="class" value="aRogue">Assassination Rogue <br>
+            <br>
+            <input type="radio" name="class" value="fDruid">Feral Druid <br>
+            <input type="radio" name="class" value="bDruid">Boomie Druid <br>
+            <br>
+            <input type="radio" name="class" value="fDK">Frost DK <br>
+            <input type="radio" name="class" value="uDK">Unholy DK <br>
+            <br>
+            <input type="radio" name="class" value="DH">DH <br>
+            <br>
+            <input type="radio" name="class" value="Monk">Monk <br>
+            <br>
+            <input type="radio" name="class" value="Paladin">Paladin <br>
+            <br>
+            <input type="radio" name="class" value="enhShaman">Enhancement Shaman <br>
+            <input type="radio" name="class" value="eleShaman">Elemental Shaman <br>
+            <br>
+            Damage: <input type="text" name="damage"> <br>
+
+            <input type="button" value="Submit" onclick="Calculate()">
+        </form>
+<br>
+        <div id="calcResultat">Resultat</div>
+
+
+
+        <script>
+
+
+
+            function Calculate(){
+            var selectedValue = document.forms.myForm.class.value;
+            var selectedDPS = document.forms.myForm.damage.value;
+            var Resultat = document.getElementById("calcResultat");
+
+            if (selectedValue == "aWarrior") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8107);
+            }
+            else if (selectedValue == "fWarrior") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8393);
+            }
+            else if (selectedValue == "aMage") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8415);
+            }
+            else if (selectedValue == "fiMage") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8234);
+            }
+            else if (selectedValue == "frMage") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8276);
+            }
+            else if (selectedValue == "desWarlock") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8976);
+            }
+            else if (selectedValue == "demWarlock") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8550);
+            }
+            else if (selectedValue == "aWarlock") {
+                Resultat.innerHTML = Math.round(selectedDPS / .9249);
+            }
+            else if (selectedValue == "bHunter") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8471);
+            }
+            else if (selectedValue == "mHunter") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8612);
+            }
+            else if (selectedValue == "sHunter") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8395);
+            }
+            else if (selectedValue == "Priest") {
+                Resultat.innerHTML = Math.round(selectedDPS / .9590);
+            }
+            else if (selectedValue == "oRogue") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8741);
+            }
+            else if (selectedValue == "sRogue") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8146);
+            }
+            else if (selectedValue == "aRogue") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8633);
+            }
+            else if (selectedValue == "fDruid") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8526);
+            }
+            else if (selectedValue == "bDruid") {
+                Resultat.innerHTML = Math.round(selectedDPS / .9043); 
+            }
+            else if (selectedValue == "fDK") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8092);
+            }
+            else if (selectedValue == "uDK") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8299);
+            }
+            else if (selectedValue == "DH") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8652);
+            }
+            else if (selectedValue == "Monk") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8504);
+            }
+            else if (selectedValue == "Paladin") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8504);
+            }
+            else if (selectedValue == "enhShaman") {
+                Resultat.innerHTML = Math.round(selectedDPS / .8331);
+            }
+            else if (selectedValue == "eleShaman") {
+                Resultat.innerHTML = Math.round(selectedDPS / .9207);
+            }
+            else {
+                Resultat.innerhtml = "You have not chosen a class, dimwit!";
+            }
+
+        }
+
+        
+        
+        </script>
+    </body>
+</html>
