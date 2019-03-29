@@ -46,6 +46,7 @@
                     xValueFormatString: "DD MM, YY",
                     yValueFormatString: "#,##0.0\"kw/h\"",
                     showInLegend: true,
+                    Areal: 373,
                     dataPoints: niceData1,
                 },
                 {
@@ -56,6 +57,7 @@
                     xValueFormatString: "DD MM, YY",
                     yValueFormatString: "#,##0.0\"kw/h\"",
                     showInLegend: true,
+                    Areal: 885,
                     dataPoints: niceData2,
 
                 },
@@ -67,6 +69,7 @@
                     xValueFormatString: "DD MM, YY",
                     yValueFormatString: "#,##0.0\"kw/h\"",
                     showInLegend: true,
+                    Areal: 775,
                     dataPoints: niceData3,
                 }
             ];
@@ -124,11 +127,11 @@
                     for (let kindergarden of kindergardens) {
                         for (let dataPoint of kindergarden.dataPoints) {
                             const power = dataPoint.y;
-                            const area = kindergarden.Areal;
-                            const powerPerArea = power / area;
+                            const areal = kindergarden.Areal;
+                            const powerPerArea = power / areal;
 
-                            dataPoint.yValueFormatString = 'Forbruk: ' + power
-                                                        + '</br>Areal: ' + area
+                            dataPoint.yValueFormatString = '</br>Forbruk: ' + power
+                                                        + '</br>Areal: ' + areal
                                                         + '</br>Forbruk per kvadratmeter: ' + powerPerArea;
                         }
                         newArray.push(kindergarden);
