@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="testOnLoad('onload')">
+    <p>Ferdighet 10 Parametere.</p>
+    <input type="text" onchange="funk('onchange')" onkeydown="funk('onkeydown')" />
+    <h3 oncontextmenu="funk('oncontext')" ondblclick="funk('ondbclick')">Test test test</h3>
+    <h2 id="info"></h2>
+    <div id="resultat"></div>
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+
+        function funk(text) {
+            text = text;
+            resultatDiv.innerHTML += '<br>' + '<li>' + text
+        }
+    </script>
+</body>
+</html>

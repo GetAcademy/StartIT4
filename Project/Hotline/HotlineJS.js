@@ -25,13 +25,15 @@ var SinglePerson;
 
 var ShowingBio = false;
 
+var ShowingSwipeImageSelector = false;
+
 var ListOfSingles =
     [
-        { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePicture: 'https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
-        { Username: 'Ola Normann', Password: 'Brunost', Email: 'LangrennMannen@hotmail.com', Age: 30, Birthday: new Date(1989, 06, 04), DatingPreference: 'Women', ProfilePicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQntWDc40PuyKsnKYwySGh6HWDc0pDlo_6VFyTUQMeP4ZPZ-4xb', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue nisi vitae suscipit tellus mauris a diam maecenas. Felis donec et odio pellentesque diam volutpat commodo sed. Et magnis dis parturient montes. Odio eu feugiat pretium nibh. Volutpat consequat mauris nunc congue nisi vitae. Placerat vestibulum lectus mauris ultrices eros. Cras ornare arcu dui vivamus arcu felis bibendum ut. Tempor orci dapibus ultrices in. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci. At imperdiet dui accumsan sit. Amet nisl purus in mollis nunc sed id semper. Pharetra et ultrices neque ornare aenean euismod elementum. Arcu ac tortor dignissim convallis aenean et tortor. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Morbi tincidunt augue interdum velit euismod in pellentesque massa.'},
-        { Username: 'Ibrahim Ibrahimsen', Password: 'Bordtennis', Email: 'IbrahimPong@hotmail.com', Age: 22, Birthday: new Date(1996, 10, 17), DatingPreference: 'Women', ProfilePicture: 'https://st2.depositphotos.com/2777531/6505/v/950/depositphotos_65058673-stock-illustration-hipster-man-avatar-user.jpg', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Varius duis at consectetur lorem donec. Risus in hendrerit gravida rutrum. Mi ipsum faucibus vitae aliquet nec ullamcorper. Habitant morbi tristique senectus et netus et. Pharetra magna ac placerat vestibulum. Purus sit amet volutpat consequat mauris nunc congue nisi vitae. Enim facilisis gravida neque convallis a cras semper auctor neque. Sapien faucibus et molestie ac feugiat sed. Nunc scelerisque viverra mauris in aliquam sem fringilla. Lacus sed viverra tellus in hac habitasse platea dictumst. Tellus mauris a diam maecenas sed enim ut sem viverra. Dictum varius duis at consectetur lorem donec massa sapien.'},
-        { Username: 'Jonas Gledesdreper', Password: 'KlumperIMelka', Email: 'KlumpeLumpen@hotmail.com', Age: 25, Birthday: new Date(1994, 08, 07), DatingPreference: 'Alien', ProfilePicture: 'https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Bearded_Man-17-512.png', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat duis ultricies lacus sed turpis tincidunt. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi. Viverra aliquet eget sit amet. Eleifend donec pretium vulputate sapien nec sagittis. Leo urna molestie at elementum eu facilisis. Amet mauris commodo quis imperdiet. Tortor at auctor urna nunc id cursus. Auctor eu augue ut lectus arcu bibendum at varius vel.'},
-        { Username: 'Hermann Hermannsen', Password: 'Karsk', Email: 'HermannJobb12@hotmail.com', Age: 50, Birthday: new Date(1969, 01, 10), DatingPreference: 'Men & Alien & Women', ProfilePicture: 'https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png', Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed velit. Nisl nunc mi ipsum faucibus vitae aliquet nec. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Massa eget egestas purus viverra accumsan in. Ac felis donec et odio pellentesque diam volutpat. Est ante in nibh mauris cursus. Sodales neque sodales ut etiam. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Sit amet aliquam id diam maecenas ultricies. Sed egestas egestas fringilla phasellus faucibus. Vestibulum rhoncus est pellentesque elit ullamcorper. Ac tortor dignissim convallis aenean et tortor at. Nulla aliquet enim tortor at auctor urna nunc id cursus. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Ac tortor dignissim convallis aenean et tortor at risus viverra. Malesuada pellentesque elit eget gravida cum.'}
+        { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePictures: ['https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', 'https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
+        { Username: 'Ola Normann', Password: 'Brunost', Email: 'LangrennMannen@hotmail.com', Age: 30, Birthday: new Date(1989, 06, 04), DatingPreference: 'Women', ProfilePictures: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQntWDc40PuyKsnKYwySGh6HWDc0pDlo_6VFyTUQMeP4ZPZ-4xb', 'https://previews.123rf.com/images/zrestudiorus/zrestudiorus1610/zrestudiorus161000006/66876109-profile-icon-male-avatar-man-hipster-style-fashion-cartoon-guy-beard-glasses-portrait-casual-person-.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue nisi vitae suscipit tellus mauris a diam maecenas. Felis donec et odio pellentesque diam volutpat commodo sed. Et magnis dis parturient montes. Odio eu feugiat pretium nibh. Volutpat consequat mauris nunc congue nisi vitae. Placerat vestibulum lectus mauris ultrices eros. Cras ornare arcu dui vivamus arcu felis bibendum ut. Tempor orci dapibus ultrices in. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci. At imperdiet dui accumsan sit. Amet nisl purus in mollis nunc sed id semper. Pharetra et ultrices neque ornare aenean euismod elementum. Arcu ac tortor dignissim convallis aenean et tortor. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Morbi tincidunt augue interdum velit euismod in pellentesque massa.'},
+        { Username: 'Ibrahim Ibrahimsen', Password: 'Bordtennis', Email: 'IbrahimPong@hotmail.com', Age: 22, Birthday: new Date(1996, 10, 17), DatingPreference: 'Women', ProfilePictures: ['https://st2.depositphotos.com/2777531/6505/v/950/depositphotos_65058673-stock-illustration-hipster-man-avatar-user.jpg','http://bootdey.com/img/Content/avatar/avatar7.png'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Varius duis at consectetur lorem donec. Risus in hendrerit gravida rutrum. Mi ipsum faucibus vitae aliquet nec ullamcorper. Habitant morbi tristique senectus et netus et. Pharetra magna ac placerat vestibulum. Purus sit amet volutpat consequat mauris nunc congue nisi vitae. Enim facilisis gravida neque convallis a cras semper auctor neque. Sapien faucibus et molestie ac feugiat sed. Nunc scelerisque viverra mauris in aliquam sem fringilla. Lacus sed viverra tellus in hac habitasse platea dictumst. Tellus mauris a diam maecenas sed enim ut sem viverra. Dictum varius duis at consectetur lorem donec massa sapien.'},
+        { Username: 'Jonas Gledesdreper', Password: 'KlumperIMelka', Email: 'KlumpeLumpen@hotmail.com', Age: 25, Birthday: new Date(1994, 08, 07), DatingPreference: 'Alien', ProfilePictures: ['https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Bearded_Man-17-512.png','https://cdn.pixabay.com/photo/2018/05/19/22/03/man-3414477__340.png'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat duis ultricies lacus sed turpis tincidunt. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi. Viverra aliquet eget sit amet. Eleifend donec pretium vulputate sapien nec sagittis. Leo urna molestie at elementum eu facilisis. Amet mauris commodo quis imperdiet. Tortor at auctor urna nunc id cursus. Auctor eu augue ut lectus arcu bibendum at varius vel.'},
+        { Username: 'Hermann Hermannsen', Password: 'Karsk', Email: 'HermannJobb12@hotmail.com', Age: 50, Birthday: new Date(1969, 01, 10), DatingPreference: 'Men & Alien & Women', ProfilePictures: ['https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png','https://previews.123rf.com/images/gennadiikorchuganov/gennadiikorchuganov1702/gennadiikorchuganov170200069/71033969-mod%C3%A8le-de-logo-baby-panda-face-ic%C3%B4ne-du-visage-panda-b%C3%A9b%C3%A9-ours-asiatique-panda-t%C3%AAte-isol%C3%A9-sur-fond-blanc.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed velit. Nisl nunc mi ipsum faucibus vitae aliquet nec. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Massa eget egestas purus viverra accumsan in. Ac felis donec et odio pellentesque diam volutpat. Est ante in nibh mauris cursus. Sodales neque sodales ut etiam. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Sit amet aliquam id diam maecenas ultricies. Sed egestas egestas fringilla phasellus faucibus. Vestibulum rhoncus est pellentesque elit ullamcorper. Ac tortor dignissim convallis aenean et tortor at. Nulla aliquet enim tortor at auctor urna nunc id cursus. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Ac tortor dignissim convallis aenean et tortor at risus viverra. Malesuada pellentesque elit eget gravida cum.'}
     ]
 
 function RandomNumber(min, max)
@@ -135,9 +137,11 @@ function LikeAndDislike(Button)
     if (Button.innerText == "Like")
     {
         document.getElementById("SwipeName").innerHTML = SinglePerson.Username;
-        document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePicture}" />`;
+        document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePictures[0]}" />`;
         document.getElementById('SwipeBio').innerHTML = '';
         ShowingBio = false;
+        document.getElementById('SwipeImageSelector').innerHTML = '';
+        ShowingSwipeImageSelector = false;
 
         if (Math.random() >= 0.5) {
             alert(`You Matched With Someone, Go Talk To Them!!!`);
@@ -146,12 +150,38 @@ function LikeAndDislike(Button)
     else
     {
         document.getElementById("SwipeName").innerHTML = SinglePerson.Username;
-        document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePicture}" />`;
+        document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePictures[0]}" />`;
         document.getElementById('SwipeBio').innerHTML = '';
         ShowingBio = false;
+        document.getElementById('SwipeImageSelector').innerHTML = '';
+        ShowingSwipeImageSelector = false;
+    }
+}
+function ChangeImage(image)
+{
+    document.getElementById("SwipeImage").innerHTML = `<img src="${image}" />`;
+}
+function ShowSwipeImageSelector()
+{
+    if (!ShowingSwipeImageSelector)
+    {
+        let Cache;
+        for (let i; i < SinglePerson.ProfilePictures.length; i++)
+        {
+            Cache += `<button onclick="ChangeImage(${SinglePerson.ProfilePictures[i]})" ></button>`;
+        }
+        document.getElementById('SwipeImageSelector').innerHTML = Cache;
+        ShowingSwipeImageSelector = true;
+    }
+    else if (ShowingSwipeImageSelector)
+    {
+        document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePictures[0]}" />`;
+        document.getElementById('SwipeImageSelector').innerHTML = '';
+        ShowingSwipeImageSelector = false;
     }
 }
 
+// visste du at du kan lage napalm med isopor og diesel? #FunFact of the day
 function AddChat()
 {
     document.getElementById("MyChat").innerHTML += `
@@ -365,17 +395,20 @@ function SwipePage()
 
     SinglePerson = RandomSinglePerson();
 
+
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
     Middle.classList.add("SwipePageContainer");
-    Middle.innerHTML =`
+    Middle.innerHTML = `
         
         
         <div id="SwipeName" class="SwipeName">
             ${SinglePerson.Username}
         </div>
-        <div onclick="ShowBio()" id="SwipeImage" class="SwipeImage">
-            <img  src="${SinglePerson.ProfilePicture}" />
+        <div id="SwipeImageSelector" class="SwipeImageSelector">
+        </div>
+        <div onclick="ShowBio(), ShowSwipeImageSelector()" id="SwipeImage" class="SwipeImage">
+            <img  src="${SinglePerson.ProfilePictures[0]}" />
         </div>
         <div id="SwipeBio" class="SwipeBio">
         </div>
