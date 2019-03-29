@@ -8,7 +8,7 @@ function doClick(buttonClicked) {
     var divA = document.getElementById('a');
     //  var divB = document.getElementById('b');
   
-        infoDiv.innerHTML = 'Du trykket på firkant ';
+        infoDiv.innerHTML = '';
 
         if (buttonClicked == divA) infoDiv.innerHTML += unlimetedpower.innerHTML;
         // else if (buttonClicked == divB) infoDiv.innerHTML =- unlimetedpower.innerHTML;
@@ -18,7 +18,7 @@ function doClick(buttonClicked) {
             infoDiv.innerHTML += unlimetedpower.innerHTML;
 
         if (buttonBeforeLastClicked == buttonClicked)
-            infoDiv.innerHTML += '(pls slutt og trykk på meg D:)';
+            infoDiv.innerHTML += unlimetedpower.innerHTML;
         buttonBeforeLastClicked = buttonLastClicked;
         buttonLastClicked = buttonClicked;
 }
