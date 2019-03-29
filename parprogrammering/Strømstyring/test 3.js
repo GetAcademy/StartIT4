@@ -24,11 +24,11 @@ function toggleMap() {
         document.getElementById('map').classList.toggle('toggler');
         isMapToggled = true;
     }
-    else {
+   /* else {
         document.getElementById('chartContainer').classList.toggle('toggler');
         document.getElementById('map').classList.toggle('toggler');
         isMapToggled = false;
-    }
+    }*/
 
 }
 

@@ -3,6 +3,7 @@ Logg 26.03.2019
 Løste Problemer:
 
 (ingenting) men jeg fikk gjort det slik at jeg kan registrere og logge inn fra backend med FireStore idag, så det er jo noe.
+dokumentet kan finnes i prosjekt folderen våres
 
 Gjenstående problemer fra igår:
 

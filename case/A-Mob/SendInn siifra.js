@@ -7,7 +7,7 @@ function visSendInn() {
                 <h1> Fint at du valgte og ta kontakt!</h1>
             </tr>
             <tr>
-                <td onclick="visMeny()">Meny</td>
+                <div onclick="visMeny()">Meny</div>
             </tr>
         </tbody>
     </table>

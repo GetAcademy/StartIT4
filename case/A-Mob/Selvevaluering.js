@@ -8,34 +8,21 @@ document.getElementById('innhold').innerHTML =
                 <tr>
                     <div>åssen har dagen vært?</div>
                 </tr>
-                <tr>
-                    <div> 
-                        <div><button>:)</button><button>:/</button><button>:(</button></br >
-                        bra ok dårlig</div>
-                    </div></br>
-                </tr>
-                <tr>
-                    <div>har du lært noe av denne uken?</div>
-                </tr>
-                <tr>
-                    <div>
-                        <button>:)</button><button>:/</button><button>:(</button></br >
-                        bra ok dårlig
-                    </div></br>
-                </tr>
-                <tr>
-                    <div>føler du deg trygg på skolen?</div>
-                </tr>
-                <tr>
-                    <div>
-                        <button>:)</button><button>:/</button><button>:(</button></br >
-                        bra ok dårlig
-                    </div></br>
-                </tr>
-                <tr>
-                    <p> skriv gjerne ned en kommentar om uken.</p>
+                <div>
+                    <button onclick="">(^_^)</button>
+                    <button onclick="">(@_@)</button>
+                    <button onclick="">&#9785;</button></br>
+                    bra. ok. dårlig
+                </div>
+                <div>
+                    
+                <div>
                     <input type="text">
-                </tr>
+                </div>
+                <div>
+                    <button onclick="visSelvevaluering()">Neste</button>
+                    <button onlick="visMeny()">Lever</button> 
+                </div>
             </table>
         `;
 }

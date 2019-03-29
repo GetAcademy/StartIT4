@@ -15,23 +15,17 @@
     <script src="JS/ukentlig evaluering.js"></script>
     <script src="JS/finn coach.js"></script>
 
-    <style>
-        .overskrift {
-            float: left;
-        }
-        .back {
-            background-color: lightblue;
-        }
-        
-
-        .eval {
-            margin: 5px;
-        }
-    </style>
+   
 </head>
 <body>
-    <div id="content"></div>
+    <div id="page">
+        <div id="menu"><button onclick="showMainScreen()">☰</button></div>
+        <div id="menu2"><button>◀</button></div>
+        <div id="header"></div>
+        <div id="content"></div>
+    </div>
     <script>
+        var header = document.getElementById('header');
         var content = document.getElementById('content');
         newGoal();
        
