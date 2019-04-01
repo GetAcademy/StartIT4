@@ -6,8 +6,8 @@
     content.classList.add('myGrid');
     content.classList.add('mainEvaluatePage');
     content.innerHTML = `
-                  <button class="mainButton" onclick="dailyScreen()">Daglig</button><br />
-                <button class="mainButton" onclick="weeklyScreen()">Ukentlig</button><br />
-                <button  class="mainButton" onclick="coachScreen()">Coach</button><br />
-                <br /><button class="mainButton">Fullfør</button>
+                  <button class="Button" onclick="dailyScreen()">Daglig</button><br />
+                <button class="Button" onclick="weeklyScreen()">Ukentlig</button><br />
+                <button  class="Button" onclick="coachScreen()">Coach</button><br />
+                <br /><button class="Button">Fullfør</button>
             `}
