@@ -99,6 +99,6 @@
 }
 .Textbox {
     overflow-y: scroll;
-    max-height: 500px;
+    max-height: 200px;
     border: solid black 1px;
 }
