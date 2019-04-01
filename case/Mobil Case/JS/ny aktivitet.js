@@ -9,5 +9,5 @@
                 <p class="mainButton">Hvilke aktiviteter vil være viktige for deg hvis du skal nå dette målet?</p>
                 <div id="textDiv"> <textarea class="mainButton"></textarea><br /></div>
                 <div id="nyVane" onclick="addtxt()" style="font-size:50px; text-align:center;">⁺</div><br />
-                <br /><button onclick="nyEvaluering()" class="mainButton">Neste</button>
+                <br /><button onclick="nyEvaluering()" class="button">Neste</button>
                         `}
