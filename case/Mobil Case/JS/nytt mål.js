@@ -6,11 +6,11 @@
     content.classList.add('myGrid');
     content.classList.add('mainEvaluatePage');
     content.innerHTML = `
-                <p>Hva vil du oppnå?</p>
-                <textarea></textarea>
-                <p>Forkort det til en setning.</p>
-                <textarea></textarea>
-                <p>Hvorfor vil du nå dette målet?</p>
-                <textarea></textarea> <br />
-                <br /><button onclick="nyNøkkelvane()">Neste</button>
+                <p class="mainButton">Hva vil du oppnå?</p>
+                <textarea class="mainButton"></textarea>
+                <p class="mainButton">Forkort det til en setning.</p>
+                <textarea class="mainButton"></textarea>
+                <p class="mainButton">Hvorfor vil du nå dette målet?</p>
+                <textarea class="mainButton"></textarea class="mainButton"> <br />
+                <br /><button onclick="nyNøkkelvane()" class="button">Neste</button>
                                   `}
