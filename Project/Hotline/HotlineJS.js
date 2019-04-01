@@ -166,7 +166,7 @@ function ShowSwipeImageSelector()
     if (!ShowingSwipeImageSelector)
     {
         let Cache = '';
-        for (let i; i < SinglePerson.ProfilePictures.length; i++)
+        for (let i = 0; i < SinglePerson.ProfilePictures.length; i++)
         {
             Cache += `<button onclick="ChangeImage(${SinglePerson.ProfilePictures[i]})" ></button>`;
         }
@@ -407,7 +407,7 @@ function SwipePage()
         </div>
         <div id="SwipeImageSelector" class="SwipeImageSelector">
         </div>
-        <div onclick="ShowBio(), ShowSwipeImageSelector()" id="SwipeImage" class="SwipeImage">
+        <div onclick="ShowBio(); ShowSwipeImageSelector()" id="SwipeImage" class="SwipeImage">
             <img  src="${SinglePerson.ProfilePictures[0]}" />
         </div>
         <div id="SwipeBio" class="SwipeBio">
