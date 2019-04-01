@@ -27,6 +27,8 @@ var ShowingBio = false;
 
 var ShowingSwipeImageSelector = false;
 
+var ThisUser = {};
+
 var ListOfSingles =
     [
         { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePictures: ['https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', 'https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
@@ -76,6 +78,7 @@ function LoginCheck()
                 {
                     if (document.getElementById("Username").value == data[i].Username && document.getElementById("Password").value == data[i].Password)
                     {
+                        ThisUser = data[i];
                         alert("Welcome " + data[i].Username);
                         SwipePage();
                     }
@@ -699,8 +702,8 @@ function ProfilePage()
     Middle.innerHTML = `
     
     <div id="EmptyProfileLeft" class="EmptyProfileLeft"></div>
-    
-    <div id="ProfileName" class="ProfileName">Patrick</div>
+
+    <div id="ProfileName" class="ProfileName">${ThisUser.Username}</div>
 
     <div id="EmptyProfileRight" class="EmptyProfileRight"></div>
 
@@ -712,19 +715,14 @@ function ProfilePage()
 
     <div id="ProfileImageDisplay" class="ProfileImageDisplay">
     
-    <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Profile Picture">
+    <img src="${ThisUser.ProfilePictures[0]}" alt="Profile Picture">
     
     </div>
 
     <div id="ProfileBio" class="ProfileBio">
 
     <div>
-    hei, jeg heter patrick dette er mitt eksempel på en bio, og den er satt sammen av ord, ordene former setninger!</br></br>
-    
-    Disse setningene mener jeg er kjempe fantastiske til å utfylle sitt formål, som er å være et eksempel på en bio.</br></br>
-    
-    En eller annen dag skal jeg sette meg ned å lære lorem ipsum så jeg slipper dette her, men den dagen var ikke idag.</br>
-    Med vennlig hilsen en utvikler som er veldig lei av CSS grid akkuratt nå.
+    ${ThisUser.Bio}
     
     </div>
     
