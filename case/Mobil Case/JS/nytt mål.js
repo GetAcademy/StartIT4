@@ -12,5 +12,5 @@
                 <textarea class="mainButton"></textarea>
                 <p class="mainButton">Hvorfor vil du nå dette målet?</p>
                 <textarea class="mainButton"></textarea class="mainButton"> <br />
-                <br /><button onclick="nyNøkkelvane()" class="mainButton">Neste</button>
+                <br /><button onclick="nyNøkkelvane()" class="button">Neste</button>
                                   `}
