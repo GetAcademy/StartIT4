@@ -29,6 +29,8 @@ var ShowingSwipeImageSelector = false;
 
 var ThisUser = {};
 
+var EditMode = false;
+
 var ListOfSingles =
     [
         { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePictures: ['https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', 'https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
@@ -160,12 +162,12 @@ function LikeAndDislike(Button)
         ShowingSwipeImageSelector = false;
     }
 }
-//this shit broken
+
 function ChangeImage(image)
 {
     document.getElementById("SwipeImage").innerHTML = `<img src="${image}" />`;
 }
-//this shit broken
+
 function ShowSwipeImageSelector()
 {
     if (!ShowingSwipeImageSelector)
@@ -173,7 +175,7 @@ function ShowSwipeImageSelector()
         let Cache = '';
         for (let i = 0; i < SinglePerson.ProfilePictures.length; i++)
         {
-            Cache += `<button onclick="ChangeImage(${SinglePerson.ProfilePictures[i]})" ></button>`;
+            Cache += `<button onclick="ChangeImage('${SinglePerson.ProfilePictures[i]}')" ></button>`;
         }
         document.getElementById('SwipeImageSelector').innerHTML = Cache;
         ShowingSwipeImageSelector = true;
@@ -184,6 +186,19 @@ function ShowSwipeImageSelector()
         document.getElementById('SwipeImageSelector').innerHTML = '';
         ShowingSwipeImageSelector = false;
     }
+}
+function ChangeMyViewedProfilePicture(image)
+{
+    document.getElementById("ProfileImageDisplay").innerHTML = `<img src="${image}" alt="Missing" />`;
+}
+function ViewYourProfilePictures()
+{
+    let Cache = '';
+    for (let i = 0; i < ThisUser.ProfilePictures.length; i++)
+    {
+        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures[i]}')" ></button>`;
+    }
+    document.getElementById('ProfileImageSelect').innerHTML = Cache;
 }
 
 // visste du at du kan lage napalm med isopor og diesel? #FunFact of the day
@@ -250,6 +265,36 @@ function ShowBio()
     }
 }
 
+function EditBio()
+{
+    if (!EditMode)
+    {
+        document.getElementById("ProfileBio").innerHTML = `<textarea id="ProfileBioInput" >${document.getElementById("ProfileBio").innerHTML}</textarea>`;
+        EditMode = true;
+    }
+    else
+    {
+        //update this specific field of this document in the Users Collection basically update bio.
+        document.getElementById("ProfileBio").innerHTML = document.getElementById("ProfileBioInput").value;
+        EditMode = false;
+    }
+}
+
+function ChangeSettingsSliderOne()
+{
+    document.getElementById("ShowAgePreferenceValueOne").innerHTML = document.getElementById("AgePreferenceValueOne").value;
+}
+
+function ChangeSettingsSliderTwo()
+{
+    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = document.getElementById("AgePreferenceValueTwo").value;
+}
+
+function UpdateUserSettings()
+{
+    //find the where thingy for searching for a document with matching stuff.
+    //db.collection("Users").document().update();
+}
 
 //page HTML's
 function MessagePage()
@@ -354,7 +399,7 @@ function SettingsPage()
     Middle.classList.add("SettingsPageGridContainer");
     Middle.innerHTML = `
     <div id="MyProfile" class="MyProfile">
-         <img onclick="ProfilePage()" src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Profile Picture">
+         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures[0]}" alt="Profile Picture">
     </div>
     <div id="SettingsButton" class="SettingsButton">
          <button onclick="OptionsPage()">Settings</button>
@@ -649,7 +694,7 @@ function OptionsPage()
         <tr><div id="AgePreference">
 
         <td><div id="AgePreferenceTitle" style="font-weight:bolder">Age Preference: </div></td>
-        <td><div><input id="AgePreferenceValueOne" type="number" min="18" max="150" step="1"/>-<input id="AgePreferenceValueTwo" type="number" min="18" max="150" step="1"/><em>år</em></div></td>
+        <td><div><input id="AgePreferenceValueOne" style="width:30%" oninput="ChangeSettingsSliderOne()" type="range" min="18" max="90" step="1"/> <em id="ShowAgePreferenceValueOne"></em> - <em id="ShowAgePreferenceValueTwo"></em> <input id="AgePreferenceValueTwo" style="width:30%" oninput="ChangeSettingsSliderTwo()" type="range" min="18" max="90" step="1"/><em>år</em></div></td>
 
         </div></tr>
 
@@ -662,6 +707,13 @@ function OptionsPage()
 
         </table>
         `;
+    document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference;
+    document.getElementById("SearchDistanceValue").value = ThisUser.SearchDistance;
+    document.getElementById("AgePreferenceValueOne").value = ThisUser.AgePreference[0];
+    document.getElementById("AgePreferenceValueTwo").value = ThisUser.AgePreference[1];
+    document.getElementById("ShowAgePreferenceValueOne").innerHTML = ThisUser.AgePreference[0];
+    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = ThisUser.AgePreference[1];
+
 }
 
 function ProfilePage()
@@ -709,7 +761,7 @@ function ProfilePage()
 
     <div id="ProfileImageSelect" class="ProfileImageSelect">
     
-    <button></button> <button></button>
+    
     
     </div>
 
@@ -719,15 +771,17 @@ function ProfilePage()
     
     </div>
 
-    <div id="ProfileBio" class="ProfileBio">
+    <div ondblclick="EditBio()" id="ProfileBio" class="ProfileBio">
 
-    <div>
+    
     ${ThisUser.Bio}
     
-    </div>
+    
     
     </div>
     
     `;
+
+    ViewYourProfilePictures();
 
 }
