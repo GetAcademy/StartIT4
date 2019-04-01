@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="horse.json"></script>
+    </head>
+    <body>
+        <div id="info"></div>
+        <script>
+            var infoDiv = document.getElementById('info');
+            var sprites = [];
+
+            for(let x = 0; x < 480; x+=80){
+                sprites.push(
+                    {
+                        x: x,
+                        y: 0,
+                        w: 80,
+                        h: 80
+                    });
+                // let frame = spritedata.frames[i];
+                // let pos = frame.position;
+                // infoDiv.innerHTML += `
+                //     <li>${frame.name} x=${pos.x} y=${pos.y} w=${pos.w} h=${pos.h}</li>
+                //     `;
+            }
+        </script>
+    </body>
+</html>
