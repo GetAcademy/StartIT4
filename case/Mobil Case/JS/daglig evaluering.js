@@ -10,5 +10,5 @@
                 <textarea class="mainButton">Humør</textarea><br />
                 <textarea class="mainButton">Mentalt Tilstede</textarea><br />
                 <textarea class="mainButton">Kvalitet på arbeid</textarea><br />
-                <br /><button onclick="nyEvaluering()" class="mainButton">Lagre</button>
+                <br /><button onclick="nyEvaluering()" class="button">Lagre</button>
 `}
