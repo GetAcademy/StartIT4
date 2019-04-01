@@ -157,10 +157,12 @@ function LikeAndDislike(Button)
         ShowingSwipeImageSelector = false;
     }
 }
+//this shit broken
 function ChangeImage(image)
 {
     document.getElementById("SwipeImage").innerHTML = `<img src="${image}" />`;
 }
+//this shit broken
 function ShowSwipeImageSelector()
 {
     if (!ShowingSwipeImageSelector)
@@ -399,6 +401,7 @@ function SwipePage()
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
     Middle.classList.add("SwipePageContainer");
+    //this shit broken
     Middle.innerHTML = `
         
         
