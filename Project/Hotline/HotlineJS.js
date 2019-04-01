@@ -165,7 +165,7 @@ function ShowSwipeImageSelector()
 {
     if (!ShowingSwipeImageSelector)
     {
-        let Cache;
+        let Cache = '';
         for (let i; i < SinglePerson.ProfilePictures.length; i++)
         {
             Cache += `<button onclick="ChangeImage(${SinglePerson.ProfilePictures[i]})" ></button>`;
