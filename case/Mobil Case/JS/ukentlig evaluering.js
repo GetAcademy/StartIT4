@@ -10,6 +10,6 @@
                 <textarea class="mainButton">Hva har vært spesielt bra denne uken?</textarea><br />
                 <textarea class="mainButton">Hva kan gjøres bedre neste uke?</textarea><br />
                 <textarea class="mainButton">Hva skal du ha spesielt fokus på neste uke</textarea><br />
-                <br /><button onclick="nyEvaluering()" class="mainButton">Lagre</button>
+                <br /><button onclick="nyEvaluering()" class="button">Lagre</button>
                 
 `}
