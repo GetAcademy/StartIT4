@@ -7,6 +7,7 @@
 Hovedmål: 2</br>
 Hovedmål: 3
     </button>
+      <div><button class="mainButton" onclick="ProfileSide()">Profil</button></div>  
       <div><button class="mainButton" onclick="ukentligEvaluering()">Ukentlig evaluering</button></div>
       <div><button class="mainButton" onclick="showEvaluateScreen()">Daglig evaluering</button></div>
       <div><button class="mainButton" onclick="newGoal()">Nytt mål</button></div>
