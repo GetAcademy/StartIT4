@@ -13,7 +13,7 @@ const world = {
         7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7,
         7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7,
         7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7,
-        7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7,
+        7, 8, 7, 7, 8, 7, 7, 8, 7, 5, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7,
         7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7,
         7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7,
         7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7, 8, 7, 7, 8, 7, 7, 8, 7,
@@ -60,6 +60,7 @@ const world = {
 let map;
 let player;
 let enemys = [];
+let bullets = [];
 function preload() {
     tileSheet.image = loadImage('assets/images/desert.png');
 }
@@ -68,31 +69,48 @@ function setup() {
     createCanvas(800, 600);
     map = new Map(tileSheet, world);
     player = createSprite(400, 300, 20, 20);
+
     for (let i = 0; i < 5; i++) {
         enemys.push(new Enemy());
     }
-    
+
 }
 
 function draw() {
     background(0);
     map.render();
-    drawSprite(player)
+    drawSprite(player);
+    //drawSprite(enemy.sprite);
     controls();
+
     for (let i = 0; i < enemys.length; i++) {
         enemys[i].render();
         enemys[i].move();
+        enemys[i].edges();
     }
-}
 
-function controls() {
-    if (keyIsDown(87) || keyIsDown(UP_ARROW)) {
-        player.position.y += -1;
-    } else if (keyIsDown(65) || keyIsDown(LEFT_ARROW)) {
-        player.position.x += -1;
-    } else if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) {
-        player.position.y += +1;
-    } else if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) {
-        player.position.x += +1;
+    for (let i = bullets.length - 1; i >= 0; i--) {
+        bullets[i].render();
+        bullets[i].update();
+        if (bullets[i].offscreen()) {
+            bullets.splice(i, 1);
+
+        }
     }
+
+    function controls() {
+        if (keyCode == 80) {
+            bullets.push(new Bullet(player.x, player.y));
+        } else if (keyIsDown(87) || keyIsDown(UP_ARROW)) {
+            player.position.y += -1;
+        } else if (keyIsDown(65) || keyIsDown(LEFT_ARROW)) {
+            player.position.x += -1;
+        } else if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) {
+            player.position.y += +1;
+        } else if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) {
+            player.position.x += +1;
+        }
+
+    }
+
 }
