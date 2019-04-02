@@ -7,11 +7,11 @@
 Hovedmål: 2</br>
 Hovedmål: 3
     </button>
-      <div><button class="mainButton" onclick="ProfileSide()">Profil</button></div>  
-      <div><button class="mainButton" onclick="ukentligEvaluering()">Ukentlig evaluering</button></div>
-      <div><button class="mainButton" onclick="showEvaluateScreen()">Daglig evaluering</button></div>
-      <div><button class="mainButton" onclick="newGoal()">Nytt mål</button></div>
-      <div><button class="mainButton" onclick="lagDagbok()">Dagbok</button></div>
-      <div><button class="mainButton" onclick="kalender()">Kalender</button></div>
+      <div><button class="button" onclick="ProfileSide()">Profil</button></div>  
+      <div><button class="button" onclick="ukentligEvaluering()">Ukentlig evaluering</button></div>
+      <div><button class="button" onclick="showEvaluateScreen()">Daglig evaluering</button></div>
+      <div><button class="button" onclick="newGoal()">Nytt mål</button></div>
+      <div><button class="button" onclick="lagDagbok()">Dagbok</button></div>
+      <div><button class="button" onclick="kalender()">Kalender</button></div>
     `;
 }
