@@ -79,9 +79,9 @@ function setup() {
 function draw() {
     background(0);
     map.render();
-    drawSprite(player);
+    
     //drawSprite(enemy.sprite);
-    controls();
+   
 
     for (let i = 0; i < enemys.length; i++) {
         enemys[i].render();
@@ -89,7 +89,7 @@ function draw() {
         enemys[i].edges();
     }
 
-    for (let i = bullets.length - 1; i >= 0; i--) {
+    for (let i = 0; i < bullets.length; i++) {
         bullets[i].render();
         bullets[i].update();
         if (bullets[i].offscreen()) {
@@ -97,10 +97,13 @@ function draw() {
 
         }
     }
+    controls();
+    drawSprite(player);
+}
 
     function controls() {
-        if (keyCode == 80) {
-            bullets.push(new Bullet(player.x, player.y));
+        if (keyIsDown(80)) {
+            bullets.push(new Bullet(player.position));
         } else if (keyIsDown(87) || keyIsDown(UP_ARROW)) {
             player.position.y += -1;
         } else if (keyIsDown(65) || keyIsDown(LEFT_ARROW)) {
@@ -111,6 +114,8 @@ function draw() {
             player.position.x += +1;
         }
 
-    }
-
 }
+
+
+
+
