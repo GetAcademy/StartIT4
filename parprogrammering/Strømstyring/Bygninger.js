@@ -37,8 +37,8 @@ var data = {
             Kategori: "Barnehage",
             Areal: 777,
             Oppvarming: "El, Bio",
-        },    
-    ]   
+        },
+    ]
 };
 
 
@@ -58,8 +58,8 @@ function show() {
 //Henter informasjon fra array
 function selectBuilding(index) {
     let building = data.buildings[index];
-    document.getElementById('buildings').innerHTML = 
-    `<b>
+    document.getElementById('buildings').innerHTML =
+        `<b>
     Navn: ${building.name}</b><br/>
     Adresse: ${building.Adresse}</br>
     PostNr: ${building.PostNr}<br/>

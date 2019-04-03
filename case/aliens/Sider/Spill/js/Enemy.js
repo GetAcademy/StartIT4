@@ -23,12 +23,14 @@ class Enemy {
             { speedX: 0, speedY: -1 },
         ];
         this.phases = this.phases2; //random() < 0.5 ? this.phases1 : this.phases2;
-        this.sprite = createSprite(400, 300, 20, 20);
+        //enemySprite = createSprite(this.pos.x, this.pos.y, this.h, this.w);
     }
     render() {
         noStroke();
         fill(255, 0, 0);
         rect(this.pos.x, this.pos.y, this.h, this.w);
+        
+        
     }
 
    

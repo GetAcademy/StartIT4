@@ -1,15 +1,11 @@
 ﻿function weeklyScreen() {
-    header.innerHTML = `<div class="overskrift back" onclick="nyEvaluering()">←</div> 
-                <h2 class="overskrift">Ukentlig Evaluering</h2>
-                <div class="info" onclick="infoScreen()">🛈</div>`;
-    content.classList.length = 0;
-    content.classList.add('myGrid');
-    content.classList.add('mainEvaluatePage');
-    content.innerHTML = `
-                <p class="mainButton">Lag Spørsmål</p>
-                <textarea class="mainButton">Hva har vært spesielt bra denne uken?</textarea><br />
-                <textarea class="mainButton">Hva kan gjøres bedre neste uke?</textarea><br />
-                <textarea class="mainButton">Hva skal du ha spesielt fokus på neste uke</textarea><br />
+  
+    mainextra.innerHTML = `
+                <div class="overskrift back" onclick="nyEvaluering()">←</div>
+                <p class="button">Lag Spørsmål</p>
+                <textarea class="button" style="background-color:white;color:black">Hva har vært spesielt bra denne uken?</textarea><br />
+                <textarea class="button" style="background-color:white;color:black">Hva kan gjøres bedre neste uke?</textarea><br />
+                <textarea class="button" style="background-color:white;color:black">Hva skal du ha spesielt fokus på neste uke</textarea><br />
                 <br /><button onclick="nyEvaluering()" class="button">Lagre</button>
                 
 `}

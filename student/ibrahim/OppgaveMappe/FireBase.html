@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+</head>
+
+<body>
+    <button onclick="test()">click me</button>
+    <button onclick="test2()">delete</button>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAMXt5K-aKt_C47Pc8KsFE-adICnJBo5TM",
+            authDomain: "powerproject-b6b69.firebaseapp.com",
+            databaseURL: "https://powerproject-b6b69.firebaseio.com",
+            projectId: "powerproject-b6b69",
+            storageBucket: "powerproject-b6b69.appspot.com",
+            messagingSenderId: "994944669385"
+        };
+        firebase.initializeApp(config);
+        var db = firebase.firestore();
+        db.collection('todoItems').get(
+
+        )
+        var todoItems = db.collection('todoItems');
+        console.log(todoItems);
+
+        let items = {
+            todoText: 'asdas',
+            todoDate: new Date()
+        };
+
+        function test() {
+            todoItems.add(items)
+        }
+        function test2() {
+            todoItems.doc('AUL7W1DT6d6vC2MQto4c').delete().then(function () {
+                console.log("Document successfully deleted!");
+            }).catch(function (error) {
+                console.error("Error removing document: ", error);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
