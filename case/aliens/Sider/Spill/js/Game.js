@@ -59,6 +59,7 @@ const world = {
 }
 let map;
 let player;
+let sprites =[];
 let enemys = [];
 let bullets = [];
 function preload() {
@@ -69,9 +70,14 @@ function setup() {
     createCanvas(800, 600);
     map = new Map(tileSheet, world);
     player = createSprite(400, 300, 20, 20);
+    
 
     for (let i = 0; i < 5; i++) {
         enemys.push(new Enemy());
+    }
+
+    for (let i = 0; i < 5; i++) {
+        sprites.push(new Sprite());
     }
 
 }
@@ -80,15 +86,22 @@ function draw() {
     background(0);
     map.render();
     
-    //drawSprite(enemy.sprite);
+    
    
 
     for (let i = 0; i < enemys.length; i++) {
         enemys[i].render();
         enemys[i].move();
         enemys[i].edges();
+       
     }
 
+    for (let i = 0; i < sprites.length; i++) {
+        sprites[i].render();
+        sprites[i].move();
+       
+
+    }
     for (let i = 0; i < bullets.length; i++) {
         bullets[i].render();
         bullets[i].update();
@@ -99,6 +112,7 @@ function draw() {
     }
     controls();
     drawSprite(player);
+    
 }
 
     function controls() {
