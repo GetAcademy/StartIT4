@@ -25,6 +25,24 @@
 
 }
 
+.customChk{
+  user-select: none;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  overflow: hidden;
+  background-color: #EC8B5E;
+  color: black;  
+  /* color: #5F6389;   */
+}
+
+.customChkInner{
+  font-size: 170%;
+  font-weight: 900;
+  position: relative;
+  top: -55%;
+}
+
 .knapp1 {
 
     background-color: #EC8B5E;
