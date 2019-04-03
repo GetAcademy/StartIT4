@@ -5,8 +5,25 @@
     <meta charset="utf-8" />
     <title></title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="JS/main.js"></script>
+    <script src="JS/myGoals.js"></script>
+    <script src="JS/evaluateScreen.js"></script>
+    <script src="JS/ukentligEvaluering.js"></script>
+    <script src="JS/dagligEvaluering.js"></script>
+    <script src="JS/createNewGoal.js"></script>
+    <script src="JS/lagDagbok.js"></script>
+    <script src="JS/kalender.js"></script>
+    <script src="JS/ukentligEvalueringSideTO.js"></script>
+    <script src="JS/nytt mål.js"></script>
+    <script src="JS/ny nøkkelvane.js"></script>
+    <script src="JS/ny aktivitet.js"></script>
+    <script src="JS/ny evaluering.js"></script>
+    <script src="JS/add text.js"></script>
+    <script src="JS/info screen.js"></script>
+    <script src="JS/daglig evaluering.js"></script>
+    <script src="JS/ukentlig evaluering.js"></script>
+    <script src="JS/finn coach.js"></script>
     <style>
-
         .wrapper {
             display: grid;
             height: 100vh;
@@ -57,7 +74,6 @@
             margin-left: 5px;
             font-weight: bold;
         }
-
 
         .menu-item {
             color: white;
@@ -122,26 +138,20 @@
             .button:hover {
                 background-color: #8c0000;
             }
-
-
-
         /* width */
         ::-webkit-scrollbar {
             width: 10px;
         }
-
         /* Track */
         ::-webkit-scrollbar-track {
             background: #474747;
             border: solid black 1px;
         }
-
         /* Handle */
         ::-webkit-scrollbar-thumb {
             background: #ff0000;
             border: solid black 1px;
         }
-
             /* Handle on hover */
             ::-webkit-scrollbar-thumb:hover {
                 background: #8c0000;
@@ -152,7 +162,6 @@
             top: 0;
             width: 100%;
         }
-
             /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
             .sticky + .content {
                 padding-top: 60px;
@@ -185,9 +194,11 @@
             .sub-item:hover {
                 background-color: #8c0000;
             }
+
             .sub-item:focus {
                 outline: none;
             }
+
             .sub-item:active {
                 background-color: #8c0000;
             }
@@ -208,20 +219,23 @@
             border-top: solid black 1px;
             border-bottom: solid black 1px;
         }
+
             .button-content:hover {
                 color: white;
                 background-color: #8c0000;
             }
+
             .button-content:focus {
                 outline: none;
             }
+
             .button-content:active {
                 color: white;
                 background-color: #8c0000;
             }
     </style>
 </head>
-<body onload="loading()">
+<body>
     <div class="wrapper" id="wrapper">
         <div class="header" id="header">
             <div class="image"></div>
@@ -245,18 +259,7 @@
                     <button class="button-content"><i class="fas fa-power-off"></i> logg ut</button>
                 </div>
             </div>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
-            <button class="button">button</button>
+            <div id="mainextra"></div>
         </div>
         <div class="footer" id="footer">
             <div class="lagetav">Laget av GetAcademy</div>
@@ -264,11 +267,12 @@
     </div>
 
     <script>
+        var mainextra = document.getElementById('mainextra');
+        showMainScreen();
         window.onscroll = function () { myFunction() };
-
         var navbar = document.getElementById('navbar');
         var sticky = navbar.offsetTop;
-
+        
         function myFunction() {
             if (window.pageYOffset >= sticky) {
                 navbar.classList.add('sticky')
@@ -276,11 +280,9 @@
                 navbar.classList.remove('sticky');
             }
         }
-
         function modal() {
             document.getElementById('modal').style.cssText = 'display: block;';
         }
-
         function RemoveModal() {
             document.getElementById('modal').style.cssText = 'display: none;';
         }
