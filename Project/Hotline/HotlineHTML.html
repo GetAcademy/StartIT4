@@ -19,6 +19,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
     <script>
         // Initialize Firebase
         var config = {
@@ -26,12 +27,26 @@
             authDomain: "hotline-007.firebaseapp.com",
             databaseURL: "https://hotline-007.firebaseio.com",
             projectId: "hotline-007",
-            storageBucket: "",
+            storageBucket: "hotline-007.appspot.com",
             messagingSenderId: "1018015890774"
         };
         firebase.initializeApp(config);
         var db = firebase.firestore();
-        
+        // Get a reference to the storage service, which is used to create references in your storage bucket
+        var storage = firebase.storage();
+
+        // Create a storage reference from our storage service
+        var storageRef = storage.ref();
+
+        // Create a child reference
+        var imagesRef = storageRef.child('images');
+        // imagesRef now points to 'images'
+
+        // Child references can also take paths delimited by '/'
+        var spaceRef = storageRef.child('images/space.jpg');
+        // spaceRef now points to "images/space.jpg"
+        // imagesRef still points to "images"
+
     </script>
     <script src="HotlineJS.js"></script>
     <script>LoginPage();</script>

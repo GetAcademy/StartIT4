@@ -31,6 +31,8 @@ var ThisUser = {};
 
 var EditMode = false;
 
+var CreateProfImage = '';
+
 var ListOfSingles =
     [
         { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePictures: ['https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', 'https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
@@ -70,6 +72,7 @@ function LoginCheck()
                         ThisUser = data[i];
                         alert("Welcome " + data[i].Username);
                         SwipePage();
+                        break;
                     }
                 }
             });
@@ -82,11 +85,13 @@ function LoginCheck()
     })
 }
 
-function NewAccount() {
+function NewAccount()
+{
     NewAccountPage();
 }
 
-function CreateAccount() {
+function CreateAccount()
+{
     let UsernameOne = document.getElementById("UsernameOne").value;
     let UsernameTwo = document.getElementById("UsernameTwo").value;
     let EmailOne = document.getElementById("E-mailOne").value;
@@ -94,11 +99,17 @@ function CreateAccount() {
     let PasswordOne = document.getElementById("PasswordOne").value;
     let PasswordTwo = document.getElementById("PasswordTwo").value;
     let Preference = document.getElementById("Preference").value;
+    let ProfilePic = document.getElementById("MyImage").value;
+    let ProfileBio = document.getElementById("CreateBio").value;
+    let AgePrefOne = document.getElementById("AgePrefSliderOne").value;
+    let AgePrefTwo = document.getElementById("AgePrefSliderTwo").value;
+    let SearchDistance = document.getElementById("CreateSearchDistance").value;
 
-    if (UsernameOne == UsernameTwo && EmailOne == EmailTwo && PasswordOne == PasswordTwo && BirthDateFull <= CheckAge) {
+    if (UsernameOne == UsernameTwo && EmailOne == EmailTwo && PasswordOne == PasswordTwo && BirthDateFull <= CheckAge && ProfilePic != null && ProfileBio.length > 0 && AgePrefOne >= 18 && AgePrefTwo <= 100 && SearchDistance >= 1 && SearchDistance <= 100)
+    {
         alert("A confirmation email has been sent!");
-        AccountList.push({ Username: UsernameTwo, Password: PasswordTwo, Email: EmailTwo, Age: parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), Birthday: BirthDateFull, DatingPreference: Preference })
-        RegisterUserToBackend(UsernameTwo, PasswordTwo, EmailTwo, parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), BirthDateFull, Preference);
+        UploadFile(CreateProfImage);
+        RegisterUserToBackend(UsernameTwo, PasswordTwo, EmailTwo, parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), BirthDateFull, Preference, AgePrefOne, AgePrefTwo, SearchDistance, ProfileBio);
 
         document.getElementById("UsernameOne").value = null;
         document.getElementById("UsernameTwo").value = null;
@@ -107,12 +118,15 @@ function CreateAccount() {
         document.getElementById("PasswordOne").value = null;
         document.getElementById("PasswordTwo").value = null;
         document.getElementById("Preference").value = null;
+        document.getElementById("MyImage").value = null;
+        CreateProfImage = '';
 
         LoginPage();
     }
 }
 
-function DateChange() {
+function DateChange()
+{
     BirthDate = document.getElementById("Birthdate").value;
     BirthDateYear = BirthDate.substr(0, 4);
     BirthDateMonth = BirthDate.substr(5, 2);
@@ -121,9 +135,11 @@ function DateChange() {
 }
 
 
-function LikeAndDislike(Button) {
+function LikeAndDislike(Button)
+{
     SinglePerson = RandomSinglePerson();
-    if (Button.innerText == "Like") {
+    if (Button.innerText == "Like")
+    {
         document.getElementById("SwipeName").innerHTML = SinglePerson.Username;
         document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePictures[0]}" />`;
         document.getElementById('SwipeBio').innerHTML = '';
@@ -131,7 +147,8 @@ function LikeAndDislike(Button) {
         document.getElementById('SwipeImageSelector').innerHTML = '';
         ShowingSwipeImageSelector = false;
 
-        if (Math.random() >= 0.5) {
+        if (Math.random() >= 0.5)
+        {
             alert(`You Matched With Someone, Go Talk To Them!!!`);
         }
     }
@@ -219,8 +236,9 @@ function RandomAnswer() {
     }
 }
 
-function RegisterUserToBackend(username, password, email, age, birthday, datingpreference) {
-    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference });
+function RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio) // add profile picture parameter
+{
+    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio}); // add Profile pictures
 }
 
 function ShowBio() {
@@ -263,11 +281,12 @@ function UpdateUserSettings()
             console.error(error);
         });
 }
-
 function updateUser(docId)
 {
-    //find out how to update more values theory either to have more db.collection and spam the entire line with just different variable or add more variables inside the update.
+    //this is where the variables are actually updated.
     db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
+        .then(function () { db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value) }) })
+        .then(function () { db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] }) })
         .then(function () { alert("Document Updated!"); })
         .catch(function () { console.error("Error Updating Document, Releasing Cyclon B across North Korea!"); });
 }
@@ -288,10 +307,39 @@ function getUser(username)
             {
                 reject(error);
             })
-
     })
+}
 
+function UploadFile(Image)
+{
+    const file = Image;
+    console.log(file);
+    console.log('uploading');
+    // the name of the files
+    var fileRef = storageRef.child(file.name);
+    console.log('filename set');
+    console.log(fileRef);
 
+    fileRef.put(file)
+        .then(function (snapshot)
+        {
+        alert(`Uploaded ${file.name}`);
+        });
+}
+
+function AgePrefSliderOne()
+{
+    document.getElementById("ShowAgePrefOne").innerHTML = document.getElementById("AgePrefSliderOne").value;
+}
+
+function AgePrefSliderTwo()
+{
+    document.getElementById("ShowAgePrefTwo").innerHTML = document.getElementById("AgePrefSliderTwo").value;
+}
+
+function StoreImage(event)
+{
+    CreateProfImage = event.target.files[0];
 }
 
 //page HTML's
@@ -353,6 +401,7 @@ function MessagePage() {
     
     `;
 }
+
 function SettingsPage() {
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
@@ -397,6 +446,7 @@ function SettingsPage() {
     </div>`;
     document.getElementById("Bottom").innerHTML = "";
 }
+
 function SwipePage() {
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
@@ -522,6 +572,7 @@ function LoginPage() {
             `;
     document.getElementById("Bottom").innerHTML = "";
 }
+
 function NewAccountPage() {
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
@@ -587,6 +638,9 @@ function NewAccountPage() {
     <td><div>Birthdate: </div></td><td><input onchange="DateChange()" type="date" id="Birthdate" /></td>
     </tr>
     <tr>
+    <td><div>Age Preferance: </div></td> <td><input id="AgePrefSliderOne" oninput="AgePrefSliderOne()" type="range" value="18" min="18" max="90" step="1"/></td> <td><em id="ShowAgePrefOne"></em></td> <td><em id="ShowAgePrefTwo"></em></td> <td><input id="AgePrefSliderTwo" oninput="AgePrefSliderTwo()" type="range" value="90" min="18" max="90" step="1"/></td>
+    </tr>
+    <tr>
     <td><div>
         Dating Preference:
     </div></td>
@@ -599,6 +653,18 @@ function NewAccountPage() {
             <option value="Women and Alien">Women & Alien</option>
             <option value="Men and Alien and Women">Men & Alien & Women</option>
         </select></td>
+    </tr>
+    <tr>
+    <td><div>Search Distance: </div></td> <td><input id="CreateSearchDistance" type="number" min="1" max="100" value="5"/> <div>Km</div></td>
+    </tr>
+    <tr>
+    <td><div>Profile Picture: </div></td><td><input type="file" id="MyImage" onchange="StoreImage(event)" /></td>
+    </tr>
+    <tr>
+    <th>Bio: </th>
+    </tr>
+    <tr>
+    <td><textarea id="CreateBio" cols="10" rows="10" maxlength="1000" placeholder="Write a little about yourself"></textarea></td>
     </tr>
     </table>
     <button onkeydown="if(event.keyCode==13){CreateAccount()}" onclick="CreateAccount()">Create Account</button>
