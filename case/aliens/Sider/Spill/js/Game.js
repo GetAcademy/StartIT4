@@ -60,6 +60,7 @@ const world = {
 let map;
 let player;
 let enemys = [];
+let bullets = [];
 function preload() {
     tileSheet.image = loadImage('assets/images/desert.png');
 }
@@ -68,35 +69,53 @@ function setup() {
     createCanvas(800, 600);
     map = new Map(tileSheet, world);
     player = createSprite(400, 300, 20, 20);
-    
+
     for (let i = 0; i < 5; i++) {
         enemys.push(new Enemy());
     }
-    
+
 }
 
 function draw() {
     background(0);
     map.render();
-    drawSprite(player);
+    
     //drawSprite(enemy.sprite);
-    controls();
+   
+
     for (let i = 0; i < enemys.length; i++) {
         enemys[i].render();
         enemys[i].move();
         enemys[i].edges();
     }
+
+    for (let i = 0; i < bullets.length; i++) {
+        bullets[i].render();
+        bullets[i].update();
+        if (bullets[i].offscreen()) {
+            bullets.splice(i, 1);
+
+        }
+    }
+    controls();
+    drawSprite(player);
 }
 
-function controls() {
-    if (keyIsDown(87) || keyIsDown(UP_ARROW)) {
-        player.position.y += -1;
-    } else if (keyIsDown(65) || keyIsDown(LEFT_ARROW)) {
-        player.position.x += -1;
-    } else if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) {
-        player.position.y += +1;
-    } else if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) {
-        player.position.x += +1;
-    }
+    function controls() {
+        if (keyIsDown(80)) {
+            bullets.push(new Bullet(player.position));
+        } else if (keyIsDown(87) || keyIsDown(UP_ARROW)) {
+            player.position.y += -1;
+        } else if (keyIsDown(65) || keyIsDown(LEFT_ARROW)) {
+            player.position.x += -1;
+        } else if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) {
+            player.position.y += +1;
+        } else if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) {
+            player.position.x += +1;
+        }
+
 }
+
+
+
 
