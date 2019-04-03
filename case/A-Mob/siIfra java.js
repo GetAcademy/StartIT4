@@ -24,18 +24,18 @@ function visSiIfraOmMobbing() {
         `
     <table>
             <tr>
-                <td colspan="2">
+                <td colspan="2";>
                     <h1 class="kontakt">Ta kontakt</h1>
                 </td>
             </tr>
             <tr>
-                <td style="width: 30%">
+                <td style="width: 15%">
                     <h4>Har du blitt mobbet?</h4>
-                    <button>khjkjh</button>
+                    <button class="knapp">khjkjh</button>
                 </td>
-                <td style="width: 30%">
+                <td style="width: 15%">
                     <h4>Hvordan ble du mobbet??</h4>
-                    <button>khjkjh</button>
+                    <button class="knapp">khjkjh</button>
                 </td>
             </tr>
     </table>
