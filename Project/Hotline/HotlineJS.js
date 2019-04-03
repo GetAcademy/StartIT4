@@ -49,28 +49,24 @@ function RandomSinglePerson() {
 }
 
 
-/*var AccountList =
-    [
-        { Username: 'patrick', Password: '123abc', Email: 'patrickjoh33@hotmail.com', Age: 23, Birthday: new Date(1995, 09, 03), DatingPreference: 'Women' }
-    ];*/
 
-function LoginCheck() {
-    /*for (let i = 0; i < AccountList.length; i++)
+
+function LoginCheck()
+{
+    db.collection("Users").get().then(function (querySnapshot)
     {
-        if (document.getElementById("Username").value == AccountList[i].Username && document.getElementById("Password").value == AccountList[i].Password)
+        if (querySnapshot.size > 0)
         {
-            alert("Welcome " + AccountList[i].Username);
-            SwipePage();
-        }
-    }*/
-    db.collection("Users").get().then(function (querySnapshot) {
-        if (querySnapshot.size > 0) {
-            querySnapshot.forEach(function (documentSnapshot) {
-                var data = querySnapshot.docs.map(function (documentSnapshot) {
+            querySnapshot.forEach(function (documentSnapshot)
+            {
+                var data = querySnapshot.docs.map(function (documentSnapshot)
+                {
                     return documentSnapshot.data();
                 });
-                for (let i = 0; i < data.length; i++) {
-                    if (document.getElementById("Username").value == data[i].Username && document.getElementById("Password").value == data[i].Password) {
+                for (let i = 0; i < data.length; i++)
+                {
+                    if (document.getElementById("Username").value == data[i].Username && document.getElementById("Password").value == data[i].Password)
+                    {
                         ThisUser = data[i];
                         alert("Welcome " + data[i].Username);
                         SwipePage();
@@ -78,7 +74,8 @@ function LoginCheck() {
                 }
             });
         }
-        else {
+        else
+        {
             console.log('No Users in DataBase!?');
         }
 
