@@ -1,6 +1,6 @@
 ﻿function nyAktivitet() {
     
-    content.innerHTML = `
+    mainextra.innerHTML = `
                 <div class="overskrift back" onclick="nyNøkkelvane()">←</div>
                 <p class="button">Hvilke aktiviteter vil være viktige for deg hvis du skal nå dette målet?</p>
                 <div id="textDiv"> <textarea class="button" style="background-color:white;color:black"></textarea><br /></div>
