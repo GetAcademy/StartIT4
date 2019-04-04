@@ -1,5 +1,5 @@
 function LagNyBruker() {
-    document.getElementById('content').innerHTML = `<input type="text" placeholder="BRUKERNAVN" required />
+    document.getElementById('menuextra').innerHTML = `<input type="text" placeholder="BRUKERNAVN" required />
     <input type="email" placeholder="EMAIL" required />
     <input type="password" placeholder="PASSORD" required />
     <input type="tel" placeholder="TELEFON" />
