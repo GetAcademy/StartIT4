@@ -1,3 +1,3 @@
 ﻿function infoScreen() {
    
-    menuextra.innerHTML = ''}
+    mainextra.innerHTML = ''}
