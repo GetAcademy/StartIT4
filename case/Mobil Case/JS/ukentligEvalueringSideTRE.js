@@ -1,6 +1,6 @@
 ﻿function ukentligEvalueringSideTRE() {
    
-   menuextra.innerHTML = `
+   mainextra.innerHTML = `
     <div style="align-self: center">
         Hva skal du ha spesielt fokus på neste uke?
     </div>
