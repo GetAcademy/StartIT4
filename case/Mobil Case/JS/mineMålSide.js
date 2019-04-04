@@ -1,7 +1,6 @@
 ﻿function showMyGoalsScreen() {
-    header.innerHTML = '<h1>Mine mål</h1>';
-    content.setAttribute('class', 'myGoalsContentGrid');
-    content.innerHTML = `
+   
+    menuextra.innerHTML = `
       <div><button class="button" onclick="leggTilOppgaveSide()">Legg til oppgave</button></div>
       <div><button class="button">Rediger</button></div>
       <div><button class="button">Slett</button></div>
