@@ -12,24 +12,32 @@
 <body>
     <script>
         let player;
+        let players;
         let enemy;
+        let enemyArr = [];
         let enemys;
         function setup() {
             createCanvas(600, 600);
             player = new Player();
-            enemy = new Enemy();
+            players = new Group();
+            players.add(player.playerSprite);
             enemys = new Group()
             for (let i = 0; i < 5; i++) {
-                enemys.add(enemy.enemySprite);
+                enemy = enemyArr.push(new Enemy);
+                enemys.add(enemyArr[i].enemySprite);
             }
         }
 
         function draw() {
             background(0);
-            player.render();
-            player.controls();
-            enemy.render();
+           
+            player.controls()
+
+            players.collide(enemys);
             drawSprites();
+            
+            
+            
            
         }
 

@@ -8,9 +8,7 @@ class Enemy {
         this.enemySprite = createSprite(x, y, this.w, this.h);
     }
 
-    render() {
-        drawSprite(this.enemySprite);
-    }
+   
 
 
 }
