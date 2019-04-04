@@ -1,9 +1,6 @@
 ﻿function lagNyttMål() {
-    header.innerHTML = '<h1>Nytt Mål</h1>';
-    content.classList.length = 0;
-    content.classList.add('myGrid');
-    content.classList.add('lagNyttMål');
-    content.innerHTML = `
+  
+    cmenuextra.innerHTML = `
     <div style="align-self: center">
         Opprett et nytt mål:
     </div>
