@@ -1,6 +1,6 @@
 ﻿function lagNyttMål() {
   
-    cmenuextra.innerHTML = `
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Opprett et nytt mål:
     </div>
