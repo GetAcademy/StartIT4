@@ -1,5 +1,5 @@
 function Innstillinger() {
-    document.getElementById('menuextra').innerHTML = ` <img src="http://www.bakkahonline.com/assets/images/user-avatar.png" />
+    document.getElementById('mainextra').innerHTML = ` <img src="http://www.bakkahonline.com/assets/images/user-avatar.png" />
     <div>
         <input type="file" />
     </div>
