@@ -1,5 +1,5 @@
 function ProfileSide() {
-    document.getElementById('menuextra').innerHTML = `<img src="http://www.bakkahonline.com/assets/images/user-avatar.png" />
+    document.getElementById('mainextra').innerHTML = `<img src="http://www.bakkahonline.com/assets/images/user-avatar.png" />
     <div>COACH</div>
     <div>BRUKERNAVN</div>
     <div>INNSTILLINGER</div>
