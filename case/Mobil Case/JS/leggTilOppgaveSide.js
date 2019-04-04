@@ -1,6 +1,6 @@
 ﻿function leggTilOppgaveSide() {
     
-    menuextra.innerHTML = `
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Skriv hva oppgaven skal være i tekstfeltet under
     </div>
