@@ -1,6 +1,6 @@
 ﻿function ukentligEvalueringSideFIRE() {
     
-    menuextra.innerHTML = `
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Kommentarer om nøkkelvaner.
     </div>
