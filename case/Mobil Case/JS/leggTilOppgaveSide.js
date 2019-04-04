@@ -1,9 +1,6 @@
 ﻿function leggTilOppgaveSide() {
-    header.innerHTML = '<h1>Legg til oppgave</h1>';
-    content.classList.length = 0;
-    content.classList.add('myGrid');
-    content.classList.add('leggTilOppgaveSide');
-    content.innerHTML = `
+    
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Skriv hva oppgaven skal være i tekstfeltet under
     </div>

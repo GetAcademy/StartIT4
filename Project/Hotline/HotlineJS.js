@@ -31,7 +31,7 @@ var ThisUser = {};
 
 var EditMode = false;
 
-var CreateProfImage = '';
+var MyImageLink = '';
 
 var ListOfSingles =
     [
@@ -50,12 +50,7 @@ function RandomSinglePerson() {
     return ListOfSingles[RandomNumber(0, 5)];
 }
 
-
-
-
-function LoginCheck()
-{
-    db.collection("Users").get().then(function (querySnapshot)
+/*db.collection("Users").get().then(function (querySnapshot)
     {
         if (querySnapshot.size > 0)
         {
@@ -82,16 +77,27 @@ function LoginCheck()
             console.log('No Users in DataBase!?');
         }
 
+    }) */
+
+
+function LoginCheck() {
+    db.collection("Users").where('Username', '==', document.getElementById("Username").value).where('Password', '==', document.getElementById("Password").value).get().then(function (querySnapshot) {
+        if (querySnapshot.size > 0) {
+            ThisUser = querySnapshot.docs[0]._document.proto.fields;
+            alert("Welcome " + ThisUser.Username.stringValue);
+            SwipePage();
+        }
+        else {
+            console.log('No User in DataBase that matches query!?');
+        }
     })
 }
 
-function NewAccount()
-{
+function NewAccount() {
     NewAccountPage();
 }
 
-function CreateAccount()
-{
+function CreateAccount() {
     let UsernameOne = document.getElementById("UsernameOne").value;
     let UsernameTwo = document.getElementById("UsernameTwo").value;
     let EmailOne = document.getElementById("E-mailOne").value;
@@ -104,12 +110,13 @@ function CreateAccount()
     let AgePrefOne = document.getElementById("AgePrefSliderOne").value;
     let AgePrefTwo = document.getElementById("AgePrefSliderTwo").value;
     let SearchDistance = document.getElementById("CreateSearchDistance").value;
+    let ProfImage = document.getElementById("MyImage").files[0];
 
-    if (UsernameOne == UsernameTwo && EmailOne == EmailTwo && PasswordOne == PasswordTwo && BirthDateFull <= CheckAge && ProfilePic != null && ProfileBio.length > 0 && AgePrefOne >= 18 && AgePrefTwo <= 100 && SearchDistance >= 1 && SearchDistance <= 100)
-    {
-        alert("A confirmation email has been sent!");
-        UploadFile(CreateProfImage);
-        RegisterUserToBackend(UsernameTwo, PasswordTwo, EmailTwo, parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), BirthDateFull, Preference, AgePrefOne, AgePrefTwo, SearchDistance, ProfileBio);
+
+
+    if (UsernameOne == UsernameTwo && EmailOne == EmailTwo && PasswordOne == PasswordTwo && BirthDateFull <= CheckAge && ProfilePic != null && ProfileBio.length > 0 && AgePrefOne >= 18 && AgePrefTwo <= 100 && SearchDistance >= 1 && SearchDistance <= 100) {
+
+        UploadProfile(ProfImage, UsernameTwo, PasswordTwo, EmailTwo, parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), BirthDateFull, Preference, AgePrefOne, AgePrefTwo, SearchDistance, ProfileBio);
 
         document.getElementById("UsernameOne").value = null;
         document.getElementById("UsernameTwo").value = null;
@@ -119,14 +126,12 @@ function CreateAccount()
         document.getElementById("PasswordTwo").value = null;
         document.getElementById("Preference").value = null;
         document.getElementById("MyImage").value = null;
-        CreateProfImage = '';
 
         LoginPage();
     }
 }
 
-function DateChange()
-{
+function DateChange() {
     BirthDate = document.getElementById("Birthdate").value;
     BirthDateYear = BirthDate.substr(0, 4);
     BirthDateMonth = BirthDate.substr(5, 2);
@@ -135,11 +140,9 @@ function DateChange()
 }
 
 
-function LikeAndDislike(Button)
-{
+function LikeAndDislike(Button) {
     SinglePerson = RandomSinglePerson();
-    if (Button.innerText == "Like")
-    {
+    if (Button.innerText == "Like") {
         document.getElementById("SwipeName").innerHTML = SinglePerson.Username;
         document.getElementById("SwipeImage").innerHTML = `<img src="${SinglePerson.ProfilePictures[0]}" />`;
         document.getElementById('SwipeBio').innerHTML = '';
@@ -147,8 +150,7 @@ function LikeAndDislike(Button)
         document.getElementById('SwipeImageSelector').innerHTML = '';
         ShowingSwipeImageSelector = false;
 
-        if (Math.random() >= 0.5)
-        {
+        if (Math.random() >= 0.5) {
             alert(`You Matched With Someone, Go Talk To Them!!!`);
         }
     }
@@ -186,8 +188,8 @@ function ChangeMyViewedProfilePicture(image) {
 }
 function ViewYourProfilePictures() {
     let Cache = '';
-    for (let i = 0; i < ThisUser.ProfilePictures.length; i++) {
-        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures[i]}')" ></button>`;
+    for (let i = 0; i < ThisUser.ProfilePictures.arrayValue.values.length; i++) {
+        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i]}')" ></button>`;
     }
     document.getElementById('ProfileImageSelect').innerHTML = Cache;
 }
@@ -236,9 +238,12 @@ function RandomAnswer() {
     }
 }
 
-function RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio) // add profile picture parameter
-{
-    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio}); // add Profile pictures
+function RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, profilePictures) // add profile picture parameter
+{                                       
+    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: [profilePictures] })
+        .then(function (snapshot) {
+            alert("User Registered");
+        });
 }
 
 function ShowBio() {
@@ -272,17 +277,14 @@ function ChangeSettingsSliderTwo() {
     document.getElementById("ShowAgePreferenceValueTwo").innerHTML = document.getElementById("AgePreferenceValueTwo").value;
 }
 
-function UpdateUserSettings()
-{
-    getUser(ThisUser.Username)
+function UpdateUserSettings() {
+    getUser(ThisUser.Username.stringValue)
         .then(updateUser)
-        .catch(function (error)
-        {
+        .catch(function (error) {
             console.error(error);
         });
 }
-function updateUser(docId)
-{
+function updateUser(docId) {
     //this is where the variables are actually updated.
     db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
         .then(function () { db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value) }) })
@@ -290,57 +292,48 @@ function updateUser(docId)
         .then(function () { alert("Document Updated!"); })
         .catch(function () { console.error("Error Updating Document, Releasing Cyclon B across North Korea!"); });
 }
-function getUser(username)
-{
-    return new Promise((resolve, reject) =>
-    {
+function getUser(username) {
+    return new Promise((resolve, reject) => {
         db.collection("Users").where('Username', "==", username).get()
-            .then(function (querySnapshot)
-            {
-                querySnapshot.forEach(function (doc)
-                {
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
                     resolve(doc.id);
                 });
                 reject('no documents');
             })
-            .catch(function (error)
-            {
+            .catch(function (error) {
                 reject(error);
             })
     })
 }
 
-function UploadFile(Image)
+async function UploadProfile(Image, username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio)
 {
     const file = Image;
-    console.log(file);
-    console.log('uploading');
-    // the name of the files
-    var fileRef = storageRef.child(file.name);
-    console.log('filename set');
-    console.log(fileRef);
-
-    fileRef.put(file)
-        .then(function (snapshot)
-        {
-        alert(`Uploaded ${file.name}`);
-        });
+    
+    try
+    {
+        var fileRef = storageRef.child(file.name);
+        await fileRef.put(file);
+        let ImageURL = await fileRef.getDownloadURL();
+        console.log(ImageURL);
+        alert(`Uploaded ${file.name}`); 
+        RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, ImageURL);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 
-function AgePrefSliderOne()
-{
+function AgePrefSliderOne() {
     document.getElementById("ShowAgePrefOne").innerHTML = document.getElementById("AgePrefSliderOne").value;
 }
 
-function AgePrefSliderTwo()
-{
+function AgePrefSliderTwo() {
     document.getElementById("ShowAgePrefTwo").innerHTML = document.getElementById("AgePrefSliderTwo").value;
 }
 
-function StoreImage(event)
-{
-    CreateProfImage = event.target.files[0];
-}
+
 
 //page HTML's
 function MessagePage() {
@@ -439,7 +432,7 @@ function SettingsPage() {
     Middle.classList.add("SettingsPageGridContainer");
     Middle.innerHTML = `
     <div id="MyProfile" class="MyProfile">
-         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures[0]}" alt="Profile Picture">
+         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures.arrayValue.values[0]}" alt="Profile Picture">
     </div>
     <div id="SettingsButton" class="SettingsButton">
          <button onclick="OptionsPage()">Settings</button>
@@ -614,7 +607,7 @@ function NewAccountPage() {
 
     <table style="border:1px double black">
     <tr>
-        <td><div>Create Account</div></td>
+        <th><div>Create Account</div></th>
     </tr>
     <tr>
     <td><div>Username: </div></td> <td><input type="text" id="UsernameOne" /></td>
@@ -638,7 +631,7 @@ function NewAccountPage() {
     <td><div>Birthdate: </div></td><td><input onchange="DateChange()" type="date" id="Birthdate" /></td>
     </tr>
     <tr>
-    <td><div>Age Preferance: </div></td> <td><input id="AgePrefSliderOne" oninput="AgePrefSliderOne()" type="range" value="18" min="18" max="90" step="1"/></td> <td><em id="ShowAgePrefOne"></em></td> <td><em id="ShowAgePrefTwo"></em></td> <td><input id="AgePrefSliderTwo" oninput="AgePrefSliderTwo()" type="range" value="90" min="18" max="90" step="1"/></td>
+    <td><div>Age Preferance: </div></td> <td><input id="AgePrefSliderOne" oninput="AgePrefSliderOne()" type="range" value="18" min="18" max="90" step="1"/> <em id="ShowAgePrefOne"></em> <em id="ShowAgePrefTwo"></em> <input id="AgePrefSliderTwo" oninput="AgePrefSliderTwo()" type="range" value="90" min="18" max="90" step="1"/></td>
     </tr>
     <tr>
     <td><div>
@@ -655,24 +648,22 @@ function NewAccountPage() {
         </select></td>
     </tr>
     <tr>
-    <td><div>Search Distance: </div></td> <td><input id="CreateSearchDistance" type="number" min="1" max="100" value="5"/> <div>Km</div></td>
+    <td><div>Search Distance: </div></td> <td><input id="CreateSearchDistance" type="number" min="1" max="100" value="5"/> <em>Km</em></td>
     </tr>
     <tr>
-    <td><div>Profile Picture: </div></td><td><input type="file" id="MyImage" onchange="StoreImage(event)" /></td>
-    </tr>
-    <tr>
-    <th>Bio: </th>
-    </tr>
-    <tr>
-    <td><textarea id="CreateBio" cols="10" rows="10" maxlength="1000" placeholder="Write a little about yourself"></textarea></td>
+    <td><div>Profile Picture: </div></td><td><input type="file" id="MyImage" /></td>
     </tr>
     </table>
+    <textarea id="CreateBio" cols="60" rows="10" maxlength="1000" placeholder="Bio: Write a little about yourself"></textarea>
+    
     <button onkeydown="if(event.keyCode==13){CreateAccount()}" onclick="CreateAccount()">Create Account</button>
 
     </div>
 
     <div id="EmptyCreateRight" class="EmptyCreateRight"></div>`;
     document.getElementById("Bottom").innerHTML = "";
+    AgePrefSliderOne();
+    AgePrefSliderTwo();
 }
 
 function OptionsPage() {
@@ -749,12 +740,12 @@ function OptionsPage() {
 
         </table>
         `;
-    document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference;
-    document.getElementById("SearchDistanceValue").value = ThisUser.SearchDistance;
-    document.getElementById("AgePreferenceValueOne").value = ThisUser.AgePreference[0];
-    document.getElementById("AgePreferenceValueTwo").value = ThisUser.AgePreference[1];
-    document.getElementById("ShowAgePreferenceValueOne").innerHTML = ThisUser.AgePreference[0];
-    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = ThisUser.AgePreference[1];
+    document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference.stringValue;
+    document.getElementById("SearchDistanceValue").value = parseInt(ThisUser.SearchDistance.integerValue);
+    document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference.arrayValue.values[0]);
+    document.getElementById("AgePreferenceValueTwo").value = parseInt(ThisUser.AgePreference.arrayValue.values[1]);
+    document.getElementById("ShowAgePreferenceValueOne").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[0]);
+    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[1]);
 
 }
 
@@ -795,7 +786,7 @@ function ProfilePage() {
     
     <div id="EmptyProfileLeft" class="EmptyProfileLeft"></div>
 
-    <div id="ProfileName" class="ProfileName">${ThisUser.Username}</div>
+    <div id="ProfileName" class="ProfileName">${ThisUser.Username.stringValue}</div>
 
     <div id="EmptyProfileRight" class="EmptyProfileRight"></div>
 
@@ -807,14 +798,14 @@ function ProfilePage() {
 
     <div id="ProfileImageDisplay" class="ProfileImageDisplay">
     
-    <img src="${ThisUser.ProfilePictures[0]}" alt="Profile Picture">
+    <img src="${ThisUser.ProfilePictures.arrayValue.values[0]}" alt="Profile Picture">
     
     </div>
 
     <div ondblclick="EditBio()" id="ProfileBio" class="ProfileBio">
 
     
-    ${ThisUser.Bio}
+    ${ThisUser.Bio.stringValue}
     
     
     
