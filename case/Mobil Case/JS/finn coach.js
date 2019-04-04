@@ -1,5 +1,5 @@
 ﻿function coachScreen() {
     
-   menuextra.innerHTML = ''
+   mainextra.innerHTML = ''
         
 }
