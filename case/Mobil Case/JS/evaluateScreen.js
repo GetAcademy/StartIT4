@@ -1,6 +1,6 @@
 ﻿function showEvaluateScreen() {
  
-  menuextra.innerHTML = `
+  mainextra.innerHTML = `
       <div>Humør</div>
       <div>★ ★ ★ ★ ★ ★ ★ ★ ★</div>
       <div>Mentalt tilstede</div>
