@@ -12,11 +12,20 @@ th {
 }
 
 th {
-    background-color: #006EB6;
+    background-color: rgb(2, 125, 207);
     border: 1px solid #006EB6;
     color: white;
+    width: 200px;
 }
 
 tr:nth-child(even) {
     background: antiquewhite;
+}
+.test{
+    height: 20px;
+    width: 200px;
+    margin: 10px;
+}
+.test:hover{
+    background-color: lightgray;
 }

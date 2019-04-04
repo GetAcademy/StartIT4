@@ -1,30 +1,22 @@
-var buttonLastClicked;
-    var buttonBeforeLastClicked;
+//  var buttonLastClicked;
+//      var buttonBeforeLastClicked;
 
-function doClick(buttonClicked) {
+//  function doClick(buttonClicked) {
     
-    var unlimetedpower = document.getElementById('exodia');
-    var infoDiv = document.getElementById('info');
-    var divA = document.getElementById('a');
-    //  var divB = document.getElementById('b');
+//      var unlimetedpower = document.getElementById('exodia');
+//      var infoDiv = document.getElementById('info');
+//           var divA = document.getElementById('a');
   
-        infoDiv.innerHTML = 'Du trykket på firkant ';
 
-        if (buttonClicked == divA) infoDiv.innerHTML += unlimetedpower.innerHTML;
-        // else if (buttonClicked == divB) infoDiv.innerHTML =- unlimetedpower.innerHTML;
-        // else if ()
+//         if (buttonClicked == divA) infoDiv.innerHTML += unlimetedpower.innerHTML;
 
-        if (buttonLastClicked == buttonClicked)
-            infoDiv.innerHTML += unlimetedpower.innerHTML;
 
-        if (buttonBeforeLastClicked == buttonClicked)
-            infoDiv.innerHTML += '(pls slutt og trykk på meg D:)';
-        buttonBeforeLastClicked = buttonLastClicked;
-        buttonLastClicked = buttonClicked;
-}
+//          if (buttonLastClicked == buttonClicked)
+//              infoDiv.innerHTML += unlimetedpower.innerHTML;
 
-function removeElement(buttonClicked) {
-    var Element = document.getElementById(exodia)
-    var divB = document.getElementById('b');
-        if (buttonClicked == divB) Element.parentNode.removeChild(Element);
-}
+//          if (buttonBeforeLastClicked == buttonClicked)
+//              infoDiv.innerHTML += unlimetedpower.innerHTML;
+//          buttonBeforeLastClicked = buttonLastClicked;
+//          buttonLastClicked = buttonClicked;
+// }
+

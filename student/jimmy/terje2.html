@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        div {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="monster">😈</div>
+
+    <script>
+        "use strict";
+        const monsterDistance = 500;
+        //var sprites = '😀😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏😐';
+        var monsterDiv = document.getElementById('monster');
+        var monster = { x: 50, y: 50, phase: 0, remainingDistance: monsterDistance, spriteIndex: 0 };
+        var phases = [
+            { speedX: 1, speedY: 0 },
+            { speedX: 0, speedY: 1 },
+            { speedX: -1, speedY: 0 },
+            { speedX: 0, speedY: -1 },
+        ];
+
+        setInterval(move, 5);
+
+        function move() {
+            if (monster.remainingDistance == 0) {
+                monster.phase = (monster.phase + 1) % 4;
+                monster.remainingDistance = monsterDistance;
+            }
+            let currentPhase = phases[monster.phase];
+            monster.x += currentPhase.speedX;
+            monster.y += currentPhase.speedY;
+            monster.remainingDistance--;
+            monsterDiv.style.left = monster.x + 'px';
+            monsterDiv.style.top = monster.y + 'px';
+            //monster.spriteIndex = (monster.spriteIndex + 1) % sprites.length;
+            //monsterDiv.innerHTML = sprites[monster.spriteIndex];
+        }
+
+    </script>
+</body>
+
+</html>
