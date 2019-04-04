@@ -1,6 +1,6 @@
 function lagDagbok() {
     
-    menuextra.innerHTML = `
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Skriv litt om dagen i dag.
     </div>
