@@ -1,5 +1,5 @@
 function LoggInn() {
-    document.getElementById('menuextra').innerHTML = `<input type="text" placeholder="USERNAME" />
+    document.getElementById('mainextra').innerHTML = `<input type="text" placeholder="USERNAME" />
     <input type="password" placeholder="PASSWORD" />
     <div>
         <button>LOGG INN</button>
