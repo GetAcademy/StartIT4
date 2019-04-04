@@ -1,6 +1,6 @@
 ﻿function ukentligEvalueringSideTO() {
     
-    menuextra.innerHTML = `
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Hva kan gjøres bedre neste uke?
     </div>
