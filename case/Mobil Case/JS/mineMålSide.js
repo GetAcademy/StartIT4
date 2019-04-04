@@ -1,6 +1,6 @@
 ﻿function showMyGoalsScreen() {
    
-    menuextra.innerHTML = `
+    mainextra.innerHTML = `
       <div><button class="button" onclick="leggTilOppgaveSide()">Legg til oppgave</button></div>
       <div><button class="button">Rediger</button></div>
       <div><button class="button">Slett</button></div>
