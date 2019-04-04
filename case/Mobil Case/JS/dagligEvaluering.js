@@ -1,6 +1,6 @@
 ﻿function dagligEvaluering() {
    
-    menuextra.innerHTML = `
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Hva har vært spesielt bra denne dagen?
     </div>
