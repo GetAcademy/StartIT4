@@ -1,6 +1,18 @@
 Project Planning.
 
 - lage 5 eksempel profiler som man kan swipe mellom.  [DONE]
+- gjøre slik at du kan trykke deg inn på profilen til de du sveiper på for å lese mer om dem. [DONE]
+- gjøre slik at nye knapper blir skapt og blir knyttet til å vise det nye bildet du la inn når du trykker på det. [DONE]
+- gjøre slik at knappene som viser forkjellige bilder av deg funker. [DONE]
+- gjøre slik at din profil i SettingsPage viser din profil og ikke bare eksempel profil. [DONE]
+- gjøre slik at profilbilde/profilbilder er en del av profilen. [DONE]
+- gjøre slik at Bio er en del av profilen. [DONE]
+- gjøre slik at Options is OptionsPage viser din profils satte settings. [DONE]
+- gjøre slik at save knappen på OptionsPage lagrer dine nye settings men med conditions som minimums age preference på 18 og lignende. [DONE]
+- gjøre slik at search distance og age preference blir en del av bruker registreringen. [DONE]
+- gjøre slik at viss ikke noe annet er antatt skal alderspreferansen sin minimumsverdi starte å vise 18 fra du går inn i OptionsPage. [DONE]
+- gjøre tallfeltene i OptionsPage umulig å skrive til men kan fortsatt bruke piler. [DONE]
+
 - fikse font størrelsen til logoen den er litt liten.
 - fikse slik at message page knappen ikke er plassert så langt nede på headeren, dette er pga at html elementet knappen er i er mest sannsyneligvis en div som gjør at den havner på eget felt.
 - fikse background image (har ferdig croppa på min pc).
@@ -8,18 +20,8 @@ Project Planning.
 - legge til brukere du matcher med inn i egen liste som legges til i kontaktlista på message page.
 - gjøre slik at man kan bytte samtale mellom kontakter i kontaktlista.
 - gjøre slik at vær kontakt har vær sin samtale og tar vare på samtaleloggen (trenger ikke å være backend for nå).
-- gjøre tallfeltene i OptionsPage umulig å skrive til men kan fortsatt bruke piler.
-- gjøre slik at viss ikke noe annet er antatt skal alderspreferansen sin minimumsverdi starte å vise 18 fra du går inn i OptionsPage.
-- gjøre slik at search distance og age preference blir en del av bruker registreringen.
-- gjøre slik at Options is OptionsPage viser din profils satte settings.
-- gjøre slik at save knappen på OptionsPage lagrer dine nye settings men med conditions som minimums age preference på 18 og lignende.
-- gjøre slik at Bio er en del av profilen.
-- gjøre slik at profilbilde/profilbilder er en del av profilen.
-- gjøre slik at din profil i SettingsPage viser din profil og ikke bare eksempel profil.
 - gjøre slik at man kan trykke på Bioen for å endre fra tekstfelt til skrivefelt på lik størrelse og som har lik skriftformatering.
 - gjøre slik at man kan lagre endringer på bio og laste opp bilder til profilen.
-- gjøre slik at knappene som viser forkjellige bilder av deg funker.
-- gjøre slik at nye knapper blir skapt og blir knyttet til å vise det nye bildet du la inn når du trykker på det.
 - gjøre slik at knappene som skal vise bilder forandrer bredde ettersom hvor mange av disse knappene det blir for å beholde layout.
 - gjøre slik at det er en maks kapasitet for hvor mange bilder du kan ha slik at det ikke blir sykt mange små knapper.
-- gjøre slik at du kan trykke deg inn på profilen til de du sveiper på for å lese mer om dem.
+- gjøre slik at den det første alderspreferanse tallet ikke er høyere enn det andre alderspreferanse tallet for at alders filteret skal faktisk kunne fungere.

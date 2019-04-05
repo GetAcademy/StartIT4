@@ -50,36 +50,6 @@ function RandomSinglePerson() {
     return ListOfSingles[RandomNumber(0, 5)];
 }
 
-/*db.collection("Users").get().then(function (querySnapshot)
-    {
-        if (querySnapshot.size > 0)
-        {
-            querySnapshot.forEach(function (documentSnapshot)
-            {
-                var data = querySnapshot.docs.map(function (documentSnapshot)
-                {
-                    return documentSnapshot.data();
-                });
-                for (let i = 0; i < data.length; i++)
-                {
-                    if (document.getElementById("Username").value == data[i].Username && document.getElementById("Password").value == data[i].Password)
-                    {
-                        ThisUser = data[i];
-                        alert("Welcome " + data[i].Username);
-                        SwipePage();
-                        break;
-                    }
-                }
-            });
-        }
-        else
-        {
-            console.log('No Users in DataBase!?');
-        }
-
-    }) */
-
-
 function LoginCheck() {
     db.collection("Users").where('Username', '==', document.getElementById("Username").value).where('Password', '==', document.getElementById("Password").value).get().then(function (querySnapshot) {
         if (querySnapshot.size > 0) {
@@ -189,7 +159,7 @@ function ChangeMyViewedProfilePicture(image) {
 function ViewYourProfilePictures() {
     let Cache = '';
     for (let i = 0; i < ThisUser.ProfilePictures.arrayValue.values.length; i++) {
-        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i]}')" ></button>`;
+        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i].stringValue}')" ></button>`;
     }
     document.getElementById('ProfileImageSelect').innerHTML = Cache;
 }
@@ -277,20 +247,38 @@ function ChangeSettingsSliderTwo() {
     document.getElementById("ShowAgePreferenceValueTwo").innerHTML = document.getElementById("AgePreferenceValueTwo").value;
 }
 
-function UpdateUserSettings() {
+function UpdateUserSettings()
+{
     getUser(ThisUser.Username.stringValue)
         .then(updateUser)
-        .catch(function (error) {
+        .catch(function (error)
+        {
             console.error(error);
         });
 }
-function updateUser(docId) {
-    //this is where the variables are actually updated.
-    db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
+/* db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
         .then(function () { db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value) }) })
         .then(function () { db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] }) })
         .then(function () { alert("Document Updated!"); })
-        .catch(function () { console.error("Error Updating Document, Releasing Cyclon B across North Korea!"); });
+        .then(function () { UpdateLocalUser(); })
+        .catch(function () { console.error("Error Updating Document, Releasing Cyclon B across North Korea!"); });*/
+async function updateUser(docId)
+{
+    //this is where the variables are actually updated.
+    try
+    {
+        await db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
+        await db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value)})
+        await db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] })
+        await UpdateLocalUser()
+        await alert("Document Updated!")
+    }
+    catch (error)
+    {
+      console.error(error);
+    }
+       
+    
 }
 function getUser(username) {
     return new Promise((resolve, reject) => {
@@ -304,6 +292,23 @@ function getUser(username) {
             .catch(function (error) {
                 reject(error);
             })
+    })
+}
+
+function UpdateLocalUser()
+{
+    db.collection("Users").where('Username', '==', ThisUser.Username.stringValue).where('Password', '==', ThisUser.Password.stringValue).get().then(function (querySnapshot)
+    {
+        if (querySnapshot.size > 0)
+        {
+            console.log(querySnapshot.docs[0]._document.proto);
+            ThisUser = querySnapshot.docs[0]._document.proto.fields;
+            OptionsPage();
+        }
+        else
+        {
+            console.log('Error Updating Local User');
+        }
     })
 }
 
@@ -432,7 +437,7 @@ function SettingsPage() {
     Middle.classList.add("SettingsPageGridContainer");
     Middle.innerHTML = `
     <div id="MyProfile" class="MyProfile">
-         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures.arrayValue.values[0]}" alt="Profile Picture">
+         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Profile Picture">
     </div>
     <div id="SettingsButton" class="SettingsButton">
          <button onclick="OptionsPage()">Settings</button>
@@ -742,10 +747,10 @@ function OptionsPage() {
         `;
     document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference.stringValue;
     document.getElementById("SearchDistanceValue").value = parseInt(ThisUser.SearchDistance.integerValue);
-    document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference.arrayValue.values[0]);
-    document.getElementById("AgePreferenceValueTwo").value = parseInt(ThisUser.AgePreference.arrayValue.values[1]);
-    document.getElementById("ShowAgePreferenceValueOne").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[0]);
-    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[1]);
+    document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
+    document.getElementById("AgePreferenceValueTwo").value = parseInt(ThisUser.AgePreference.arrayValue.values[1].integerValue);
+    document.getElementById("ShowAgePreferenceValueOne").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
+    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[1].integerValue);
 
 }
 
@@ -798,7 +803,7 @@ function ProfilePage() {
 
     <div id="ProfileImageDisplay" class="ProfileImageDisplay">
     
-    <img src="${ThisUser.ProfilePictures.arrayValue.values[0]}" alt="Profile Picture">
+    <img src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Profile Picture">
     
     </div>
 
