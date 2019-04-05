@@ -48,6 +48,8 @@ function harBlittMobbet() {
         ${checkbox1} Ja  &nbsp; &nbsp;  ${checkbox2} Nei
         <div class="nesteMobbet">Har du blit mobbet lenge?</div>
         ${checkbox1} Ja  &nbsp; &nbsp;  ${checkbox2} Nei
+        <div class="nesteMobbet">Har du blitdawda lenge?</div>
+        ${checkbox1} Ja  &nbsp; &nbsp;  ${checkbox2} Nei
 
 
 
