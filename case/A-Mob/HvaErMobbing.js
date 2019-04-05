@@ -22,9 +22,9 @@ function visHvaErMobbing() {
                     <li class="waddup">Noen ødelegger tingene dine eller stjeler dem.</li>
                 </ol>
             </tr>
-            <div class="funkpls3">
+            
                 <u class="underline"><h5 class="hvaermobbing">Hvorfor mobber noen?</h5></u>
-            </div>
+          
             <tr>
                  <div class="funkpls2">
                     <li class="waddup">De kan tro de blir kule/tøffe av det.</li>

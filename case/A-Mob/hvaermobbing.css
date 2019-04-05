@@ -7,15 +7,16 @@
 }
 .funkpls {
     text-align: left;
-    padding: 30%;
+    left: 26%;
 }
 .funkpls2 {
     text-align: left;
+    left: 26%;
 }
 .waddup {
     align-items: center;
-    width: 100%;
+    width: 100vh;
     position: relative;
-    left: 34%;
+    left: 26%;
     
 }
