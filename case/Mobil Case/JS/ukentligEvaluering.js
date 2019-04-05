@@ -1,9 +1,6 @@
 ﻿function ukentligEvaluering() {
-    header.innerHTML = '<h1>Ukentlig evaluering</h1>';
-    content.classList.length = 0;
-    content.classList.add('myGrid');
-    content.classList.add('ukentligEvaluering');
-    content.innerHTML = `
+  
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Hva har vært spesielt bra denne uken?
     </div>

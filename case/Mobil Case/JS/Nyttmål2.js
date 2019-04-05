@@ -1,9 +1,6 @@
 ﻿function lagNyttMål2() {
-    header.innerHTML = '<h1>Nytt Mål</h1>';
-    content.classList.length = 0;
-    content.classList.add('myGrid');
-    content.classList.add('lagNyttMål2');
-    content.innerHTML = `
+    
+    mainextra.innerHTML = `
     <div style="align-self: center">
         Hva skal det nye målet være?
     </div>

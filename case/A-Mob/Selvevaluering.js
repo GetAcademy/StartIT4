@@ -3,24 +3,24 @@ var infoDiv = document.getElementById('info');
 var questions = [''];
 var answers = [];
 function visSelvevaluering() {
-document.getElementById('innhold').innerHTML =
-        `
-            <table>
-                <tr>
-                    <h1>Evaluering</h1>
-                </tr>
-                <tr>
-                    <input id="godJul" type="text" />
-                    <button onclick="heisan()">Send</button>
-                    <div id="question"></div>
-                </tr>
-            </table>
-        `;
+    document.getElementById('innhold').innerHTML =
+            `
+                <table>
+                    <tr>
+                        <h1>Evaluering</h1>
+                    </tr>
+                    <tr>
+                        <input id="godJul" type="text" />
+                        <button onclick="heisan()">Send</button>
+                        <div id="question" style="background-color: red;"></div>
+                    </tr>
+                </table>
+            `;
+            showNextQuestion()
 }
 // View
-var questionDiv = document.getElementById('question');
-showNextQuestion();
 function showNextQuestion() {
+    var questionDiv = document.getElementById('question');
     let question = getNextQuestion();
     if (question == null) {
         let html = '';
@@ -28,18 +28,20 @@ function showNextQuestion() {
             html += `${answer.questionText} <b>${answer.howAreYouText} <b>${answer.answerText}</b><br/>`;
         }
         questionDiv.innerHTML = html;
-
     } else {
+        console.log(questionDiv);
         questionDiv.innerHTML = `
-    <h3>${question}</h3>
-    <form id="mainForm" name="mainForm">
-        <input id="happyFace" type="radio" name="howAreYou" value="&#128516"/>&#128516
-        <input id="netrualFace" type="radio" name="howAreYou" value="&#128528"/>&#128528
-        <input id="sadFace" type="radio" name="howAreYou" value="&#128543"/>&#128543</br>
-    </form>
-    <input id="answer" type="text"/>
-    <button id="sendIn"  onclick="answer('${question}')">Svar</button>
-    `;
+        <table>
+            <h3>${question}</h3>
+            <form id="mainForm" name="mainForm">
+                <input id="happyFace" type="radio" name="howAreYou" value="&#128516"/>&#128516
+                <input id="netrualFace" type="radio" name="howAreYou" value="&#128528"/>&#128528
+                <input id="sadFace" type="radio" name="howAreYou" value="&#128543"/>&#128543</br>
+            </form>
+            <input id="answer" type="text"/>
+            <button id="sendIn"  onclick="answer('${question}')">Svar</button>
+        </table>
+     `;
     }
 
 }
@@ -67,9 +69,6 @@ function heisan() {
     questions.push(questionA);
     }
     showNextQuestion();
-}
-document.mainForm.onclick = function(){
-    var radVal = document.mainForm.value;
 }
 
  //Controller
