@@ -75,12 +75,12 @@ function CreateAccount() {
     let PasswordOne = document.getElementById("PasswordOne").value;
     let PasswordTwo = document.getElementById("PasswordTwo").value;
     let Preference = document.getElementById("Preference").value;
-    let ProfilePic = document.getElementById("MyImage").value;
+    let ProfilePic = DropzoneImages();
     let ProfileBio = document.getElementById("CreateBio").value;
     let AgePrefOne = document.getElementById("AgePrefSliderOne").value;
     let AgePrefTwo = document.getElementById("AgePrefSliderTwo").value;
     let SearchDistance = document.getElementById("CreateSearchDistance").value;
-    let ProfImage = document.getElementById("MyImage").files[0];
+    let ProfImage = DropzoneImages();
 
 
 
@@ -99,6 +99,18 @@ function CreateAccount() {
 
         LoginPage();
     }
+}
+
+function DropzoneImages()
+{
+    let TheFile = document.getElementById("Dropzone").dropzone.files;
+    let Images = [];
+    for (let i = 0; i < TheFile.length; i++)
+    {
+        Images.push(TheFile[i]);
+    }
+    console.log(Images);
+    return Images;
 }
 
 function DateChange() {
@@ -210,7 +222,7 @@ function RandomAnswer() {
 
 function RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, profilePictures) // add profile picture parameter
 {                                       
-    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: [profilePictures] })
+    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: profilePictures })
         .then(function (snapshot) {
             alert("User Registered");
         });
@@ -256,12 +268,7 @@ function UpdateUserSettings()
             console.error(error);
         });
 }
-/* db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
-        .then(function () { db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value) }) })
-        .then(function () { db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] }) })
-        .then(function () { alert("Document Updated!"); })
-        .then(function () { UpdateLocalUser(); })
-        .catch(function () { console.error("Error Updating Document, Releasing Cyclon B across North Korea!"); });*/
+
 async function updateUser(docId)
 {
     //this is where the variables are actually updated.
@@ -301,7 +308,6 @@ function UpdateLocalUser()
     {
         if (querySnapshot.size > 0)
         {
-            console.log(querySnapshot.docs[0]._document.proto);
             ThisUser = querySnapshot.docs[0]._document.proto.fields;
             OptionsPage();
         }
@@ -318,11 +324,16 @@ async function UploadProfile(Image, username, password, email, age, birthday, da
     
     try
     {
-        var fileRef = storageRef.child(file.name);
-        await fileRef.put(file);
-        let ImageURL = await fileRef.getDownloadURL();
-        console.log(ImageURL);
-        alert(`Uploaded ${file.name}`); 
+        let ImageURL = [];
+        
+        for (let i = 0; i < file.length; i++)
+        {
+            let fileRef = storageRef.child(file[i].name);
+            await fileRef.put(file[i]);
+            ImageURL.push(await fileRef.getDownloadURL());
+            alert(`Uploaded ${file[i].name}`); 
+        }
+        
         RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, ImageURL);
     }
     catch (error) {
@@ -656,16 +667,20 @@ function NewAccountPage() {
     <td><div>Search Distance: </div></td> <td><input id="CreateSearchDistance" type="number" min="1" max="100" value="5"/> <em>Km</em></td>
     </tr>
     <tr>
-    <td><div>Profile Picture: </div></td><td><input type="file" id="MyImage" /></td>
+    <td><div>Profile Picture: </div></td><td><form id="Dropzone" action="file" class="dropzone"></form></td>
     </tr>
     </table>
     <textarea id="CreateBio" cols="60" rows="10" maxlength="1000" placeholder="Bio: Write a little about yourself"></textarea>
+
+    
+    
     
     <button onkeydown="if(event.keyCode==13){CreateAccount()}" onclick="CreateAccount()">Create Account</button>
 
     </div>
 
     <div id="EmptyCreateRight" class="EmptyCreateRight"></div>`;
+    new Dropzone("form#Dropzone", { url: "/file/post" });
     document.getElementById("Bottom").innerHTML = "";
     AgePrefSliderOne();
     AgePrefSliderTwo();
