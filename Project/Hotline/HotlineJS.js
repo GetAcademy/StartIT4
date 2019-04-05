@@ -31,6 +31,8 @@ var ThisUser = {};
 
 var EditMode = false;
 
+var MyImageLink = '';
+
 var ListOfSingles =
     [
         { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePictures: ['https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', 'https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
@@ -48,37 +50,16 @@ function RandomSinglePerson() {
     return ListOfSingles[RandomNumber(0, 5)];
 }
 
-
-
-
-function LoginCheck()
-{
-    db.collection("Users").get().then(function (querySnapshot)
-    {
-        if (querySnapshot.size > 0)
-        {
-            querySnapshot.forEach(function (documentSnapshot)
-            {
-                var data = querySnapshot.docs.map(function (documentSnapshot)
-                {
-                    return documentSnapshot.data();
-                });
-                for (let i = 0; i < data.length; i++)
-                {
-                    if (document.getElementById("Username").value == data[i].Username && document.getElementById("Password").value == data[i].Password)
-                    {
-                        ThisUser = data[i];
-                        alert("Welcome " + data[i].Username);
-                        SwipePage();
-                    }
-                }
-            });
+function LoginCheck() {
+    db.collection("Users").where('Username', '==', document.getElementById("Username").value).where('Password', '==', document.getElementById("Password").value).get().then(function (querySnapshot) {
+        if (querySnapshot.size > 0) {
+            ThisUser = querySnapshot.docs[0]._document.proto.fields;
+            alert("Welcome " + ThisUser.Username.stringValue);
+            SwipePage();
         }
-        else
-        {
-            console.log('No Users in DataBase!?');
+        else {
+            console.log('No User in DataBase that matches query!?');
         }
-
     })
 }
 
@@ -94,11 +75,18 @@ function CreateAccount() {
     let PasswordOne = document.getElementById("PasswordOne").value;
     let PasswordTwo = document.getElementById("PasswordTwo").value;
     let Preference = document.getElementById("Preference").value;
+    let ProfilePic = document.getElementById("MyImage").value;
+    let ProfileBio = document.getElementById("CreateBio").value;
+    let AgePrefOne = document.getElementById("AgePrefSliderOne").value;
+    let AgePrefTwo = document.getElementById("AgePrefSliderTwo").value;
+    let SearchDistance = document.getElementById("CreateSearchDistance").value;
+    let ProfImage = document.getElementById("MyImage").files[0];
 
-    if (UsernameOne == UsernameTwo && EmailOne == EmailTwo && PasswordOne == PasswordTwo && BirthDateFull <= CheckAge) {
-        alert("A confirmation email has been sent!");
-        AccountList.push({ Username: UsernameTwo, Password: PasswordTwo, Email: EmailTwo, Age: parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), Birthday: BirthDateFull, DatingPreference: Preference })
-        RegisterUserToBackend(UsernameTwo, PasswordTwo, EmailTwo, parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), BirthDateFull, Preference);
+
+
+    if (UsernameOne == UsernameTwo && EmailOne == EmailTwo && PasswordOne == PasswordTwo && BirthDateFull <= CheckAge && ProfilePic != null && ProfileBio.length > 0 && AgePrefOne >= 18 && AgePrefTwo <= 100 && SearchDistance >= 1 && SearchDistance <= 100) {
+
+        UploadProfile(ProfImage, UsernameTwo, PasswordTwo, EmailTwo, parseInt(new Date().getFullYear()) - parseInt(BirthDateYear), BirthDateFull, Preference, AgePrefOne, AgePrefTwo, SearchDistance, ProfileBio);
 
         document.getElementById("UsernameOne").value = null;
         document.getElementById("UsernameTwo").value = null;
@@ -107,6 +95,7 @@ function CreateAccount() {
         document.getElementById("PasswordOne").value = null;
         document.getElementById("PasswordTwo").value = null;
         document.getElementById("Preference").value = null;
+        document.getElementById("MyImage").value = null;
 
         LoginPage();
     }
@@ -169,8 +158,8 @@ function ChangeMyViewedProfilePicture(image) {
 }
 function ViewYourProfilePictures() {
     let Cache = '';
-    for (let i = 0; i < ThisUser.ProfilePictures.length; i++) {
-        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures[i]}')" ></button>`;
+    for (let i = 0; i < ThisUser.ProfilePictures.arrayValue.values.length; i++) {
+        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i].stringValue}')" ></button>`;
     }
     document.getElementById('ProfileImageSelect').innerHTML = Cache;
 }
@@ -219,8 +208,12 @@ function RandomAnswer() {
     }
 }
 
-function RegisterUserToBackend(username, password, email, age, birthday, datingpreference) {
-    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference });
+function RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, profilePictures) // add profile picture parameter
+{                                       
+    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: [profilePictures] })
+        .then(function (snapshot) {
+            alert("User Registered");
+        });
 }
 
 function ShowBio() {
@@ -256,43 +249,96 @@ function ChangeSettingsSliderTwo() {
 
 function UpdateUserSettings()
 {
-    getUser(ThisUser.Username)
+    getUser(ThisUser.Username.stringValue)
         .then(updateUser)
         .catch(function (error)
         {
             console.error(error);
         });
 }
-
-function updateUser(docId)
-{
-    //find out how to update more values theory either to have more db.collection and spam the entire line with just different variable or add more variables inside the update.
-    db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
+/* db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
+        .then(function () { db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value) }) })
+        .then(function () { db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] }) })
         .then(function () { alert("Document Updated!"); })
-        .catch(function () { console.error("Error Updating Document, Releasing Cyclon B across North Korea!"); });
-}
-function getUser(username)
+        .then(function () { UpdateLocalUser(); })
+        .catch(function () { console.error("Error Updating Document, Releasing Cyclon B across North Korea!"); });*/
+async function updateUser(docId)
 {
-    return new Promise((resolve, reject) =>
+    //this is where the variables are actually updated.
+    try
     {
+        await db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
+        await db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value)})
+        await db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] })
+        await UpdateLocalUser()
+        await alert("Document Updated!")
+    }
+    catch (error)
+    {
+      console.error(error);
+    }
+       
+    
+}
+function getUser(username) {
+    return new Promise((resolve, reject) => {
         db.collection("Users").where('Username', "==", username).get()
-            .then(function (querySnapshot)
-            {
-                querySnapshot.forEach(function (doc)
-                {
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
                     resolve(doc.id);
                 });
                 reject('no documents');
             })
-            .catch(function (error)
-            {
+            .catch(function (error) {
                 reject(error);
             })
-
     })
-
-
 }
+
+function UpdateLocalUser()
+{
+    db.collection("Users").where('Username', '==', ThisUser.Username.stringValue).where('Password', '==', ThisUser.Password.stringValue).get().then(function (querySnapshot)
+    {
+        if (querySnapshot.size > 0)
+        {
+            console.log(querySnapshot.docs[0]._document.proto);
+            ThisUser = querySnapshot.docs[0]._document.proto.fields;
+            OptionsPage();
+        }
+        else
+        {
+            console.log('Error Updating Local User');
+        }
+    })
+}
+
+async function UploadProfile(Image, username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio)
+{
+    const file = Image;
+    
+    try
+    {
+        var fileRef = storageRef.child(file.name);
+        await fileRef.put(file);
+        let ImageURL = await fileRef.getDownloadURL();
+        console.log(ImageURL);
+        alert(`Uploaded ${file.name}`); 
+        RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, ImageURL);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+
+function AgePrefSliderOne() {
+    document.getElementById("ShowAgePrefOne").innerHTML = document.getElementById("AgePrefSliderOne").value;
+}
+
+function AgePrefSliderTwo() {
+    document.getElementById("ShowAgePrefTwo").innerHTML = document.getElementById("AgePrefSliderTwo").value;
+}
+
+
 
 //page HTML's
 function MessagePage() {
@@ -353,6 +399,7 @@ function MessagePage() {
     
     `;
 }
+
 function SettingsPage() {
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
@@ -390,13 +437,14 @@ function SettingsPage() {
     Middle.classList.add("SettingsPageGridContainer");
     Middle.innerHTML = `
     <div id="MyProfile" class="MyProfile">
-         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures[0]}" alt="Profile Picture">
+         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Profile Picture">
     </div>
     <div id="SettingsButton" class="SettingsButton">
          <button onclick="OptionsPage()">Settings</button>
     </div>`;
     document.getElementById("Bottom").innerHTML = "";
 }
+
 function SwipePage() {
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
@@ -522,6 +570,7 @@ function LoginPage() {
             `;
     document.getElementById("Bottom").innerHTML = "";
 }
+
 function NewAccountPage() {
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
@@ -563,7 +612,7 @@ function NewAccountPage() {
 
     <table style="border:1px double black">
     <tr>
-        <td><div>Create Account</div></td>
+        <th><div>Create Account</div></th>
     </tr>
     <tr>
     <td><div>Username: </div></td> <td><input type="text" id="UsernameOne" /></td>
@@ -587,6 +636,9 @@ function NewAccountPage() {
     <td><div>Birthdate: </div></td><td><input onchange="DateChange()" type="date" id="Birthdate" /></td>
     </tr>
     <tr>
+    <td><div>Age Preferance: </div></td> <td><input id="AgePrefSliderOne" oninput="AgePrefSliderOne()" type="range" value="18" min="18" max="90" step="1"/> <em id="ShowAgePrefOne"></em> <em id="ShowAgePrefTwo"></em> <input id="AgePrefSliderTwo" oninput="AgePrefSliderTwo()" type="range" value="90" min="18" max="90" step="1"/></td>
+    </tr>
+    <tr>
     <td><div>
         Dating Preference:
     </div></td>
@@ -600,13 +652,23 @@ function NewAccountPage() {
             <option value="Men and Alien and Women">Men & Alien & Women</option>
         </select></td>
     </tr>
+    <tr>
+    <td><div>Search Distance: </div></td> <td><input id="CreateSearchDistance" type="number" min="1" max="100" value="5"/> <em>Km</em></td>
+    </tr>
+    <tr>
+    <td><div>Profile Picture: </div></td><td><input type="file" id="MyImage" /></td>
+    </tr>
     </table>
+    <textarea id="CreateBio" cols="60" rows="10" maxlength="1000" placeholder="Bio: Write a little about yourself"></textarea>
+    
     <button onkeydown="if(event.keyCode==13){CreateAccount()}" onclick="CreateAccount()">Create Account</button>
 
     </div>
 
     <div id="EmptyCreateRight" class="EmptyCreateRight"></div>`;
     document.getElementById("Bottom").innerHTML = "";
+    AgePrefSliderOne();
+    AgePrefSliderTwo();
 }
 
 function OptionsPage() {
@@ -683,12 +745,12 @@ function OptionsPage() {
 
         </table>
         `;
-    document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference;
-    document.getElementById("SearchDistanceValue").value = ThisUser.SearchDistance;
-    document.getElementById("AgePreferenceValueOne").value = ThisUser.AgePreference[0];
-    document.getElementById("AgePreferenceValueTwo").value = ThisUser.AgePreference[1];
-    document.getElementById("ShowAgePreferenceValueOne").innerHTML = ThisUser.AgePreference[0];
-    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = ThisUser.AgePreference[1];
+    document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference.stringValue;
+    document.getElementById("SearchDistanceValue").value = parseInt(ThisUser.SearchDistance.integerValue);
+    document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
+    document.getElementById("AgePreferenceValueTwo").value = parseInt(ThisUser.AgePreference.arrayValue.values[1].integerValue);
+    document.getElementById("ShowAgePreferenceValueOne").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
+    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[1].integerValue);
 
 }
 
@@ -729,7 +791,7 @@ function ProfilePage() {
     
     <div id="EmptyProfileLeft" class="EmptyProfileLeft"></div>
 
-    <div id="ProfileName" class="ProfileName">${ThisUser.Username}</div>
+    <div id="ProfileName" class="ProfileName">${ThisUser.Username.stringValue}</div>
 
     <div id="EmptyProfileRight" class="EmptyProfileRight"></div>
 
@@ -741,14 +803,14 @@ function ProfilePage() {
 
     <div id="ProfileImageDisplay" class="ProfileImageDisplay">
     
-    <img src="${ThisUser.ProfilePictures[0]}" alt="Profile Picture">
+    <img src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Profile Picture">
     
     </div>
 
     <div ondblclick="EditBio()" id="ProfileBio" class="ProfileBio">
 
     
-    ${ThisUser.Bio}
+    ${ThisUser.Bio.stringValue}
     
     
     
