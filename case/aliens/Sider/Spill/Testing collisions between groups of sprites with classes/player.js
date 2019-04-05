@@ -7,9 +7,7 @@ class Player {
         this.playerSprite = createSprite(x, y, this.w, this.h);
     }
 
-    render() {
-        drawSprite(this.playerSprite);
-    }
+    
 
     controls() {
         

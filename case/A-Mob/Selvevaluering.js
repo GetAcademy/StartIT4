@@ -1,4 +1,8 @@
-    function visSelvevaluering() {
+var detSummer = document.getElementById('godJul');
+var infoDiv = document.getElementById('info');
+var questions = [''];
+var answers = [];
+function visSelvevaluering() {
     document.getElementById('innhold').innerHTML =
             `
                 <table>
@@ -8,19 +12,15 @@
                     <tr>
                         <input id="godJul" type="text" />
                         <button onclick="heisan()">Send</button>
-                        <div id="question"></div>
+                        <div id="question" style="background-color: red;"></div>
                     </tr>
                 </table>
             `;
-    }
+            showNextQuestion()
+}
 // View
-var detSummer = document.getElementById('godJul');
-var infoDiv = document.getElementById('info');
-var questions = ['hei'];
-var answers = [];
-var questionDiv = document.getElementById('question');
-showNextQuestion();
 function showNextQuestion() {
+    var questionDiv = document.getElementById('question');
     let question = getNextQuestion();
     if (question == null) {
         let html = '';
@@ -28,18 +28,19 @@ function showNextQuestion() {
             html += `${answer.questionText} <b>${answer.howAreYouText} <b>${answer.answerText}</b><br/>`;
         }
         questionDiv.innerHTML = html;
-console.log("if");
     } else {
-console.log("else");
-         questionDiv.innerHTML = `
-    <h3>${question}</h3>
-    <form id="mainForm" name="mainForm">
-        <input id="happyFace" type="radio" name="howAreYou" value="1"/>
-        <input id="netrualFace" type="radio" name="howAreYou" value="2"/>
-        <input id="sadFace" type="radio" name="howAreYou" value="3"/></br>
-    </form>
-    <input id="answer" type="text"/>
-     <button id="sendIn"  onclick="answer('${question}')">Svar</button>
+        console.log(questionDiv);
+        questionDiv.innerHTML = `
+        <table>
+            <h3>${question}</h3>
+            <form id="mainForm" name="mainForm">
+                <input id="happyFace" type="radio" name="howAreYou" value="&#128516"/>&#128516
+                <input id="netrualFace" type="radio" name="howAreYou" value="&#128528"/>&#128528
+                <input id="sadFace" type="radio" name="howAreYou" value="&#128543"/>&#128543</br>
+            </form>
+            <input id="answer" type="text"/>
+            <button id="sendIn"  onclick="answer('${question}')">Svar</button>
+        </table>
      `;
     }
 
@@ -63,7 +64,7 @@ function heisan() {
     let questionInput = document.getElementById("godJul");
     let questionA = questionInput.value;
     if (questions == '') {
-        questions.splice(0, 0, questionA);
+        questions.splice(0, 1, questionA);
     } else {
     questions.push(questionA);
     }
