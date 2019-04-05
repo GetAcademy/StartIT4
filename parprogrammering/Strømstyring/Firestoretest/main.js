@@ -10,7 +10,7 @@ function renderBygg(doc){
     let areal = document.createElement('span');
     let oppvarming = document.createElement('span');
     let cross = document.createElement('div');
-    let pen = document.createElement('p');
+
 
 
     li.setAttribute('data-id', doc.id);
@@ -21,7 +21,7 @@ function renderBygg(doc){
     areal.textContent = 'Areal: ' +doc.data().areal;
     oppvarming.textContent = 'Oppvarmings Metode: ' + doc.data().oppvarming;
     cross.textContent = 'x';
-    pen.textContent = '✎';
+
     
 
 
@@ -32,7 +32,6 @@ function renderBygg(doc){
     li.appendChild(areal);
     li.appendChild(oppvarming);
     li.appendChild(cross);
-    li.appendChild(pen);
     
 
 
