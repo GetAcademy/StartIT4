@@ -4,7 +4,7 @@ function visMeny() {
        
             <div>
                
-                    <button class="fixed1" onclick="visSiIfraOmMobbing()">Si ifra om mobbing</button>
+                    <button class="fixed1" onclick="harBlittMobbet()">Si ifra om mobbing</button>
                
              
                     <button class="fixed1" onclick="visHvaErMobbing()">Hva er mobbing</button>
