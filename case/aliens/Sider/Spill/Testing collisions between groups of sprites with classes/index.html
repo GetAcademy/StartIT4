@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <script src="p5.play.js"></script>
+    <script src="player.js"></script>
+    <script src="enemy.js"></script>
+</head>
+<body>
+    <script>
+        let player;
+        let players;
+        let enemy;
+        let enemyArr = [];
+        let enemys;
+        function setup() {
+            createCanvas(600, 600);
+            player = new Player();
+            players = new Group();
+            players.add(player.playerSprite);
+            enemys = new Group()
+            for (let i = 0; i < 5; i++) {
+                enemy = enemyArr.push(new Enemy);
+                enemys.add(enemyArr[i].enemySprite);
+            }
+        }
+
+        function draw() {
+            background(0);
+           
+            player.controls()
+
+            players.collide(enemys);
+            drawSprites();
+            
+            
+            
+           
+        }
+
+
+    </script>
+</body>
+</html>
