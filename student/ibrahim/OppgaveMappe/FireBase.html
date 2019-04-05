@@ -2,15 +2,18 @@
 <html lang="en">
 
 <head>
-
-
-
 </head>
 
 <body>
-    <button onclick="test()">click me</button>
-    <button onclick="test2()">delete</button>
+    <div>
+        <input type="text" onkeydown="if(event.keyCode === 13) add(this)" />
+    </div>
+    <div id="todo">Laster Data...</div>
+
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+
     <script>
         // Initialize Firebase
         var config = {
@@ -21,29 +24,33 @@
             storageBucket: "powerproject-b6b69.appspot.com",
             messagingSenderId: "994944669385"
         };
+
         firebase.initializeApp(config);
         var db = firebase.firestore();
-        db.collection('todoItems').get(
 
-        )
-        var todoItems = db.collection('todoItems');
-        console.log(todoItems);
-
-        let items = {
-            todoText: 'asdas',
-            todoDate: new Date()
-        };
-
-        function test() {
-            todoItems.add(items)
-        }
-        function test2() {
-            todoItems.doc('AUL7W1DT6d6vC2MQto4c').delete().then(function () {
-                console.log("Document successfully deleted!");
-            }).catch(function (error) {
-                console.error("Error removing document: ", error);
+        var todoCollection = db.collection('todoItems');
+        todoCollection.onSnapshot(
+            function (collectionSnapshot) {
+                let html = '<ul>';
+                collectionSnapshot.forEach(
+                    function (todoItemSnapshot) {
+                        let todoItem = todoItemSnapshot.data();
+                        html += '<li>' + todoItem.todoText + ' ' + todoItem.todoDate + '</li>';
+                    });
+                html += '</ul>';
+                document.getElementById('todo').innerHTML = html;
             });
+        function add(inputTag) {
+            let todoItem = {
+                todoText: inputTag.value,
+                todoDate: new Date().toLocaleDateString()
+
+            };
+            todoCollection.add(todoItem);
         }
+
+
+
     </script>
 
 </body>

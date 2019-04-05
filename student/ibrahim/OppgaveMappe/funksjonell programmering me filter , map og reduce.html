@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            background-color: rgb(49, 46, 43);
+            padding: 10px;
+            font-size: 300%;
+        }
+
+        div.board {
+            display: grid;
+            grid-template-columns: repeat(8, 60px);
+            grid-template-rows: repeat(8, 60px);
+        }
+
+        div.black {
+            background-color: rgb(118, 150, 86);
+        }
+
+        div.white {
+            background-color: lightgray;
+        }
+
+        span.whitePiece {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="board" class="board">
+    </div>
+
+    <script>
+        var boardDiv = document.getElementById('board');
+        var boardModel = createBoard();
+        //black pieces
+        boardModel[0].piece = { type: 'rook', isWhite: false };
+        boardModel[7].piece = { type: 'rook', isWhite: false };
+        boardModel[1].piece = { type: 'knight', isWhite: false };
+        boardModel[6].piece = { type: 'knight', isWhite: false };
+        boardModel[2].piece = { type: 'bishop', isWhite: false };
+        boardModel[5].piece = { type: 'bishop', isWhite: false };
+        boardModel[3].piece = { type: 'king', isWhite: false };
+        boardModel[4].piece = { type: 'queen', isWhite: false };
+        boardModel[8].piece = { type: 'pawn', isWhite: false };
+        boardModel[9].piece = { type: 'pawn', isWhite: false };
+        boardModel[10].piece = { type: 'pawn', isWhite: false };
+        boardModel[11].piece = { type: 'pawn', isWhite: false };
+        boardModel[12].piece = { type: 'pawn', isWhite: false };
+        boardModel[13].piece = { type: 'pawn', isWhite: false };
+        boardModel[14].piece = { type: 'pawn', isWhite: false };
+        boardModel[15].piece = { type: 'pawn', isWhite: false };
+        //white pieces
+        boardModel[59].piece = { type: 'king', isWhite: true };
+        boardModel[60].piece = { type: 'queen', isWhite: true };
+        boardModel[61].piece = { type: 'bishop', isWhite: true };
+        boardModel[58].piece = { type: 'bishop', isWhite: true };
+        boardModel[57].piece = { type: 'knight', isWhite: true };
+        boardModel[62].piece = { type: 'bishop', isWhite: true };
+        boardModel[56].piece = { type: 'rook', isWhite: true };
+        boardModel[63].piece = { type: 'rook', isWhite: true };
+        boardModel[55].piece = { type: 'pawn', isWhite: true };
+        boardModel[54].piece = { type: 'pawn', isWhite: true };
+        boardModel[53].piece = { type: 'pawn', isWhite: true };
+        boardModel[52].piece = { type: 'pawn', isWhite: true };
+        boardModel[51].piece = { type: 'pawn', isWhite: true };
+        boardModel[50].piece = { type: 'pawn', isWhite: true };
+        boardModel[49].piece = { type: 'pawn', isWhite: true };
+        boardModel[48].piece = { type: 'pawn', isWhite: true };
+
+
+
+
+
+        show();
+        console.log(boardModel.filter(square => square.piece));
+
+
+        function createBoard() {
+            return createArray(8)
+                .map(createRow)
+                .reduce((board, row) => board.concat(row), []);
+        }
+
+        function createRow(i) {
+            var isFirstSquareWhite = i % 2 == 0;
+            var x = isFirstSquareWhite ? 1 : 0;
+            return createArray(8)
+                .map(i => ({ isBlack: i % 2 === x }));
+        }
+
+        function createArray(n) {
+            return Array.from(new Array(n).keys());
+        }
+
+
+        function show() {
+            boardDiv.innerHTML = boardModel
+                .map(htmlFromSquareModel)
+                .reduce((allHtml, squareHtml) => allHtml + squareHtml, '');
+        }
+
+        function htmlFromSquareModel(squareModel) {
+            var content = getColoredPieceCharacter(squareModel.piece);
+            return `<div class="${squareModel.isBlack ? 'black' : 'white'}">${content}</div>`;
+        }
+
+        function getColoredPieceCharacter(pieceModel) {
+            if (!pieceModel) return '';
+            var pieceCharacter = getPieceCharacter(pieceModel.type);
+            return pieceModel.isWhite ? `<span class="whitePiece">${pieceCharacter}</span>` : pieceCharacter;
+        }
+
+        function getPieceCharacter(type) {
+            if (type === 'king') return '♚';
+            if (type === 'queen') return '♛';
+            if (type === 'rook') return '♜';
+            if (type === 'bishop') return '♝';
+            if (type === 'knight') return '♞';
+            if (type === 'pawn') return '♟';
+            return '';
+        }
+
+    </script>
+</body>
+
+</html>
