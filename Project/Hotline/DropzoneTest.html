@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="basic.css" />
+    <link rel="stylesheet" href="dropzone.css" />
+
+</head>
+<body>
+    <div id="MyDiv">
+        <form id="testform" action="file" class="dropzone" onchange="MakeMYDay(event)">
+            <div class="fallback">
+                <input name="file" type="file" multiple />
+            </div>
+        </form>
+    </div>
+
+ 
+    <script src="dropzone.js"></script>
+    <script>
+        var file = '';
+        function MakeMyDay(event) {
+            console.log(event);
+        }
+
+    </script>
+    <script src="dropzone.js"></script>
+    <script src="DropzoneTestJS.js"></script>
+</body>
+</html>

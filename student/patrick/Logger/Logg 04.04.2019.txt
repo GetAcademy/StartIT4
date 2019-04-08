@@ -1,0 +1,21 @@
+Logg 04.04.2019
+
+Løste Problemer:
+
++ måten jeg sjekker innloggingen på er ved å laste ned alle brukere inn i en lokal array som jeg så bruker til å sjekke om noen av brukernavn og passord matcher de i listene, dette blir et problem med masse brukere og er et sikkerhetsproblem.
+
++ øve på å lese promises slik at tiden det tar å lese callback kode ikke tar så lang tid.
+
++ deler av Table på Create Account har plassert elementer på en sær måte så det må fikses på.
+
++ Create Account laster nå opp bilde til backend jeg burde pakke inn denne bildeopplastningen i et promise for å vite at den har lastet dette bilde opp før den registrerer brukeren til backend slik at jeg kan skape en referanse til profilbilde til brukeren slik at det bilde kan refereres til fra firestore og inn i cloud storage uten at den prøver å lage denne referansen før bilde er lastet opp.
+
++ skjekk ut www.dropzonejs.com (dette ordnes senere eventuelt dette kan puttes på vent ettersom at det er meget komplisert)
+
+Gjenstående problemer fra igår:
+
+(ingenting)
+
+Nye Problemer:
+
+- burde se over hva som er gjort og ikke gjort og eventuelt oppdatere Project Planning dokumentet og gjøre et forsøk på å starte mere teamarbeid og få det bedre organisert muligens.

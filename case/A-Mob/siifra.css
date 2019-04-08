@@ -2,50 +2,51 @@
     color: #EC8B5E;
     text-shadow: 0px 4px 4px black;
 }
-
-
-.hardu {
-    text-align: center;
-    margin-right: auto;
-
+.spør {
+  height: 7%;
+  padding-top: 6%;
 }
-
-.toern {
-    text-align: center;
-    margin-right: auto;
-
-
+.nesteMobbet {
+ height: 7%;
+ padding-top: 3%;
 }
-
-.treern{
-    text-align: center;
-    margin-right: auto;
-
-
-
-}
-
-.knapp1 {
-
-    background-color: #EC8B5E;
-    color: #5F6389;
-    border: solid  #EC8B5E;
-    width: 30px;
-}
-.knapp2 {
-    background-color: #EC8B5E;
-    color: #5F6389;
-}
-
-.checkBox {
-    /* background-color: #EC8B5E; */
-}
-
 .text {
-
-    /* color: #EC8B5E; */
+  padding-top: 2%;
 }
 
+.knapp {
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px black;
+    width: 35%;
+    /* height: 60%; */
+    padding: 1%;
+    text-align: center;
+    border: solid #EC8B5E;
+    background-color: #EC8B5E;
+    font-size: 70%;
+}
+/* .knapp:active {
+    background-color: rgb(238, 113, 55);
+    transform: translateY(4px);
+  } */
+
+.customChk{
+  user-select: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  overflow: hidden;
+  background-color: #EC8B5E;
+  color: black;  
+}
+
+.customChkInner{
+  font-size: 135%;
+  font-weight: 900;
+  position: relative;
+  top: -60%;
+  color: black;
+}
 
 input[type=textBox] {
     border-radius: 10px;
@@ -64,13 +65,6 @@ input[type=textBox] {
   }
 
 .drit {
-    text-align: center;
-    margin-right: auto;
-
-
-}
-
-button.drit {
     border-radius: 10px;
     box-shadow: 0px 3px 3px black;
     width: 25%;
@@ -81,65 +75,3 @@ button.drit {
     font-size: 70%;
     color: black;
 }
-
-/* .container {
-    position: relative;
-    display: block;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-}
-
-.container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-
-  .checkmark {
-    position: absolute;
-    top: 30;
-    left: 30px;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-  }
-
-  .container:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-
-  .container input:checked ~ .checkmark {
-    background-color: #EC8B5E;
-  }
-  
-  .checkmark::before {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-
-  .container input:checked ~ .checkmark:before {
-    display: block;
-  }
-
-  .container .checkmark::before {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
- */

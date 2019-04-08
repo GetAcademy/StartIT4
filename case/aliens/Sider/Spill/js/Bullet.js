@@ -1,7 +1,8 @@
 class Bullet {
     constructor() {
         this.pos = createVector(player.position.x, player.position.y);
-        this.vel = p5.Vector.fromAngle(90);
+        this.vel = p5.Vector.fromAngle(Math.PI / 2);
+        this.vel.mult(10);
         
     }
     update() {

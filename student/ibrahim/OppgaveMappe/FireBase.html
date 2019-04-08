@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <div>
+        <input type="text" onkeydown="if(event.keyCode === 13) add(this)" />
+    </div>
+    <div id="todo">Laster Data...</div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAMXt5K-aKt_C47Pc8KsFE-adICnJBo5TM",
+            authDomain: "powerproject-b6b69.firebaseapp.com",
+            databaseURL: "https://powerproject-b6b69.firebaseio.com",
+            projectId: "powerproject-b6b69",
+            storageBucket: "powerproject-b6b69.appspot.com",
+            messagingSenderId: "994944669385"
+        };
+
+        firebase.initializeApp(config);
+        var db = firebase.firestore();
+
+        var todoCollection = db.collection('todoItems');
+        todoCollection.onSnapshot(
+            function (collectionSnapshot) {
+                let html = '<ul>';
+                collectionSnapshot.forEach(
+                    function (todoItemSnapshot) {
+                        let todoItem = todoItemSnapshot.data();
+                        html += '<li>' + todoItem.todoText + ' ' + todoItem.todoDate + '</li>';
+                    });
+                html += '</ul>';
+                document.getElementById('todo').innerHTML = html;
+            });
+        function add(inputTag) {
+            let todoItem = {
+                todoText: inputTag.value,
+                todoDate: new Date().toLocaleDateString()
+
+            };
+            todoCollection.add(todoItem);
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

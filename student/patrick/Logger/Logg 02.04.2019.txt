@@ -1,0 +1,18 @@
+Logg 02.04.2019
+
+Løste problemer:
+
++ jeg sliter med å finne riktig firestore documentation på det jeg ønsker å oppnå, prøver å gjøre slik at når man forandrer ting i options og lignende så skrives disse forandringene til back end for lagring.
+
+
+Gjenstående problemer fra igår:
+
+- vi skulle lage noe portfolio greier? som ikke var github repositoryet våres som vi skulle holde oppdatert? noe jeg må ha gått glipp av får spørre imorgen og få det oppklart muligens arbeid jeg burde ta igjen.
+
+- måten jeg sjekker innloggingen på er ved å laste ned alle brukere inn i en lokal array som jeg så bruker til å sjekke om noen av brukernavn og passord matcher de i listene, dette blir et problem med masse brukere og er et sikkerhetsproblem.
+
+Nye Problemer:
+
+- finne ut hvordan jeg legger til flere ting settings skal update til backend og ikke bare 1 variabel bør ikke ta lang tid, det tyngste er gjort.
+
+- øve på å lese promises slik at tiden det tar å lese callback kode ikke tar så lang tid.

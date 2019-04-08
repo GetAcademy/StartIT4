@@ -3,7 +3,9 @@
     margin: 0px;
     padding: 0px;
     font-family: Quantico;
+    
 }
+
 
 .HotlineLogo 
 {
@@ -13,16 +15,12 @@
 }
 
 /*Main Grid*/
-.GridContainer
-{
-    height:100vh;
-    display:grid;
-    grid-template-columns:auto;
-    grid-template-rows:100px auto 100px;
-    grid-template-areas: 
-        'Menu' 
-        'Middle'
-        'Bottom';
+.GridContainer {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 100px auto 100px;
+    grid-template-areas: 'Menu' 'Middle' 'Bottom';
 }
 .Menu 
 {
@@ -30,14 +28,15 @@
     background: rgba(236, 68, 251, 0.75);
     border: 1px solid #AD00FF;
 }
-.Middle
+.Middle 
 {
-    grid-area:Middle;
+    grid-area: Middle;
 }
 
-.Bottom
-{
-    grid-area:Bottom;
+.Bottom {
+    grid-area: Bottom;
+    background: rgba(236, 68, 251, 0.75);
+    border: 1px solid #AD00FF;
 }
 
 /*LogIn Page Grid*/
@@ -82,7 +81,8 @@
     grid-area: LoginGridFive;
     width: 100%;
     height: 100%;
-    text-align:center;
+    text-align: center;
+    background: rgba(236, 68, 251, 0.75);
 }
 
 
@@ -211,7 +211,7 @@
     max-width: 60px;
     width: 100%;
     margin-right: 0px;
-    border-radius: 50%;
+    border-radius: 250px;
 }
 
     /* Style the right image */
@@ -248,8 +248,9 @@
 .SettingsPageGridContainer
 {
     display:grid;
-    grid-template-columns: 460px 460px;
-    grid-template-rows:460px;
+    justify-content:center;
+    grid-template-columns: 460px;
+    grid-template-rows:460px 460px;
     grid-template-areas:
         'MyProfile' 
         'SettingsButton';
@@ -259,30 +260,38 @@
 .MyProfile {
     /*fix position relative to text-align center or center it in a different way*/
     grid-area: MyProfile;
-    position: relative;
-    left: 115%;
+    margin-top:5px;
+    margin-bottom:15px;
 }
 
 
     .MyProfile > img 
     {
         max-width: 460px;
+        max-height:460px;
         width: 100%;
-        border-radius:50%;
+        border-radius:20px;
     }
 
 .SettingsButton
 {
     /*fix position relative to text-align center or center it in a different way*/
+    margin-top:15px;
+    margin-bottom:5px;
     grid-area:SettingsButton;
     max-height:120px;
     width:100%;
     height:100%;
-    position:relative;
-    left:115%;
-    bottom:20%;
-    background-color:lawngreen;
 }
+
+    .SettingsButton > button {
+        background: rgba(0,255,0,0.75);
+        width:100%;
+        height:100%;
+        font-weight:bolder;
+        font-size:larger;
+        border-radius:50px;
+    }
 
 /*SwipePage*/
 .SwipePageContainer
@@ -305,24 +314,23 @@
     height:100%;
 }
 
-.SwipeName
-{
-    grid-area:SwipeName;
-    text-align:center;
-    font-size:20px;
-    font-weight:bolder;
+.SwipeName {
+    grid-area: SwipeName;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 
 .SwipeImageSelector
 {
     grid-area:SwipeImageSelector;
     text-align:center;
-    border:1px solid red;
 }
 
 .SwipeImageSelector > button
 {
-    border-radius:15%;
+    border-radius:20px;
     height:2.5%;
     width:10%;
     padding:0px;
@@ -339,16 +347,16 @@
 
     .SwipeImage > img {
         max-height: 100%;
-        border-radius: 10%;
+        border-radius: 20px;
         display:block;
         margin-left:auto;
         margin-right:auto;
     }
 
-.SwipeBio
-{
-    grid-area:SwipeBio;
-    text-align:center;
+.SwipeBio {
+    grid-area: SwipeBio;
+    text-align: center;
+    background: rgba(236, 68, 251, 0.75);
 }
 
 .SwipeButtons
@@ -379,11 +387,11 @@
     width:100%;
     height:100%;
 }
-.CreateAccountTable
-{
-    grid-area:CreateAccountTable;
-    text-align:center;
-    align-self:center;
+.CreateAccountTable {
+    grid-area: CreateAccountTable;
+    text-align: center;
+    align-self: center;
+    background: rgba(236, 68, 251, 0.75);
 }
 .EmptyCreateRight {
     grid-area: EmptyCreateRight;
@@ -403,7 +411,6 @@
 .EmptyOptionsLeft 
 {
     grid-area: EmptyOptionsLeft;
-    border: 1px solid red;
     width: 100%;
     height: 100%;
 }
@@ -411,15 +418,13 @@
 .EmptyOptionsRight
 {
     grid-area:EmptyOptionsRight;
-    border:1px solid red;
     width:100%;
     height:100%;
 }
 
-.OptionsTable
-{
-    grid-area:OptionsTable;
-    border:1px solid red;
+.OptionsTable {
+    grid-area: OptionsTable;
+    background: rgba(236, 68, 251, 0.75);
 }
 
 /*ProfilePage*/
@@ -441,12 +446,12 @@
     width:100%;
     height:100%;
 }
-.ProfileName
-{
-    grid-area:ProfileName;
-    text-align:center;
-    font-size:20px;
-    font-weight:bolder;
+.ProfileName {
+    grid-area: ProfileName;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 .EmptyProfileRight 
 {
@@ -461,8 +466,8 @@
 }
 .ProfileImageSelect > button
 {
-    border-radius:15%;
-    width:10%;
+    border-radius:20px;
+    width:1fr;
     height:2.5%;
 }
 .ProfileImageDisplay
@@ -474,12 +479,12 @@
 {
     max-height:100%;
     object-fit:contain;
-    border-radius:15%;
+    border-radius:20px;
 }
-.ProfileBio 
-{
+.ProfileBio {
     grid-area: ProfileBio;
     text-align: center;
+    background: rgba(236, 68, 251, 0.75);
 }
 .ProfileBio > div
 {

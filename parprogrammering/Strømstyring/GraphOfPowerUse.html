@@ -18,22 +18,22 @@
     <div class="grid-container">
         <div class="header">Kommunal Strømstyring</div>
         <div class="menuContainer">
-            <button class="button" onclick="test()">Liste over bygg</button>
+            <button class="button" >Liste over bygg</button>
             <button class="button">Søk etter bygg</button>
-            <button class="button">Legg til bygg</button>
+            <button class="button" onclick="leggTil()">Legg til bygg</button>
             <button class="button" onclick="toggleMap()">Kart</button></div>
         <div id="main" class="main">Velkommen til Larvik kommune sin kommunale strømstyring side.<br />Vennligst velg:
             <div class="chartContainer" id="chartContainer" style="height: 300px; width: 100%;"></div>
             <div class="toggler" id="map"></div>
-            <table id="leggTil"></table>
+            <div id="parent">
+                <table id="buldingTable"></table>
+            </div>
         </div>
         <div class="footer">Laget av: Per, Henrik, Ibrahim og Adrian</div>
         <script src="GraphDisplay.js"></script>
         <script src="charts.js"></script>
         <script src="dataConverter.js"></script>
         <script src="test 3.js"></script>
-        <script src="leggtilbygg.js"></script>
-
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpRnjLpiGEoPxMt7I78RGftYx_wT0vKK4&callback=initMap"></script>
 
