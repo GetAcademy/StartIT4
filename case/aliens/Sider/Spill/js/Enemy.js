@@ -1,6 +1,5 @@
 class Enemy {
     constructor() {
-        this.pos = createVector(random(windowWidth), random(windowHeight));
         this.h = 20;
         this.w = 20;
         this.distance = 100;
@@ -23,14 +22,11 @@ class Enemy {
             { speedX: 0, speedY: -1 },
         ];
         this.phases = this.phases2; //random() < 0.5 ? this.phases1 : this.phases2;
-        //enemySprite = createSprite(this.pos.x, this.pos.y, this.h, this.w);
+        this.enemySprite = createSprite(random(windowWidth), random(windowHeight), this.h, this.w);
     }
-    render() {
-        noStroke();
-        fill(255, 0, 0);
-        rect(this.pos.x, this.pos.y, this.h, this.w);
-        
-        
+
+    pos() {
+        return this.enemySprite.position;
     }
 
    
@@ -40,26 +36,26 @@ class Enemy {
             this.remainingDistance = this.distance;
         }
         let currentPhase = this.phases[this.phase];
-        this.pos.x += currentPhase.speedX;
-        this.pos.y += currentPhase.speedY;
+        this.pos().x += currentPhase.speedX;
+        this.pos().y += currentPhase.speedY;
         this.remainingDistance--;
     }
 
     edges() {
-        if (this.pos.x > width) {
-            this.pos.x = 0;
+        if (this.pos().x > width) {
+            this.pos().x = 0;
             
         }
-        if (this.pos.x < 0) {
-            this.pos.x = width;
+        if (this.pos().x < 0) {
+            this.pos().x = width;
            
         }
-        if (this.pos.y > height) {
-            this.pos.y = 0;
+        if (this.pos().y > height) {
+            this.pos().y = 0;
             
         }
-        if (this.pos.y < 0) {
-            this.pos.y = height;
+        if (this.pos().y < 0) {
+            this.pos().y = height;
             
         }
     }
