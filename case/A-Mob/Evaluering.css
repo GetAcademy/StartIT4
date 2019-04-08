@@ -1,0 +1,53 @@
+.happyFace {
+    position: relative;
+    margin-right: -10px;
+    cursor: pointer;
+    font-size: 22px;
+    z-index: 1;
+    color: transparent;
+    background-color: rgba(255, 255, 255, 1)
+}
+  
+.happyFace input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.happyChecked {
+    position: relative;
+    /* top: 0;*/
+    margin-left: -10px;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(167, 29, 29);
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+/*.happyFace input:checked ~ .happyChecked {
+    background-color: #2196F3;
+}
+  
+.happyChecked:after {
+    content: "";
+    display: none;
+  }
+  
+.happyFace input:checked ~ .happyChecked:after {
+    display: block;
+}
+  
+.happyFace .happyChecked:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+} */

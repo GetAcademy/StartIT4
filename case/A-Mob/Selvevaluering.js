@@ -2,6 +2,7 @@ var detSummer = document.getElementById('godJul');
 var infoDiv = document.getElementById('info');
 var questions = [];
 var answers = [];
+
 function visSelvevaluering() {
     document.getElementById('innhold').innerHTML =
         `
@@ -34,11 +35,11 @@ function showNextQuestion() {
         questionDiv.innerHTML = `
  
             <h3>${question || ''}</h3>
-            <form id="mainForm" name="mainForm">
-                <input onclick="enableButton();" id="happyFace" type="radio" name="howAreYou" value="&#128516"/>&#128516
-                <input onclick="enableButton();" id="netrualFace" type="radio" name="howAreYou" value="&#128528"/>&#128528
-                <input onclick="enableButton();" id="sadFace" type="radio" name="howAreYou" value="&#128543"/>&#128543</br>
-            </form>
+            <div id="mainForm" name="mainForm">
+                <input class="happyFace" onclick="enableButton();" type="radio" name="howAreYou" value="&#128516" /><span class="happyChecked">&#128516</span>
+                <input class="happyFace" onclick="enableButton();" type="radio" name="howAreYou" value="&#128528" /><span class="happyChecked">&#128528</span>
+                <input class="happyFace" onclick="enableButton();" type="radio" name="howAreYou" value="&#128543" /><span class="happyChecked">&#128543</br>
+            </div>
             <input id="answer" type="text"/>
             <button id="sendIn" disabled="true" onclick="answer('${question}')">Svar</button>
 
@@ -92,4 +93,5 @@ function answer(question) {
     };
     answers.push(questionAndAnswer);
     showNextQuestion();
+
 }
