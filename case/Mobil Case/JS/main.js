@@ -1,7 +1,7 @@
 ﻿function showMainScreen() {
     
     mainextra.innerHTML = `
-    <button class="mainGoals" onclick="showMyGoalsScreen()">
+    <button class="button" onclick="showMyGoalsScreen()">
       bla bla bla
     </button>
       <div><button class="button" onclick="ukentligEvaluering()">Ukentlig evaluering</button></div>
