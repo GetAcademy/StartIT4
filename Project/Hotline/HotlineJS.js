@@ -95,7 +95,6 @@ function CreateAccount() {
         document.getElementById("PasswordOne").value = null;
         document.getElementById("PasswordTwo").value = null;
         document.getElementById("Preference").value = null;
-        document.getElementById("MyImage").value = null;
 
         LoginPage();
     }
@@ -350,6 +349,56 @@ function AgePrefSliderTwo() {
 }
 
 
+// this is image thing for the options page
+function ViewedProfilePicture(image)
+{
+    document.getElementById("OptionsImage").innerHTML = `<img src="${image}" alt="Missing" />`;
+}
+function YourProfilePictures()
+{
+    let Cache = '';
+    for (let i = 0; i < ThisUser.ProfilePictures.arrayValue.values.length; i++) {
+        Cache += `<button onclick="ViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i].stringValue}')" ></button>`;
+        Cache += `<button class="DeleteButton" onclick="DeleteProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i].stringValue}')" ></button>`;
+    }
+    document.getElementById('OptionsImageButtons').innerHTML = Cache;
+}
+async function DeleteProfilePicture(image)
+{
+    
+    
+        
+        //await storage.refFromURL(image).delete(); KEEP!!!
+        
+        await db.collection("Users").where('Username', '==', ThisUser.Username.stringValue).where('ProfilePictures', 'array-contains', image).get().then(async function (querySnapshot)
+        {
+            
+            if (querySnapshot.size > 0)
+            {
+                await querySnapshot.update
+                    ({
+                        ProfilePictures: FieldValue.arrayRemove(image)
+                    });
+                await UpdateLocalUser();
+            }
+            else {
+                console.log('Error deleting image from firestore unsuccessfull');
+            }
+    })
+
+    /*      function ()
+                        {
+                            for (let i = 0; i < querySnapshot.docs[0]._document.proto.fields.ProfilePictures.arrayValue.values.length; i++)
+                            {
+                                if (querySnapshot.docs[0]._document.proto.fields.ProfilePictures.arrayValue.values[i] == image)
+                                {
+                                    console.log(i);
+                                    return i;
+                                }
+                            }
+                        }
+                        */
+}
 
 //page HTML's
 function MessagePage() {
@@ -720,6 +769,15 @@ function OptionsPage() {
 
     Middle.classList.add("OptionsPageGridContainer");
     Middle.innerHTML = `
+        
+        <div id="OptionsImageButtons" class="OptionsImageButtons">
+        
+        </div>
+        
+        <div id="OptionsImage" class="OptionsImage">
+        <img src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Missing" />
+        </div>
+        
         <table class="OptionsTable">
 
         <tr><div id="DatingPreference">
@@ -750,7 +808,11 @@ function OptionsPage() {
         <td><div><input id="AgePreferenceValueOne" style="width:30%" oninput="ChangeSettingsSliderOne()" type="range" min="18" max="90" step="1"/> <em id="ShowAgePreferenceValueOne"></em> - <em id="ShowAgePreferenceValueTwo"></em> <input id="AgePreferenceValueTwo" style="width:30%" oninput="ChangeSettingsSliderTwo()" type="range" min="18" max="90" step="1"/><em>år</em></div></td>
 
         </div></tr>
-
+        
+        <tr>
+        <td><div id="AddProfilePictureTitle" style="font-weight:bolder">Upload Profile Picture: </div></td> <td><form id="DropzoneTwo" action="file" class="dropzone"></form></td>
+        </tr>
+        
         <tr><div id="SaveOptionsButton">
 
         <td><div id="SaveOptionsTitle" style="font-weight:bolder"></div></td>
@@ -760,6 +822,8 @@ function OptionsPage() {
 
         </table>
         `;
+    new Dropzone("form#DropzoneTwo", { url: "/file/post" });
+    YourProfilePictures();
     document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference.stringValue;
     document.getElementById("SearchDistanceValue").value = parseInt(ThisUser.SearchDistance.integerValue);
     document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
