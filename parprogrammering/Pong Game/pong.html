@@ -6,14 +6,15 @@
     <title></title>
 </head>
 <body>
-
-    <svg width="500" height="500">
-        <rect width="150" height="100" style="fill:darkgrey;stroke-width:2;"/>
-        <line id="Paddle1" x1="10" y1="40" x2="10" y2="50" style="stroke:rebeccapurple;stroke-width:2px;"/>
-        <line id="Paddle2" x1="140" y1="40" x2="140" y2="50" style="stroke:rebeccapurple;stroke-width:2px;"/>
-        <line x1="75" y1="0" x2="75" y2="100" style="stroke:rebeccapurple;stroke-width:0.5px;"/>
-        <circle id="Ball" cx="77" cy="77" r="1" fill="red"/>
+    <div id="GameBoard" onkeydown="paddle(event)">
+    <svg  width="1500" height="1500">
+        <rect width="1500" height="1000" style="fill:darkgrey;stroke-width:10;"/>
+        <line id="Paddle1" x1="100" y1="400" x2="100" y2="500" style="stroke:rebeccapurple;stroke-width:10px;"/>
+        <line id="Paddle2" x1="1400" y1="400" x2="1400" y2="500" style="stroke:rebeccapurple;stroke-width:10px;"/>
+        <line x1="750" y1="0" x2="750" y2="1000" style="stroke:rebeccapurple;stroke-width:5px;"/>
+        <circle id="Ball" cx="750" cy="450" r="10" fill="red"/>
     </svg>
+    </div>
 
 
 
