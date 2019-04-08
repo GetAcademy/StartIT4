@@ -3,6 +3,6 @@ function LoggInn() {
     <input type="password" placeholder="PASSWORD" />
     <div>
         <button onclick="showMainScreen()" class="button">LOGG INN</button>
-        <button class="button">LAG NY BRUKER</button>
+        <button onclick="Rolle()" class="button">LAG NY BRUKER</button>
     </div>`;
 }
