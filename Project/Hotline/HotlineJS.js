@@ -50,36 +50,6 @@ function RandomSinglePerson() {
     return ListOfSingles[RandomNumber(0, 5)];
 }
 
-/*db.collection("Users").get().then(function (querySnapshot)
-    {
-        if (querySnapshot.size > 0)
-        {
-            querySnapshot.forEach(function (documentSnapshot)
-            {
-                var data = querySnapshot.docs.map(function (documentSnapshot)
-                {
-                    return documentSnapshot.data();
-                });
-                for (let i = 0; i < data.length; i++)
-                {
-                    if (document.getElementById("Username").value == data[i].Username && document.getElementById("Password").value == data[i].Password)
-                    {
-                        ThisUser = data[i];
-                        alert("Welcome " + data[i].Username);
-                        SwipePage();
-                        break;
-                    }
-                }
-            });
-        }
-        else
-        {
-            console.log('No Users in DataBase!?');
-        }
-
-    }) */
-
-
 function LoginCheck() {
     db.collection("Users").where('Username', '==', document.getElementById("Username").value).where('Password', '==', document.getElementById("Password").value).get().then(function (querySnapshot) {
         if (querySnapshot.size > 0) {
@@ -105,12 +75,12 @@ function CreateAccount() {
     let PasswordOne = document.getElementById("PasswordOne").value;
     let PasswordTwo = document.getElementById("PasswordTwo").value;
     let Preference = document.getElementById("Preference").value;
-    let ProfilePic = document.getElementById("MyImage").value;
+    let ProfilePic = DropzoneImages();
     let ProfileBio = document.getElementById("CreateBio").value;
     let AgePrefOne = document.getElementById("AgePrefSliderOne").value;
     let AgePrefTwo = document.getElementById("AgePrefSliderTwo").value;
     let SearchDistance = document.getElementById("CreateSearchDistance").value;
-    let ProfImage = document.getElementById("MyImage").files[0];
+    let ProfImage = DropzoneImages();
 
 
 
@@ -125,10 +95,21 @@ function CreateAccount() {
         document.getElementById("PasswordOne").value = null;
         document.getElementById("PasswordTwo").value = null;
         document.getElementById("Preference").value = null;
-        document.getElementById("MyImage").value = null;
 
         LoginPage();
     }
+}
+
+function DropzoneImages()
+{
+    let TheFile = document.getElementById("Dropzone").dropzone.files;
+    let Images = [];
+    for (let i = 0; i < TheFile.length; i++)
+    {
+        Images.push(TheFile[i]);
+    }
+    console.log(Images);
+    return Images;
 }
 
 function DateChange() {
@@ -189,7 +170,7 @@ function ChangeMyViewedProfilePicture(image) {
 function ViewYourProfilePictures() {
     let Cache = '';
     for (let i = 0; i < ThisUser.ProfilePictures.arrayValue.values.length; i++) {
-        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i]}')" ></button>`;
+        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i].stringValue}')" ></button>`;
     }
     document.getElementById('ProfileImageSelect').innerHTML = Cache;
 }
@@ -240,7 +221,7 @@ function RandomAnswer() {
 
 function RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, profilePictures) // add profile picture parameter
 {                                       
-    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: [profilePictures] })
+    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: profilePictures })
         .then(function (snapshot) {
             alert("User Registered");
         });
@@ -277,20 +258,33 @@ function ChangeSettingsSliderTwo() {
     document.getElementById("ShowAgePreferenceValueTwo").innerHTML = document.getElementById("AgePreferenceValueTwo").value;
 }
 
-function UpdateUserSettings() {
+function UpdateUserSettings()
+{
     getUser(ThisUser.Username.stringValue)
         .then(updateUser)
-        .catch(function (error) {
+        .catch(function (error)
+        {
             console.error(error);
         });
 }
-function updateUser(docId) {
+
+async function updateUser(docId)
+{
     //this is where the variables are actually updated.
-    db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
-        .then(function () { db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value) }) })
-        .then(function () { db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] }) })
-        .then(function () { alert("Document Updated!"); })
-        .catch(function () { console.error("Error Updating Document, Releasing Cyclon B across North Korea!"); });
+    try
+    {
+        await db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
+        await db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value)})
+        await db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] })
+        await UpdateLocalUser()
+        await alert("Document Updated!")
+    }
+    catch (error)
+    {
+      console.error(error);
+    }
+       
+    
 }
 function getUser(username) {
     return new Promise((resolve, reject) => {
@@ -307,17 +301,38 @@ function getUser(username) {
     })
 }
 
+function UpdateLocalUser()
+{
+    db.collection("Users").where('Username', '==', ThisUser.Username.stringValue).where('Password', '==', ThisUser.Password.stringValue).get().then(function (querySnapshot)
+    {
+        if (querySnapshot.size > 0)
+        {
+            ThisUser = querySnapshot.docs[0]._document.proto.fields;
+            OptionsPage();
+        }
+        else
+        {
+            console.log('Error Updating Local User');
+        }
+    })
+}
+
 async function UploadProfile(Image, username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio)
 {
     const file = Image;
     
     try
     {
-        var fileRef = storageRef.child(file.name);
-        await fileRef.put(file);
-        let ImageURL = await fileRef.getDownloadURL();
-        console.log(ImageURL);
-        alert(`Uploaded ${file.name}`); 
+        let ImageURL = [];
+        
+        for (let i = 0; i < file.length; i++)
+        {
+            let fileRef = storageRef.child(file[i].name);
+            await fileRef.put(file[i]);
+            ImageURL.push(await fileRef.getDownloadURL());
+            alert(`Uploaded ${file[i].name}`); 
+        }
+        
         RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, ImageURL);
     }
     catch (error) {
@@ -334,6 +349,56 @@ function AgePrefSliderTwo() {
 }
 
 
+// this is image thing for the options page
+function ViewedProfilePicture(image)
+{
+    document.getElementById("OptionsImage").innerHTML = `<img src="${image}" alt="Missing" />`;
+}
+function YourProfilePictures()
+{
+    let Cache = '';
+    for (let i = 0; i < ThisUser.ProfilePictures.arrayValue.values.length; i++) {
+        Cache += `<button onclick="ViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i].stringValue}')" ></button>`;
+        Cache += `<button class="DeleteButton" onclick="DeleteProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i].stringValue}')" ></button>`;
+    }
+    document.getElementById('OptionsImageButtons').innerHTML = Cache;
+}
+async function DeleteProfilePicture(image)
+{
+    
+    
+        
+        //await storage.refFromURL(image).delete(); KEEP!!!
+        
+        await db.collection("Users").where('Username', '==', ThisUser.Username.stringValue).where('ProfilePictures', 'array-contains', image).get().then(async function (querySnapshot)
+        {
+            
+            if (querySnapshot.size > 0)
+            {
+                await querySnapshot.update
+                    ({
+                        ProfilePictures: FieldValue.arrayRemove(image)
+                    });
+                await UpdateLocalUser();
+            }
+            else {
+                console.log('Error deleting image from firestore unsuccessfull');
+            }
+    })
+
+    /*      function ()
+                        {
+                            for (let i = 0; i < querySnapshot.docs[0]._document.proto.fields.ProfilePictures.arrayValue.values.length; i++)
+                            {
+                                if (querySnapshot.docs[0]._document.proto.fields.ProfilePictures.arrayValue.values[i] == image)
+                                {
+                                    console.log(i);
+                                    return i;
+                                }
+                            }
+                        }
+                        */
+}
 
 //page HTML's
 function MessagePage() {
@@ -432,7 +497,7 @@ function SettingsPage() {
     Middle.classList.add("SettingsPageGridContainer");
     Middle.innerHTML = `
     <div id="MyProfile" class="MyProfile">
-         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures.arrayValue.values[0]}" alt="Profile Picture">
+         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Profile Picture">
     </div>
     <div id="SettingsButton" class="SettingsButton">
          <button onclick="OptionsPage()">Settings</button>
@@ -651,16 +716,20 @@ function NewAccountPage() {
     <td><div>Search Distance: </div></td> <td><input id="CreateSearchDistance" type="number" min="1" max="100" value="5"/> <em>Km</em></td>
     </tr>
     <tr>
-    <td><div>Profile Picture: </div></td><td><input type="file" id="MyImage" /></td>
+    <td><div>Profile Picture: </div></td><td><form id="Dropzone" action="file" class="dropzone"></form></td>
     </tr>
     </table>
     <textarea id="CreateBio" cols="60" rows="10" maxlength="1000" placeholder="Bio: Write a little about yourself"></textarea>
+
+    
+    
     
     <button onkeydown="if(event.keyCode==13){CreateAccount()}" onclick="CreateAccount()">Create Account</button>
 
     </div>
 
     <div id="EmptyCreateRight" class="EmptyCreateRight"></div>`;
+    new Dropzone("form#Dropzone", { url: "/file/post" });
     document.getElementById("Bottom").innerHTML = "";
     AgePrefSliderOne();
     AgePrefSliderTwo();
@@ -700,6 +769,15 @@ function OptionsPage() {
 
     Middle.classList.add("OptionsPageGridContainer");
     Middle.innerHTML = `
+        
+        <div id="OptionsImageButtons" class="OptionsImageButtons">
+        
+        </div>
+        
+        <div id="OptionsImage" class="OptionsImage">
+        <img src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Missing" />
+        </div>
+        
         <table class="OptionsTable">
 
         <tr><div id="DatingPreference">
@@ -730,7 +808,11 @@ function OptionsPage() {
         <td><div><input id="AgePreferenceValueOne" style="width:30%" oninput="ChangeSettingsSliderOne()" type="range" min="18" max="90" step="1"/> <em id="ShowAgePreferenceValueOne"></em> - <em id="ShowAgePreferenceValueTwo"></em> <input id="AgePreferenceValueTwo" style="width:30%" oninput="ChangeSettingsSliderTwo()" type="range" min="18" max="90" step="1"/><em>år</em></div></td>
 
         </div></tr>
-
+        
+        <tr>
+        <td><div id="AddProfilePictureTitle" style="font-weight:bolder">Upload Profile Picture: </div></td> <td><form id="DropzoneTwo" action="file" class="dropzone"></form></td>
+        </tr>
+        
         <tr><div id="SaveOptionsButton">
 
         <td><div id="SaveOptionsTitle" style="font-weight:bolder"></div></td>
@@ -740,12 +822,14 @@ function OptionsPage() {
 
         </table>
         `;
+    new Dropzone("form#DropzoneTwo", { url: "/file/post" });
+    YourProfilePictures();
     document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference.stringValue;
     document.getElementById("SearchDistanceValue").value = parseInt(ThisUser.SearchDistance.integerValue);
-    document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference.arrayValue.values[0]);
-    document.getElementById("AgePreferenceValueTwo").value = parseInt(ThisUser.AgePreference.arrayValue.values[1]);
-    document.getElementById("ShowAgePreferenceValueOne").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[0]);
-    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[1]);
+    document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
+    document.getElementById("AgePreferenceValueTwo").value = parseInt(ThisUser.AgePreference.arrayValue.values[1].integerValue);
+    document.getElementById("ShowAgePreferenceValueOne").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
+    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[1].integerValue);
 
 }
 
@@ -798,7 +882,7 @@ function ProfilePage() {
 
     <div id="ProfileImageDisplay" class="ProfileImageDisplay">
     
-    <img src="${ThisUser.ProfilePictures.arrayValue.values[0]}" alt="Profile Picture">
+    <img src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Profile Picture">
     
     </div>
 
