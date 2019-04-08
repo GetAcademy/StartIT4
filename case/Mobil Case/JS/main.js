@@ -1,5 +1,5 @@
 ﻿function showMainScreen() {
-     goalOBJ.txt2="Lag Mål"
+     goalOBJ.txt2='Lag Mål';
     mainextra.innerHTML = `
     <button class="button" onclick="showMyGoalsScreen()">${goalOBJ.txt2}</button>
       <div><button class="button" onclick="ukentligEvaluering()">Ukentlig evaluering</button></div>
