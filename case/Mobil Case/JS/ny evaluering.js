@@ -5,5 +5,5 @@
                 <button class="button" onclick="dailyScreen()">Daglig</button><br />
                 <button class="button" onclick="weeklyScreen()">Ukentlig</button><br />
                 <button  class="button" onclick="coachScreen()">Coach</button><br />
-                <br /><button class="button">Fullfør</button>
+                <br /><button onclick="showMainScreen()" class="button">Fullfør</button>
             `}
