@@ -1,4 +1,4 @@
-﻿var GoalOBJ;
+﻿var goalOBJ;
 function newGoal() {
    
     mainextra.innerHTML = `
