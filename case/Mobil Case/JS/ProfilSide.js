@@ -4,5 +4,5 @@ function ProfileSide() {
     <div class="button">BRUKERNAVN</div>
     <div class="button">INNSTILLINGER</div>
     <div class="button">MINE MÅL</div>
-    <div class="button">LOGG UT</div>`;
+    <div onclick="LoggInn()" class="button">LOGG UT</div>`;
 }
