@@ -2,7 +2,7 @@
     
     mainextra.innerHTML = `
     <button class="button" onclick="showMyGoalsScreen()">
-      bla bla bla
+      ${txt2}
     </button>
       <div><button class="button" onclick="ukentligEvaluering()">Ukentlig evaluering</button></div>
       <div><button class="button" onclick="dagligEvaluering()">Daglig evaluering</button></div>
