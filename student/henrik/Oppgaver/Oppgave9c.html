@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <p>Ferdighet 9c - Valgsetninger - Sammenligne to objekter (f.eks. er det samme div-element i to elementer?)</p>
+    <div id="a" onclick="doClick(this)" style="background-color: pink">A</div>
+    <div id="b" onclick="doClick(this)" style="background-color: lightgreen">B</div>
+    <div id="c" onclick="doClick(this)" style="background-color: lightblue">C</div>
+    <div id="info"  onclick="doClick(this)">Tykk på en firkant!</div>
+
+    <script>
+       var infoDiv = document.getElementById('info');
+        var divA = document.getElementById('a');
+        var divB = document.getElementById('b');
+        var divC = document.getElementById('c');
+        var clickLast;
+        var clickBeforeLast;
+
+        function doClick(clickNow) {
+
+            infoDiv.innerHTML = 'Du trykket på firkant ';
+            if (clickNow == divA) {
+                infoDiv.innerHTML += 'A';
+
+            } else if (clickNow == divB) {
+                infoDiv.innerHTML += 'B';
+                
+            } else if (clickNow == divC) {
+                infoDiv.innerHTML += 'C';
+            }
+
+            if (clickLast == clickNow) {
+                infoDiv.innerHTML += ' <li>samme som forrige gang';
+            }
+
+            if (clickBeforeLast == clickNow) {
+                infoDiv.innerHTML += ' <li>samme som for to ganger siden';
+            }
+
+            clickBeforeLast = clickLast;
+            clickLast = clickNow;
+            
+
+        }
+    </script>
+    </script>
+</body>
+</html>
