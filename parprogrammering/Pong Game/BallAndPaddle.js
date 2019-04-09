@@ -53,7 +53,7 @@ function updateKey(key, onOrOffValue) {
 function paddle(key) {
     let paddle1 = document.getElementById("Paddle1");
     let paddle2 = document.getElementById("Paddle2");
-    const speed = 2;
+    const speed = 5;
     paddle1.y1.baseVal.value += speed * speedFromKey[key].deltaPaddle1;
     paddle1.y2.baseVal.value += speed * speedFromKey[key].deltaPaddle1;
     paddle2.y1.baseVal.value += speed * speedFromKey[key].deltaPaddle2;
