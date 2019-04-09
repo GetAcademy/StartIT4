@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="GameBoard" onkeydown="paddle(event)">
-    <svg  width="1500" height="1500">
+    <svg  style="height: 90vh" viewBox="0 0 1500 900">
         <rect width="1500" height="1000" style="fill:darkgrey;stroke-width:10;"/>
         <line id="Paddle1" x1="100" y1="400" x2="100" y2="500" style="stroke:rebeccapurple;stroke-width:10px;"/>
         <line id="Paddle2" x1="1400" y1="400" x2="1400" y2="500" style="stroke:rebeccapurple;stroke-width:10px;"/>
@@ -15,9 +15,6 @@
         <circle id="Ball" cx="750" cy="450" r="10" fill="red"/>
     </svg>
     </div>
-
-
-
     <script src="Game.js"></script>
     <script src="BallAndPaddle.js"></script>
 </body>
