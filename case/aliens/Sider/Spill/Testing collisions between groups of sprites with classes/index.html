@@ -18,8 +18,8 @@
         let enemys;
         let world;
         let sandTile;
-        let tilesTypes = [sandTile, grassTile];
         let grassTile;
+        let tilesTypes = [sandTile, grassTile];
         let tileSizeX = 16;
         let tileSizeY = 16;
 
@@ -70,8 +70,8 @@
         }
 
         function draw() {
-            const cx = camera.position.x = player.position.x;
-            const cy = camera.position.y = player.position.y;
+            const cx = camera.position.x = player.playerSprite.position.x;
+            const cy = camera.position.y = player.playerSprite.position.y;
 
             const cameraTileCol = floor(cx / tileSizeX);
             const cameraTileRow = floor(cy / tileSizeY);
