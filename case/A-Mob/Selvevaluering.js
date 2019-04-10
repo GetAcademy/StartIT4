@@ -12,8 +12,8 @@ function visSelvevaluering() {
                         <h1 class="Evaluering">Evaluering</h1>
                     </tr>
                     <tr>
-                        <input id="godJul" type="text" />
-                        <button onclick="heisan()">Send</button>
+                        <input class="lærerSpørsmål" id="godJul" type="text" />
+                        <button class="lærerSpørsmål" onclick="heisan()">Send</button>
                         <div id="question";"></div>
                     </tr>
                 </table>
@@ -40,7 +40,7 @@ function showNextQuestion() {
                 <div id="netrual" class="faces" onclick="enableButton('&#128528', this);" type="radio">&#128528</div>
                 <div id="sad" class="faces" onclick="enableButton('&#128543', this);" type="radio">&#128543</div></br>
             </div>
-            <input class="chattingBox" id="answer" type="text"/></br>
+            <textarea class="chattingBox" id="answer" type="text"></textarea></br>
             <button class="evalueringSendInn" id="sendIn" disabled="true" onclick="answer('${question}')">Send inn</button>
      `;
     }
@@ -52,10 +52,10 @@ var buttonClicked;
 function enableButton(happyOrSadValue, smiley) {
     happyOrSad = happyOrSadValue;
     for (let i = 0; i < 3; i++) {
-        document.getElementsByClassName("faces")[i].style.backgroundColor = "#EC8B5E";
+        document.getElementsByClassName("faces")[i].style.backgroundColor = "#5F6389";
         
     }
-    smiley.style.backgroundColor = "green";
+    smiley.style.backgroundColor = "#EC8B5E";
     var enable = document.getElementById("sendIn");
     enable.disabled = false;
     
