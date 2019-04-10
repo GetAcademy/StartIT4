@@ -40,7 +40,7 @@ function showNextQuestion() {
                 <div id="netrual" class="faces" onclick="enableButton('&#128528', this);" type="radio">&#128528</div>
                 <div id="sad" class="faces" onclick="enableButton('&#128543', this);" type="radio">&#128543</div></br>
             </div>
-            <input class="textBox" id="answer" type="textbox"/></br>
+            <input class="chattingBox" id="answer" type="text"/></br>
             <button class="evalueringSendInn" id="sendIn" disabled="true" onclick="answer('${question}')">Send inn</button>
      `;
     }
