@@ -1,8 +1,13 @@
 .Evaluering {
-    color: #EC8B5E;
+    color: #ec8b5e;
+    font-size: 80px;
     text-shadow: 0px 4px 4px black;
 }
+.lærerSpørsmål{
+    left: 100px;
+}
 .faces{
+    border-radius: 10px;
     font-size: 100px;
     user-select: none;
     width: 10.5rem;
@@ -10,20 +15,20 @@
     display: inline-block;
     border: solid;
     overflow: hidden;
-    background-color: #EC8B5E;
-    color: black;  
+    background-color:#5F6389;
+    color: #5F6389;
 }
 .chattingBox {
     border-radius: 10px;
     border: #EC8B5E solid;
     width: 40%;
-    height: 200%;
-     padding: 40px 90px;
+    height: 40vh;
     margin: 8px 0;  
     box-sizing: border-box;
     background-color: #EC8B5E;
+    word-wrap: break-word;
+    word-break: break-all;
     font-size: 20px;
-    text-align: start;
     box-shadow: 0px 5px 5px black;
 
 }
