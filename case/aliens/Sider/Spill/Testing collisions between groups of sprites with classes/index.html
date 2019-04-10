@@ -50,7 +50,8 @@
                 enemy = enemyArr.push(new Enemy);
                 enemys.add(enemyArr[i].enemySprite);
             }
-            
+            sandSprites = new Group()
+            grassSprites = new Group()
         }
 
         function createWorld() {
@@ -85,13 +86,12 @@
                     const y = tileRow * tileSizeY;
                     const tileIndex = countTilesHorizontally * tileRow + tilCol;
                     tileType = world[tileIndex];
-                    sandSprites = new Group()
-                    grassSprites = new Group()
+                    
                     grassSprite = createSprite(x, y, tileSizeX, tileSizeY);
-                    grassSprite.addImage(grassTile)
+                    grassSprite.addImage(grassTile);
                     grassSprites.add(grassSprite);
                     sandSprite = createSprite(x, y,tileSizeX, tileSizeY);
-                    SandSprite.addImage(sandTile)
+                    SandSprite.addImage(sandTile);
                     sandSprites.add(sandSprite);
                 }
             }
