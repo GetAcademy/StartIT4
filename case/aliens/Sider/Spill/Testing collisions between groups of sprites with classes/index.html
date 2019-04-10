@@ -16,7 +16,31 @@
         let enemy;
         let enemyArr = [];
         let enemys;
+        let world;
+        let sandTile;
+        let tilesTypes = [sandTile, grassTile];
+        let grassTile;
+        let tileSizeX = 16;
+        let tileSizeY = 16;
+
+        let SCENE_W;
+        let SCENE_H;
+        let maxX = 4000;
+        let maxY = 3000;
+        const countTilesHorizontally = maxX / tileSizeX;
+        const countTilesVerticaly = maxY / tileSizeY;
+
+        let tileType = null
+     
+
+        function preload() {
+            sandTile = loadImage("sandTile.png");
+            grassTile = loadImage("grassTile.png");
+
+        }
+
         function setup() {
+            world = createWorld();
             createCanvas(600, 600);
             player = new Player();
             players = new Group();
@@ -26,12 +50,55 @@
                 enemy = enemyArr.push(new Enemy);
                 enemys.add(enemyArr[i].enemySprite);
             }
+            
+        }
+
+        function createWorld() {
+            const count = countTilesHorizontally * countTilesVerticaly;
+            const world = [];
+            for (let i = 0; i < count; i++) {
+                let x = i % countTilesHorizontally;
+                let y = floor(i / countTilesHorizontally);
+                const myNoise = noise(x / 5, y / 5);
+                const tileType =
+                    myNoise < 0.4 ? sandTile :
+                        myNoise < 0.9 ? grassTile :
+                world.push(tileType);
+
+            }
+            return world;
         }
 
         function draw() {
+            const cx = camera.position.x = player.position.x;
+            const cy = camera.position.y = player.position.y;
+
+            const cameraTileCol = floor(cx / tileSizeX);
+            const cameraTileRow = floor(cy / tileSizeY);
+            const deltaCols = SCENE_W / (2 * tileSizeX);
+            const deltaRows = SCENE_H / (2 * tileSizeY);
             background(0);
+
+            for (let tileCol = cameraTileCol - deltaCols; tileCol < cameraTileRow + deltaCols; tileCol++) {
+                for (let tileRow = cameraTileRow - deltaRows; tileRow < cameraTileRow + deltaRows; tileRow++) {
+                    const x = tileCol * tileSizeX;
+                    const y = tileRow * tileSizeY;
+                    const tileIndex = countTilesHorizontally * tileRow + tilCol;
+                    tileType = world[tileIndex];
+                    sandSprites = new Group()
+                    grassSprites = new Group()
+                    grassSprite = createSprite(x, y, tileSizeX, tileSizeY);
+                    grassSprite.addImage(grassTile)
+                    grassSprites.add(grassSprite);
+                    sandSprite = createSprite(x, y,tileSizeX, tileSizeY);
+                    SandSprite.addImage(sandTile)
+                    sandSprites.add(sandSprite);
+                }
+            }
+
+
            
-            player.controls()
+            player.controls();
 
             players.collide(enemys);
             drawSprites();
