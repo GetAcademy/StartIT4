@@ -51,6 +51,7 @@
         'LoginGridOne LoginGridTwo LoginGridThree'
         'LoginGridFour LoginGridFive LoginGridSix'
         'LoginGridSeven LoginGridEight LoginGridNine';
+    text-align:center;
 }
 
 .LoginGridOne {
@@ -85,6 +86,7 @@
     width: 100%;
     height: 100%;
     text-align: center;
+    border-radius:20px;
     
 }
 
@@ -120,20 +122,22 @@
     height: 100%;
 }
 
-.TableClass
-{
-    width:50%;
-    height:50%;
-    margin-left:25%;
-    margin-right:25%;
-    margin-top:12.5%;
+.TableClass {
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 12.5%;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 
-.TableButton
-{
-    width:100%;
-    height:100%;
-    border-radius:20px;
+.TableButton {
+    width: 50%;
+    border-radius: 20px;
+    background: rgba(236, 68, 251, 0.75);
+    border: 1px solid #AD00FF;
+    margin-top: 5px;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 
 
@@ -389,6 +393,7 @@
     grid-template-columns:35% 30% 35%;
     grid-template-rows:100%;
     grid-template-areas:'EmptyCreateLeft CreateAccountTable EmptyCreateRight';
+    overflow-y:scroll;
 }
 
 .EmptyCreateLeft
@@ -417,9 +422,10 @@
     grid-template-rows: 10% 30% 60%;
     grid-template-areas: 
         'EmptyOptionsLeft OptionsImageButtons EmptyOptionsRight'
-        'EmptyOptionsLeft OptionsImage EmptyOptionsRight'
+        'EmptyOptionsLeft OptionsImage EmptyOptionsRight' 
         'EmptyOptionsLeft OptionsTable EmptyOptionsRight';
-    text-align:center;
+    text-align: center;
+    overflow-y: scroll;
 }
 
 .EmptyOptionsLeft 
@@ -455,7 +461,6 @@
         height: 10%;
         border-radius: 20px;
         align-self:center;
-
     }
 
 .OptionsImage 
@@ -489,6 +494,7 @@
     background: rgba(236, 68, 251, 0.75);
     border-radius:20px;
     margin:5px;
+    
 }
 
 /*ProfilePage*/
