@@ -8,14 +8,27 @@
     </title>
     <link rel="stylesheet" href="basic.css" />
     <link rel="stylesheet" href="dropzone.css" />
+
 </head>
 <body>
-    <form id="testform" action="/file-upload" class="dropzone">
-        <div class="fallback">
-            <input name="file" type="file" multiple />
-        </div>
-    </form>
+    <div id="MyDiv">
+        <form id="testform" action="file" class="dropzone" onchange="MakeMYDay(event)">
+            <div class="fallback">
+                <input name="file" type="file" multiple />
+            </div>
+        </form>
+    </div>
 
+ 
     <script src="dropzone.js"></script>
+    <script>
+        var file = '';
+        function MakeMyDay(event) {
+            console.log(event);
+        }
+
+    </script>
+    <script src="dropzone.js"></script>
+    <script src="DropzoneTestJS.js"></script>
 </body>
 </html>

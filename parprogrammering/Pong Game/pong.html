@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="Style.css">
-    </head>
-    <body>
-        <div id="Ball" class="Ball"></div>
-        
-        <script src="BallAndPaddle.js"></script>
-        <script src="Game.js"></script>
-    </body>
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="GameBoard" onkeydown="paddle(event)">
+        <svg style="height: 90vh" viewBox="0 0 1500 900">
+            <rect width="1500" height="1000" style="fill:darkgrey;stroke-width:10;" />
+            <rect width="1500" height="1" style="fill:black;" />                <!--top line-->
+            <line x1="1" y1="899" x2="1500" y2="899" style="stroke:black;"/>    <!--bottom line-->
+            <line id="Paddle1" x1="100" y1="400" x2="100" y2="500" style="stroke:rebeccapurple;stroke-width:10px;" />
+            <line id="Paddle2" x1="1400" y1="400" x2="1400" y2="500" style="stroke:rebeccapurple;stroke-width:10px;" />
+            <line x1="750" y1="0" x2="750" y2="1000" style="stroke:rebeccapurple;stroke-width:5px;" />
+            <circle id="Ball" cx="750" cy="450" r="10" fill="red" />
+        </svg>
+    </div>
+    <script src="Game.js"></script>
+    <script src="BallAndPaddle.js"></script>
+    <script src="Collision.js"></script>
+</body>
 </html>

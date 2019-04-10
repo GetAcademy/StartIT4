@@ -31,7 +31,7 @@ function visSiIfraOmMobbing() {
             <tr>
                 <td style="width: 15%">
                     <h4>Har du blitt mobbet?</h4>
-                    <button class="knapp">khjkjh</button>
+                    <button class="knapp" onclick="harBlittMobbet()">khjkjh</button>
                 </td>
                 <td style="width: 15%">
                     <h4>Hvordan ble du mobbet??</h4>
@@ -54,6 +54,7 @@ function visSiIfraOmMobbing() {
                 <input onchange="takontakt()" name="treern" id="kjennJa" type="checkBox" />Ja
                 <input onchange="takontakt()" name="treern" id="kjennNei" type="checkBox" />Nei
             </div>
+            ${checkbox1} ja
 
             <div class="text">
                 <br><li>Det er greit å si ifra!</li>
