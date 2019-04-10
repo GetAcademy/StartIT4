@@ -1,66 +1,45 @@
-.happyFace {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+.Evaluering {
+    color: #ec8b5e;
+    font-size: 80px;
+    text-shadow: 0px 4px 4px black;
+}
+.lærerSpørsmål{
+    left: 100px;
+}
+.faces{
+    border-radius: 10px;
+    font-size: 100px;
     user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .happyFace input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .happyChecked {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .happyFace:hover input ~ .happyChecked {
-    background-color: #ccc;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .happyFace input:checked ~ .happyChecked {
-    background-color: #2196F3;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .happyChecked:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .happyFace input:checked ~ .happyChecked:after {
-    display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .happyFace .happyChecked:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
+    width: 10.5rem;
+    height: 9.5rem;
+    display: inline-block;
+    border: solid;
+    overflow: hidden;
+    background-color:#5F6389;
+    color: #5F6389;
+}
+.chattingBox {
+    border-radius: 10px;
+    border: #EC8B5E solid;
+    width: 40%;
+    height: 40vh;
+    margin: 8px 0;  
+    box-sizing: border-box;
+    background-color: #EC8B5E;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 20px;
+    box-shadow: 0px 5px 5px black;
+
+}
+.evalueringSendInn {
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px black;
+    width: 25%;
+    height: 35px;
+    text-align: center;
+    border: solid #EC8B5E;
+    background-color: #EC8B5E;
+    font-size: 70%;
+    color: black;
+}

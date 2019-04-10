@@ -9,7 +9,7 @@ class Sprite {
 
     render() {
         push()
-        drawSprite(this.sprite);
+        drawSprite(this.sprite);      
         pop();
     }
     move() {
