@@ -45,14 +45,14 @@ function visSiIfraOmMobbing() {
               
             <div class="checkBox">
                 <input onchange="takontakt()" name="toern" id="hvorDytt" type="checkBox"  />Dyttet
-                <input onchange="takontakt()" name="toern" id="hvorUte" type="checkbox"  />Utestengt
-                <input onchange="takontakt()" name="toern" id="hvorLedd" type="checkBox" />Ledd av
-                <input onchange="takontakt()" name="toern" id="hvorPlaget" type="checkBox" />Plaget/ertet
+                <input onchange="takontakt2()" name="toern" id="hvorUte" type="checkbox"  />Utestengt
+                <input onchange="takontakt3()" name="toern" id="hvorLedd" type="checkBox" />Ledd av
+                <input onchange="takontakt4()" name="toern" id="hvorPlaget" type="checkBox" />Plaget/ertet
             </div>
                 <h4>Kjenner du noen som har blitt mobbet?</h4>
             <div class="checkBox">
-                <input onchange="takontakt()" name="treern" id="kjennJa" type="checkBox" />Ja
-                <input onchange="takontakt()" name="treern" id="kjennNei" type="checkBox" />Nei
+                <input onchange="takontakt5()" name="treern" id="kjennJa" type="checkBox" />Ja
+                <input onchange="takontakt6()" name="treern" id="kjennNei" type="checkBox" />Nei
             </div>
             ${checkbox1} ja
 

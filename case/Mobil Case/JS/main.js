@@ -1,7 +1,7 @@
 ﻿function showMainScreen() {
     let abc = 'Intet mål';
     if (goalOBJ) {
-        abc = goalOBJ.txt2;
+        abc = goalOBJ.forkort;
     }
     mainextra.innerHTML = `
     <button class="button" onclick="showMyGoalsScreen()">${abc}</button>
