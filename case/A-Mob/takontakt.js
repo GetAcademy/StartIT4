@@ -1,24 +1,31 @@
-var checked1 = false;
-var checked2 = false;
+var checked = [null, null, null, null];
 
-function select1() {
-    checked1 = !checked1;
+function select(questionIndex, yes) {
+    checked[questionIndex] = yes;
     harBlittMobbet();
 }
 
-function select2() {
-    checked2 = !checked2;
-    harBlittMobbet();
+function createCheckbox(questionIndex, yes) {
+    var checkedValue = checked[questionIndex];
+    if (yes) {
+        return checkedValue
+            ? `<div class="customChk" onclick="select(${questionIndex},${yes})"><div class="customChkInner">✓</div></div>`
+            : `<div class="customChk" onclick="select(${questionIndex},${yes})"></div>`;
+    }
+    else {
+        return checkedValue == false
+            ? `<div class="customChk" onclick="select(${questionIndex},${yes})"><div class="customChkInner">✓</div></div>`
+            : `<div class="customChk" onclick="select(${questionIndex},${yes})"></div>`;
+
+    }
 }
 
 function harBlittMobbet() {
+    // var blittDyttet = checked[0];
+    // var styggeTing = checked[1];
+    // var utestengt = checked[2];
+    // var mobbetLenge = checked[3];
 
-    var checkbox1 = checked1
-        ? '<div class="customChk" onclick="select1()"><div class="customChkInner">✓</div></div>'
-        : '<div class="customChk" onclick="select1()"></div>';
-    var checkbox2 = checked2
-        ? '<div class="customChk" onclick="select2()"><div class="customChkInner">✓</div></div>'
-        : '<div class="customChk" onclick="select2()"></div>';
 
     document.getElementById('innhold').innerHTML =
         ` 
@@ -41,19 +48,28 @@ function harBlittMobbet() {
     </table>
 
         <div class="spør">Har du blit dyttet/slått eller sparket?</div>
-        ${checkbox1} Ja  &nbsp; &nbsp;  ${checkbox2} Nei
+        ${createCheckbox(0, true)} Ja  &nbsp; &nbsp;  ${createCheckbox(0, false)} Nei
         <div class="nesteMobbet">Har noen sagt stygge ting til deg?</div>
-        ${checkbox1} Ja  &nbsp; &nbsp;  ${checkbox2} Nei
+        ${createCheckbox(1, true)} Ja  &nbsp; &nbsp;  ${createCheckbox(1, false)} Nei
         <div class="nesteMobbet">Har du blitt utestengt?</div>
-        ${checkbox1} Ja  &nbsp; &nbsp;  ${checkbox2} Nei
+        ${createCheckbox(2, true)} Ja  &nbsp; &nbsp;  ${createCheckbox(2, false)} Nei
         <div class="nesteMobbet">Har du blit mobbet lenge?</div>
-        ${checkbox1} Ja  &nbsp; &nbsp;  ${checkbox2} Nei
-        <div class="nesteMobbet">Har du blitdawda lenge?</div>
-        ${checkbox1} Ja  &nbsp; &nbsp;  ${checkbox2} Nei
-
-
-
+        ${createCheckbox(3, true)} Ja  &nbsp; &nbsp;  ${createCheckbox(3, false)} Nei
         
+        <div class="text">
+            <br><li>Det er greit å si ifra!</li>
+                <li>Med å si ifra så kan du bedre din og andre sin psykiske helse!</li>
+        </div>
+    
+            <p> Her kan du skrive en kommentar viss du ønsker! :)</p>
+        <div>
+            <input type="textBox"><br>
+        </div>
+
+        <div>
+            <br><button class="drit" id="drit" disabled="" onclick="visSendInn();">Send Inn</button>
+        </div>
+        <br/>
     `;
 }
 

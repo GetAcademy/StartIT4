@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div {
+
+                float:left;
+                background-color:red;
+                border: 1px solid black;
+                font-size: 1000%;
+                width: 200px;
+                height: 200px;
+                text-align: center;
+
+            }
+            div.første {
+                clear:left;
+            }
+            div:hover {
+                background-color:orangered;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="første" onclick="change(this)"></div>
+        <div onclick="change(this)"></div>
+        <div onclick="change(this)"></div>
+      
+        <div class="første" onclick="change(this)"></div>
+        <div onclick="change(this)"></div>
+        <div onclick="change(this)"></div>
+
+        <div class="første" onclick="change(this)"></div>
+        <div onclick="change(this)"></div>
+        <div onclick="change(this)"></div>
+
+        <script>
+            function change(changeToX) {
+                if (changeToX.innerHTML !== 'X' && changeToX.innerHTML !== 'o' ) { 
+                    changeToX.innerHTML = 'X';
+                }
+                
+
+                var divs1 = document.getElementsByTagName('div');
+                var divs2 = new Array();
+                for (var i = 0; i < divs1.length; i++) {
+	            if (divs1[i].innerHTML !== 'X' && divs1[i].innerHTML !== 'o') {
+		            divs2.push(divs1[i]);
+	            }
+            }
+
+                if (divs2.length > 0) {
+	            var index = Math.floor(Math.random() * divs2.length);
+	            divs2[index].innerHTML = 'o';
+	            divs2[index].style.color = 'black';
+                }
+                
+            }
+                
+        </script>
+    </body>
+</html>

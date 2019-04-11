@@ -59,9 +59,16 @@ const world = {
 }
 let map;
 let player;
-let sprites =[];
-let enemys = [];
-let bullets = [];
+let sprites = [];
+let enemy;
+let enemyArr = [];
+let enemys;
+let bullet;
+let bullets;
+let bulletArr = [];
+let bulletHit = false;
+var firedInLastDraw = false;
+let angle; 
 function preload() {
     tileSheet.image = loadImage('assets/images/desert.png');
 }
@@ -70,63 +77,102 @@ function setup() {
     createCanvas(800, 600);
     map = new Map(tileSheet, world);
     player = createSprite(400, 300, 20, 20);
-    
-
+    enemys = new Group()
     for (let i = 0; i < 5; i++) {
-        enemys.push(new Enemy());
+        enemy = new Enemy()
+        enemyArr.push(enemy);
+        enemys.add(enemy.enemySprite);
     }
+    bullets = new Group();
 
-    for (let i = 0; i < 5; i++) {
-        sprites.push(new Sprite());
-    }
+
+
 
 }
 
 function draw() {
     background(0);
     map.render();
-    
-    
-   
 
-    for (let i = 0; i < enemys.length; i++) {
-        enemys[i].render();
-        enemys[i].move();
-        enemys[i].edges();
-       
+    for (let i = 0; i < enemyArr.length; i++) {
+        enemyArr[i].move();
+        enemyArr[i].edges();
+
+        if (bulletHit) {
+            enemyArr.splice(i, 1);
+            enemys.remove(enemy.enemySprite)
+        }
     }
 
-    for (let i = 0; i < sprites.length; i++) {
-        sprites[i].render();
-        sprites[i].move();
-       
 
-    }
-    for (let i = 0; i < bullets.length; i++) {
-        bullets[i].render();
-        bullets[i].update();
-        if (bullets[i].offscreen()) {
-            bullets.splice(i, 1);
+    for (let i = bulletArr.length - 1; i >= 0; i--) {
+
+        bulletArr[i].update();
+        if (bulletArr[i].offscreen()) {
+            bulletArr.splice(i, 1);
+            bullets.remove(bullet.bulletSprite);
 
         }
+
     }
     controls();
-    drawSprite(player);
-    
+    player.displace(enemys)
+   
+
+    bullets.overlap(enemys, bulletHitEnemy);
+
+    drawSprites();
+
 }
 
-    function controls() {
-        if (keyIsDown(80)) {
-            bullets.push(new Bullet(player.position));
-        } else if (keyIsDown(87) || keyIsDown(UP_ARROW)) {
-            player.position.y += -1;
-        } else if (keyIsDown(65) || keyIsDown(LEFT_ARROW)) {
-            player.position.x += -1;
-        } else if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) {
-            player.position.y += +1;
-        } else if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) {
-            player.position.x += +1;
+function bulletHitEnemy(bulletSprite, enemySprite) {
+    enemySprite.remove();
+    enemys.remove(enemySprite);
+    bulletSprite.remove();
+    bullets.remove(bulletSprite);
+    findAndRemoveObjectFromArray(enemySprite, enemyArr, 'enemySprite');
+    findAndRemoveObjectFromArray(bulletSprite, bulletArr, 'bulletSprite');
+}
+
+function findAndRemoveObjectFromArray(obj, array, spriteFieldName) {
+    for (let i = array.length - 1; i >= 0; i--) {
+        if (array[i][spriteFieldName] == obj) {
+            array.splice(i, 1);
+            break;
         }
+    }
+}
+
+function controls() {
+    if (keyIsDown(80)) {
+        
+        if (!firedInLastDraw) {
+            bullet = new Bullet(player.position)
+            bulletArr.push(bullet);
+
+            bullets.add(bullet.bulletSprite);
+
+
+
+            firedInLastDraw = true;
+        }
+    } else {
+        firedInLastDraw = false;
+
+        if (keyIsDown(87) || keyIsDown(UP_ARROW)) {
+            angle = Math.PI / -2
+            player.position.y += -2;
+        } else if (keyIsDown(65) || keyIsDown(LEFT_ARROW)) {
+            angle = Math.PI
+            player.position.x += -2;
+        } else if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) {
+            angle = Math.PI / 2
+            player.position.y += +2;
+        } else if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) {
+            angle = Math.PI * 2
+            player.position.x += +2;
+        }
+    }
 
 }
 

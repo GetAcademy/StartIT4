@@ -10,8 +10,9 @@
  height: 7%;
  padding-top: 3%;
 }
-
-
+.text {
+  padding-top: 2%;
+}
 
 .knapp {
     border-radius: 10px;
@@ -47,8 +48,6 @@
   color: black;
 }
 
-
-
 input[type=textBox] {
     border-radius: 10px;
     border: #EC8B5E solid;
@@ -76,4 +75,3 @@ input[type=textBox] {
     font-size: 70%;
     color: black;
 }
-

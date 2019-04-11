@@ -1,0 +1,15 @@
+Logg 05.04.2019
+
+Løste Problemer:
+
++ burde se over hva som er gjort og ikke gjort og eventuelt oppdatere Project Planning dokumentet og gjøre et forsøk på å starte mere teamarbeid og få det bedre organisert muligens. (Project Planner er oppdatert og bedre organisert)
+
+Gjenstående problemer fra igår:
+
+(ingenting)
+
+Nye Problemer:
+
+- det er en del og gjøre i generell css styling som er egentlig ganske raskt å gjennomføre nå som det har vært en del arbeid med funksjon og backend kunne det vært greit å gått litt over til css igjen bare for å fortsette styling arbeidet også.
+
+- nå som bildeopplasting er rimelig bra gjennomført for lagingen av ny konto så bør det også gjøres i settings page men legge til mulighet for å slette bilder og sette inn begrensning på filstørrelse per bilde og sette en maks kapasitet på bildene på 8 stykk per profil.

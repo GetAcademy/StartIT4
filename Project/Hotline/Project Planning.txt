@@ -25,3 +25,5 @@ Project Planning.
 - gjøre slik at knappene som skal vise bilder forandrer bredde ettersom hvor mange av disse knappene det blir for å beholde layout.
 - gjøre slik at det er en maks kapasitet for hvor mange bilder du kan ha slik at det ikke blir sykt mange små knapper.
 - gjøre slik at den det første alderspreferanse tallet ikke er høyere enn det andre alderspreferanse tallet for at alders filteret skal faktisk kunne fungere.
+- fikse overflow-y til swipe pagen i css for å adjuste hvordan middle glir inn i bottom når den viser profilen.
+- forandre backgrounden til login table fra divven til bare table for å få backgrounden til å se bedre ut.
