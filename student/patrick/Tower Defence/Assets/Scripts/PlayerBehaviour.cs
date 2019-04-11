@@ -21,6 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
     public static int CurrentHealth;
     public Text HealthCounter;
     public Text DeathMessage;
+    public Text MoneyCounter;
 
     void InitializePlayer()
     {
@@ -30,6 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void UpdatePlayer()
     {
+        MoneyCounter.text = "Money: " + (Money)+"$";
         HealthCounter.text = "Current Health: " + (CurrentHealth);
         DeathMessage.text = "You Are Dead";
         if(CurrentHealth <= 0)

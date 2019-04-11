@@ -41,6 +41,7 @@ public class EnemyMovement : MonoBehaviour
         {
             PlayerBehaviour.CurrentHealth--;
             WaveSpawner.DeadEnemiesThisRound++;
+            //WaveSpawner.CurrentEnemies--;
             Destroy(gameObject);
         }
         WavePointIndex++;

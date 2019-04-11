@@ -89,7 +89,6 @@ public class BloodTurret : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Shoot");
         gameObject.GetComponentInChildren<ParticleSystem>().Play();
         Target.gameObject.GetComponent<FlyingSphereEnemyStats>().CurrentHealth -= Damage;
     }

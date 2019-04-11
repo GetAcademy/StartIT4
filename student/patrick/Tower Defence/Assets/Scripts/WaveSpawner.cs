@@ -58,10 +58,11 @@ public class WaveSpawner : MonoBehaviour
             }
         }
         EnemyCounter.text = "Enemies Left: " + (EnemyCount - DeadEnemiesThisRound);
-        if ((EnemyCount - DeadEnemiesThisRound) <= 0)
+        if ((EnemyCount - DeadEnemiesThisRound) <= 0 && WaveStarted)
         {
+            Debug.Log("EnemyCount - DeadEnemiesThisRound = "+(EnemyCount - DeadEnemiesThisRound));
             WaveStarted = false;
-            if(WaveNumber > 0)
+            if(WaveNumber > 0 && (EnemyCount - DeadEnemiesThisRound) <= 0)
             {
                 EnemyCounter.text = "Waves Survived: " + (WaveNumber);
             }
