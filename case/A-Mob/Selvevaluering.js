@@ -12,8 +12,6 @@ function visSelvevaluering() {
                         <h1 class="Evaluering">Evaluering</h1>
                     </tr>
                     <tr>
-                        <input class="lærerSpørsmål" id="godJul" type="text" />
-                        <button class="lærerSpørsmål" onclick="heisan()">Send</button>
                         <div id="question";"></div>
                     </tr>
                 </table>
