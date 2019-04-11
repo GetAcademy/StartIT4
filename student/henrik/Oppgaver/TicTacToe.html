@@ -22,20 +22,52 @@
         </style>
     </head>
     <body>
-        <div class="første" onclick="change(this)"></div>
-        <div onclick="change(this)"></div>
-        <div onclick="change(this)"></div>
+        <div id="1" class="første" onclick="change(this)"></div>
+        <div id="2" onclick="change(this)"></div>
+        <div id="3" onclick="change(this)"></div>
       
-        <div class="første" onclick="change(this)"></div>
-        <div onclick="change(this)"></div>
-        <div onclick="change(this)"></div>
+        <div id="4" class="første" onclick="change(this)"></div>
+        <div id="5" onclick="change(this)"></div>
+        <div id="6" onclick="change(this)"></div>
 
-        <div class="første" onclick="change(this)"></div>
-        <div onclick="change(this)"></div>
-        <div onclick="change(this)"></div>
+        <div id="7" class="første" onclick="change(this)"></div>
+        <div id="8" onclick="change(this)"></div>
+        <div id="9" onclick="change(this)"></div>
+
+        <p id="divSvar"></p>
 
         <script>
+                        var div1 = document.getElementById("1").innerHTML
+                var div2 = document.getElementById("2").innerHTML
+                var div3 = document.getElementById("3").innerHTML
+                var div4 = document.getElementById("4").innerHTML
+                var div5 = document.getElementById("5").innerHTML
+                var div6 = document.getElementById("6").innerHTML
+                var div7 = document.getElementById("7").innerHTML
+                var div8 = document.getElementById("8").innerHTML
+                var div9 = document.getElementById("9").innerHTML
+                var pSvar = document.getElementById("divSvar")
+
+                while (div1 == 'X' && div2 == 'X' && div3 == 'X') {
+                    pSvar.innerHTML = 'Du vant!'
+                }
+            
+            
+
+
+
             function change(changeToX) {
+                var div1 = document.getElementById("1").innerHTML
+                var div2 = document.getElementById("2").innerHTML
+                var div3 = document.getElementById("3").innerHTML
+                var div4 = document.getElementById("4").innerHTML
+                var div5 = document.getElementById("5").innerHTML
+                var div6 = document.getElementById("6").innerHTML
+                var div7 = document.getElementById("7").innerHTML
+                var div8 = document.getElementById("8").innerHTML
+                var div9 = document.getElementById("9").innerHTML
+                var pSvar = document.getElementById("divSvar")
+
                 if (changeToX.innerHTML !== 'X' && changeToX.innerHTML !== 'o' ) { 
                     changeToX.innerHTML = 'X';
                 }
@@ -56,6 +88,7 @@
                 }
                 
             }
+            
                 
         </script>
     </body>
