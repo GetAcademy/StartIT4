@@ -32,9 +32,8 @@ button.fixed1 {
     border-radius: 10px;
     width: 40%;
     height: 70px;
-    /* margin-right: 15%;
-    margin-bottom: 2%; */
-    padding: 20px;
+    /* margin-right: 15%;*/
+    margin-bottom: 0.5%; 
     border: solid #EC8B5E;
     background-color: #EC8B5E;
     /* text-align: center; */
@@ -43,15 +42,15 @@ button.fixed1 {
 
 button.fixed2 {
     /* position: relative; */
-    /* border-radius: 10px; */
+    border-radius: 10px;
     width: 30%;
     height: 60px;
-    margin-top: 110px;
+    margin-top: 5%;
     /* margin: 150px; */
     /* margin-left: 35%; */
     text-align: center;
-    /* border: solid #EC8B5E;
-    background-color: #EC8B5E; */
+    border: solid #EC8B5E;
+    background-color: #EC8B5E; 
     font-size: 70%;
 }
 
@@ -73,10 +72,10 @@ button.fixed2 {
 
 .meny {
     position: absolute;
-    left: 0;
-    top: 0;
     width: 35%;
     height: 100vh;
+    border-radius: 10px;
+    border: red;
     background-color: #EC8B5E;
 }
 
