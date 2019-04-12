@@ -69,9 +69,11 @@ button.fixed2 {
     grid-area: innhold;
     background-color: #EC8B5E;
     font-size: 160%;
+    border: black;
 }
 
 .meny {
+    border-right: 3px solid #5F6389;
     position: absolute;
     left: 0;
     top: 0;
