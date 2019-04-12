@@ -14,7 +14,7 @@ function visSelvevaluering() {
                     <tr>
                         <div id="question";"></div>
                     </tr>
-                    <button onclick="visMeny()">&#8617;</button>
+                    <div class="botCorner"><button class="returnButton" onclick="visMeny()">&#8617;</button></div>
                 </table>
             `;
     showNextQuestion();
