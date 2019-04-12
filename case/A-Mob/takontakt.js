@@ -68,7 +68,7 @@ function harBlittMobbet() {
 
         <div>
             <br><button class="drit" onclick="visSendInn();">Send Inn</button>
-            <button onclick="visMeny()">&#8617;</button>
+            <div class="botCorner"><button class="returnButton" onclick="visMeny()">&#8617;</button></div>
         </div>
         <br/>
     `;

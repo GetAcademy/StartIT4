@@ -14,7 +14,7 @@ function visHvordanTaVarePåAndre() {
                 <li class="fiksme"> Vær snill med hverandre. </li><br>
                 <div class="iframe"><iframe width="560" height="315" src="https://www.youtube.com/embed/BpDwzOvvgsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </tr>
-                <button onclick="visMeny()">&#8617;</button>
+            <div class="botCorner"><button class="returnButton" onclick="visMeny()">&#8617;</button></div>
         <tbody>
     </table>
     `;
