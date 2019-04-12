@@ -1,0 +1,12 @@
+Jobbet på tic tac toe oppgaven. Dette er en oppgave jeg har jobbet med tidligere, men som jeg ikke hadde
+fikset en win condition.
+Jeg prøvde originalt å legge inn en if/else statement under den eksisterende funksjonen som lå der
+Dette viste seg å ikke fungere, så jeg tenkte på å prøve en loop isteden. Jeg har ikke brukt loops 
+no større før, så det var noe som måtte leses opp på.
+
+jeg prøvde først å bruke en while loop, som endret en boolean til true slik at den skulle ha en escape for å ikke kræsje browseren
+dette fungerte dessverre ikke. Scriptet hadde nok fungert slik jeg hadde kodet det, men jeg tenkte ikke over
+det at browseren kom til å kræsje lenge før jeg faktisk fikk trykket på noen av rutene.
+
+isteden endret jeg, med hjelp av Terje, scriptet til en for loop.
+loopen sjekker gjennom en 2-dimensjonal array og sjekker løsningene som jeg har lagt inn der.
