@@ -32,6 +32,7 @@ function visHvaErMobbing() {
                     <li class="waddup">Det kan være fordi de blir mobbet selv.</li>
                     <li class="waddup">Det kan hende de mobber andre fordi at de ikke har det så bra hjemme.</li>
                  </div>
+                <button onclick="visMeny()">&#8617;</button>
         </tbody>
     </table>
     `;
