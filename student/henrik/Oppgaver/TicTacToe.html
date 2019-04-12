@@ -91,11 +91,17 @@
             ]
 
             for (let i = 0; i < victory.length; i++) {
-                if (victory[i][0].innerHTML == 'X'
+                if (victory[i][0].innerHTML == 'X' 
                     && victory[i][1].innerHTML == 'X'
                     && victory[i][2].innerHTML == 'X') {
                     pSvar.innerHTML = 'Du vant!'
                     console.log( 'Du vant!');
+            }
+                else if (victory[i][0].innerHTML == 'O'
+                && victory[i][1].innerHTML == 'O'
+                && victory[i][2].innerHTML == 'O') {
+                    pSvar.innerHTML = 'Datamaskinen vant!'
+                    console.log('Test')
             }
         }
     }
