@@ -1,5 +1,1 @@
-﻿function coachScreen() {
-    
-   mainextra.innerHTML = ''
-        
-}
+﻿
