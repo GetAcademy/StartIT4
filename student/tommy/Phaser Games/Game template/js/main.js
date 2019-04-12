@@ -1,3 +1,4 @@
+var game;
 window.onload = function () {
     var config = {
         type: Phaser.AUTO,
@@ -6,4 +7,5 @@ window.onload = function () {
         parent: 'phaser-game',
         scene: [SceneMain]
     };
+     game = new Phaser.Game(config);
 }
