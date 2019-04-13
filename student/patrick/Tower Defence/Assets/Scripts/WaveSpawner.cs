@@ -10,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
-        CountDownTimer = Random.Range(0.7f, 3f);
+        CountDownTimer = Random.Range(0.2f, 1f);
     }
 
     
@@ -52,24 +52,23 @@ public class WaveSpawner : MonoBehaviour
             DeadEnemiesThisRound = 0;
             for (int i = 0; i < EnemyCount; i++)
             {
-                    CountDown = Random.Range(0.7f, 3f);
+                    CountDown = Random.Range(0.2f, 1f);
                     Instantiate(MyEnemy, MySpawn.position, MySpawn.rotation);
                     yield return new WaitForSeconds(CountDown);
             }
         }
-        EnemyCounter.text = "Enemies Left: " + (EnemyCount - DeadEnemiesThisRound);
+        if (WaveStarted)
+        {
+            EnemyCounter.text = "Enemies Left: " + (EnemyCount - DeadEnemiesThisRound); // this entire if was gone and the content outside any if
+        }
         if ((EnemyCount - DeadEnemiesThisRound) <= 0 && WaveStarted)
         {
-            Debug.Log("EnemyCount - DeadEnemiesThisRound = "+(EnemyCount - DeadEnemiesThisRound));
             WaveStarted = false;
-            if(WaveNumber > 0 && (EnemyCount - DeadEnemiesThisRound) <= 0)
+            if(WaveNumber > 0 && !WaveStarted) //&& (EnemyCount - DeadEnemiesThisRound) <= 0    wavestarted was not there
             {
                 EnemyCounter.text = "Waves Survived: " + (WaveNumber);
             }
-            else
-            {
-                EnemyCounter.text = "Start Wave";
-            }
+            
             
         }
         

@@ -51,7 +51,7 @@ public class BloodTurret : MonoBehaviour
                 NearestEnemy = Enemy;
             }
 
-            if(NearestEnemy != null && ShortestDistance <= Range)
+            if(NearestEnemy != null && ShortestDistance <= Range && NearestEnemy.GetComponent<MeshRenderer>())
             {
                 Target = NearestEnemy.transform;
             }

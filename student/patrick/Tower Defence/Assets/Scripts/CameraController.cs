@@ -18,19 +18,19 @@ public class CameraController : MonoBehaviour
 
     void CameraMovement()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && transform.position.z < 55)
         {
             transform.Translate(Vector3.forward * PanSpeed * Time.deltaTime,Space.World);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && transform.position.z > -15)
         {
             transform.Translate(Vector3.back * PanSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && transform.position.x > -18)
         {
             transform.Translate(Vector3.left * PanSpeed * Time.deltaTime, Space.World);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && transform.position.x < 45)
         {
             transform.Translate(Vector3.right * PanSpeed * Time.deltaTime, Space.World);
         }

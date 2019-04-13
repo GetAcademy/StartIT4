@@ -14,6 +14,11 @@ public class FlyingSphereEnemyStats : MonoBehaviour
         CheckHealth();
     }
 
+    void OnMouseDown()
+    {
+        DamageWhenClicked();
+    }
+
     int StartHealth = 10;
     public int CurrentHealth;
     bool PayedCash;
@@ -42,5 +47,10 @@ public class FlyingSphereEnemyStats : MonoBehaviour
             Destroy(gameObject.GetComponent<EnemyMovement>());
             Destroy(gameObject, 3);
         }
+    }
+
+    void DamageWhenClicked()
+    {
+        CurrentHealth--;
     }
 }

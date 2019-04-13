@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
+    #region FunctionCalls
+
     void Awake()
     {
         InitiateBuildManager();
@@ -11,7 +13,7 @@ public class BuildManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -19,14 +21,25 @@ public class BuildManager : MonoBehaviour
         
     }
 
-    GameObject TurretToBuild;
+    #endregion FunctionCalls
+
+    
     public static BuildManager Instance;
+
     public GameObject BloodTurretPrefab;
     public GameObject SniperTurretPrefab;
+
+    GameObject TurretToBuild;
+
 
     public GameObject GetTurretToBuild()
     {
         return TurretToBuild;
+    }
+
+    public void SetTurretToBuild(GameObject Turret)
+    {
+        TurretToBuild = Turret;
     }
 
     void InitiateBuildManager()
@@ -39,9 +52,6 @@ public class BuildManager : MonoBehaviour
         Instance = this;
     }
 
-    public void SetTurretToBuild(GameObject Turret)
-    {
-
-    }
+   
    
 }

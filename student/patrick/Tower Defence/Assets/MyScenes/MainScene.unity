@@ -608,7 +608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594a75ad340dce443bcd8d42bb768d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BloodTurretPrefab: {fileID: 0}
+  BloodTurretPrefab: {fileID: 957760452556562728, guid: 6e62438e16e1b7a4eb738f382f252da2,
+    type: 3}
   SniperTurretPrefab: {fileID: 0}
 --- !u!1001 &48267515
 PrefabInstance:
@@ -6023,7 +6024,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Enemies
+  m_Text: 'Start Wave
 
 '
 --- !u!222 &561715856
@@ -22292,18 +22293,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fe2cc84a3873b4b49b1fc14757cb4385, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a4ae0193a81d7946a93cbdfb72448e1, type: 3}
---- !u!114 &4960311391349904493 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4960311391349904493, guid: fd9d66fb6c73e6440845b5c6c66c34cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7761669140504799286}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8deb0fe234df7044ab29a5d0d6cda199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6374264474357657344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6374264474357657344, guid: 84cebfbfa67f22c46a57c0ef36c955dd,
@@ -22457,21 +22446,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7761669139924625881, guid: fd9d66fb6c73e6440845b5c6c66c34cf,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseBloodTurret
-      objectReference: {fileID: 0}
-    - target: {fileID: 7761669139924625881, guid: fd9d66fb6c73e6440845b5c6c66c34cf,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7761669139924625881, guid: fd9d66fb6c73e6440845b5c6c66c34cf,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4960311391349904493}
     - target: {fileID: 7761669141235660988, guid: fd9d66fb6c73e6440845b5c6c66c34cf,
         type: 3}
       propertyPath: m_AnchorMin.y
