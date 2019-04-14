@@ -9,8 +9,11 @@ class SceneMain extends Phaser.Scene {
 
     }
     create() {
-        var road = new Road({ scene: this });
-        road.x = game.config.width / 2;
+        this.road = new Road({ scene: this });
+        this.road.x = game.config.width / 2;
+        this.road.makeLines();
     }
-    update() { }
+    update() {
+        this.road.moveLines();
+    }
 }
