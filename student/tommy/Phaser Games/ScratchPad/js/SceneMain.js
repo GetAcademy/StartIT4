@@ -4,7 +4,7 @@ class SceneMain extends Phaser.Scene {
     }
     preload() {
         this.load.audio('cat', ['audio/meow.mp3', 'audio/meow.ogg']);
-        //this.load.image("face", "images/face.png");
+        this.load.image("face", "images/face.png");
        // this.load.spritesheet('boy', 'images/boy.png', { frameWidth: 120, frameHeight: 200 });
     }
     create() {
@@ -15,6 +15,16 @@ class SceneMain extends Phaser.Scene {
         this.graphics.strokeRect(100, 200, 50, 50);
         this.graphics.fillStyle(0xff00ff, 1);
         this.graphics.fillCircle(200, 300, 60);
+
+
+        var faceGroup = this.add.group();
+
+        for (var i = 0; i < 5; i++) {
+            var xx = Phaser.Math.Between(100, 400);
+            var yy = Phaser.Math.Between(100, 400);
+            var face = this.add.image(xx, yy, "face");
+            faceGroup.add(face);
+        }
 
         //this.graphics.moveTo(0, 0);
         //this.graphics.lineTo(100, 300);
