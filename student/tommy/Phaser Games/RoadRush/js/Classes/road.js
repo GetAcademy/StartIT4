@@ -16,6 +16,10 @@ class Road extends Phaser.GameObjects.Container {
 
 
         this.count = 0;
+        
+        this.car = this.scene.add.sprite(this.displayWidth / 4, game.config.height * 0.9, "cars");
+        Align.scaletoGameW(this.car, 0.10);
+        this.add(this.car);
        
 
     }
