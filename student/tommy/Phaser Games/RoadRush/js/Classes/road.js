@@ -1,4 +1,4 @@
-class Road extends Phaser.GameObjects.container {
+class Road extends Phaser.GameObjects.Container {
     constructor(config) {
         super(config.scene);
         this.scene = config.scene;
