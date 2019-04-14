@@ -15,5 +15,6 @@ class SceneMain extends Phaser.Scene {
     }
     update() {
         this.road.moveLines();
+        
     }
 }

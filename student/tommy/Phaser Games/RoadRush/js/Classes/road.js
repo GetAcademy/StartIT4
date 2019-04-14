@@ -6,7 +6,7 @@ class Road extends Phaser.GameObjects.Container {
         this.add(this.back);
         this.scene.add.existing(this);
 
-       
+
         Align.scaletoGameW(this.back, 0.5);
 
         this.setSize(this.back.displayWidth, game.config.height);
@@ -16,13 +16,27 @@ class Road extends Phaser.GameObjects.Container {
 
 
         this.count = 0;
-        
+
         this.car = this.scene.add.sprite(this.displayWidth / 4, game.config.height * 0.9, "cars");
         Align.scaletoGameW(this.car, 0.10);
         this.add(this.car);
-       
+
+        this.back.setInteractive();
+        this.back.on('pointerdown', this.changeLanes, this);
+
 
     }
+
+    changeLanes() {
+        if (this.car.x > 0) {
+            this.car.x = -this.displayWidth / 4;
+        }
+        else {
+
+           this.car.x = this.displayWidth / 4;
+        }
+    }
+
     makeLines() {
         this.vSpace = this.displayHeight / 10;
         for (var i = 0; i < 20; i++) {
