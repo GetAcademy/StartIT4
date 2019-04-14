@@ -17,13 +17,13 @@ class SceneMain extends Phaser.Scene {
         this.graphics.fillCircle(200, 300, 60);
 
 
-        var faceGroup = this.add.group();
+        var faceCon = this.add.container();
 
         for (var i = 0; i < 5; i++) {
             var xx = Phaser.Math.Between(100, 400);
             var yy = Phaser.Math.Between(100, 400);
             var face = this.add.image(xx, yy, "face");
-            faceGroup.add(face);
+            faceCon.add(face);
         }
 
         //this.graphics.moveTo(0, 0);
