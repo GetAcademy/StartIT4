@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlyingSphereEnemyStats : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class FlyingSphereEnemyStats : MonoBehaviour
 
     int StartHealth = 10;
     public int CurrentHealth;
+    public GameObject HealthBar;
     bool PayedCash;
 
     void StartEnemy()
@@ -31,6 +33,7 @@ public class FlyingSphereEnemyStats : MonoBehaviour
     
     void CheckHealth()
     {
+        HealthBar.transform.localScale = new Vector3(CurrentHealth / StartHealth, 0.1f, 0.1f);
         if(CurrentHealth <= 0)
         {
             
