@@ -6,7 +6,10 @@ class SceneMain extends Phaser.Scene {
 
     }
     create() {
+        emitter = new Phaser.Events.EventEmitter();
+        model.score = 100;
         console.log("Ready!");
+        
     }
     update() { }
 }

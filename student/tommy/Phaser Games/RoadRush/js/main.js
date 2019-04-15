@@ -1,5 +1,6 @@
 var game;
 var model;
+var emitter;
 window.onload = function () {
     var config = {
         type: Phaser.AUTO,

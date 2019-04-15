@@ -13,7 +13,8 @@ class SceneMain extends Phaser.Scene {
 
     }
     create() {
-        
+        emitter = new Phaser.Events.EventEmitter();
+        model.score = 100;
         this.road = new Road({ scene: this });
         this.road.x = game.config.width / 2;
         this.road.makeLines();
