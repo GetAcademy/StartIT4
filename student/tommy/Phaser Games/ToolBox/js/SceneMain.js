@@ -7,7 +7,8 @@ class SceneMain extends Phaser.Scene {
     }
     create() {
         emitter = new Phaser.Events.EventEmitter();
-        model.score = 100;
+        controller = new Controller();
+        model.score = 0;
         console.log("Ready!");
         
     }

@@ -8,7 +8,7 @@ class Model {
     }
 
     get score() {
-        return this_.score;
+        return this._score;
     }
     
 }
