@@ -16,8 +16,8 @@ class SceneMain extends Phaser.Scene {
         emitter = new Phaser.Events.EventEmitter();
         controller = new Controller();
 
-        var flatbutton = new FlatButton({ scene: this, key: 'button1', text: 'Press Me!', x: 240, y: 100, event: 'button_pressed' });
-        var flatbutton2 = new FlatButton({ scene: this, key: 'button2', text: 'Press Me!', x: 240, y: 300, event: 'button_pressed' });
+        var flatbutton = new FlatButton({ scene: this, key: 'button1', text: 'Fire!', x: 240, y: 100, event: 'button_pressed', params:'fire_lasers' });
+        var flatbutton2 = new FlatButton({ scene: this, key: 'button2', text: 'SelfDestruct', x: 240, y: 300, event: 'button_pressed', params:'self_destruct' });
 
         emitter.on('button_pressed', this.buttonPressed, this);
 
@@ -32,8 +32,8 @@ class SceneMain extends Phaser.Scene {
         
     }
 
-    buttonPressed() {
-        console.log("buttonpressed!");
+    buttonPressed(params) {
+        console.log(params);
     }
     update() { }
 }

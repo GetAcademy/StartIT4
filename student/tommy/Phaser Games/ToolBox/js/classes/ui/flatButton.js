@@ -41,6 +41,12 @@ class FlatButton extends Phaser.GameObjects.Container {
        
     }
     pressed() {
-        emitter.emit(this.config.event);
+        if (this.config.params) {
+            emitter.emit(this.config.event, this.config.params);
+        }
+        else {
+            emitter.emit(this.config.event);
+        }
+        
     }
 }
