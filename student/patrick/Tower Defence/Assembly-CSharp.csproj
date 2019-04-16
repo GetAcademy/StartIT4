@@ -67,10 +67,13 @@
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\FlyingSphereEnemyStats.cs" />
     <Compile Include="Assets\Scripts\MyEnemy.cs" />
+    <Compile Include="Assets\Scripts\NodeSlot.cs" />
     <Compile Include="Assets\Scripts\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\PurchaseStuff.cs" />
     <Compile Include="Assets\Scripts\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Waypoints.cs" />
+    <None Include="Assets\Imported\Environment\Stone_Pack_1_Obj\Stone_Pack_1.txt" />
+    <None Include="Assets\Imported\Environment\Rock_6_FREE\OKU.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Patrick/Documents/GitHub/StartIT4/student/patrick/Tower Defence/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

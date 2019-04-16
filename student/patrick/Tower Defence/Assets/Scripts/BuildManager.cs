@@ -28,6 +28,7 @@ public class BuildManager : MonoBehaviour
 
     public GameObject BloodTurretPrefab;
     public GameObject SniperTurretPrefab;
+    public GameObject BuildSlotPrefab;
 
     GameObject TurretToBuild;
 
