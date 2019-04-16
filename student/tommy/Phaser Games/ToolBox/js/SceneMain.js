@@ -6,6 +6,11 @@ class SceneMain extends Phaser.Scene {
 
     }
     create() {
+
+        var gridConfig = { rows: 5, cols: 5, scene: this };
+        var alignGrid = new AlignGrid(gridConfig);
+        alignGrid.showNumbers();
+
         emitter = new Phaser.Events.EventEmitter();
         controller = new Controller();
 
