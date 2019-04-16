@@ -1,4 +1,8 @@
+var model;
 var game;
+var emitter;
+var G;
+var controller;
 window.onload = function () {
     var config = {
         type: Phaser.AUTO,
@@ -7,5 +11,7 @@ window.onload = function () {
         parent: 'phaser-game',
         scene: [SceneMain]
     };
-     game = new Phaser.Game(config);
+    G = new Constants();
+    model = new Model();
+    game = new Phaser.Game(config);
 }
