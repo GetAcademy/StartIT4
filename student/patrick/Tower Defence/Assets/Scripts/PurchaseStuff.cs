@@ -47,4 +47,17 @@ public class PurchaseStuff : MonoBehaviour
             Debug.Log("Sorry You Cant Afford This Turret Right Now");
         }
     }
+
+    public void PurchaseBuildSlot()
+    {
+        if(PlayerBehaviour.Money >= 300)
+        {
+            PlayerBehaviour.Money -= 300;
+            buildmanager.SetTurretToBuild(buildmanager.BuildSlotPrefab);
+        }
+        else
+        {
+            Debug.Log("Sorry You Cant Afford This Right Now");
+        }
+    }
 }

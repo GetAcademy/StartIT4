@@ -90,6 +90,26 @@ public class BloodTurret : MonoBehaviour
     void Shoot()
     {
         gameObject.GetComponentInChildren<ParticleSystem>().Play();
+
+        var Test = Quaternion.LookRotation(Target.position - transform.position).eulerAngles;
+        var MySystem = Target.Find("TurretDamage").GetComponent<ParticleSystem>();
+        var MainSystem = MySystem.main;
+        var Shape = MySystem.shape;
+        var Emission = MySystem.emission;
+
+        
+            MainSystem.gravityModifier = 0;
+            Shape.rotation = new Vector3(0f, Test.y, 0f);
+
+            Emission.SetBursts(new ParticleSystem.Burst[]
+            {
+            new ParticleSystem.Burst(0,5,1,1,Mathf.Infinity)
+            });
+            MySystem.Play();
+        
+
         Target.gameObject.GetComponent<FlyingSphereEnemyStats>().CurrentHealth -= Damage;
+
+        
     }
 }
