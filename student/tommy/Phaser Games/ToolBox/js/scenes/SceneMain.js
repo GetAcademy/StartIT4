@@ -6,6 +6,8 @@ class SceneMain extends Phaser.Scene {
         this.load.image("button1", "images/ui/buttons/2/1.png");
         this.load.image("button2", "images/ui/buttons/2/5.png");
 
+        this.load.audio('backgroundMusic', ["audio/background.mp3", "audio/background.ogg"]);
+
     }
     create() {
         
@@ -15,6 +17,9 @@ class SceneMain extends Phaser.Scene {
 
         emitter = new Phaser.Events.EventEmitter();
         controller = new Controller();
+
+        var mediaManager = new MediaManager({ scene: this });
+        mediaManager.setBackgroundMusic('backgroundMusic');
 
         var fireText = { color: 'black', fontSize: 30 };
         var flatbutton = new FlatButton({ scene: this, key: 'button1', text: 'Fire!', x: 240, y: 100, event: 'button_pressed', params: 'fire_lasers', textConfig: fireText });
@@ -34,6 +39,7 @@ class SceneMain extends Phaser.Scene {
     }
 
     buttonPressed(params) {
+        model.musicOn = !model.musicOn;
         console.log(params);
     }
     update() { }
