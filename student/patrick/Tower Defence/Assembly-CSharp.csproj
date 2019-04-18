@@ -66,12 +66,15 @@
     <Compile Include="Assets\Scripts\BuildManager.cs" />
     <Compile Include="Assets\Scripts\BuildSlot.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\ChickenEnemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\FlyingSphereEnemyStats.cs" />
-    <Compile Include="Assets\Scripts\MyEnemy.cs" />
+    <Compile Include="Assets\Scripts\GroundEnemyMovement.cs" />
     <Compile Include="Assets\Scripts\NodeSlot.cs" />
     <Compile Include="Assets\Scripts\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\PurchaseStuff.cs" />
+    <Compile Include="Assets\Scripts\TurretBehaviour.cs" />
     <Compile Include="Assets\Scripts\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Waypoints.cs" />
     <None Include="Assets\Imported\Environment\Rocks\StonePack\Stone_Pack_1.txt" />

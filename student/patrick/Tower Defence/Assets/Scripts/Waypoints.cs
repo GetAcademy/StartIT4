@@ -21,7 +21,7 @@ public class Waypoints : MonoBehaviour
     }
 
 
-    public static Transform[] Points;
+    public Transform[] Points;
 
     void InitializePoints()
     {

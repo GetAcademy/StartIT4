@@ -33,8 +33,6 @@ public class BloodTurret : MonoBehaviour
     [Header("Background Variables")]
     public int TurningSpeed = 10;
     float FireRateCountDown = 0f;
-    public Transform ThisTurret;
-    public GameObject MuzzleFlash;
 
     void UpdateTarget()
     {
@@ -51,10 +49,11 @@ public class BloodTurret : MonoBehaviour
                 NearestEnemy = Enemy;
             }
 
-            if(NearestEnemy != null && ShortestDistance <= Range && NearestEnemy.GetComponent<MeshRenderer>())
+            if (NearestEnemy != null && ShortestDistance <= Range && NearestEnemy.GetComponent<SphereCollider>())
             {
                 Target = NearestEnemy.transform;
             }
+            
             else
             {
                 Target = null;
@@ -69,10 +68,10 @@ public class BloodTurret : MonoBehaviour
             return;
         }
         
-        Vector3 dir = Target.position - transform.position;
+        Vector3 dir = new Vector3(Target.position.x,0,Target.position.z) - new Vector3(transform.position.x,0,transform.position.z);
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = lookRotation.eulerAngles; //Quaternion.Lerp(ThisTurret.rotation, lookRotation, Time.deltaTime * TurningSpeed).eulerAngles;
-        ThisTurret.rotation = Quaternion.Euler(0f, rotation.y + 90, 0f);
+        Vector3 rotation = lookRotation.eulerAngles; //Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * TurningSpeed).eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, rotation.y + 90, 0f);
         
         
     }
@@ -106,9 +105,16 @@ public class BloodTurret : MonoBehaviour
             new ParticleSystem.Burst(0,5,1,1,Mathf.Infinity)
             });
             MySystem.Play();
-        
 
-        Target.gameObject.GetComponent<FlyingSphereEnemyStats>().CurrentHealth -= Damage;
+        if (Target.gameObject.GetComponent<FlyingSphereEnemyStats>())
+        {
+            Target.gameObject.GetComponent<FlyingSphereEnemyStats>().CurrentHealth -= Damage;
+        }
+        if (Target.gameObject.GetComponent<EnemyBehaviour>())
+        {
+            Target.gameObject.GetComponent<EnemyBehaviour>().CurrentHealth -= Damage;
+        }
+        
 
         
     }
