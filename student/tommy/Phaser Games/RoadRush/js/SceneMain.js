@@ -14,12 +14,7 @@ class SceneMain extends Phaser.Scene {
         this.load.image("sfxOff", "images/ui/icons/sfx_off.png");
         this.load.image("sfxOn", "images/ui/icons/sfx_on.png");
         this.load.image("musicOn", "images/ui/icons/music_on.png");
-        this.load.image("musicOff", "images/ui/icons/music_off.png");
-
-        this.load.audio("backgroundMusic", ['audio/random-race.mp3', 'audio/random-race.ogg']);
-        this.load.audio("boom", ['audio/boom.mp3', 'audio/boom.ogg']);
-        this.load.audio("woosh", ['audio/woosh.mp3', 'audio/woosh.ogg']);
-
+        this.load.image("musicOff", "images/ui/icons/music_off.png")
     }
     create() {
         emitter = new Phaser.Events.EventEmitter();
@@ -39,8 +34,7 @@ class SceneMain extends Phaser.Scene {
         this.alignGrid.showNumbers();
         this.alignGrid.placeAtIndex(4, this.sb);
 
-        var soundButtons = new SoundButtons({ scene: this });
-
+        var soundButtons = new soundButtons({ scene: this });
     }
     update() {
         this.road.moveLines();
