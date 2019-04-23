@@ -40,8 +40,16 @@ class SceneMain extends Phaser.Scene {
         this.paddle1.setImmovable();
         this.paddle2.setImmovable();
         this.physics.add.collider(this.ball, this.paddle1, this.ballhit,null,this);
-        this.physics.add.collider(this.ball, this.paddle2, this.ballhit,null,this);
+        this.physics.add.collider(this.ball, this.paddle2, this.ballhit, null, this);
+        this.input.on('pointerdown', this.changePaddle, this);
 
+
+    }
+
+    changePaddle() {
+        var paddle = (this.velocity > 0) ? this.paddle2 : this.paddle1;
+        var color = (paddle.frame.name == 1) ? 0 : 1;
+        paddle.setFrame(color);
     }
 
     setBallColor() {
