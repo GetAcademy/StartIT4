@@ -55,6 +55,7 @@ class SceneMain extends Phaser.Scene {
     }
 
     ballhit(ball, paddle) {
+        this.setBallColor();
         this.velocity = -this.velocity;
         ball.setVelocity(0, this.velocity);
     }
