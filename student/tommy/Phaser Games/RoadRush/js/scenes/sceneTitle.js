@@ -4,15 +4,15 @@ class SceneTitle extends Phaser.Scene {
     }
     preload() {
         this.load.image("button1", "images/ui/buttons/2/1.png");
-        this.load.image("title", "images/ui/title.png");
+        this.load.image("title", "images/title.png");
     }
     create() {
         emitter = new Phaser.Events.EventEmitter();
         controller = new Controller();
 
         this.alignGrid = new AlignGrid({ rows: 11, cols: 11, scene: this });
-        this.alignGrid.showNumbers();
-
+        // this.alignGrid.showNumbers();
+        this.backImage = this.add.image(game.config.width / 2, game.config.height / 2, "titleBack");
 
         var title = this.add.image(0, 0, 'title');
         Align.scaletoGameW(title, 0.8);
@@ -23,6 +23,8 @@ class SceneTitle extends Phaser.Scene {
         this.alignGrid.placeAtIndex(93, btnStart);
 
         emitter.on('start_game', this.startGame, this);
+        mediaManager = new MediaManager({ scene: this });
+        mediaManager.setBackgroundMusic("backgroundMusic");
     }
 
     startGame() {

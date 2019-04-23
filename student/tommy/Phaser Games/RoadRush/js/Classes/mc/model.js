@@ -3,12 +3,13 @@ class Model {
         this._score = 0;
         this.soundOn = true;
         this._musicOn = true;
-        
+        this.gameOver = false;
     }
 
     set musicOn(val) {
         this._musicOn = val;
-        emitter.emit(G.MUSIC_CHANGED);
+        console.log("music changed");
+        mediaManager.musicChanged();
     }
 
     get musicOn() {
