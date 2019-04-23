@@ -1,5 +1,10 @@
 class ScoreBox extends Phaser.GameObjects.Container {
     constructor(config) {
+        if (!config.scene) {
+            console.log("missing scene!");
+            return;
+        }
+
         super(config.scene);
         this.scene = config.scene;
 
@@ -7,6 +12,15 @@ class ScoreBox extends Phaser.GameObjects.Container {
         this.text1.setOrigin(0.5, 0.5);
         this.add(this.text1);
 
+        if (config.x) {
+            this.x = config.x;
+        }
+
+        if (config.y) {
+            this.y = config.y;
+        }
+
+        this.text1.setBackgroundColor("#000000");
 
         this.scene.add.existing(this);
 
