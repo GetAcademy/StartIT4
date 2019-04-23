@@ -15,12 +15,13 @@ class SceneMain extends Phaser.Scene {
 
         var sb = new SoundButtons({ scene: this });
 
+        this.velocity = 100;
         this.centerX = game.config.width / 2;
         this.centerY = game.config.height / 2;
         this.quarter = game.config.height / 4;
 
 
-        this.add.image(this.centerX, this.centerY, 'bar');
+        this.bar = this.add.image(this.centerX, this.centerY, 'bar');
         this.bar.displayWidth = game.config.width / 3;
         this.bar.displayHeight = game.config.height;
 
@@ -33,6 +34,29 @@ class SceneMain extends Phaser.Scene {
 
         this.paddle2 = this.physics.add.sprite(this.centerX, this.quarter * 3, 'paddles');
         Align.scaletoGameW(this.paddle2, 0.25);
+
+        this.setBallColor();
+        this.ball.setVelocity(0, this.velocity);
+        this.paddle1.setImmovable();
+        this.paddle2.setImmovable();
+        this.physics.add.collider(this.ball, this.paddle1, this.ballhit,null,this);
+        this.physics.add.collider(this.ball, this.paddle2, this.ballhit,null,this);
+
+    }
+
+    setBallColor() {
+        var r = Math.floor(Math.random() * 100);
+        if (r < 50) {
+            this.ball.setFrame(0);
+        }
+        else {
+            this.ball.setFrame(1);
+        }
+    }
+
+    ballhit(ball, paddle) {
+        this.velocity = -this.velocity;
+        ball.setVelocity(0, this.velocity);
     }
 
 
