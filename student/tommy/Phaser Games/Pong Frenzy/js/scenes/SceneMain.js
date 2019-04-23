@@ -3,7 +3,7 @@ class SceneMain extends Phaser.Scene {
         super('SceneMain');
     }
     preload() {
-      
+
         this.load.spritesheet('balls', 'images/balls.png', { frameWidth: 100, frameHeight: 100 });
         this.load.spritesheet('paddles', 'images/paddles.png', { frameWidth: 400, frameHeight: 50 });
         this.load.image('bar', 'images/bar.jpg');
@@ -19,6 +19,7 @@ class SceneMain extends Phaser.Scene {
         this.centerX = game.config.width / 2;
         this.centerY = game.config.height / 2;
         this.quarter = game.config.height / 4;
+        this.pMove = game.config.height / 32;
 
 
         this.bar = this.add.image(this.centerX, this.centerY, 'bar');
@@ -39,17 +40,30 @@ class SceneMain extends Phaser.Scene {
         this.ball.setVelocity(0, this.velocity);
         this.paddle1.setImmovable();
         this.paddle2.setImmovable();
-        this.physics.add.collider(this.ball, this.paddle1, this.ballhit,null,this);
+        this.physics.add.collider(this.ball, this.paddle1, this.ballhit, null, this);
         this.physics.add.collider(this.ball, this.paddle2, this.ballhit, null, this);
         this.input.on('pointerdown', this.changePaddle, this);
+        this.input.on('pointerup', this.onUp, this);
 
 
     }
 
-    changePaddle() {
+
+    onUp(pointer) {
+        var diffY = Math.abs(pointer.y - this.downY);
+        console.log(diffY);
+        if (diffY > 300) {
+            this.tweens.add({ targets: this.paddle1, duration: 1000, y: this.quarter });
+            this.tweens.add({ targets: this.paddle2, duration: 1000, y: this.quarter * 3 });
+        }
+    }
+
+    changePaddle(pointer) {
         var paddle = (this.velocity > 0) ? this.paddle2 : this.paddle1;
         var color = (paddle.frame.name == 1) ? 0 : 1;
         paddle.setFrame(color);
+
+        this.downY = pointer.y;
     }
 
     setBallColor() {
@@ -66,6 +80,14 @@ class SceneMain extends Phaser.Scene {
         this.setBallColor();
         this.velocity = -this.velocity;
         ball.setVelocity(0, this.velocity);
+        var targetY = 0;
+        if (paddle.y > this.centerY) {
+            targetY = paddle.y - this.pMove;
+        }
+        else {
+            targetY = paddle.y + this.pMove;
+        }
+        this.tweens.add({ targets: paddle, duratio: 1000, y: targetY });
     }
 
 
