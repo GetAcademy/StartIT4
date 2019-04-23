@@ -3,11 +3,28 @@ class SceneMain extends Phaser.Scene {
         super('SceneMain');
     }
     preload() {
-        this.load.image("face", "images/face.png");
+        this.load.image('apple', 'images/apple.png');
+        this.load.image('ground', 'images/ground.png');
     }
     create() {
-        this.face = this.add.image(100, 200, "face");
-        console.log("Ready!");
+        this.apple = this.physics.add.sprite(240, 300, 'apple');
+        this.apple.setGravityY(200);
+
+        this.ground = this.physics.add.sprite(240, 600, 'ground');
+        this.ground.setImmovable();
+        this.physics.add.collider(this.apple, this.ground);
+
+        this.apple.setBounce(0, 0.25);
+        this.input.on('pointerdown', this.moveApple, this);
     }
-    update() { }
+
+    moveApple() {
+        this.apple.setVelocity(0,-100);
+    }
+
+
+    update() {
+
+    }
+
 }

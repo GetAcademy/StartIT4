@@ -1,0 +1,23 @@
+Logg 13.04.2019
+
+Løste Problemer:
+
++ det finnes ikke en mekanikk for å designere hvor turrets kan plasseres eller et system for å kjøpe og plassere turrets.
+
++ man kan trykke på fiendene for å gjøre skade til dem.
+
++ bugs med HUDen er forhåpentligvis fikset for siste gang, kansje 5mte gang jeg fikser den nå men nå bør den være fungerende.
+
+Gjenstående Problemer fra igår:
+
+- det finnes ikke en mekanikk for å selge og oppgradere turrets.
+
+- det finnes ikke en mekanikk for å starte spillet på nytt eller gå til menyen om man dør.
+
+- det finnes ikke en meny scene.
+
+- det finnes ingen options scene.
+
+Nye Problemer:
+
+(ingenting)
