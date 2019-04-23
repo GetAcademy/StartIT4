@@ -1,0 +1,27 @@
+Logg 10.04.2019
+
+Løste Problemer:
+
+(ingenting)
+
+Gjenstående problemer fra igår:
+
+(ingenting)
+
+Nye Problemer:
+
+- Turreten min snur seg, på en måte men vær gang den finner nytt target snapper den tilbake i en -180 graders rotasjon på y aksen. dette må fikses.
+
+- turret scriptet må ha en smoothening ettersom at siktingen er ekstremt hakkete.
+
+- turreten kan ikke skyte og gjøre skade på fiender enda dette må fikses.
+
+- det finnes ikke en mekanikk for å designere hvor turrets kan plasseres eller et system for å kjøpe og plassere turrets.
+
+- det finnes ikke en mekanikk for å selge og oppgradere turrets.
+
+- det finnes ikke en mekanikk for å starte spillet på nytt eller gå til menyen om man dør.
+
+- det finnes ikke en meny scene.
+
+- det finnes ingen options scene.

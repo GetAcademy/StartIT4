@@ -12,10 +12,9 @@ function visSelvevaluering() {
                         <h1 class="Evaluering">Evaluering</h1>
                     </tr>
                     <tr>
-                        <input class="lærerSpørsmål" id="godJul" type="text" />
-                        <button class="lærerSpørsmål" onclick="heisan()">Send</button>
                         <div id="question";"></div>
                     </tr>
+                    <div class="botCorner"><button class="returnButton" onclick="visMeny()">&#8617;</button></div>
                 </table>
             `;
     showNextQuestion();

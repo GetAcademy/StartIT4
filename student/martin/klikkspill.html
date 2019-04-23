@@ -10,54 +10,86 @@
             font-size: 500%;
             user-select: none;
         }
+
+        .innhold {
+            text-align: center;
+
+        }
     </style>
 
 </head>
 
 <body>
-    <div id="image" onclick="changeImage()"></div>
-    <div id="pointsInfo"></div>
-    <button onclick="buyUpgrades()">Kjøp oppgradering (10 poeng)</button>
-    <button onclick="buyUpgrades1()">Kjøpt mer upgrades (100 poeng)</button>
-    
+    <div class="innhold" id="image" onclick="changeImage()"></div>
+    <div class="innhold" id="pointsInfo"></div>
+    <ul>
+        <li><button onclick="woodenMouse()">Wooden mouse (10 poeng)</button></li>
+        <li><button onclick="stoneMouse()">Stone mouse (100 poeng)</button></li>
+        <li><button onclick="ironMouse()">Iron mouse (1000 poeng)</button></li>
+        <li><button onclick="silverMouse()">Silver mouse (100000 poeng)</button></li>
+        <li><button onclick="autoWorker()">Miner</button></li>
+    </ul>
     <script>
-    var imageDiv = document.getElementById('image');
-    var pointsDiv = document.getElementById('pointsInfo');
+        var imageDiv = document.getElementById('image');
+        var pointsDiv = document.getElementById('pointsInfo');
 
-    // model
-    var points= 0;
-    var pointsPerClick = 1;
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
 
-    
-    // controller
-    function changeImage() {
-        points += pointsPerClick;
+
+        // controller
+        function changeImage() {
+            points += pointsPerClick;
+            show();
+        }
+        function woodenMouse() {
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            show();
+        }
+        function stoneMouse() {
+            if (points < 100) return;
+            points -= 100;
+            pointsPerClick += 99;
+            show();
+        }
+        function ironMouse() {
+            if (points < 1000) return;
+            points -= 1000;
+            pointsPerClick += 999;
+            show();
+        }
+        function silverMouse() {
+            if (points < 100000) return;
+            points -= 100000;
+            pointsPerClick += 99999;
+            show();
+        }
+        function autoWorker() {
+            if (points < 1) return;
+            points -= 1;
+            setInterval(function () {
+                imageDiv.click();
+            }, 1000);
+            show();  
+        }
+
+        // function buyUpgrades(value) {
+        //     if (points < value) return;
+        //     points -=value;
+        //     pointsPerClick+=value;
+        //     show();
+        // }
+
+
+        // view 
         show();
-     }
-    // function buyUpgrades() {
-    //     if (points < 10) return;
-    //     points -=10;
-    //     pointsPerClick++;
-    //     show();
-    // }
-    // function buyUpgrades1() {
-    //     if (points < 100) return;
-    //     points -=100;
-    //     pointsPerClick +=99;
-    //     show();
-    // }
-    function buyUpgrades(value) {
-        if (points < value) return;
-        points -=value;
-        pointsPerClick+=value;
-        show();
-    }
-    // view 
-    show();
-    function show() {
-        imageDiv.innerHTML = points % 2 === 0 ? '😀' : '😃';
-        pointsDiv.innerHTML = points;
-    } 
+        function show() {
+            imageDiv.innerHTML = points % 2 === 0 ? '😀' : '⛏️';
+            pointsDiv.innerHTML = points;
+        } 
     </script>
 </body>
 
