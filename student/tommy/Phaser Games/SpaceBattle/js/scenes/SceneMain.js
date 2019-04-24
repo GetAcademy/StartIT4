@@ -64,9 +64,7 @@ class SceneMain extends Phaser.Scene {
             child.body.setVelocity(vx * speed, vy * speed);
 
         }.bind(this));
-        this.physics.add.collider(this.rockGroup);
-        this.physics.add.collider(this.bulletGroup, this.rockGroup, this.destroyRock, null, this);
-        this.physics.add.collider(this.eBulletGroup, this.rockGroup, this.destroyRock, null, this);
+       
 
         var frameNames = this.anims.generateFrameNumbers('exp');
         var f2 = frameNames.slice();
@@ -84,8 +82,18 @@ class SceneMain extends Phaser.Scene {
         Align.scaletoGameW(this.eship, 0.250);
 
         this.makeInfo();
+        this.setColliders();
 
     }
+
+    setColliders() {
+        this.physics.add.collider(this.rockGroup);
+        this.physics.add.collider(this.bulletGroup, this.rockGroup, this.destroyRock, null, this);
+        this.physics.add.collider(this.eBulletGroup, this.rockGroup, this.destroyRock, null, this);
+        this.physics.add.collider(this.bulletGroup, this.eship, this.damageEnemy, null, this);
+        this.physics.add.collider(this.eBulletGroup, this.ship, this.damagePlayer, null, this);
+    }
+    
     makeInfo() {
         this.text1 = this.add.text(0, 0, "Shields\n100", { fontSize: game.config.width/30, align: "center", backgroundColor: '#000000' });
         this.text2 = this.add.text(0, 0, "Enemy Shields\n100", { fontSize: game.config.width/30, align: "center", backgroundColor: '#000000' });
@@ -115,6 +123,20 @@ class SceneMain extends Phaser.Scene {
         this.icon2.setScrollFactor(0);
 
     }
+    damagePlayer(ship, bullet) {
+        var explosion = this.add.sprite(this.ship.x, this.ship.y, 'exp');
+        explosion.play('boom');
+        bullet.destroy();
+
+    }
+
+    damageEnemy(ship, bullet) {
+        var explosion = this.add.sprite(bullet.x, bullet.y, 'exp');
+        explosion.play('boom');
+        bullet.destroy();
+     
+    }
+
     destroyRock(bullet, rock) {
         bullet.destroy();
         var explosion = this.add.sprite(rock.x, rock.y, 'exp');
