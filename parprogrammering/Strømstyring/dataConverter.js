@@ -3,19 +3,6 @@
 //This script converts it to the correct format.
 
 
-
-function convert(myArray) {
-    var data = [];
-    for (let obj of myArray) {
-        data.push({
-            x: new Date(obj.date),
-            y: obj.power
-        });
-    }
-    return data;
-}
-
-
 var uglyData = [
     { "date": "2019-01-01T09:00:00.000Z", "power": 13.0170341476524865 },
     { "date": "2019-01-01T10:00:00.000Z", "power": 21.335133189406978 },
@@ -45,20 +32,16 @@ var uglyData = [
 ];
 var niceData = convert(uglyData);
 
-
-
-/*
-var niceDataPower = convertPower(uglyData);
-
-function convertPower(powerArray) {
-    var power = [];
-    for (let obj of powerArray) {
-        power.push({
-            power: obj.powerUse
+function convert(myArray) {
+    var data = [];
+    for (let obj of myArray) {
+        data.push({
+            x: new Date(obj.date),
+            y: obj.power
         });
     }
-    return power;
-}*/
+    return data;
+}
 //
 var uglyData1 = [
         {"date":"2019-01-01T09:00:00.000Z","power":52.83010481114612},
@@ -89,7 +72,16 @@ var uglyData1 = [
 ];
 var niceData1 = convert(uglyData1);
 
-
+function convert(myArray) {
+    var data1 = [];
+    for (let obj of myArray) {
+        data1.push({
+            x: new Date(obj.date),
+            y: obj.power
+        });
+    }
+    return data1;
+}
 //
 var uglyData2 = [
     {"date":"2019-01-01T09:00:00.000Z","power":21.413851557807636},
@@ -120,7 +112,16 @@ var uglyData2 = [
 ];
 var niceData2 = convert(uglyData2);
 
-
+function convert(myArray) {
+var data2 = [];
+for (let obj of myArray) {
+    data2.push({
+        x: new Date(obj.date),
+        y: obj.power
+    });
+}
+return data2;
+}
 
 //
 
@@ -153,4 +154,13 @@ var uglyData3 = [
 ];
 var niceData3 = convert(uglyData3);
 
-
+function convert(myArray) {
+var data3 = [];
+for (let obj of myArray) {
+    data3.push({
+        x: new Date(obj.date),
+        y: obj.power
+    });
+}
+return data3;
+}

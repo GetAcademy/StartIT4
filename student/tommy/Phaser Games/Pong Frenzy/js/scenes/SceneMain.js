@@ -4,13 +4,12 @@ class SceneMain extends Phaser.Scene {
     }
     preload() {
 
-        this.load.spritesheet('balls', 'images/balls.png', { frameWidth: 100, frameHeight: 100 });
-        this.load.spritesheet('paddles', 'images/paddles.png', { frameWidth: 400, frameHeight: 50 });
-        this.load.image('bar', 'images/bar.jpg');
+       
     }
     create() {
         emitter = new Phaser.Events.EventEmitter();
         controller = new Controller();
+        model.score = 0;
         var mediaManager = new MediaManager({ scene: this });
 
         var sb = new SoundButtons({ scene: this });
@@ -76,6 +75,7 @@ class SceneMain extends Phaser.Scene {
             onCompleteParams: [{ scope: this, paddle: paddle }]
         });
         this.downY = pointer.y;
+        emitter.emit(G.PLAY_SOUND, "flip", { volume: 0.10 });
     }
     onCompleteHandler(tween, targets, custom) {
         var paddle = custom.paddle;
@@ -96,18 +96,48 @@ class SceneMain extends Phaser.Scene {
         }
     }
 
+    doOver() {
+        this.scene.start('SceneOver');
+    }
+
     ballhit(ball, paddle) {
-        this.setBallColor();
-        this.velocity = -this.velocity;
-        ball.setVelocity(0, this.velocity);
-        var targetY = 0;
-        if (paddle.y > this.centerY) {
-            targetY = paddle.y - this.pMove;
+        emitter.emit(G.PLAY_SOUND, "hit", { volume: 0.10 });
+        var distY = Math.abs(this.paddle1.y - this.paddle2.y);
+        if (ball.frame.name == paddle.frame.name) {
+            
+            var points = 1;
+            
+
+            if (distY < game.config.height / 3) {
+                points = 2;
+            }
+            if (distY < game.config.height / 4) {
+                points = 3;
+            }
+            emitter.emit(G.UP_POINTS, points);
         }
         else {
-            targetY = paddle.y + this.pMove;
+            emitter.emit(G.PLAY_SOUND, "lose", { volume: 0.10});
+            this.time.addEvent({ delay: 1000, callback: this.doOver, callbackScope: this, loop: false });
+            return;
         }
-        this.tweens.add({ targets: paddle, duratio: 1000, y: targetY });
+        this.setBallColor();
+        this.velocity = -this.velocity;
+        this.velocity *= 1.01;
+        ball.setVelocity(0, this.velocity);
+        var targetY = 0;
+        if (distY > game.config.height / 5) {
+
+
+            if (paddle.y > this.centerY) {
+                targetY = paddle.y - this.pMove;
+            }
+            else {
+                targetY = paddle.y + this.pMove;
+            }
+
+            this.tweens.add({ targets: paddle, duratio: 1000, y: targetY });
+        }
     }
 
 

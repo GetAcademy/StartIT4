@@ -8,28 +8,29 @@
 
     <style>
         .stiling {
-            border: 5px;
-            color: dodgerblue;
+
+            border: 15px;
+            color: rgb(129, 188, 247);
         }
 
         .stiling2 {
-            background-color: dodgerblue;
+            background-color: rgba(97, 174, 252, 0.637);
             color: lightgreen;
         }
 
         .stiling3 {
             margin: 5px;
-            color: pink;
+            color: hotpink;
         }
 
         .stiling4 {
-            padding: 8px;
+            padding: 10px;
             color: aquamarine;
         }
 
         .stiling5 {
             border: 20px;
-            color: lightpink;
+            color: hotpink;
         }
 
         div.selected::before {
@@ -44,10 +45,9 @@
 
 <body>
     
-
-    <div id="bla" onclick="select(this)">Bla</div>
-    <div id="bla" onclick="select(this)">Bla</div>
-    <div id="bla" onclick="select(this)">Bla</div>
+    <div id="bla" onclick="select(this)">Bla bla</div>
+    <div id="bla" onclick="select(this)">Bla bla</div>
+    <div id="bla" onclick="select(this)">Bla bla</div>
 
     <input id="chk" type="checkbox" onchange="toggleStyle()" />
     <input id="chk2" type="checkbox" onchange="toggleStyle()" />
@@ -57,7 +57,6 @@
 
     <script>
         var selectedTag = document.getElementById('bla')
-        //den diven heter stilling!
         function toggleStyle(en) {
             var isChecked = document.getElementById('chk').checked;
             selectedTag.classList.toggle('stiling', isChecked);
