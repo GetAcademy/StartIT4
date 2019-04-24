@@ -3,8 +3,8 @@ class SceneMain extends Phaser.Scene {
         super('SceneMain');
     }
     preload() {
-      
-        
+
+
 
     }
     create() {
@@ -17,7 +17,7 @@ class SceneMain extends Phaser.Scene {
         this.centerX = game.config.width / 2;
         this.centerY = game.config.height / 2;
 
-       
+
         this.background = this.add.image(0, 0, 'background');
         this.background.setOrigin(0, 0);
         this.ship = this.physics.add.sprite(this.centerX, this.centerY, 'ship');
@@ -28,7 +28,8 @@ class SceneMain extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, this.background.displayWidth, this.background.displayHeight);
 
         this.background.setInteractive();
-        this.background.on('pointerdown', this.backgroundClicked, this);
+        this.background.on('pointerup', this.backgroundClicked, this);
+        this.background.on('pointerdown', this.onDown, this);
 
         this.cameras.main.setBounds(0, 0, this.background.displayWidth, this.background.displayHeight);
         this.cameras.main.startFollow(this.ship, true);
@@ -60,20 +61,53 @@ class SceneMain extends Phaser.Scene {
             var speed = Math.floor(Math.random() * 200) + 10;
             child.body.setVelocity(vx * speed, vy * speed);
 
-        }.bind(this)); 
+        }.bind(this));
+        this.physics.add.collider(this.rockGroup);
+    }
+
+    getTimer() {
+        var d = new Date();
+        return d.getTime();
+    }
+
+    onDown() {
+        this.downTime = this.getTimer();
     }
 
     backgroundClicked() {
-        var tx = this.background.input.localX * this.background.scaleX;
-        var ty = this.background.input.localY * this.background.scaleY;
-        this.tx = tx;
-        this.ty = ty;
+        var elapsed = Math.abs(this.downTime - this.getTimer());
 
-        var angle = this.physics.moveTo(this.ship, tx, ty, 60);
-        angle = this.toDegrees(angle);
-        this.ship.angle = angle;
+        if (elapsed < 300) {
+            var tx = this.background.input.localX * this.background.scaleX;
+            var ty = this.background.input.localY * this.background.scaleY;
+            this.tx = tx;
+            this.ty = ty;
+
+            var angle = this.physics.moveTo(this.ship, tx, ty, 60);
+            angle = this.toDegrees(angle);
+            this.ship.angle = angle;
+        }
+        else {
+            this.makeBullet();
+        }
+
 
     }
+
+    makeBullet() {
+        var dirObj = this.getDirFromAngle(this.ship.angle);
+        var bullet = this.physics.add.sprite(this.ship.x + dirObj.tx * 30, this.ship.y + dirObj.ty * 30, "bullet");
+        bullet.angle = this.ship.angle;
+        bullet.body.setVelocity(dirObj.tx * 100, dirObj.ty * 100);
+    }
+
+    getDirFromAngle(angle) {
+        var rads = angle * Math.PI / 180;
+        var tx = Math.cos(rads);
+        var ty = Math.sin(rads);
+        return { tx, ty }
+    }
+
 
     toDegrees(angle) {
         return angle * (180 / Math.PI);
