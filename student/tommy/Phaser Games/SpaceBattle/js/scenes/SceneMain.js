@@ -136,6 +136,10 @@ class SceneMain extends Phaser.Scene {
         var explosion = this.add.sprite(bullet.x, bullet.y, 'exp');
         explosion.play('boom');
         bullet.destroy();
+
+        var angle2 = this.physics.moveTo(this.eship, this.ship.x, this.ship.y, 100);
+        angle2 = this.toDegrees(angle2);
+        this.eship.angle = angle2;
      
     }
 
