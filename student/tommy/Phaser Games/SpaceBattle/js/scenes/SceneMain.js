@@ -33,6 +33,7 @@ class SceneMain extends Phaser.Scene {
 
         this.cameras.main.setBounds(0, 0, this.background.displayWidth, this.background.displayHeight);
         this.cameras.main.startFollow(this.ship, true);
+        this.bulletGroup = this.physics.add.group();
 
         this.rockGroup = this.physics.add.group({
             key: 'rocks',
@@ -63,6 +64,27 @@ class SceneMain extends Phaser.Scene {
 
         }.bind(this));
         this.physics.add.collider(this.rockGroup);
+        this.physics.add.collider(this.bulletGroup, this.rockGroup, this.destroyRock, null, this);
+
+        var frameNames = this.anims.generateFrameNumbers('exp');
+        var f2 = frameNames.slice();
+        f2.reverse();
+
+        var f3 = f2.concat(frameNames);
+
+        this.anims.create({
+            key: 'boom',
+            frames: f3,
+            frameRate: 48,
+            repeat: false
+        });
+       
+    }
+    destroyRock(bullet, rock) {
+        bullet.destroy();
+        var explosion = this.add.sprite(rock.x, rock.y, 'exp');
+        explosion.play('boom');
+        rock.destroy();
     }
 
     getTimer() {
@@ -97,8 +119,9 @@ class SceneMain extends Phaser.Scene {
     makeBullet() {
         var dirObj = this.getDirFromAngle(this.ship.angle);
         var bullet = this.physics.add.sprite(this.ship.x + dirObj.tx * 30, this.ship.y + dirObj.ty * 30, "bullet");
+        this.bulletGroup.add(bullet);
         bullet.angle = this.ship.angle;
-        bullet.body.setVelocity(dirObj.tx * 100, dirObj.ty * 100);
+        bullet.body.setVelocity(dirObj.tx * 400, dirObj.ty * 400);
     }
 
     getDirFromAngle(angle) {
