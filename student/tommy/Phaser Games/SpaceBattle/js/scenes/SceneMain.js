@@ -3,8 +3,8 @@ class SceneMain extends Phaser.Scene {
         super('SceneMain');
     }
     preload() {
-      
-        
+
+
 
     }
     create() {
@@ -17,7 +17,7 @@ class SceneMain extends Phaser.Scene {
         this.centerX = game.config.width / 2;
         this.centerY = game.config.height / 2;
 
-       
+
         this.background = this.add.image(0, 0, 'background');
         this.background.setOrigin(0, 0);
         this.ship = this.physics.add.sprite(this.centerX, this.centerY, 'ship');
@@ -88,11 +88,26 @@ class SceneMain extends Phaser.Scene {
             this.ship.angle = angle;
         }
         else {
-            console.log("fire");
+            this.makeBullet();
         }
-        
+
 
     }
+
+    makeBullet() {
+        var dirObj = this.getDirFromAngle(this.ship.angle);
+        var bullet = this.physics.add.sprite(this.ship.x + dirObj.tx * 30, this.ship.y + dirObj.ty * 30, "bullet");
+        bullet.angle = this.ship.angle;
+        bullet.body.setVelocity(dirObj.tx * 100, dirObj.ty * 100);
+    }
+
+    getDirFromAngle(angle) {
+        var rads = angle * Math.PI / 180;
+        var tx = Math.cos(rads);
+        var ty = Math.sin(rads);
+        return { tx, ty }
+    }
+
 
     toDegrees(angle) {
         return angle * (180 / Math.PI);
