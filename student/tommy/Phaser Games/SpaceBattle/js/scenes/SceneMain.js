@@ -14,6 +14,9 @@ class SceneMain extends Phaser.Scene {
 
         var sb = new SoundButtons({ scene: this });
 
+        this.shields = 100;
+        this.eshields = 100;
+
         this.centerX = game.config.width / 2;
         this.centerY = game.config.height / 2;
 
@@ -21,6 +24,7 @@ class SceneMain extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'background');
         this.background.setOrigin(0, 0);
         this.ship = this.physics.add.sprite(this.centerX, this.centerY, 'ship');
+        this.ship.body.collideWorldBounds = true;
         Align.scaletoGameW(this.ship, 0.125);
 
         this.background.scaleX = this.ship.scaleX;
@@ -79,6 +83,7 @@ class SceneMain extends Phaser.Scene {
             repeat: false
         });
         this.eship = this.physics.add.sprite(this.centerX, 0, 'eship');
+        this.eship.body.collideWorldBounds = true;
         Align.scaletoGameW(this.eship, 0.250);
 
         this.makeInfo();
@@ -92,6 +97,8 @@ class SceneMain extends Phaser.Scene {
         this.physics.add.collider(this.eBulletGroup, this.rockGroup, this.destroyRock, null, this);
         this.physics.add.collider(this.bulletGroup, this.eship, this.damageEnemy, null, this);
         this.physics.add.collider(this.eBulletGroup, this.ship, this.damagePlayer, null, this);
+        this.physics.add.collider(this.rockGroup, this.ship, this.rockHitPlayer, null, this);
+        this.physics.add.collider(this.rockGroup, this.eship, this.rockHitEnemy, null, this);
     }
     
     makeInfo() {
@@ -123,10 +130,35 @@ class SceneMain extends Phaser.Scene {
         this.icon2.setScrollFactor(0);
 
     }
+    downPlayer() {
+        this.shields--;
+        this.text1.setText("Shields\n" + this.shields);
+    }
+
+    downEnemy() {
+        this.eshields--;
+        this.text2.setText("Enemy Shields\n" + this.eshields);
+    }
+
+    rockHitPlayer(ship,rock) {
+        var explosion = this.add.sprite(rock.x, rock.y, 'exp');
+        explosion.play('boom');
+        rock.destroy();
+        this.downPlayer();
+    }
+
+    rockHitEnemy(ship,rock) {
+        var explosion = this.add.sprite(rock.x, rock.y, 'exp');
+        explosion.play('boom');
+        rock.destroy();
+        this.downEnemy();
+    }
+
     damagePlayer(ship, bullet) {
         var explosion = this.add.sprite(this.ship.x, this.ship.y, 'exp');
         explosion.play('boom');
         bullet.destroy();
+        this.downPlayer();
 
     }
 
@@ -134,6 +166,12 @@ class SceneMain extends Phaser.Scene {
         var explosion = this.add.sprite(bullet.x, bullet.y, 'exp');
         explosion.play('boom');
         bullet.destroy();
+
+        var angle2 = this.physics.moveTo(this.eship, this.ship.x, this.ship.y, 100);
+        angle2 = this.toDegrees(angle2);
+        this.eship.angle = angle2;
+
+        this.downEnemy();
      
     }
 
@@ -165,14 +203,22 @@ class SceneMain extends Phaser.Scene {
             var angle = this.physics.moveTo(this.ship, tx, ty, 100);
             angle = this.toDegrees(angle);
             this.ship.angle = angle;
+
+            var distX2 = Math.abs(this.ship.x - tx);
+            var distY2 = Math.abs(this.ship.y - ty);
+
+            if (distX2 > 30 && distY2 > 30) {
+                var angle2 = this.physics.moveTo(this.eship, this.ship.x, this.ship.y, 60);
+                angle2 = this.toDegrees(angle2);
+                this.eship.angle = angle2;
+                
+            }
         }
         else {
             this.makeBullet();
         }
 
-        var angle2 = this.physics.moveTo(this.eship, this.ship.x, this.ship.y, 60);
-        angle2 = this.toDegrees(angle2);
-        this.eship.angle = angle2;
+       
 
     }
 
