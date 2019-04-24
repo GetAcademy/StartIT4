@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Ferdighet 2 - Onclick => Kjøre funksjon som endrer innerHTML til element ut fra Id</p>
+    <!-- <h2 id="aaa">AAAAAAAAAAAAAAAA</h2> -->
+    <h2 id="z" onclick="doSomething(this)">AAAAAAAAAAAAAAAA</h2>
+    <h2 id="y" onclick="doSomething(this)">BBBBBBBBBBBBBBBB</h2>
+
+    <table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table><table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table>
+    <table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table><table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table>
+    <table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table><table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table>
+    <table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table><table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table>
+    <table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table><table><tr><td>O</td><td>O</td></tr><tr><td>O</td><td>O</td></tr></table>
+
+
+    <script>
+        functon doSomething(cool) {
+            var cool = document.getElementById('z');
+            document.getElementById('aaa').innerHTML = 'CCCCCCCCCCCCCCCC';
+        }
+    </script>
+</body>
+</html>

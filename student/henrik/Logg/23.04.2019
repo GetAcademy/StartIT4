@@ -1,0 +1,11 @@
+Jobbet med et character sheet til Pathfinder (Rollespill som jeg spiller en gang i uken)
+Grunnen til at jeg bestemte meg for å lage dette er at etter at jeg flyttet fra lillestrøm til larvik, så har jeg måtte spille på nett med gruppa.
+Dessverre, så har jeg ikke funnet et online dokument som jeg liker. Dermed bestemte jeg meg for å lage et eget, som regnet ut alle tingene automatisk.
+
+Jeg begynte først på HTML delen av prosjektet. Fant fort ut at jeg var litt rusten på det, men det kom seg fort.
+Jeg brukte <form> til statistikken, da jeg husket hvordan å hente ut informasjonen i form til en variabel fra en tidligere app jeg laget (WowCalc)
+
+Den første dele nav charSheetet regner ut statsene til figuren din. Jeg brukte en egen funksjon til dette. Jeg valgte en egen funksjon da verdiene du får ut av denne funksjonen
+er viktig for resten av sheetet. 
+
+Jeg brukte også en egen funksjon til BABen. Jeg kunne sikkert ha lagt denne inn i en annen funksjon, men koden blir mer lettleslig ved å gjøre det på denne måten.

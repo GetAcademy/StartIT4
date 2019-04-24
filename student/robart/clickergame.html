@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="clikkergame1.HTML"></script>
+    <title></title>
+    <style>
+        div {
+            font-size: 700%;
+            user-select: none;
+            align-items: center;
+        }
+        button {
+            border-radius: 6px;
+            background-color: aqua;
+            width: 130px;
+            height: 40px;
+            text-align: center;
+            align-items: center;
+            font-weight: bold;
+            margin: 5px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="image" onclick="changeImage()"></div>
+    <div id="pointsInfo"></div>
+    
+        <button onclick="buyUpgrade()">10 points</button>
+        <button onclick="moreUpgrades()">100 points</button>
+        <button onclick="evenmoreUpgrades()"> 1000 points</button>
+        <button onclick="evenmoreUpgrades2()"> 10000 points</button></br>
+        <button onclick="evenmoreUpgrades3()"> 1mill points</button>
+        <button onclick="evenmoreUpgrades4()"> 10mill points</button>
+        <button onclick="evenmoreUpgrades5()"> 100mill points</button>
+        <button onclick="evenmoreUpgrades6()"> 1Bill points</button>
+        <button onclick="autoClick()" id="auto">Auto Klikker(10)</button>
+        <button onclick="autoClick1()" id="auto">Auto Klikker max</button>
+    
+
+    <script>
+        var imageDiv = document.getElementById('image');
+        var pointsDiv = document.getElementById('pointsInfo');
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+        // controller
+        function changeImage() {
+            points += pointsPerClick;
+            show();
+        }
+        function buyUpgrade() {
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            show();
+        }
+
+        function moreUpgrades() {
+            if (points < 100) return;
+            points -= 100;
+            pointsPerClick += 10;
+            show();
+        }
+
+        function evenmoreUpgrades() {
+            if (points < 1000) return;
+            points -= 1000;
+            pointsPerClick += 100;
+            show();
+        }
+        function evenmoreUpgrades2() {
+            if (points < 10000) return;
+            points -= 10000;
+            pointsPerClick += 1000;
+            show();
+        }
+        function evenmoreUpgrades3() {
+            if (points < 1000000) return;
+            points -= 1000000;
+            pointsPerClick += 100000;
+            show();
+        }
+        function evenmoreUpgrades4() {
+            if (points < 10000000) return;
+            points -= 10000000;
+            pointsPerClick += 1000000;
+            show();
+        }
+        function evenmoreUpgrades5() {
+            if (points < 100000000) return;
+            points -= 100000000;
+            pointsPerClick += 10000000;
+            show();
+        }
+        function evenmoreUpgrades6() {
+            if (points < 1000000000) return;
+            points -= 1000000000;
+            pointsPerClick += 100000000;
+            show();
+        }
+
+        function autoClick() {
+            if (points < 100) return;
+            points -= 100;
+            setInterval(function () {
+                imageDiv.click();
+            }, 2000);
+            show();
+        }
+        function autoClick1() {
+            if (points < 1000000000) return;
+            points -= 1000000000;
+            setInterval(function () {
+                imageDiv.click();
+            }, 1500);
+            show();
+        }
+
+
+        // view
+        show();
+        function show() {
+            imageDiv.innerHTML = points % 4 === 1 ? '😈' : '😇';
+            pointsDiv.innerHTML = points;
+        }
+    </script>
+</body>
+</html>
