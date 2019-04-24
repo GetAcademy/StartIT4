@@ -21,6 +21,7 @@ class SceneMain extends Phaser.Scene {
         this.background = this.add.image(0, 0, 'background');
         this.background.setOrigin(0, 0);
         this.ship = this.physics.add.sprite(this.centerX, this.centerY, 'ship');
+        this.ship.body.collideWorldBounds = true;
         Align.scaletoGameW(this.ship, 0.125);
 
         this.background.scaleX = this.ship.scaleX;
@@ -79,6 +80,7 @@ class SceneMain extends Phaser.Scene {
             repeat: false
         });
         this.eship = this.physics.add.sprite(this.centerX, 0, 'eship');
+        this.eship.body.collideWorldBounds = true;
         Align.scaletoGameW(this.eship, 0.250);
 
         this.makeInfo();
@@ -165,14 +167,22 @@ class SceneMain extends Phaser.Scene {
             var angle = this.physics.moveTo(this.ship, tx, ty, 100);
             angle = this.toDegrees(angle);
             this.ship.angle = angle;
+
+            var distX2 = Math.abs(this.ship.x - tx);
+            var distY2 = Math.abs(this.ship.y - ty);
+
+            if (distX2 > 30 && distY2 > 30) {
+                var angle2 = this.physics.moveTo(this.eship, this.ship.x, this.ship.y, 60);
+                angle2 = this.toDegrees(angle2);
+                this.eship.angle = angle2;
+                
+            }
         }
         else {
             this.makeBullet();
         }
 
-        var angle2 = this.physics.moveTo(this.eship, this.ship.x, this.ship.y, 60);
-        angle2 = this.toDegrees(angle2);
-        this.eship.angle = angle2;
+       
 
     }
 
