@@ -78,7 +78,9 @@ class SceneMain extends Phaser.Scene {
             frameRate: 48,
             repeat: false
         });
-       
+        this.eship = this.physics.add.sprite(this.centerX, 0, 'eship');
+        Align.scaletoGameW(this.eship, 0.250);
+
     }
     destroyRock(bullet, rock) {
         bullet.destroy();
@@ -105,7 +107,7 @@ class SceneMain extends Phaser.Scene {
             this.tx = tx;
             this.ty = ty;
 
-            var angle = this.physics.moveTo(this.ship, tx, ty, 60);
+            var angle = this.physics.moveTo(this.ship, tx, ty, 100);
             angle = this.toDegrees(angle);
             this.ship.angle = angle;
         }
@@ -113,6 +115,9 @@ class SceneMain extends Phaser.Scene {
             this.makeBullet();
         }
 
+        var angle2 = this.physics.moveTo(this.eship, this.ship.x, this.ship.y, 60);
+        angle2 = this.toDegrees(angle2);
+        this.eship.angle = angle2;
 
     }
 
@@ -141,6 +146,15 @@ class SceneMain extends Phaser.Scene {
 
         if (distX < 10 && distY < 10) {
             this.ship.body.setVelocity(0, 0);
+        }
+        var distX2 = Math.abs(this.ship.x - this.eship.x);
+        var distY2 = Math.abs(this.ship.y - this.eship.y);
+
+        if (distX2 < game.config.width / 5 && distY2 < game.config.height / 5) {
+            this.eship.alpha = 0.5;
+        }
+        else {
+            this.eship.alpha = 1;
         }
     }
 }
