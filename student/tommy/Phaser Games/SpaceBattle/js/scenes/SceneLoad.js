@@ -22,7 +22,7 @@ class SceneLoad extends Phaser.Scene {
 
         this.load.image("ship", "images/player.png");
         this.load.image("background", "images/background.jpg");
-        this.load.image('rocks', "images/rocks.png");
+        this.load.spritesheet('rocks', "images/rocks.png", {frameWidth:125,frameHeight:100});
       
     }
 
