@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            font-size: 500%;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="image" onclick="changeImage()"></div>
+    <div id="poengInfo"></div>
+    <ul>
+        <li><button onclick="buyUpgrade()">Oppgrader!</button></li>
+        <li><button onclick="moreUpgrades()">10x Upgrades</button></li>
+        <li><button onclick="evenmoreUpgrades()"> 1000x Upgrades.</button></li>
+        <li><button onclick="autoClick()" id="auto">Auto Klikker</button></li>
+    </ul>
+
+    <script>
+        var imageDiv = document.getElementById('image');
+        var pointsDiv = document.getElementById('poengInfo')
+        var auto = document.getElementById('auto')
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+
+        // controller
+        function changeImage() {
+            points += pointsPerClick;
+            show();
+        }
+
+        function buyUpgrade() {
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            show();
+        }
+
+        function moreUpgrades() {
+            if (points < 100) return;
+            points -= 100;
+            pointsPerClick += 10;
+            show();
+        }
+
+        function evenmoreUpgrades() {
+            if (points < 10000) return;
+            points -= 10000;
+            pointsPerClick += 1000;
+            show();
+        }
+
+        function autoClick() {
+            if (points < 100000) return;
+            points -= 100000;
+            setInterval(function () {
+                imageDiv.click();
+            }, 1000);
+            show();
+            ;
+        }
+
+        //view
+        show();
+        function show() {
+            imageDiv.innerHTML = points % 2 === 0 ? '😀' : '😃';
+            pointsDiv.innerHTML = points;
+        }
+
+    </script>
+</body>
+</html>

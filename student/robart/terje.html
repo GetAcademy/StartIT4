@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            user-select: none;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-size: 120%;
+        }
+
+        div.startPageLayout{
+            display: grid;
+            grid-auto-rows: repeat(6,1fr);
+            grid-template-columns: auto;
+            height: 100%;
+        }
+        button.menuButton{
+            width: 70%;
+            height: 70%;
+            margin-left: 15%;
+            background-color: #EC8B5E;
+            border:#EC8B5E solid;
+        }
+
+        div.menuPage {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 100px auto 50px;
+            grid-template-rows: 80px auto;
+            grid-template-areas:
+                'header header header'
+                'meny innhold innhold';
+        }
+        div.page {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 100px auto 50px;
+            grid-template-rows: 80px auto 50px;
+            grid-template-areas:
+                'header header header'
+                'meny innhold innhold'
+                'meny innhold2 back';
+        }
+
+        div.pageUtenMeny {
+            grid-template-columns: 0 auto 50px;
+            grid-template-areas:
+                'meny header header'
+                'meny innhold innhold'
+                'meny innhold2 back';
+        }
+
+        div.meny {
+            grid-area: meny;
+            background-color: #5F6389;
+        }
+
+        div.innhold {
+            grid-area: innhold;
+            background-color: #5F6389;
+        }
+
+        div.innhold2 {
+            grid-area: innhold2;
+            background-color: rgb(35, 185, 235);
+        }
+
+        div.header {
+            grid-area: header;
+            background-color: #5F6389;
+        }
+
+        div.back {
+            grid-area: back;
+            background-color: #5F6389;
+        }
+
+        .sideMenu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: #EC8B5E;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menuPage" id="page">
+        <div class="header" id="header"> <button onclick="visOgSkjulMeny()">☰</button> Meny</div>
+        <div class="innhold" id="innhold">
+
+        </div>
+        <div class="meny" id="meny">
+        </div>
+        <!-- <div class="innhold2">i2</div>
+        <div class="back">b</div> -->
+    </div>
+    <div id="sideMenu" class="sideMenu" style="display: none;">
+        <button onclick="showStartPage()">knapp</button>
+        <button onclick="visOgSkjulMeny()">x</button>
+    </div>
+    <script>
+        function visOgSkjulMeny() {
+            const sideMenu = document.getElementById('sideMenu');
+            const currentDisplay = sideMenu.style.display;
+            if (currentDisplay == 'none') {
+                sideMenu.style.display = 'block';
+            } else {
+                sideMenu.style.display = 'none';
+            }
+        }
+
+        function showStartPage() {
+            visOgSkjulMeny();
+            const innhold = document.getElementById('innhold');
+            innhold.classList.add('startPageLayout');
+            innhold.innerHTML = `
+                        <div><h1>meny</h1></div>
+                       <div><button class="menuButton">Si fra om mobbing</button></div>
+                       <div> <button class="menuButton">Hva</button></div>
+                        <div><button class="menuButton">Hvordan</button></div>
+                            <div> <button class="menuButton">Eval</button></div>
+                                <div></div>
+                                        <div>Logg ut</div>
+                        `;
+        }
+
+    </script>
+</body>
+
+</html>
