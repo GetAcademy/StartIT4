@@ -129,6 +129,17 @@ class SceneMain extends Phaser.Scene {
         bullet.body.setVelocity(dirObj.tx * 400, dirObj.ty * 400);
     }
 
+    fireEBullet() {
+        var elapsed = Math.abs(this.lastEBullet - this.getTimer());
+        if (elapsed < 500) {
+            return;
+        }
+        this.lastEBullet = this.getTimer();
+        var eBullet = this.physics.add.sprite(this.eship.x, this.eship.y, "ebullet");
+        eBullet.body.angularVelocity = 10;
+        this.physics.moveTo(eBullet, this.ship.x, this.ship.y, 100);
+    }
+
     getDirFromAngle(angle) {
         var rads = angle * Math.PI / 180;
         var tx = Math.cos(rads);
@@ -151,10 +162,8 @@ class SceneMain extends Phaser.Scene {
         var distY2 = Math.abs(this.ship.y - this.eship.y);
 
         if (distX2 < game.config.width / 5 && distY2 < game.config.height / 5) {
-            this.eship.alpha = 0.5;
+            this.fireEBullet();
         }
-        else {
-            this.eship.alpha = 1;
-        }
+       
     }
 }
