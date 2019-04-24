@@ -43,7 +43,7 @@
         <h2>Pathfinder Character Sheet</h2>
         Name: <input>
         Alignment: <Input id="alignment">
-        Class: <select onchange="attackValue()" id="class">
+        Class: <select onchange="attackValue(), saves(), statMods()" id="class">
             <option value="Alchemist">Alchemist</option>
             <option value="Bard">Bard</option>
             <option value="Barbarian">Barbarian</option>
@@ -62,28 +62,28 @@
             <option value="Sorceror">Sorceror</option>
             <option value="Wizard">Wizard</option>
         </select>
-        Level: <input onchange="saves(), attackValue()" id="level">
+        Level: <input onchange="saves(), attackValue(), statMods()" id="level">
     </div>
 
     <div class="item2">
             <h3>Statistics</h3>
 
-            <div class="stat">Str: <input type="text" onchange="statMods()" class="statistics" id="str"></div>
+            <div class="stat">Str: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics" id="str"></div>
             <div id="modStr"></div>
             <br>
-            <div class="stat">Dex: <input type="text" onchange="statMods()" class="statistics" id="dex"></div>
+            <div class="stat">Dex: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics" id="dex"></div>
             <div id="modDex"></div>
             <br>
-            <div class="stat">Con: <input type="text" onchange="statMods()" class="statistics" id="con"></div>
+            <div class="stat">Con: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics" id="con"></div>
             <div id="modCon"></div>
             <br>
-            <div class="stat">Int: <input type="text" onchange="statMods()" class="statistics" id="int"></div>
+            <div class="stat">Int: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics" id="int"></div>
             <div id="modInt"></div>
             <br>
-            <div class="stat">Wis: <input type="text" onchange="statMods()" class="statistics" id="wis"></div>
+            <div class="stat">Wis: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics" id="wis"></div>
             <div id="modWis"></div>
             <br>
-            <div class="stat">Cha: <input type="text" onchange="statMods()" class="statistics" id="cha"></div>
+            <div class="stat">Cha: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics" id="cha"></div>
             <div id="modCha"></div>
     </div>
 
@@ -146,6 +146,7 @@
             var chaMod = Math.floor((cha - 10) / 2);
 
             var chosenClass = document.getElementById("class").value
+            var lvl = document.getElementById("level").value
 
         function statMods() {
             var str = document.getElementById("str").value
@@ -162,12 +163,12 @@
             var wisMod = Math.floor((wis - 10) / 2);
             var chaMod = Math.floor((cha - 10) / 2);
 
-            document.getElementById("modStr").innerHTML = ' ' + strMod
-            document.getElementById("modDex").innerHTML = ' ' + dexMod
-            document.getElementById("modCon").innerHTML = ' ' + conMod
-            document.getElementById("modInt").innerHTML = ' ' + intMod
-            document.getElementById("modWis").innerHTML = ' ' + wisMod
-            document.getElementById("modCha").innerHTML = ' ' + chaMod
+            document.getElementById("modStr").innerHTML = strMod
+            document.getElementById("modDex").innerHTML = dexMod
+            document.getElementById("modCon").innerHTML = conMod
+            document.getElementById("modInt").innerHTML = intMod
+            document.getElementById("modWis").innerHTML = wisMod
+            document.getElementById("modCha").innerHTML = chaMod
             }
 
         function attackValue() {
@@ -177,15 +178,30 @@
             var BAB;
               
 
-            if (chosenClass == "Rogue" || chosenClass == "Cleric" || chosenClass == "Druid" || chosenClass == "Bard" || 
-            chosenClass == "Alchemist" || chosenClass == "Oracle" || chosenClass == "Inquisitor" || chosenClass == "Magus") {
+            if (
+            chosenClass == "Rogue" ||
+            chosenClass == "Cleric" ||
+            chosenClass == "Druid" || 
+            chosenClass == "Bard" || 
+            chosenClass == "Alchemist" || 
+            chosenClass == "Oracle" || 
+            chosenClass == "Inquisitor" || 
+            chosenClass == "Magus") {
                 BAB = Math.floor(lvl * 0.75);
             }
-            else if (chosenClass == "Fighter" || chosenClass == "Barbarian" || chosenClass == "Ranger" || chosenClass == "Cavalier" ||
-            chosenClass == "Gunslinger" || chosenClass == "Monk" || chosenClass == "Paladin") {
+            else if (
+            chosenClass == "Fighter" ||
+            chosenClass == "Barbarian" ||
+            chosenClass == "Ranger" ||
+            chosenClass == "Cavalier" ||
+            chosenClass == "Gunslinger" ||
+            chosenClass == "Monk" ||
+            chosenClass == "Paladin") {
                 BAB = lvl;
             }
-            else if (chosenClass == "Sorceror" || chosenClass == "Wizard") {
+            else if (
+            chosenClass == "Sorceror" || 
+            chosenClass == "Wizard") {
                 BAB = Math.floor(lvl * 0.5);
             }
             babGoesHere.innerHTML = 'Basic Attack: ' + BAB;
@@ -196,12 +212,15 @@
             var fortSave = document.getElementById("fortitudeSave")
             var willSave = document.getElementById("willSave")
             var reflexSave = document.getElementById("reflexSave")
-            var chosenClass = document.getElementById("class").value
+            var modCon = document.getElementById("modCon").value
+            var modDex = document.getElementById("modDex").value
+            var modWis = document.getElementById("modWis").value
 
             if (chosenClass = 'Alchemist') {
-                fortSave.innerHTML = 'Fortitude: ' + conMod + 2 + (level / 2);
-                willSave.innerHTML = 'Will: ' + wisMod + (level / 2);
-            }    
+                fortSave.innerHTML = 'Fortitude: ' + Math.floor(modCon + 2 + (lvl * 0.5));
+                willSave.innerHTML = 'Will: ' + Math.floor(modWis + (lvl * 0.33));
+                reflexSave.innerHTML = 'Reflex: ' + Math.floor(modDex + 2 + (lvl * 0.5));
+            }   
         
         }
 
