@@ -5,6 +5,7 @@ var G;
 var controller;
 var mediaManager;
 var keys;
+var angle;
 window.onload = function () {
     var isMobile = navigator.userAgent.indexOf("Mobile");
     if (isMobile == -1) {
