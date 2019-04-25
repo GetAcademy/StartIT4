@@ -41,8 +41,8 @@
         <h2>Pathfinder Character Sheet</h2>
         Name: <input>
         Alignment: <input>  
-        Class: <input id="class" onchange="BasicAttack()">  
-        Level: <input id="level" onchange="BasicAttack()">
+        Class: <input id="class" onchange="attackScore()">  
+        Level: <input id="level" onchange="attackScore()">
     </form>
 
     <form class="item2" name="stats" onchange="calcStats()">
@@ -86,20 +86,20 @@
         <p>UMD: <input></p>
     </form>
 
-    <form class="item4">
+    <form class="item4" name="Attacks">
         <h3>Attacks</h3>
+        <select>
+            <option value="dexMod" >Dexterity</option> 
+            <option value="strMod">Strength</option>
+            <option value="conMod">Constitution</option>
+        </select>
+        <p id="Test">test</p>
 
 
 
     </form>
-
-
-
-
-
-
-
         <script>
+
             function calcStats() {
             var str = document.forms.stats.str.value;
             var dex = document.forms.stats.dex.value;
@@ -123,11 +123,13 @@
             }
             
 
-            function BasicAttack() {
+            function attackScore() {
                 var chosenClass = document.getElementById("class").value
                 var lvl = document.getElementById("level").value
                 var BAB;
-              
+                var attackScore;
+
+
 
                 if (chosenClass == "Rogue" || chosenClass == "Cleric" || chosenClass == "Druid" || chosenClass == "Bard" || 
                 chosenClass == "Alchemist" || chosenClass == "Oracle" || chosenClass == "Inquisitor" || chosenClass == "Magus") {
@@ -140,7 +142,11 @@
                 else if (chosenClass == "Sorceror" || chosenClass == "Wizard") {
                     BAB = Math.floor(lvl * 0.5);
                 }
+
+
             }
+
+
             
 
 

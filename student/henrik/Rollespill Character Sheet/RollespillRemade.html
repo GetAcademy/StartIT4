@@ -1,0 +1,434 @@
+<html>
+
+<head>
+    <style>
+        body {
+            border: solid 3px;
+        }
+
+        div.stat {
+            float: left;
+            padding-right: 5px;
+
+        }
+        input.statistics {
+            width: 25px;
+            text-align: center;
+            height: 15px;
+        }
+
+        .item1 {
+            grid-area: header;
+        }
+
+        .item3 {
+            grid-area: main;
+        }
+
+        .item4 {
+            grid-area: right;
+        }
+
+        .item2 {
+            grid-area: left;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header'
+                'left main right';
+            grid-gap: 10px;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .grid-container>div {
+            background-color: white;
+        }
+
+        #modStr,
+        #modDex,
+        #modCon,
+        #modInt,
+        #modWis,
+        #modCha {
+            float: left;
+        }
+    </style>
+</head>
+
+<body class="grid-container">
+    <div class="item1">
+        <h2>Pathfinder Character Sheet</h2>
+        Name: <input>
+        Alignment: <Input id="alignment">
+        Class: <select onchange="attackValue(), saves(), statMods()" id="class">
+           <option value="Alchemist">Alchemist</option>
+            <option value="Bard">Bard</option>
+            <option value="Barbarian">Barbarian</option>
+            <option value="Cavalier">Cavalier</option>
+            <option value="Cleric">Cleric</option>
+            <option value="Druid">Druid</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Gunslinger">Gunslinger</option>
+            <option value="Inquisitor">Inquisitor</option>
+            <option value="Magus">Magus</option>
+            <option value="Monk">Monk</option>
+            <option value="Oracle">Oracle</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Ranger">Ranger</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Sorceror">Sorceror</option>
+            <option value="Wizard">Wizard</option>
+            
+        </select>
+        Level: <input onchange="saves(), attackValue(), statMods()" id="level" type="text">
+    </div>
+
+    <div class="item2">
+        <h3>Statistics</h3>
+
+        <div class="stat">Str: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+                id="str"></div>
+        <div id="modStr"></div>
+        <br>
+        <div class="stat">Dex: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+                id="dex"></div>
+        <div id="modDex"></div>
+        <br>
+        <div class="stat">Con: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+                id="con"></div>
+        <div id="modCon"></div>
+        <br>
+        <div class="stat">Int: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+                id="int"></div>
+        <div id="modInt"></div>
+        <br>
+        <div class="stat">Wis: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+                id="wis"></div>
+        <div id="modWis"></div>
+        <br>
+        <div class="stat">Cha: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+                id="cha"></div>
+        <div id="modCha"></div>
+    </div>
+
+    <div class="item3">
+        <h3>Skills</h3>
+        <table>
+            <tr>
+                <th>Skill</th>
+                <th>Rank </th>
+                <th>Modifier</th>
+                <th>Total</th>
+
+            </tr>
+            <tr>
+                <td>Acrobatics: <input class="statistics" type="text"></td>
+
+            </tr>
+
+
+
+
+        </table>
+    </div>
+
+    <div class="item4">
+        <h3>Attacks</h3>
+        <h5 id="babValue"></h5>
+        Character Size: <select onchange="attackValue()" id="sizeForAttack">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+        <br>
+        Melee Attack Stat: <select onchange="attackValue()" id="meleeAttackStat">
+            <option value="strAttack">Strength</option>
+            <option value="dexAttack">Dexterity</option>
+            <option value="conAttack">Constitution</option>
+            <option value="intAttack">Intellect</option>
+            <option value="wisAttack">Wisdom</option>
+            <option value="chaAttack">Charisma</option>
+        </select>
+        <div id="totalMeleeAttack"></div>
+        <br>
+        Ranged Attack Stat: <select onchange="attackValue()" id="rangedAttackStat">
+            <option value="rangedStrAttack">Strength</option>
+            <option value="rangedDexAttack">Dexterity</option>
+            <option vlaue="rangedConAttack">Constitution</option>
+            <option value="rangedIntAttack">Intellect</option>
+            <option value="rangedWisAttack">Wisdom</option>
+            <option value="rangedChaAttack">Charisma</option>
+        </select>
+        <div id="totalRangedAttack"></div>
+    </div>
+
+    <div>
+        <h3>Save Bonuses</h3>
+        <div id="fortitudeSave"></div>
+        <div id="willSave"></div>
+        <div id="reflexSave"></div>
+
+    </div>
+    <script>
+
+
+        
+        var lvl = parseInt(document.getElementById("level").value, 10);
+
+        function statMods() {
+            var str = document.getElementById("str").value
+            var dex = document.getElementById("dex").value
+            var con = document.getElementById("con").value
+            var int = document.getElementById("int").value
+            var wis = document.getElementById("wis").value
+            var cha = document.getElementById("cha").value
+
+            var strMod = Math.floor((str - 10) / 2);
+            var dexMod = Math.floor((dex - 10) / 2);
+            var conMod = Math.floor((con - 10) / 2);
+            var intMod = Math.floor((int - 10) / 2);
+            var wisMod = Math.floor((wis - 10) / 2);
+            var chaMod = Math.floor((cha - 10) / 2);
+
+            document.getElementById("modStr").innerHTML = strMod
+            document.getElementById("modDex").innerHTML = dexMod
+            document.getElementById("modCon").innerHTML = conMod
+            document.getElementById("modInt").innerHTML = intMod
+            document.getElementById("modWis").innerHTML = wisMod
+            document.getElementById("modCha").innerHTML = chaMod
+        }
+
+        function attackValue() {
+            var chosenClass = document.getElementById("class").value
+            var lvl = parseInt(document.getElementById("level").value, 10)
+            var babGoesHere = document.getElementById("babValue")
+            var BAB;
+            var rangedAttack = document.getElementById("totalRangedAttack")
+            var meleeAttack = document.getElementById("totalMeleeAttack")
+            var meleeAttackStat = document.getElementById("meleeAttackStat").value
+            var rangedAttackStat = document.getElementById("rangedAttackStat").value
+            var size = document.getElementById("sizeForAttack").value
+
+            var str = document.getElementById("str").value
+            var dex = document.getElementById("dex").value
+            var con = document.getElementById("con").value
+            var int = document.getElementById("int").value
+            var wis = document.getElementById("wis").value
+            var cha = document.getElementById("cha").value
+
+            var strMod = Math.floor((str - 10) / 2);
+            var dexMod = Math.floor((dex - 10) / 2);
+            var conMod = Math.floor((con - 10) / 2);
+            var intMod = Math.floor((int - 10) / 2);
+            var wisMod = Math.floor((wis - 10) / 2);
+            var chaMod = Math.floor((cha - 10) / 2);
+
+
+            if (
+                chosenClass == "Rogue" ||
+                chosenClass == "Cleric" ||
+                chosenClass == "Druid" ||
+                chosenClass == "Bard" ||
+                chosenClass == "Alchemist" ||
+                chosenClass == "Oracle" ||
+                chosenClass == "Inquisitor" ||
+                chosenClass == "Magus") {
+                BAB = Math.floor(lvl * 0.75);
+            }
+
+            else if (
+                chosenClass == "Fighter" ||
+                chosenClass == "Barbarian" ||
+                chosenClass == "Ranger" ||
+                chosenClass == "Cavalier" ||
+                chosenClass == "Gunslinger" ||
+                chosenClass == "Monk" ||
+                chosenClass == "Paladin") {
+                BAB = lvl;
+            }
+
+            else if (
+                chosenClass == "Sorceror" ||
+                chosenClass == "Wizard") {
+                BAB = Math.floor(lvl * 0.5);
+            }
+            babGoesHere.innerHTML = 'Basic Attack: ' + BAB;
+            
+            // SIZE MODIFIER TO ATTACK
+
+            if (size == 'small') {
+                BAB += 1;
+            }
+            else if (size == 'medium') {
+                BAB += 0;
+            }
+            else if (size == 'large') {
+                BAB -= 1;
+            }
+            
+            // MELEE ATTACK 
+
+            if (meleeAttackStat == 'dexAttack') {
+                var dexToAttack = BAB + dexMod;
+                meleeAttack.innerHTML = 'Melee Attack Modifier: ' + dexToAttack;
+            }
+            else if (meleeAttackStat == 'strAttack') {
+                var strToAttack = BAB + strMod;
+                meleeAttack.innerHTML = 'Melee Attack Modifier: ' + strToAttack;
+            }
+            else if (meleeAttackStat == 'conAttack') {
+                var conToAttack = BAB + conMod;
+                meleeAttack.innerHTML = 'Melee Attack Modifier: ' + conToAttack;
+            }
+            else if (meleeAttackStat == 'intAttack') {
+                var intToAttack = BAB + intMod;
+                meleeAttack.innerHTML = 'Melee Attack Modifier: ' + intToAttack;
+            }
+            else if (meleeAttackStat == 'chaAttack') {
+                var chaToAttack = BAB + chaMod;
+                meleeAttack.innerHTML = 'Melee Attack Modifier: ' + chaToAttack;
+            }
+            else if (meleeAttackStat == 'wisAttack') {
+                var wisToAttack = BAB + wisMod;
+                meleeAttack.innerHTML = 'Melee Attack Modifier: ' + wisToAttack;
+            }
+
+            // RANGED ATTACK
+
+            if (rangedAttackStat == 'rangedDexAttack') {
+                var dexToAttack = BAB + dexMod;
+                rangedAttack.innerHTML = 'Ranged Attack Modifier: ' + dexToAttack;
+            }
+            else if (rangedAttackStat == 'rangedStrAttack') {
+                var strToAttack = BAB + strMod;
+                rangedAttack.innerHTML = 'Ranged Attack Modifier: ' + strToAttack;
+            }
+            else if (rangedAttackStat == 'rangedConAttack') {
+                var conToAttack = BAB + conMod;
+                rangedAttack.innerHTML = 'Ranged Attack Modifier: ' + conToAttack;
+            }
+            else if (rangedAttackStat == 'rangedIntAttack') {
+                var intToAttack = BAB + intMod;
+                rangedAttack.innerHTML = 'Ranged Attack Modifier: ' + intToAttack;
+            }
+            else if (rangedAttackStat == 'rangedChaAttack') {
+                var chaToAttack = BAB + chaMod;
+                rangedAttack.innerHTML = 'Ranged Attack Modifier: ' + chaToAttack;
+            }
+            else if (rangedAttackStat == 'rangedWisAttack') {
+                var wisToAttack = BAB + wisMod;
+                rangedAttack.innerHTML = 'Ranged Attack Modifier: ' + wisToAttack;
+            }
+        }
+
+        function saves() {
+            var lvl = parseInt(document.getElementById("level").value, 10);
+            var chosenClass = document.getElementById("class").value
+            var str = document.getElementById("str").value
+            var dex = document.getElementById("dex").value
+            var con = document.getElementById("con").value
+            var int = document.getElementById("int").value
+            var wis = document.getElementById("wis").value
+            var cha = document.getElementById("cha").value
+            var strMod = Math.floor((str - 10) / 2);
+            var dexMod = Math.floor((dex - 10) / 2);
+            var conMod = Math.floor((con - 10) / 2);
+            var intMod = Math.floor((int - 10) / 2);
+            var wisMod = Math.floor((wis - 10) / 2);
+            var chaMod = Math.floor((cha - 10) / 2);
+            var fortSave = document.getElementById("fortitudeSave")
+            var willSave = document.getElementById("willSave")
+            var reflexSave = document.getElementById("reflexSave")
+
+            // High Fort and ref
+            if (
+                chosenClass == 'Alchemist' || 
+                chosenClass == 'Gunslinger' || 
+                chosenClass == 'Ranger') {
+                let a = Math.floor(conMod + 2 + (lvl * 0.5));
+                let b = Math.floor(wisMod + (lvl * 0.33));
+                let c = Math.floor(dexMod + 2 + (lvl * 0.5));
+                fortSave.innerHTML = 'Fortitude: ' + a;
+                willSave.innerHTML = 'Will: ' + b;
+                reflexSave.innerHTML = 'Reflex: ' + c;
+            }
+            // high Will and Ref
+            else if (
+                chosenClass == 'Bard') 
+            {
+                let a = Math.floor(conMod + (lvl * 0.33));
+                let b = Math.floor(wisMod + 2 + (lvl * 0.5));
+                let c = Math.floor(dexMod + 2 + (lvl * 0.5));
+                fortSave.innerHTML = 'Fortitude: ' + a;
+                willSave.innerHTML = 'Will: ' + b;
+                reflexSave.innerHTML = 'Reflex: ' + c;   
+            }
+            // High fort
+            else if (
+                    chosenClass == 'Barbarian' || 
+                    chosenClass == 'Cavalier' || 
+                    chosenClass == 'Fighter') {
+                let a = Math.floor(conMod + 2 + (lvl * 0.5));
+                let b = Math.floor(wisMod + (lvl * 0.33));
+                let c = Math.floor(dexMod + (lvl * 0.33));
+                fortSave.innerHTML = 'Fortitude: ' + a;
+                willSave.innerHTML = 'Will: ' + b;
+                reflexSave.innerHTML = 'Reflex: ' + c;
+            }   
+            //high fort and will
+            else if (
+                    chosenClass == 'Cleric' || 
+                    chosenClass == 'Druid' || 
+                    chosenClass == 'Inquisitor' || 
+                    chosenClass == 'Magus' || 
+                    chosenClass == 'Paladin') {
+                let a = Math.floor(conMod + 2 + (lvl * 0.5));
+                let b = Math.floor(wisMod + 2 + (lvl * 0.5));
+                let c = Math.floor(dexMod + (lvl * 0.33));
+                fortSave.innerHTML = 'Fortitude: ' + a;
+                willSave.innerHTML = 'Will: ' + b;
+                reflexSave.innerHTML = 'Reflex: ' + c;
+            }
+            // High everything
+            else if (
+                    chosenClass == 'Monk') {
+                let a = Math.floor(conMod + 2 + (lvl * 0.5));
+                let b = Math.floor(wisMod + 2 + (lvl * 0.5));
+                let c = Math.floor(dexMod + 2 + (lvl * 0.5));
+                fortSave.innerHTML = 'Fortitude: ' + a;
+                willSave.innerHTML = 'Will: ' + b;
+                reflexSave.innerHTML = 'Reflex: ' + c;
+            }
+            // high will
+            else if (chosenClass == 'Oracle' || 
+                    chosenClass == 'Sorceror' || 
+                    chosenClass == 'Wizard') {
+                let a = Math.floor(conMod + (lvl * 0.33));
+                let b = Math.floor(wisMod + 2 + (lvl * 0.5));
+                let c = Math.floor(dexMod + (lvl * 0.33));
+                fortSave.innerHTML = 'Fortitude: ' + a;
+                willSave.innerHTML = 'Will: ' + b;
+                reflexSave.innerHTML = 'Reflex: ' + c;
+            }
+            // high reflex
+            else if (chosenClass == 'Rogue') {
+                let a = Math.floor(conMod + (lvl * 0.33));
+                let b = Math.floor(wisMod + (lvl * 0.33));
+                let c = Math.floor(dexMod + 2 + (lvl * 0.5));
+                fortSave.innerHTML = 'Fortitude: ' + a;
+                willSave.innerHTML = 'Will: ' + b;
+                reflexSave.innerHTML = 'Reflex: ' + c;
+            }
+            else{
+                console.log("no class found");
+            }
+        }
+        
+
+    </script>
+</body>
+
+</html>
