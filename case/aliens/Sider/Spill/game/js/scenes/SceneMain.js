@@ -22,9 +22,12 @@ class SceneMain extends Phaser.Scene {
         this.back.setInteractive();
         this.back.on('pointerdown', this.onDown, this);
 
+        this.player.body.collideWorldBounds = true;
+        this.alien.body.collideWorldBounds = true;
+        this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
 
         this.bulletGroup = this.physics.add.group();
-        this.physics.add.collider(this.alien, this.bulletGroup);
+        this.physics.add.collider(this.alien, this.bulletGroup, this.destroyEnemy, null, this);
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -86,9 +89,15 @@ class SceneMain extends Phaser.Scene {
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
+        
+
       
     }
 
+    destroyEnemy(bullet, alien) {
+        bullet.destroy();
+        alien.destroy();
+    }
    
        
     
