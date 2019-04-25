@@ -1,0 +1,27 @@
+Logg 15.04.2019
+
+Løste Problemer:
+
+(ingenting)
+
+men jeg har forandret på partikkel systemet til fienden,
+
+lagt på flere partikkel systemer for når man tar skade fra en turret og et annet system når spilleren gjør skade på den.
+
+funnet ut hvordan jeg kan forandre på partikkel systemet fra skript.
+
+fiender har nå fungerende Health Bar.
+
+Gjenståend problemer fra igår:
+
+- det finnes ikke en mekanikk for å selge og oppgradere turrets.
+
+- det finnes ikke en mekanikk for å starte spillet på nytt eller gå til menyen om man dør.
+
+- det finnes ikke en meny scene.
+
+- det finnes ingen options scene.
+
+Nye Problemer:
+
+(ingenting)

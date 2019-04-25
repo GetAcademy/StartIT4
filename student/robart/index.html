@@ -1,12 +1,169 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+    <head>
+    </head>
+    <body>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-    Dette er min side - og jeg heter Robart <!-- bytt ut med navnet ditt! -->
-    <br/><a href="/StartIT4/main/index.html">Tilbake til hovedsiden til Start IT</a>
-</body>
+        <script>
+            class Digit {
+                constructor(container=false, parent=false) {
+                    // parent - Parent node id
+                    // container - Container id
+                    if(!container) container = Math.floor(Math.random()*10000).toString();
+                    if (!document.getElementById(parent)) {
+                        let newDiv = document.createElement('div');
+                        newDiv.id = 'parent';
+                        document.body.appendChild(newDiv);
+                        parent = 'parent';
+                    }
+                    this.build(document.getElementById(parent), container);
+                    this.containerElement = document.getElementById(container);
+                    this.children = this.containerElement.children;
+                }
+
+                hide(element) {
+                    element.classList.remove("show");
+                    element.classList.add("hidden");
+                }
+
+                show(element) {
+                    element.classList.add("show");
+                    element.classList.remove("hidden");
+                }
+
+                build(parent, container) {
+                    let ss = (function() {
+                        const style = document.createElement("style");
+                        style.appendChild(document.createTextNode(""));
+                        document.head.appendChild(style);
+                        return style.sheet;
+                    })();
+                    ss.insertRule('.wrapper { display: grid; grid-template-columns: 20px 60px 20px; grid-template-rows: 20px 60px 20px 60px 20px; padding: 20px;}', 0);
+                    ss.insertRule('.horizontal { background-color: red; border-radius: 15%; width: 60px; height: 20px;}', 1);
+                    ss.insertRule('.vertical { background-color: red; border-radius: 15%; width: 20px; height: 60px;}', 1);
+                    ss.insertRule('.hidden {display: none;}', 1);
+                    ss.insertRule('.show {display: block;}', 1);
+                    ss.insertRule('#a { grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2;}', 1);
+                    ss.insertRule('#b { grid-column-start: 3; grid-column-end: 4; grid-row-start: 2; grid-row-end: 3;}', 1);
+                    ss.insertRule('#c { grid-column-start: 3; grid-column-end: 4; grid-row-start: 4; grid-row-end: 5;}', 1);
+                    ss.insertRule('#d { grid-column-start: 2; grid-column-end: 3; grid-row-start: 5; grid-row-end: 6;}', 1);
+                    ss.insertRule('#e { grid-column-start: 1; grid-column-end: 2; grid-row-start: 4; grid-row-end: 5;}', 1);
+                    ss.insertRule('#f { grid-column-start: 1; grid-column-end: 2; grid-row-start: 2; grid-row-end: 3;}', 1);
+                    ss.insertRule('#g { grid-column-start: 2; grid-column-end: 3; grid-row-start: 3; grid-row-end: 4;}', 1);
+                    let html =  '<div class="wrapper" id="' + container + '">'; 
+                    html += '<div class="show horizontal 2 3 5 6 7 8 9 0" id="a"></div>';
+                    html += '<div class="show vertical 1 2 3 4 7 8 9 0" id="b"></div>';
+                    html += '<div class="show vertical 1 3 4 5 6 7 8 9 0" id="c"></div>';
+                    html += '<div class="show horizontal 2 3 5 6 8 0" id="d"></div>';
+                    html += '<div class="show vertical 2 6 8 0" id="e"></div>';
+                    html += '<div class="show vertical 4 5 6 8 9 0" id="f"></div>';
+                    html += '<div class="show horizontal 2 3 4 5 6 8 9" id="g"></div>';
+                    html += '</div>';
+                    parent.innerHTML += html;
+                }
+
+                one() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("1")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                two() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("2")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                three() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("3")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                four() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("4")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                five() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("5")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                six() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("6")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                seven() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("7")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                eight() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("8")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                nine() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("9")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+                zero() {
+                    for(let element of this.children) {
+                        if(element.classList.contains("0")) {
+                            this.show(element);
+                        } else {
+                            this.hide(element);
+                        }
+                    }
+                }
+            }
+            let digit = new Digit();
+            digit.zero();
+            const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+            let time = 0;
+            for (let d of digits) {
+                time++;
+                setTimeout(function() 
+                {
+                    eval('digit.' + d + '();');
+                    console.log(d);
+                }, 1000*time);
+            }
+        </script>
+    </body>
 </html>

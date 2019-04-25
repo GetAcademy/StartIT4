@@ -11,6 +11,7 @@
 }
 .chartContainer {
     grid-area: main;
+    
 }
 .menuContainer {
     grid-area: menuContainer;
@@ -27,8 +28,6 @@
     grid-area: main;
     background-color: ghostwhite;
     font-size: 30px;
-    max-width: 100%;
-    max-height: 100%;
 }
 
 
@@ -52,7 +51,7 @@
     }
 .button {
     background-color: #006EB6;
-    border: 1px solid white;
+    border: none;
     color: white;
     text-align: center;
     font-size: 50%;
@@ -61,7 +60,4 @@
 }
 .button:hover{
     background-color: dodgerblue;
-}
-.toggler{
-    display: none;
 }

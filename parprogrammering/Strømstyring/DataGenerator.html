@@ -22,6 +22,7 @@
             const dateTo = new Date(timeTo);
 
              buildings = [];
+             
             for (let buildingNo = 1; buildingNo < 10; buildingNo++) {
                 const buildingObj = {
                     name: 'Building ' + buildingNo,
@@ -34,8 +35,10 @@
                         power: randomPower(power)
                     });
                 }
+
                 buildings.push(buildingObj);
             }
+            
             console.log(JSON.stringify(buildings));
         }
 

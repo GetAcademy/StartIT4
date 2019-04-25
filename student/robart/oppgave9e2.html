@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+
+<body>
+    <div id="info">bla bla</div>
+    <select id="colorChooser" onchange="showDiv()">
+        <option id="1" value="black">Black</option>
+        <option id="2" selected value="darkblue">Darkblue</option>
+        <option id="3" value="lightgrey">Lightgrey</option>
+        <option id="4" value="lightgreen">Lightgreen</option>
+        <option id="5" value="purple">Purple</option>
+    </select>
+    <script>
+        var selectColor = document.getElementById('colorChooser');
+        var infoDiv = document.getElementById('info');
+        var color1 = document.getElementById('1');
+        var color2 = document.getElementById('2');
+
+        showDiv();
+
+        function showDiv(){
+            var bredde = 500;
+            var høyde = 500;
+            var farge1 = color1.value;
+            var farge2 = color2.value;
+
+            infoDiv.style.width = bredde + 'px';
+            infoDiv.style.height = høyde + 'px';
+            infoDiv.style.backgroundColor = selectColor.value;
+
+            if (selectColor.value == farge1 || selectColor.value == farge2){
+                infoDiv.style.color = 'white';
+            }
+            else {
+                infoDiv.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+Jeg laget en kode for åpningstider og så på Maze oppgaven.
+
+Åpningstider oppgavne ga meg mer trening i if/else statements. Jeg føler selv jeg begynner å kunne de ganske bra, men
+det var en fin oppgave for å gi meg mer trening. Jeg fikk også brukt switch statements som var ganske fint.
+
+Jeg satt litt fast på den delen av koden som skulle sjekke om butikken var åpen eller ikke, da jeg trengte å sjekke en range av en value
+noe som jeg ikke var sikker på hvordan jeg gjorde. Jeg løste dette ved å sette en "hvis klokkeslettet er mindre enn x, og større en Y". 
+Det var ikke helt den typen condition jeg var ute etter, men det fungerte fint til formålet mitt.
