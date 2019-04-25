@@ -27,7 +27,7 @@ class SceneMain extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
 
         this.bulletGroup = this.physics.add.group();
-        this.physics.add.collider(this.alien, this.bulletGroup, this.destroyBullet, null, this);
+        
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -89,13 +89,19 @@ class SceneMain extends Phaser.Scene {
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
-        
+        this.setColliders();
 
       
     }
 
-    destroyBullet(bullet, alien) {
+
+    setColliders() {
+        this.physics.add.collider(this.bulletGroup, this.alien, this.destroyBullet,null,this);
+    }
+
+    destroyBullet(alien, bullet) {
         bullet.destroy();
+        
         
        
         
