@@ -62,7 +62,7 @@
             <option value="Sorceror">Sorceror</option>
             <option value="Wizard">Wizard</option>
         </select>
-        Level: <input onchange="saves(), attackValue(), statMods()" id="level">
+        Level: <input onchange="saves(), attackValue(), statMods()" id="level" type="text">
     </div>
 
     <div class="item2">
@@ -146,7 +146,7 @@
             var chaMod = Math.floor((cha - 10) / 2);
 
             var chosenClass = document.getElementById("class").value
-            var lvl = document.getElementById("level").value
+            var lvl = parseInt(document.getElementById("level").value, 10);
 
         function statMods() {
             var str = document.getElementById("str").value
@@ -173,7 +173,7 @@
 
         function attackValue() {
             var chosenClass = document.getElementById("class").value
-            var lvl = document.getElementById("level").value
+            var lvl = parseInt(document.getElementById("level").value, 10)
             var babGoesHere = document.getElementById("babValue")
             var BAB;
               
@@ -189,6 +189,7 @@
             chosenClass == "Magus") {
                 BAB = Math.floor(lvl * 0.75);
             }
+
             else if (
             chosenClass == "Fighter" ||
             chosenClass == "Barbarian" ||
@@ -199,6 +200,7 @@
             chosenClass == "Paladin") {
                 BAB = lvl;
             }
+
             else if (
             chosenClass == "Sorceror" || 
             chosenClass == "Wizard") {
@@ -212,16 +214,16 @@
             var fortSave = document.getElementById("fortitudeSave")
             var willSave = document.getElementById("willSave")
             var reflexSave = document.getElementById("reflexSave")
-            var modCon = document.getElementById("modCon").value
+            var modCon = parseInt(document.getElementById("modCon").value, 10)
             var modDex = document.getElementById("modDex").value
             var modWis = document.getElementById("modWis").value
+            
 
-            if (chosenClass = 'Alchemist') {
+            if (chosenClass == 'Alchemist') {
                 fortSave.innerHTML = 'Fortitude: ' + Math.floor(modCon + 2 + (lvl * 0.5));
                 willSave.innerHTML = 'Will: ' + Math.floor(modWis + (lvl * 0.33));
                 reflexSave.innerHTML = 'Reflex: ' + Math.floor(modDex + 2 + (lvl * 0.5));
             }   
-        
         }
 
         </script>

@@ -28,8 +28,7 @@
                     name: 'Building ' + buildingNo,
                     data: []
                 }
-                
-                let power = randomPower(1 + Math.random() * 99);
+                let power = randomPower(1 + Math.random() * 70);
                 for (let myDate = dateFrom; myDate <= dateTo; myDate = addOneHour(myDate)) {
                     buildingObj.data.push({
                         date: myDate.toISOString(),

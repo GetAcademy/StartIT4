@@ -1,0 +1,6 @@
+Fant ut at <form> er en måte å bygge opp elementer som ikke egnes. Bruker <div> isteden. Fungerer mye bedre og er lettere å referere til
+endte opp med å lage char sheet greiene opp på nytt
+
+Fleste funksjonene fungerer så langt, men har noe problemer med saves() funksjonen, den har problemer med å regne ut ting på en korrekt måte.
+resultatet ble bedre på den jeg har laget nå overall enn på den forrige. Hadde noe problemer med å få satt ting inn på samme linje, men 
+brukte float:left i CSS for å få det til å fungere. Må bare være forsiktig med rekkefølgen.
