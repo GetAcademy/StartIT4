@@ -17,7 +17,8 @@ class SceneMain extends Phaser.Scene {
         this.back = this.add.image(0, 0, "background");
         this.back.setOrigin(0, 0);
         this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
-        
+        this.alien = this.physics.add.sprite(game.config.width / 2, 30, "alien");
+
         this.back.setInteractive();
         this.back.on('pointerdown', this.onDown, this);
 
