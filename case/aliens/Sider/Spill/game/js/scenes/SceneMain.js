@@ -13,17 +13,18 @@ class SceneMain extends Phaser.Scene {
         var mediaManager = new MediaManager({ scene: this });
 
         var sb = new SoundButtons({ scene: this });
+        //adding imgs and sprites
         this.back = this.add.image(0, 0, "background");
         this.back.setOrigin(0, 0);
         this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player")
 
 
-
+        //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
         this.cameras.main.startFollow(this.player, true);
 
 
-
+        //player anims
         this.anims.create({
             key: 'walk-down',
             frames: this.anims.generateFrameNumbers('player',
@@ -72,7 +73,7 @@ class SceneMain extends Phaser.Scene {
             
         });
 
-         
+        // keyCodes 
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
