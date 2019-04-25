@@ -24,6 +24,7 @@ class SceneMain extends Phaser.Scene {
 
 
         this.bulletGroup = this.physics.add.group();
+        this.physics.add.collider(this.alien, this.bulletGroup);
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -84,7 +85,13 @@ class SceneMain extends Phaser.Scene {
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+
+      
     }
+
+   
+       
+    
 
     onDown() {
         this.makeBullet();
