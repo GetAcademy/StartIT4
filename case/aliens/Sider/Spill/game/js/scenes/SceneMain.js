@@ -18,7 +18,7 @@ class SceneMain extends Phaser.Scene {
         this.back.setOrigin(0, 0);
         this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
         this.alien = this.physics.add.sprite(game.config.width / 2, 30, "alien");
-
+        
         this.back.setInteractive();
         this.back.on('pointerdown', this.onDown, this);
 
@@ -27,7 +27,7 @@ class SceneMain extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
 
         this.bulletGroup = this.physics.add.group();
-        this.physics.add.collider(this.alien, this.bulletGroup, this.destroyEnemy, null, this);
+        this.physics.add.collider(this.alien, this.bulletGroup, this.destroyBullet, null, this);
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -94,9 +94,11 @@ class SceneMain extends Phaser.Scene {
       
     }
 
-    destroyEnemy(bullet, alien) {
+    destroyBullet(bullet, alien) {
         bullet.destroy();
-        alien.destroy();
+        
+       
+        
     }
    
        
