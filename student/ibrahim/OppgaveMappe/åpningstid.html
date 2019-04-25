@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    Lag en ny HTML-fil i Visual Studio. Lim inn kodene under i BODY-tagen og åpne HTML-filen i Google Chrome.
     <!--  <br>Dag: <input id="day" onchange="showDayAndTime()" type="range" min="1" max="7" /><br />
     Time: <input id="hour" onchange="showDayAndTime()" type="range" min="0" max="23" /><br />
     Minutter: <input id="minute" onchange="showDayAndTime()" type="range" min="0" max="59" /><br />
@@ -31,7 +30,7 @@
             var day = '';
 
 
-            if (dayNo == 1) day = 'Mandag';
+            if (dayNo === 1) day = 'Mandag';
             else if (dayNo === 2) day = 'Tirsdag';
             else if (dayNo === 3) day = 'Onsdag';
             else if (dayNo === 4) day = 'Torsdag';
