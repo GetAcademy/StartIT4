@@ -1,7 +1,7 @@
-function toggleMap() {
-    var mapping = document.getElementById('map').innerHTML;
-    document.getElementById('main') = mapping;
-}
+// function toggleMap() {
+//     var mapping = document.getElementById('map').innerHTML;
+//     document.getElementById('main') = mapping;
+// }
 
 
 function initMap() {
