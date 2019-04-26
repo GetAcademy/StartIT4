@@ -28,10 +28,11 @@ class SceneMain extends Phaser.Scene {
 
         this.bulletGroup = this.physics.add.group();
         this.alienGroup = this.physics.add.group();
-        this.alienGroup.health = 3;
+        this.alienHealt = 3;
         
         this.makeAliens();
         
+        this.hitCount = 0;
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -100,7 +101,16 @@ class SceneMain extends Phaser.Scene {
     }
    
     
-    
+    damageAlien(alienGroup, bullet) {
+        this.hitCount++;
+        if (this.hitCount == 3) {
+            alienGroup.destroy();
+            this.hitCount = 0;
+        }
+        bullet.destroy();
+       
+        
+    }
 
     makeAliens() {
         if (this.alienGroup.getChildren().length == 0) {
@@ -131,22 +141,11 @@ class SceneMain extends Phaser.Scene {
 
 
     setColliders() {
-        this.physics.add.collider(this.alienGroup, this.bulletGroup, this.destroyBullet, null, this);
+        this.physics.add.collider(this.alienGroup, this.bulletGroup, this.damageAlien, null, this);
 
     }
 
-    destroyBullet(alienGroup, bullet) {
-        alienGroup.health -= 1;
-
-        if (alienGroup.health == 0) {
-            alienGroup.destroy();
-        }
-        bullet.destroy();
-        
-        
-       
-        
-    }
+   
    
        
     
