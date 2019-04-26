@@ -20,9 +20,9 @@
         </div>
         <div class="main">Velkommen til Larvik kommune sin kommunale strømstyring side.<br />Vennligst velg:</div>
         <div class="footer">Laget av: Per, Henrik, Ibrahim og Adrian</div>
-        <div class="chartContainer" id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <div class="chartContainer" id="chartContainer" style="height: 1000px; width: 100%;"></div>
         <script src="charts.js"></script>
-        <script src="dataConverter.js"></script>
+        <script src="DatasetYear.js"></script>
     </div>
 
     <script>
@@ -36,42 +36,42 @@
                 yValueFormatString: "#,##0.0\"kw/h\"",
                 showInLegend: true,
                 Areal: 724,
-                dataPoints: niceData,
+                dataPoints: perDayData,
             },
-            {
-                type: "line",
-                name: "Valby Grendehus",
-                markerSize: 5,
-                azisYType: "secondary",
-                xValueFormatString: "DD MM, YY",
-                yValueFormatString: "#,##0.0\"kw/h\"",
-                showInLegend: true,
-                Areal: 373,
-                dataPoints: niceData1,
-            },
-            {
-                type: "line",
-                name: "Solstad Barnehage",
-                markerSize: 5,
-                azisYType: "secondary",
-                xValueFormatString: "DD MM, YY",
-                yValueFormatString: "#,##0.0\"kw/h\"",
-                showInLegend: true,
-                Areal: 885,
-                dataPoints: niceData2,
+            // {
+            //     type: "line",
+            //     name: "Valby Grendehus",
+            //     markerSize: 5,
+            //     azisYType: "secondary",
+            //     xValueFormatString: "DD MM, YY",
+            //     yValueFormatString: "#,##0.0\"kw/h\"",
+            //     showInLegend: true,
+            //     Areal: 373,
+            //     dataPoints: niceData1,
+            // },
+            // {
+            //     type: "line",
+            //     name: "Solstad Barnehage",
+            //     markerSize: 5,
+            //     azisYType: "secondary",
+            //     xValueFormatString: "DD MM, YY",
+            //     yValueFormatString: "#,##0.0\"kw/h\"",
+            //     showInLegend: true,
+            //     Areal: 885,
+            //     dataPoints: niceData2,
 
-            },
-            {
-                type: "line",
-                name: "Rødbøl Barnehage",
-                markerSize: 5,
-                azixYType: "secondary",
-                xValueFormatString: "DD MM, YY",
-                yValueFormatString: "#,##0.0\"kw/h\"",
-                showInLegend: true,
-                Areal: 775,
-                dataPoints: niceData3,
-            }
+            // },
+            // {
+            //     type: "line",
+            //     name: "Rødbøl Barnehage",
+            //     markerSize: 5,
+            //     azixYType: "secondary",
+            //     xValueFormatString: "DD MM, YY",
+            //     yValueFormatString: "#,##0.0\"kw/h\"",
+            //     showInLegend: true,
+            //     Areal: 775,
+            //     dataPoints: niceData3,
+            // }
         ];
         window.onload = function () {
             var chart = new CanvasJS.Chart("chartContainer", {
