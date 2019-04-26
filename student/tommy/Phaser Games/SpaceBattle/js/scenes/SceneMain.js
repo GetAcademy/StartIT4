@@ -12,10 +12,11 @@ class SceneMain extends Phaser.Scene {
         controller = new Controller();
         var mediaManager = new MediaManager({ scene: this });
 
-        var sb = new SoundButtons({ scene: this });
+       
 
         this.shields = 100;
         this.eshields = 100;
+        model.playerWon = true;
 
         this.centerX = game.config.width / 2;
         this.centerY = game.config.height / 2;
@@ -39,36 +40,10 @@ class SceneMain extends Phaser.Scene {
         this.cameras.main.startFollow(this.ship, true);
         this.bulletGroup = this.physics.add.group();
         this.eBulletGroup = this.physics.add.group();
+        this.rockGroup = this.physics.add.group();
+        this.makeRocks();
 
-        this.rockGroup = this.physics.add.group({
-            key: 'rocks',
-            frame: [0, 1, 2],
-            frameQuantity: 4,
-            bounceX: 1,
-            bounceY: 1,
-            angularVelocity: 1,
-            collideWorldBounds: true
-        });
-        this.rockGroup.children.iterate(function (child) {
-            var xx = Math.floor(Math.random() * this.background.displayWidth);
-            var yy = Math.floor(Math.random() * this.background.displayHeight);
 
-            child.x = xx;
-            child.y = yy;
-
-            Align.scaletoGameW(child, 0.1)
-
-            var vx = Math.floor(Math.random() * 2) - 1;
-            var vy = Math.floor(Math.random() * 2) - 1;
-            if (vx == 0 && vy == 0) {
-                vx = 1;
-                vy = 1;
-            }
-            var speed = Math.floor(Math.random() * 200) + 10;
-            child.body.setVelocity(vx * speed, vy * speed);
-
-        }.bind(this));
-       
 
         var frameNames = this.anims.generateFrameNumbers('exp');
         var f2 = frameNames.slice();
@@ -88,30 +63,70 @@ class SceneMain extends Phaser.Scene {
 
         this.makeInfo();
         this.setColliders();
+        var sb = new SoundButtons({ scene: this });
 
     }
 
+    makeRocks() {
+        if (this.rockGroup.getChildren().length == 0) {
+            this.rockGroup = this.physics.add.group({
+                key: 'rocks',
+                frame: [0, 1, 2],
+                frameQuantity: 4,
+                bounceX: 1,
+                bounceY: 1,
+                angularVelocity: 1,
+                collideWorldBounds: true
+            });
+            this.rockGroup.children.iterate(function (child) {
+                var xx = Math.floor(Math.random() * this.background.displayWidth);
+                var yy = Math.floor(Math.random() * this.background.displayHeight);
+
+                child.x = xx;
+                child.y = yy;
+
+                Align.scaletoGameW(child, 0.1)
+
+                var vx = Math.floor(Math.random() * 2) - 1;
+                var vy = Math.floor(Math.random() * 2) - 1;
+                if (vx == 0 && vy == 0) {
+                    vx = 1;
+                    vy = 1;
+                }
+                var speed = Math.floor(Math.random() * 200) + 10;
+                child.body.setVelocity(vx * speed, vy * speed);
+
+            }.bind(this));
+            this.setRockColliders();
+        }
+    }
+
     setColliders() {
-        this.physics.add.collider(this.rockGroup);
+        
         this.physics.add.collider(this.bulletGroup, this.rockGroup, this.destroyRock, null, this);
         this.physics.add.collider(this.eBulletGroup, this.rockGroup, this.destroyRock, null, this);
         this.physics.add.collider(this.bulletGroup, this.eship, this.damageEnemy, null, this);
         this.physics.add.collider(this.eBulletGroup, this.ship, this.damagePlayer, null, this);
+       
+    }
+
+    setRockColliders() {
+        this.physics.add.collider(this.rockGroup);
         this.physics.add.collider(this.rockGroup, this.ship, this.rockHitPlayer, null, this);
         this.physics.add.collider(this.rockGroup, this.eship, this.rockHitEnemy, null, this);
     }
-    
+
     makeInfo() {
-        this.text1 = this.add.text(0, 0, "Shields\n100", { fontSize: game.config.width/30, align: "center", backgroundColor: '#000000' });
-        this.text2 = this.add.text(0, 0, "Enemy Shields\n100", { fontSize: game.config.width/30, align: "center", backgroundColor: '#000000' });
+        this.text1 = this.add.text(0, 0, "Shields\n100", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
+        this.text2 = this.add.text(0, 0, "Enemy Shields\n100", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
 
         this.text1.setOrigin(0.5, 0.5);
         this.text2.setOrigin(0.5, 0.5);
         this.uiGrid = new AlignGrid({ scene: this, rows: 11, cols: 11 });
-        this.uiGrid.showNumbers();
+        //this.uiGrid.showNumbers();
 
         this.uiGrid.placeAtIndex(2, this.text1);
-        this.uiGrid.placeAtIndex(9, this.text2);
+        this.uiGrid.placeAtIndex(8, this.text2);
 
         this.icon1 = this.add.image(0, 0, "ship");
         this.icon2 = this.add.image(0, 0, "eship");
@@ -119,7 +134,7 @@ class SceneMain extends Phaser.Scene {
         Align.scaletoGameW(this.icon2, 0.05);
 
         this.uiGrid.placeAtIndex(1, this.icon1);
-        this.uiGrid.placeAtIndex(7, this.icon2);
+        this.uiGrid.placeAtIndex(6, this.icon2);
 
         this.icon1.angle = 270;
         this.icon2.angle = 270;
@@ -133,25 +148,35 @@ class SceneMain extends Phaser.Scene {
     downPlayer() {
         this.shields--;
         this.text1.setText("Shields\n" + this.shields);
+        if (this.shields == 0) {
+            model.playerWon = false;
+            this.scene.start('SceneOver');
+        }
     }
 
     downEnemy() {
         this.eshields--;
         this.text2.setText("Enemy Shields\n" + this.eshields);
+        if (this.eshields == 0) {
+            model.playerWon = true;
+            this.scene.start('SceneOver');
+        }
     }
 
-    rockHitPlayer(ship,rock) {
+    rockHitPlayer(ship, rock) {
         var explosion = this.add.sprite(rock.x, rock.y, 'exp');
         explosion.play('boom');
         rock.destroy();
         this.downPlayer();
+        this.makeRocks();
     }
 
-    rockHitEnemy(ship,rock) {
+    rockHitEnemy(ship, rock) {
         var explosion = this.add.sprite(rock.x, rock.y, 'exp');
         explosion.play('boom');
         rock.destroy();
         this.downEnemy();
+        this.makeRocks();
     }
 
     damagePlayer(ship, bullet) {
@@ -172,7 +197,7 @@ class SceneMain extends Phaser.Scene {
         this.eship.angle = angle2;
 
         this.downEnemy();
-     
+
     }
 
     destroyRock(bullet, rock) {
@@ -180,6 +205,7 @@ class SceneMain extends Phaser.Scene {
         var explosion = this.add.sprite(rock.x, rock.y, 'exp');
         explosion.play('boom');
         rock.destroy();
+        this.makeRocks();
     }
 
     getTimer() {
@@ -211,14 +237,14 @@ class SceneMain extends Phaser.Scene {
                 var angle2 = this.physics.moveTo(this.eship, this.ship.x, this.ship.y, 60);
                 angle2 = this.toDegrees(angle2);
                 this.eship.angle = angle2;
-                
+
             }
         }
         else {
             this.makeBullet();
         }
 
-       
+
 
     }
 
@@ -254,18 +280,25 @@ class SceneMain extends Phaser.Scene {
         return angle * (180 / Math.PI);
     }
     update() {
-        var distX = Math.abs(this.ship.x - this.tx);
-        var distY = Math.abs(this.ship.y - this.ty);
+        if (this.ship && this.eship) {
+            var distX = Math.abs(this.ship.x - this.tx);
+            var distY = Math.abs(this.ship.y - this.ty);
 
-        if (distX < 10 && distY < 10) {
-            this.ship.body.setVelocity(0, 0);
-        }
-        var distX2 = Math.abs(this.ship.x - this.eship.x);
-        var distY2 = Math.abs(this.ship.y - this.eship.y);
+            if (distX < 10 && distY < 10) {
+                if (this.ship.body) {
+                    this.ship.body.setVelocity(0, 0);
+                }
 
-        if (distX2 < game.config.width / 5 && distY2 < game.config.height / 5) {
-            this.fireEBullet();
+            }
+            var distX2 = Math.abs(this.ship.x - this.eship.x);
+            var distY2 = Math.abs(this.ship.y - this.eship.y);
+
+            if (distX2 < game.config.width / 5 && distY2 < game.config.height / 5) {
+                this.fireEBullet();
+            }
         }
-       
+
+
+
     }
 }
