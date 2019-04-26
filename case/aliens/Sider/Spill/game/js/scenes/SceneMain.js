@@ -28,8 +28,11 @@ class SceneMain extends Phaser.Scene {
 
         this.bulletGroup = this.physics.add.group();
         this.alienGroup = this.physics.add.group();
+        this.alienHealt = 3;
+        
         this.makeAliens();
         
+        this.hitCount = 0;
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -92,8 +95,21 @@ class SceneMain extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.setColliders();
+        
 
       
+    }
+   
+    
+    damageAlien(alienGroup, bullet) {
+        this.hitCount++;
+        if (this.hitCount == 3) {
+            alienGroup.destroy();
+            this.hitCount = 0;
+        }
+        bullet.destroy();
+       
+        
     }
 
     makeAliens() {
@@ -114,7 +130,7 @@ class SceneMain extends Phaser.Scene {
                 child.x = xx;
                 child.y = yy;
 
-                
+                child.body.setVelocity(0,0);
 
                
 
@@ -125,16 +141,11 @@ class SceneMain extends Phaser.Scene {
 
 
     setColliders() {
-        this.physics.add.collider(this.bulletGroup, this.alienGroup, this.destroyBullet,null,this);
+        this.physics.add.collider(this.alienGroup, this.bulletGroup, this.damageAlien, null, this);
+
     }
 
-    destroyBullet(alien, bullet) {
-        bullet.destroy();
-        
-        
-       
-        
-    }
+   
    
        
     
@@ -158,9 +169,14 @@ class SceneMain extends Phaser.Scene {
         return { tx, ty }
     }
 
+    toDegrees(angle) {
+        return angle * (180 / Math.PI);
+    }
+
     update() {
         if (this.keyA.isDown) {
             this.player.x--;
+            
             this.player.play('walk-left', true);
             angle = 180;
         }
