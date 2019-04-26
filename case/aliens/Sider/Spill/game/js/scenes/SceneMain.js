@@ -28,11 +28,11 @@ class SceneMain extends Phaser.Scene {
 
         this.bulletGroup = this.physics.add.group();
         this.alienGroup = this.physics.add.group();
-        this.alienHealt = 3;
+        
         
         this.makeAliens();
         
-        this.hitCount = 0;
+       // this.hitCount = 0;
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -99,17 +99,18 @@ class SceneMain extends Phaser.Scene {
 
       
     }
+  
    
     
     damageAlien(alienGroup, bullet) {
-        this.hitCount++;
-        if (this.hitCount == 3) {
+        alienGroup.hitCount++
+        if (alienGroup.hitCount == 3) {
             alienGroup.destroy();
-            this.hitCount = 0;
+            alienGroup.hitCount = 0;
         }
         bullet.destroy();
-       
-        
+
+
     }
 
     makeAliens() {
@@ -117,12 +118,14 @@ class SceneMain extends Phaser.Scene {
             this.alienGroup = this.physics.add.group({
                 key: 'alien',
                 frame: [0,],
-                frameQuantity: 4,
+                frameQuantity: 14,
                 bounceX: 1,
                 bounceY: 1,
                 angularVelocity: 0,
-                collideWorldBounds: true
+                collideWorldBounds: true,
+                hitCount: 0,
             });
+            this.alienGroup.hitCount = 0;
             this.alienGroup.children.iterate(function (child) {
                 var xx = Math.floor(Math.random() * this.back.displayWidth);
                 var yy = Math.floor(Math.random() * this.back.displayHeight);
@@ -139,6 +142,7 @@ class SceneMain extends Phaser.Scene {
         }
     }
 
+    
 
     setColliders() {
         this.physics.add.collider(this.alienGroup, this.bulletGroup, this.damageAlien, null, this);
