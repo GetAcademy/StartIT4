@@ -1,3 +1,8 @@
+// function toggleMap() {
+//     var mapping = document.getElementById('map').innerHTML;
+//     document.getElementById('main') = mapping;
+// }
+
 
 function initMap() {
     var larvik = { lat: 59.05328, lng: 10.03517 };
@@ -15,20 +20,10 @@ function initMap() {
     var marker = new google.maps.Marker({ position: larvik, map: map });
 
 }
-
-var isMapToggled = false;
-
 function toggleMap() {
-    if (!isMapToggled) {
-        document.getElementById('chartContainer').classList.toggle('toggler');
-        document.getElementById('map').classList.toggle('toggler');
-        isMapToggled = true;
-    }
-   /* else {
-        document.getElementById('chartContainer').classList.toggle('toggler');
-        document.getElementById('map').classList.toggle('toggler');
-        isMapToggled = false;
-    }*/
-
+    document.getElementById('main').style.display ='none';
+    document.getElementById('content').style.display = 'none';
+    document.getElementById('map').style.display = 'block';
 }
+
 
