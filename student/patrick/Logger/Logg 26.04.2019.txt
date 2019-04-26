@@ -1,0 +1,17 @@
+Logg 26.04.2019
+
+Løste Problemer:
+
+(ingenting)
+men på Hotline prosjektet så ble litt av det første grovarbeidet på de siste 2 html sidene gjort.
+fikk unnagjort litt av css problemene med hjelp av masse mentorer og terje.
+
+Gjenstående Problemer fra igår:
+
+- har fortsatt å gjøre noen siste justeringer som å sette touch input sensitiviteten opp til 5.5 fra 6 fordi den er litt hard og treg nå så 5.5 funker bra.
+- så lage en aap build og kjøpe meg en google play dev account for å så laste opp alpha releasen av spillet mitt til den og orientere meg hvordan google play store gjør det fra utvikler perspektivet.
+ ( dette gjøres nå i ettermiddag så stor sjans for at det er ferdig innen mandag )
+
+Nye Problemer:
+
+- Hotline prosjektet er et eneste stort fungerende rot, det viktige å legge trykk på er FUNGERENDE. så i forsøket om å leve opp til model view controller prinsippet uten å skape ufungerende kode så blir det å rødde opp i og gjøre prosjektet penere og bedre organisert i skriptet.
