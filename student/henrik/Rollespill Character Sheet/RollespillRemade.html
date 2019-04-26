@@ -146,8 +146,7 @@
             var chaMod = Math.floor((cha - 10) / 2);
 
             var chosenClass = document.getElementById("class").value
-            var lvl = parseInt(document.getElementById("level").value, 10);
-
+            
         function statMods() {
             var str = document.getElementById("str").value
             var dex = document.getElementById("dex").value
@@ -160,7 +159,7 @@
             var dexMod = Math.floor((dex - 10) / 2);
             var conMod = Math.floor((con - 10) / 2);
             var intMod = Math.floor((int - 10) / 2);
-            var wisMod = Math.floor((wis - 10) / 2);
+            var dexMod = Math.floor((dex - 10) / 2);
             var chaMod = Math.floor((cha - 10) / 2);
 
             document.getElementById("modStr").innerHTML = strMod
@@ -214,13 +213,16 @@
             var fortSave = document.getElementById("fortitudeSave")
             var willSave = document.getElementById("willSave")
             var reflexSave = document.getElementById("reflexSave")
-            var modCon = parseInt(document.getElementById("modCon").value, 10)
-            var modDex = document.getElementById("modDex").value
-            var modWis = document.getElementById("modWis").value
+            var conMod = Math.floor((con - 10) / 2);
+            var dexMod = Math.floor((dex - 10) / 2);
+            var dexMod = Math.floor((dex - 10) / 2);
+            var lvl = parseInt(document.getElementById("level").value, 10);
+            
+
             
 
             if (chosenClass == 'Alchemist') {
-                fortSave.innerHTML = 'Fortitude: ' + Math.floor(modCon + 2 + (lvl * 0.5));
+                fortSave.innerHTML = 'Fortitude: ' + Math.floor((lvl / 2) + parseInt(conMod))
                 willSave.innerHTML = 'Will: ' + Math.floor(modWis + (lvl * 0.33));
                 reflexSave.innerHTML = 'Reflex: ' + Math.floor(modDex + 2 + (lvl * 0.5));
             }   
