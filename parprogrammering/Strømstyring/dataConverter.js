@@ -31,6 +31,9 @@ var uglyData = [
     { "date": "2019-01-02T09:00:00.000Z", "power": 36.7750401367609214 }
 ];
 var niceData = convert(uglyData);
+//console.log(niceData);
+var perDayData = convertToPerDay(niceData);
+console.log(perDayData);
 
 function convert(myArray) {
     var data = [];
@@ -41,6 +44,32 @@ function convert(myArray) {
         });
     }
     return data;
+}
+
+function convertToPerDay(someData) {
+    let newData = [];
+    for (let value of someData) {
+        let date = value.x;
+        let power = value.y;
+        date = date.toLocaleDateString();
+        // let monthAndYear = date.getMonth() + 1 + '.' + date.getYear();
+        // let week = date.getWeek();
+        // let year = date.getYear();
+        let dataObj = findOrCreateDataObjectFromDate(newData, date);
+        dataObj.y += power;
+    }
+    return newData;
+}
+
+function findOrCreateDataObjectFromDate(dataList, date) {
+    for (let value of dataList) {
+        if (value.x == date) {
+            return value;
+        }
+    }
+    let newObj = {x: date, y: 0};
+    dataList.push(newObj);
+    return newObj;
 }
 //
 var uglyData1 = [
