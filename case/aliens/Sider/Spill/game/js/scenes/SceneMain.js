@@ -17,17 +17,22 @@ class SceneMain extends Phaser.Scene {
         this.back = this.add.image(0, 0, "background");
         this.back.setOrigin(0, 0);
         this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
-        this.alien = this.physics.add.sprite(game.config.width / 2, 30, "alien");
+        
         
         this.back.setInteractive();
         this.back.on('pointerdown', this.onDown, this);
 
         this.player.body.collideWorldBounds = true;
-        this.alien.body.collideWorldBounds = true;
+        
         this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
 
         this.bulletGroup = this.physics.add.group();
+        this.alienGroup = this.physics.add.group();
+        this.alienHealt = 3;
         
+        this.makeAliens();
+        
+        this.hitCount = 0;
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -90,22 +95,57 @@ class SceneMain extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.setColliders();
+        
 
       
+    }
+   
+    
+    damageAlien(alienGroup, bullet) {
+        this.hitCount++;
+        if (this.hitCount == 3) {
+            alienGroup.destroy();
+            this.hitCount = 0;
+        }
+        bullet.destroy();
+       
+        
+    }
+
+    makeAliens() {
+        if (this.alienGroup.getChildren().length == 0) {
+            this.alienGroup = this.physics.add.group({
+                key: 'alien',
+                frame: [0,],
+                frameQuantity: 4,
+                bounceX: 1,
+                bounceY: 1,
+                angularVelocity: 0,
+                collideWorldBounds: true
+            });
+            this.alienGroup.children.iterate(function (child) {
+                var xx = Math.floor(Math.random() * this.back.displayWidth);
+                var yy = Math.floor(Math.random() * this.back.displayHeight);
+
+                child.x = xx;
+                child.y = yy;
+
+                child.body.setVelocity(0,0);
+
+               
+
+            }.bind(this));
+           
+        }
     }
 
 
     setColliders() {
-        this.physics.add.collider(this.bulletGroup, this.alien, this.destroyBullet,null,this);
+        this.physics.add.collider(this.alienGroup, this.bulletGroup, this.damageAlien, null, this);
+
     }
 
-    destroyBullet(alien, bullet) {
-        bullet.destroy();
-        
-        
-       
-        
-    }
+   
    
        
     
@@ -129,9 +169,14 @@ class SceneMain extends Phaser.Scene {
         return { tx, ty }
     }
 
+    toDegrees(angle) {
+        return angle * (180 / Math.PI);
+    }
+
     update() {
         if (this.keyA.isDown) {
             this.player.x--;
+            
             this.player.play('walk-left', true);
             angle = 180;
         }
