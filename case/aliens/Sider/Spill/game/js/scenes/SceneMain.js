@@ -28,6 +28,8 @@ class SceneMain extends Phaser.Scene {
 
         this.bulletGroup = this.physics.add.group();
         this.alienGroup = this.physics.add.group();
+        this.alienGroup.health = 3;
+        
         this.makeAliens();
         
 
@@ -92,9 +94,13 @@ class SceneMain extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.setColliders();
+        
 
       
     }
+   
+    
+    
 
     makeAliens() {
         if (this.alienGroup.getChildren().length == 0) {
@@ -114,7 +120,7 @@ class SceneMain extends Phaser.Scene {
                 child.x = xx;
                 child.y = yy;
 
-                
+                child.body.setVelocity(0,0);
 
                
 
@@ -125,10 +131,16 @@ class SceneMain extends Phaser.Scene {
 
 
     setColliders() {
-        this.physics.add.collider(this.bulletGroup, this.alienGroup, this.destroyBullet,null,this);
+        this.physics.add.collider(this.alienGroup, this.bulletGroup, this.destroyBullet, null, this);
+
     }
 
-    destroyBullet(alien, bullet) {
+    destroyBullet(alienGroup, bullet) {
+        alienGroup.health -= 1;
+
+        if (alienGroup.health == 0) {
+            alienGroup.destroy();
+        }
         bullet.destroy();
         
         
@@ -158,9 +170,14 @@ class SceneMain extends Phaser.Scene {
         return { tx, ty }
     }
 
+    toDegrees(angle) {
+        return angle * (180 / Math.PI);
+    }
+
     update() {
         if (this.keyA.isDown) {
             this.player.x--;
+            
             this.player.play('walk-left', true);
             angle = 180;
         }
