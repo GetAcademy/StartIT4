@@ -100,6 +100,7 @@ class SceneMain extends Phaser.Scene {
       
     }
   
+    
    
     
     damageAlien(alienGroup, bullet) {
@@ -119,17 +120,17 @@ class SceneMain extends Phaser.Scene {
                 key: 'alien',
                 frame: [0,],
                 frameQuantity: 14,
-                bounceX: 1,
-                bounceY: 1,
+                bounceX: 0,
+                bounceY: 0,
                 angularVelocity: 0,
                 collideWorldBounds: true,
-                hitCount: 0,
+               
             });
             this.alienGroup.hitCount = 0;
             this.alienGroup.children.iterate(function (child) {
                 var xx = Math.floor(Math.random() * this.back.displayWidth);
                 var yy = Math.floor(Math.random() * this.back.displayHeight);
-
+                child.hitCount = 0;
                 child.x = xx;
                 child.y = yy;
 
