@@ -36,6 +36,7 @@
 #myTable tr.header, #myTable tr:hover {
   background-color: #f1f1f1;
 }
+
 </style>
 </head>
 <body>
@@ -50,7 +51,8 @@
     <th style="width:25%">Sted</th>
     <th style="width:25%">Kategori</th>
   </tr>
-  
+
+  <div id="buttonHere"></div>
 
 </table>
 
@@ -144,7 +146,24 @@ function showAllInfo(index) {
     Kategori: ${building.Kategori}<br/>
     Areal: ${building.Areal}<br/>
 `;
+    document.getElementById("buttonHere").innerHTML = '<button value="Refresh Page" onClick="window.location.reload();">Back</button>'
  }
+
+
+function printBuildingInfo2() {
+for (let i = 0; i < data.building.length; i++) {
+    let building = data.building[i];
+    document.getElementById('myTable').innerHTML +=
+    `<b>
+    <tr onclick="showAllInfo(${i})"><td>${building.name}</b></td>
+    <td>${building.Adresse}</td>
+    <td>${building.Sted}</td>
+    <td>${building.Kategori}</td>
+
+`;
+    
+}
+}   
 
 
 </script>
