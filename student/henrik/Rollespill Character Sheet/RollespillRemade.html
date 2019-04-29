@@ -116,7 +116,7 @@
 
     <div class="item3">
         <h3>Skills</h3>
-        <table>
+        <table style="text-align:center;">
             <tr>
                 <th>Skill</th>
                 <th>Rank </th>
@@ -126,10 +126,35 @@
             </tr>
             <tr>
                 <td>Acrobatics: <input class="statistics" type="text"></td>
-
+                <td></td>
             </tr>
-
-
+            <tr>
+                <td>Appraise: <input class="statistics" type="text"></td>
+            </tr>
+            <tr>
+                <td>Bluff: <input class="statistics" type="text"></td>
+            </tr>
+            <tr>
+                <td>Climb: <input class="statistics" type="text"></td>
+            </tr>
+            <tr>
+                <td>Diplomacy: <input class="statistics" type="text"></td>
+            </tr>
+            <tr>
+                <td>DisDev: <input class="statistics" type="text"></td>
+            </tr>
+            <tr>
+                <td>Disguise: <input class="statistics" type="text"></td>
+            </tr>
+            <tr>
+                <td>Escape: <input class="statistics" type="text"></td>
+            </tr>
+            <tr>
+                <td>Fly: <input class="statistics" type="text"></td>
+            </tr>
+            <tr>
+                <td>HandAni: <input class="statistics" type="text"></td>
+            </tr>
 
 
         </table>
@@ -425,6 +450,30 @@
             else{
                 console.log("no class found");
             }
+        }
+
+        function skillCalculation() {
+            var lvl = parseInt(document.getElementById("level").value, 10);
+            var chosenClass = document.getElementById("class").value
+            var str = document.getElementById("str").value
+            var dex = document.getElementById("dex").value
+            var con = document.getElementById("con").value
+            var int = document.getElementById("int").value
+            var wis = document.getElementById("wis").value
+            var cha = document.getElementById("cha").value
+            var strMod = Math.floor((str - 10) / 2);
+            var dexMod = Math.floor((dex - 10) / 2);
+            var conMod = Math.floor((con - 10) / 2);
+            var intMod = Math.floor((int - 10) / 2);
+            var wisMod = Math.floor((wis - 10) / 2);
+            var chaMod = Math.floor((cha - 10) / 2);
+
+
+            if (chosenClass == 'Rogue') {
+
+            }
+
+
         }
         
 
