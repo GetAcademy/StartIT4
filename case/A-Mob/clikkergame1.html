@@ -8,11 +8,19 @@
 
     <style>
         div {
+            text-align: center;
             font-size: 600%;
             user-select: none;
         }
-        button.hei {
+
+        button {
+            margin: 5px;
             background-color: aqua;
+            border-radius: 6px;
+            width: 20%;
+            height: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
         }
     </style>
 
@@ -21,13 +29,18 @@
 <body>
     <div id="image" onclick="changeimage()"></div>
     <div id="pointsinfo"></div>
-    <button id="hei" onclick="buyupgrade()">10 points</button>
-    <button id="hei" onclick="buyupgrade1()">50 points</button>
-
+    <ul>
+        <button onclick="buyupgrade0()">10 points</button>
+        <button onclick="buyupgrade1()">100 points</button>
+        <button onclick="buyupgrade2()">1000 points</button>
+        <button onclick="buyupgrade3()">10000 points</button>
+        <button onclick="buyupgrade4()">100000 points</button>
+        <button onclick="autoClick()" id="auto">Auto click (10)</button>
+    </ul>
     <script>
         var imagediv = document.getElementById('image');
         var pointsdiv = document.getElementById('pointsinfo');
-
+        var auto = document.getElementById('auto')
 
         //model
         var points = 0;
@@ -39,17 +52,44 @@
             show();
         }
 
-        function buyupgrade() {
+        function buyupgrade0() {
             if (points < 10) return;
             points -= 10;
             pointsperclick++;
             show();
         }
         function buyupgrade1() {
-            if (points < 50) return;
-            points -= 50;
-            pointsperclick1++;
+            if (points < 100) return;
+            points -= 100;
+            pointsperclick += 10;
             show();
+        }
+        function buyupgrade2() {
+            if (points < 1000) return;
+            points -= 1000;
+            pointsperclick += 100;
+            show();
+        }
+        function buyupgrade3() {
+            if (points < 10000) return;
+            points -= 10000;
+            pointsperclick += 1000;
+            show();
+        }
+        function buyupgrade4() {
+            if (points < 1000000) return;
+            points -= 1000000;
+            pointsperclick += 100000;
+            show();
+        }
+        function autoClick() {
+            if (points < 100) return;
+            points -= 100;
+            setInterval(function buyupgrade0() {
+                imagediv.click();
+            }, 300);
+            show();
+            ;
         }
 
         //view
@@ -60,6 +100,7 @@
         }
 
     </script>
+    
 </body>
 
 </html>
