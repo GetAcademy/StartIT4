@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:25%;">Navn</th>
+    <th style="width:25%;">Adresse</th>
+    <th style="width:25%">Sted</th>
+    <th style="width:25%">Kategori</th>
+  </tr>
+  
+
+</table>
+
+<script>
+
+var data = {
+    building: [
+        {
+            name: 'Bergeskoge Barnehage',
+            Adresse: "Brekkegata 31",
+            PostNr: "3260",
+            Sted: "Larvik",
+            Kategori: "Barnehage",
+            Areal: 724,
+            Oppvarming: "El",
+        },
+        {
+            name: 'Valby Grendehus',
+            Adresse: "Søvstråveien 44",
+            PostNr: "3261",
+            Sted: "Larvik",
+            Kategori: "Barnehage",
+            Areal: 373,
+            Oppvarming: "El",
+        },
+        {
+            name: "Solstad Barnehage",
+            Adresse: "Agnesveien 14",
+            PostNr: "3292",
+            Sted: "Stavern",
+            Kategori: "Barnehage",
+            Areal: 885,
+            Oppvarming: "El, Varmepumpe",
+        },
+        {
+            name: "Rødbøl",
+            Adresse: "Ganke Ravei 312",
+            PostNr: "3267",
+            Sted: "Larvik",
+            Kategori: "Barnehage",
+            Areal: 777,
+            Oppvarming: "El, Bio",
+        },
+    ]
+};
+
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+
+printBuildingInfo()
+function printBuildingInfo() {
+for (let i = 0; i < data.building.length; i++) {
+    let building = data.building[i];
+    document.getElementById('myTable').innerHTML +=
+    `<b>
+    <tr onclick="showAllInfo(${i})"><td>${building.name}</b></td>
+    <td>${building.Adresse}</td>
+    <td>${building.Sted}</td>
+    <td>${building.Kategori}</td>
+
+`;}
+}   
+
+
+
+function showAllInfo(index) {
+    let building = data.building[index];
+    document.getElementById('myTable').innerHTML =
+        `<b>
+    Navn: ${building.name}</b><br/>
+    Adresse: ${building.Adresse}</br>
+    PostNr: ${building.PostNr}<br/>
+    Sted: ${building.Sted}<br/>
+    Kategori: ${building.Kategori}<br/>
+    Areal: ${building.Areal}<br/>
+`;
+ }
+
+
+</script>
+
+</body>
+</html>
