@@ -1078,7 +1078,7 @@ function BlindDatesPage()
 
             <div id="BodyProfName" class="BodyProfName">Jonas Risaker</div>
             <div id="BodyDateAddress" class="BodyDateAddress">Oslo 6666 Torggata 35</div>
-            <div id="BodyProfAge" class="BodyProfAge">27</div>
+            <div id="BodyProfAge" class="BodyProfAge">27 år</div>
             <div id="BodyDateTime" class="BodyDateTime">27, April, 2020, 18:30</div>
         </div>
     </div>
