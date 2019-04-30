@@ -8,38 +8,76 @@
     <meta charset="utf-8" />
     <title></title>
     <link rel="stylesheet" href="StromappCSSV2.css" />
+    <link rel="stylesheet" href="Firestoretest/main.css">
     <link rel="stylesheet" href="Map.css">
     <link rel="stylesheet" href="leggtilbygg.css">
-
-
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
 </head>
 
 <body>
     <div class="grid-container">
         <div class="header">Kommunal Strømstyring</div>
         <div class="menuContainer">
-            <button class="button" >Liste over bygg</button>
+            <button class="button">Liste over bygg</button>
             <button class="button">Søk etter bygg</button>
-            <button class="button" onclick="leggTil()">Legg til bygg</button>
+            <button class="button" onclick="toggleLeggTilBygg()">Legg til bygg</button>
             <button class="button" onclick="toggleMap()">Kart</button></div>
-        <div id="main" class="main">Velkommen til Larvik kommune sin kommunale strømstyring side.<br />Vennligst velg:
-            <div class="chartContainer" id="chartContainer" style="height: 300px; width: 100%;"></div>
-            <div class="toggler" id="map"></div>
-            <div id="parent">
-                <table id="buldingTable"></table>
-            </div>
+
+        <div id="main" class="main" style="display:block">Velkommen til Larvik kommune sin kommunale strømstyring
+            side.<br />Vennligst velg:
+            <div class="chartContainer" id="chartContainer" style="height: 600px; width: 100%;"></div>
         </div>
+        <div id="content" style="display:none">
+            <h1>Bygninger</h1>
+            <form id="add-bygg-form">
+                <input type="text" name="navn" placeholder="Navn">
+                <input type="text" name="by" placeholder="By">
+                <input type="text" name="adresse" placeholder="Adresse">
+                <input type="text" name="postnr" placeholder="Post nummer">
+                <input type="text" name="areal" placeholder="Areal">
+                <input type="text" name="oppvarming" placeholder="Oppvarming metode">
+                <input id="from" type="datetime-local" name="dataFrom" value="2019-01-01T10:00"
+                    title="Data generering fra" /><br />
+                <input id="to" type="datetime-local" name="dataTo" value="2019-01-01T15:00"
+                    title="Data generering til" /><br />
+                <button id="Knapp">Legg til</button>
+            </form>
+            <ul id="bygg-list"></ul>
+        </div>
+        <div id="map" style="display:none"></div>
+
         <div class="footer">Laget av: Per, Henrik, Ibrahim og Adrian</div>
+        <script src="config.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "",
+                authDomain: "firestoretest-1b8d9.firebaseapp.com",
+                databaseURL: "https://firestoretest-1b8d9.firebaseio.com",
+                projectId: "firestoretest-1b8d9",
+                storageBucket: "firestoretest-1b8d9.appspot.com",
+                messagingSenderId: "602922580279"
+            };
+            firebase.initializeApp(config);
+            const db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true }); </script>
+
+
+        <script src="moment.js"></script>
+        <script src="Firestoretest/main.js"></script>
         <script src="GraphDisplay.js"></script>
         <script src="charts.js"></script>
-        <script src="dataConverter.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="GraphDisplay2.js"></script>
+        <script src="DatasetYear.js"></script>
         <script src="test 3.js"></script>
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpRnjLpiGEoPxMt7I78RGftYx_wT0vKK4&callback=initMap"></script>
 
 
 
-    </div>
+
 
 
 </html>

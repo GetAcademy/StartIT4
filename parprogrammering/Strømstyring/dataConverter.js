@@ -3,19 +3,6 @@
 //This script converts it to the correct format.
 
 
-
-function convert(myArray) {
-    var data = [];
-    for (let obj of myArray) {
-        data.push({
-            x: new Date(obj.date),
-            y: obj.power
-        });
-    }
-    return data;
-}
-
-
 var uglyData = [
     { "date": "2019-01-01T09:00:00.000Z", "power": 13.0170341476524865 },
     { "date": "2019-01-01T10:00:00.000Z", "power": 21.335133189406978 },
@@ -44,21 +31,46 @@ var uglyData = [
     { "date": "2019-01-02T09:00:00.000Z", "power": 36.7750401367609214 }
 ];
 var niceData = convert(uglyData);
+//console.log(niceData);
+var perDayData = convertToPerDay(niceData);
+console.log(perDayData);
 
-
-
-/*
-var niceDataPower = convertPower(uglyData);
-
-function convertPower(powerArray) {
-    var power = [];
-    for (let obj of powerArray) {
-        power.push({
-            power: obj.powerUse
+function convert(myArray) {
+    var data = [];
+    for (let obj of myArray) {
+        data.push({
+            x: new Date(obj.date),
+            y: obj.power
         });
     }
-    return power;
-}*/
+    return data;
+}
+
+function convertToPerDay(someData) {
+    let newData = [];
+    for (let value of someData) {
+        let date = value.x;
+        let power = value.y;
+        date = date.toLocaleDateString();
+        // let monthAndYear = date.getMonth() + 1 + '.' + date.getYear();
+        // let week = date.getWeek();
+        // let year = date.getYear();
+        let dataObj = findOrCreateDataObjectFromDate(newData, date);
+        dataObj.y += power;
+    }
+    return newData;
+}
+
+function findOrCreateDataObjectFromDate(dataList, date) {
+    for (let value of dataList) {
+        if (value.x == date) {
+            return value;
+        }
+    }
+    let newObj = {x: date, y: 0};
+    dataList.push(newObj);
+    return newObj;
+}
 //
 var uglyData1 = [
         {"date":"2019-01-01T09:00:00.000Z","power":52.83010481114612},
@@ -89,7 +101,16 @@ var uglyData1 = [
 ];
 var niceData1 = convert(uglyData1);
 
-
+function convert(myArray) {
+    var data1 = [];
+    for (let obj of myArray) {
+        data1.push({
+            x: new Date(obj.date),
+            y: obj.power
+        });
+    }
+    return data1;
+}
 //
 var uglyData2 = [
     {"date":"2019-01-01T09:00:00.000Z","power":21.413851557807636},
@@ -120,7 +141,16 @@ var uglyData2 = [
 ];
 var niceData2 = convert(uglyData2);
 
-
+function convert(myArray) {
+var data2 = [];
+for (let obj of myArray) {
+    data2.push({
+        x: new Date(obj.date),
+        y: obj.power
+    });
+}
+return data2;
+}
 
 //
 
@@ -153,4 +183,13 @@ var uglyData3 = [
 ];
 var niceData3 = convert(uglyData3);
 
-
+function convert(myArray) {
+var data3 = [];
+for (let obj of myArray) {
+    data3.push({
+        x: new Date(obj.date),
+        y: obj.power
+    });
+}
+return data3;
+}
