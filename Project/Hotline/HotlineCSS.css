@@ -634,48 +634,61 @@
     text-align: center;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 150px auto auto;
+    grid-template-columns: 75px auto auto;
     grid-template-areas: 'BodyProfImage BodyProfName BodyDateAddress' 'BodyProfImage BodyProfAge BodyDateTime';
 }
 
 .BodyProfImage 
 {
     grid-area: BodyProfImage;
-    border: 1px solid #AD00FF;
-    object-fit: contain;
-    border-radius: 50%;
 }
+
+    .BodyProfImage > img {
+        object-fit: contain;
+        border-radius: 50%;
+        border: 1px solid #AD00FF;
+    }
 
 .BodyProfName {
     grid-area: BodyProfName;
     border-radius: 20px;
-    background: rgba(236, 68, 251, 0.75);
-    border: 1px solid #AD00FF;
-    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
+    margin:5px;
+    text-align:center;
+    align-self:center;
 }
 
 .BodyDateAddress {
     grid-area: BodyDateAddress;
     border-radius: 20px;
-    background: rgba(236, 68, 251, 0.75);
-    border: 1px solid #AD00FF;
-    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+    text-align: center;
+    align-self: center;
+    margin: 5px;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 
 .BodyProfAge {
     grid-area: BodyProfAge;
     border-radius: 20px;
-    background: rgba(236, 68, 251, 0.75);
-    border: 1px solid #AD00FF;
-    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+    text-align: center;
+    align-self: flex-start;
+    margin: 5px;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 
 .BodyDateTime {
     grid-area: BodyDateTime;
     border-radius: 20px;
-    background: rgba(236, 68, 251, 0.75);
+    text-align: center;
+    align-self: flex-start;
+    margin: 5px;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
+}
+
+.BodyAddDateButton {
+    grid-area: BodyAddDateButton;
+    border-radius: 50%;
     border: 1px solid #AD00FF;
-    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
 }
 
 /*YourBlindDatesPage*/
@@ -738,7 +751,7 @@
     border-radius: 20px;
     background: rgba(236, 68, 251, 0.75);
     border: 1px solid #AD00FF;
-    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 
 .YourBodyDateAddress {
@@ -746,7 +759,7 @@
     border-radius: 20px;
     background: rgba(236, 68, 251, 0.75);
     border: 1px solid #AD00FF;
-    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 
 .YourBodyProfAge {
@@ -754,7 +767,7 @@
     border-radius: 20px;
     background: rgba(236, 68, 251, 0.75);
     border: 1px solid #AD00FF;
-    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
 
 .YourBodyDateTime {
@@ -762,5 +775,5 @@
     border-radius: 20px;
     background: rgba(236, 68, 251, 0.75);
     border: 1px solid #AD00FF;
-    text-shadow: 1px 0 0 #FF0000, -1px 0 0 #FF0000, 0 1px 0 #FF0000, 0 -1px 0 #FF0000, 1px 1px #FF0000, -1px -1px 0 #FF0000, 1px -1px 0 #FF0000, -1px 1px 0 #FF0000;
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
 }
