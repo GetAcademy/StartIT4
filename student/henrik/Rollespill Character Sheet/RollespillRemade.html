@@ -32,12 +32,19 @@
         .item2 {
             grid-area: left;
         }
+        .item5 {
+            grid-area: leftLow;
+        }
+        .item6 {
+            grid-area: rightLow;
+        }
 
         .grid-container {
             display: grid;
             grid-template-areas:
                 'header header header'
-                'left main right';
+                'left main right'
+                'leftLow main rightLow';
             grid-gap: 10px;
             background-color: white;
             padding: 10px;
@@ -55,6 +62,24 @@
         #modCha {
             float: left;
         }
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            padding-right: 10px;
+        }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            
+        }
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+        tr.skillInput {
+            width: 30px;
+        }
     </style>
 </head>
 
@@ -63,7 +88,7 @@
         <h2>Pathfinder Character Sheet</h2>
         Name: <input>
         Alignment: <Input id="alignment">
-        Class: <select onchange="attackValue(), saves(), statMods()" id="class">
+        Class: <select onchange="attackValue(), saves(), statMods(), skills()" id="class">
            <option value="Alchemist">Alchemist</option>
             <option value="Bard">Bard</option>
             <option value="Barbarian">Barbarian</option>
@@ -83,51 +108,218 @@
             <option value="Wizard">Wizard</option>
             
         </select>
-        Level: <input onchange="saves(), attackValue(), statMods()" id="level" type="text">
+        Level: <input onchange="saves(), attackValue(), statMods(), skills()" id="level" type="text">
     </div>
 
     <div class="item2">
         <h3>Statistics</h3>
 
-        <div class="stat">Str: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+        <div class="stat">Str: <input type="text" onchange="statMods(), saves(), attackValue(), skills()" class="statistics"
                 id="str"></div>
         <div id="modStr"></div>
         <br>
-        <div class="stat">Dex: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+        <div class="stat">Dex: <input type="text" onchange="statMods(), saves(), attackValue(), skills()" class="statistics"
                 id="dex"></div>
         <div id="modDex"></div>
         <br>
-        <div class="stat">Con: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+        <div class="stat">Con: <input type="text" onchange="statMods(), saves(), attackValue(), skills()" class="statistics"
                 id="con"></div>
         <div id="modCon"></div>
         <br>
-        <div class="stat">Int: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+        <div class="stat">Int: <input type="text" onchange="statMods(), saves(), attackValue(), skills()" class="statistics"
                 id="int"></div>
         <div id="modInt"></div>
         <br>
-        <div class="stat">Wis: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+        <div class="stat">Wis: <input type="text" onchange="statMods(), saves(), attackValue(), skills()" class="statistics"
                 id="wis"></div>
         <div id="modWis"></div>
         <br>
-        <div class="stat">Cha: <input type="text" onchange="statMods(), saves(), attackValue()" class="statistics"
+        <div class="stat">Cha: <input type="text" onchange="statMods(), saves(), attackValue(), skills()" class="statistics"
                 id="cha"></div>
         <div id="modCha"></div>
     </div>
 
     <div class="item3">
         <h3>Skills</h3>
-        <table>
+        <table id="myTable">
             <tr>
                 <th>Skill</th>
                 <th>Rank </th>
                 <th>Modifier</th>
                 <th>Total</th>
-
             </tr>
             <tr>
-                <td>Acrobatics: <input class="statistics" type="text"></td>
-
+                <td>Acrobatics:</td>
+                <td><input id="acrobatics"></td>
+                <td class="skillModifierDex"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Appraise:</td>
+                <td><input id="appraise"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
             </tr>
+            <tr>
+                <td>Bluff:</td>
+                <td><input id="bluff"></td>
+                <td class="skillModifierCha"></td>
+                <td class="skillTotal"></td>
+            </tr>
+            <tr>
+                <td>Climb:</td>
+                <td><input id="climb"></td>
+                <td class="skillModifierStr"></td>
+                <td class="skillTotal"></td>
+            </tr>
+            <tr>
+                <td>Diplomacy:</td>
+                <td><input id="diplomacy"></td>
+                <td class="skillModifierCha"></td>
+                <td class="skillTotal"></td>
+            </tr>
+            <tr>
+                <td>Disable Device:</td>
+                <td><input id="disableDevice"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>                        
+            <tr>
+                <td>Disguise:</td>
+                <td><input id="disguise"></td>
+                <td class="skillModifierCha"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Escape Artist:</td>
+                <td><input id="escapeArtist"></td>
+                <td class="skillModifierDex"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Fly:</td>
+                <td><input id="fly"></td>
+                <td class="skillModifierDex"></td>
+                <td class="skillTotal"></td>
+            </tr>
+            <tr>
+                <td>Handle Animal:</td>
+                <td><input id="handleAnimal"></td>
+                <td class="skillModifierWis"></td>
+                <td class="skillTotal"></td>
+            </tr>    
+            <tr>
+                <td>Heal:</td>
+                <td><input id="heal"></td>
+                <td class="skillModifierWis"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Intimidate:</td>
+                <td><input id="intimidate"></td>
+                <td class="skillModifierCha"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Knowledge Arcane:</td>
+                <td><input id="knowArcane"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>
+            <tr>
+                <td>Knowledge Dungeoneering:</td>
+                <td><input id="knowDungeoneering"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Knowledge Engineering:</td>
+                <td><input id="knowEngineering"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>             
+            <tr>
+                <td>Knowledge Geography:</td>
+                <td><input id="knowGeography"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Knowledge History:</td>
+                <td><input id="knowHistory"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Knowledge Local:</td>
+                <td><input id="knowLocal"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Linguistics:</td>
+                <td><input id="linguistics"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Perception:</td>
+                <td><input id="perception"></td>
+                <td class="skillModifierWis"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Ride:</td>
+                <td><input id="ride"></td>
+                <td class="skillModifierDex"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Sense Motive:</td>
+                <td><input id="senseMotive"></td>
+                <td class="skillModifierWis"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Sleight of Hand:</td>
+                <td><input id="sleightOfHand"></td>
+                <td class="skillModifierDex"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Spellcraft:</td>
+                <td><input id="spellcraft"></td>
+                <td class="skillModifierInt"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Stealth:</td>
+                <td><input id="stealth"></td>
+                <td class="skillModifierDex"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Survival:</td>
+                <td><input id="survival"></td>
+                <td class="skillModifierWis"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>Swim:</td>
+                <td><input id="swim"></td>
+                <td class="skillModifierStr"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+            <tr>
+                <td>UMD:</td>
+                <td><input id="umd"></td>
+                <td class="skillModifierCha"></td>
+                <td class="skillTotal"></td>
+            </tr>  
+
+
+
+
 
 
 
@@ -165,7 +357,7 @@
         <div id="totalRangedAttack"></div>
     </div>
 
-    <div>
+    <div class="item5">
         <h3>Save Bonuses</h3>
         <div id="fortitudeSave"></div>
         <div id="willSave"></div>
@@ -426,7 +618,36 @@
                 console.log("no class found");
             }
         }
-        
+
+        function skills() {
+            var str = document.getElementById("str").value
+            var dex = document.getElementById("dex").value
+            var con = document.getElementById("con").value
+            var int = document.getElementById("int").value
+            var wis = document.getElementById("wis").value
+            var cha = document.getElementById("cha").value
+
+            var strMod = Math.floor((str - 10) / 2);
+            var dexMod = Math.floor((dex - 10) / 2);
+            var conMod = Math.floor((con - 10) / 2);
+            var intMod = Math.floor((int - 10) / 2);
+            var wisMod = Math.floor((wis - 10) / 2);
+            var chaMod = Math.floor((cha - 10) / 2);
+
+            var skillTable = document.getElementById("myTable")
+            var skillStr = skillTable.getElementsByClassName("skillModifierStr")
+            var skillDex = skillTable.getElementsByClassName("skillModifierDex")
+            var skillCon = skillTable.getElementsByClassName("skillModifierCon")
+            var skillInt = skillTable.getElementsByClassName("skillModifierInt")
+            var skillWis = skillTable.getElementsByClassName("skillModifierWis")
+            var skillCha = skillTable.getElementsByClassName("skillModifierCha")
+
+            for (let i = 0; i < skillStr.length; i++) {
+                skillStr.innerText = strMod;
+            }
+
+
+        }
 
     </script>
 </body>
