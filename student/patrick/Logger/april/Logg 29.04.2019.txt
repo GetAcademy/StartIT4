@@ -1,0 +1,17 @@
+Logg 29.04.2019
+
+Løste Problemer:
+
+(ingenting)
+men jeg har lagt til en del muligheter for å forandre options til lyd i spillet mitt.
+har også fiksa på hit boksen og døds lyden til kyllingen
+i tilleg til det har jeg patcha en uønsket ting i kjøpsmekanikken slik at man ikke kan miste pengene sine uten å ha plassert noe.
+
+Gjenstående Problemer fra igår:
+
+- Hotline prosjektet er et eneste stort fungerende rot, det viktige å legge trykk på er FUNGERENDE. så i forsøket om å leve opp til model view controller prinsippet uten å skape ufungerende kode så blir det å rødde opp i og gjøre prosjektet penere og bedre organisert i skriptet.
+
+Nye Problemer:
+
+(ingenting)
+fikser jeg gjenstående problemer får jeg friheten til å velge hvilken del av prosjektet jeg ønsker å jobbe videre på enn å vertfall sterkt burde gjøre ferdig påbegynte mekanikker, ikke at det er kjedelig men gøy å kunne velge.
