@@ -5,30 +5,24 @@
         body {
             border: solid 3px;
         }
-
         div.stat {
             float: left;
             padding-right: 5px;
-
         }
         input.statistics {
             width: 25px;
             text-align: center;
             height: 15px;
         }
-
         .item1 {
             grid-area: header;
         }
-
         .item3 {
             grid-area: main;
         }
-
         .item4 {
             grid-area: right;
         }
-
         .item2 {
             grid-area: left;
         }
@@ -38,7 +32,6 @@
         .item6 {
             grid-area: rightLow;
         }
-
         .grid-container {
             display: grid;
             grid-template-areas:
@@ -49,11 +42,9 @@
             background-color: white;
             padding: 10px;
         }
-
         .grid-container>div {
             background-color: white;
         }
-
         #modStr,
         #modDex,
         #modCon,
@@ -69,7 +60,6 @@
             font-size: 14px;
             padding-right: 10px;
         }
-
         #myTable th, #myTable td {
             text-align: left;
             
@@ -365,11 +355,8 @@
 
     </div>
     <script>
-
-
         
         var lvl = parseInt(document.getElementById("level").value, 10);
-
         function statMods() {
             var str = document.getElementById("str").value
             var dex = document.getElementById("dex").value
@@ -377,14 +364,12 @@
             var int = document.getElementById("int").value
             var wis = document.getElementById("wis").value
             var cha = document.getElementById("cha").value
-
             var strMod = Math.floor((str - 10) / 2);
             var dexMod = Math.floor((dex - 10) / 2);
             var conMod = Math.floor((con - 10) / 2);
             var intMod = Math.floor((int - 10) / 2);
             var wisMod = Math.floor((wis - 10) / 2);
             var chaMod = Math.floor((cha - 10) / 2);
-
             document.getElementById("modStr").innerHTML = strMod
             document.getElementById("modDex").innerHTML = dexMod
             document.getElementById("modCon").innerHTML = conMod
@@ -392,7 +377,6 @@
             document.getElementById("modWis").innerHTML = wisMod
             document.getElementById("modCha").innerHTML = chaMod
         }
-
         function attackValue() {
             var chosenClass = document.getElementById("class").value
             var lvl = parseInt(document.getElementById("level").value, 10)
@@ -403,22 +387,18 @@
             var meleeAttackStat = document.getElementById("meleeAttackStat").value
             var rangedAttackStat = document.getElementById("rangedAttackStat").value
             var size = document.getElementById("sizeForAttack").value
-
             var str = document.getElementById("str").value
             var dex = document.getElementById("dex").value
             var con = document.getElementById("con").value
             var int = document.getElementById("int").value
             var wis = document.getElementById("wis").value
             var cha = document.getElementById("cha").value
-
             var strMod = Math.floor((str - 10) / 2);
             var dexMod = Math.floor((dex - 10) / 2);
             var conMod = Math.floor((con - 10) / 2);
             var intMod = Math.floor((int - 10) / 2);
             var wisMod = Math.floor((wis - 10) / 2);
             var chaMod = Math.floor((cha - 10) / 2);
-
-
             if (
                 chosenClass == "Rogue" ||
                 chosenClass == "Cleric" ||
@@ -430,7 +410,6 @@
                 chosenClass == "Magus") {
                 BAB = Math.floor(lvl * 0.75);
             }
-
             else if (
                 chosenClass == "Fighter" ||
                 chosenClass == "Barbarian" ||
@@ -441,7 +420,6 @@
                 chosenClass == "Paladin") {
                 BAB = lvl;
             }
-
             else if (
                 chosenClass == "Sorceror" ||
                 chosenClass == "Wizard") {
@@ -450,7 +428,6 @@
             babGoesHere.innerHTML = 'Basic Attack: ' + BAB;
             
             // SIZE MODIFIER TO ATTACK
-
             if (size == 'small') {
                 BAB += 1;
             }
@@ -462,7 +439,6 @@
             }
             
             // MELEE ATTACK 
-
             if (meleeAttackStat == 'dexAttack') {
                 var dexToAttack = BAB + dexMod;
                 meleeAttack.innerHTML = 'Melee Attack Modifier: ' + dexToAttack;
@@ -487,9 +463,7 @@
                 var wisToAttack = BAB + wisMod;
                 meleeAttack.innerHTML = 'Melee Attack Modifier: ' + wisToAttack;
             }
-
             // RANGED ATTACK
-
             if (rangedAttackStat == 'rangedDexAttack') {
                 var dexToAttack = BAB + dexMod;
                 rangedAttack.innerHTML = 'Ranged Attack Modifier: ' + dexToAttack;
@@ -515,7 +489,6 @@
                 rangedAttack.innerHTML = 'Ranged Attack Modifier: ' + wisToAttack;
             }
         }
-
         function saves() {
             var lvl = parseInt(document.getElementById("level").value, 10);
             var chosenClass = document.getElementById("class").value
@@ -534,7 +507,6 @@
             var fortSave = document.getElementById("fortitudeSave")
             var willSave = document.getElementById("willSave")
             var reflexSave = document.getElementById("reflexSave")
-
             // High Fort and ref
             if (
                 chosenClass == 'Alchemist' || 
@@ -618,7 +590,6 @@
                 console.log("no class found");
             }
         }
-
         function skills() {
             var str = document.getElementById("str").value
             var dex = document.getElementById("dex").value
@@ -626,14 +597,12 @@
             var int = document.getElementById("int").value
             var wis = document.getElementById("wis").value
             var cha = document.getElementById("cha").value
-
             var strMod = Math.floor((str - 10) / 2);
             var dexMod = Math.floor((dex - 10) / 2);
             var conMod = Math.floor((con - 10) / 2);
             var intMod = Math.floor((int - 10) / 2);
             var wisMod = Math.floor((wis - 10) / 2);
             var chaMod = Math.floor((cha - 10) / 2);
-
             var skillTable = document.getElementById("myTable")
             var skillStr = skillTable.getElementsByClassName("skillModifierStr")
             var skillDex = skillTable.getElementsByClassName("skillModifierDex")
@@ -641,14 +610,10 @@
             var skillInt = skillTable.getElementsByClassName("skillModifierInt")
             var skillWis = skillTable.getElementsByClassName("skillModifierWis")
             var skillCha = skillTable.getElementsByClassName("skillModifierCha")
-
             for (let i = 0; i < skillStr.length; i++) {
                 skillStr.innerText = strMod;
             }
-
-
         }
-
     </script>
 </body>
 
