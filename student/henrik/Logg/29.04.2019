@@ -1,0 +1,6 @@
+Jobbet med liste og søk funksjon til prosjektet. Begge har blitt ferdiggjort, og trenger bare å implementeres.
+Jeg slo funksjonene sammen, for økt brukervennlighet slik at man ikke må bytte mellom de.
+
+Funksjonen fungerer med en for loop. Den sjekker innholdet i en Array med bygningene i, og lager et table deretter.
+Om man trykker på en av bygningene, tar det deg til en annen side som inneholder all informasjonen om bygningen du har trykket på. Det kommer også 
+en knapp man kan trykke på som tar deg tilbake til oversikten.
