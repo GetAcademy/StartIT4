@@ -13,26 +13,30 @@ class SceneMain extends Phaser.Scene {
         var mediaManager = new MediaManager({ scene: this });
 
         var sb = new SoundButtons({ scene: this });
+        this.tx = 0;
+        this.ty = 0;
+
         //adding imgs and sprites
         this.back = this.add.image(0, 0, "background");
         this.back.setOrigin(0, 0);
         this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
-        
-        
+
+
         this.back.setInteractive();
         this.back.on('pointerdown', this.onDown, this);
 
         this.player.body.collideWorldBounds = true;
-        
+
         this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
 
         this.bulletGroup = this.physics.add.group();
         this.alienGroup = this.physics.add.group();
-        
+        this.alienGroup.setVelocity(0, 0);
+
         
         this.makeAliens();
-        
-       // this.hitCount = 0;
+
+        // this.hitCount = 0;
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -49,7 +53,7 @@ class SceneMain extends Phaser.Scene {
                 }),
 
             frameRate: 8,
-            
+
         });
 
         this.anims.create({
@@ -61,7 +65,7 @@ class SceneMain extends Phaser.Scene {
                 }),
 
             frameRate: 8,
-            
+
         });
 
         this.anims.create({
@@ -73,7 +77,7 @@ class SceneMain extends Phaser.Scene {
                 }),
 
             frameRate: 8,
-            
+
         });
 
         this.anims.create({
@@ -85,7 +89,7 @@ class SceneMain extends Phaser.Scene {
                 }),
 
             frameRate: 8,
-            
+
         });
 
         // keyCodes 
@@ -95,14 +99,29 @@ class SceneMain extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.setColliders();
-        
+        this.moveAlien();
 
-      
+
     }
-  
-    
-   
-    
+
+    moveAlien() {
+        var distX = Math.abs(this.player.x - this.tx);
+        var distY = Math.abs(this.player.y - this.ty);
+        this.tx = this.player.x;
+        this.ty = this.player.y;
+
+
+        if (distX > 30 && distY > 30) {
+            var angle2 = this.physics.moveTo(this.alienGroup, this.player.x, this.player.y);
+            angle2 = this.toDegrees(angle2);
+            this.alienGroup.angle = angle2;
+
+        } 
+
+
+    }
+
+
     damageAlien(alienGroup, bullet) {
         alienGroup.hitCount++
         if (alienGroup.hitCount == 3) {
@@ -124,7 +143,7 @@ class SceneMain extends Phaser.Scene {
                 bounceY: 0,
                 angularVelocity: 0,
                 collideWorldBounds: true,
-               
+
             });
             this.alienGroup.hitCount = 0;
             this.alienGroup.children.iterate(function (child) {
@@ -134,26 +153,26 @@ class SceneMain extends Phaser.Scene {
                 child.x = xx;
                 child.y = yy;
 
-                child.body.setVelocity(0,0);
+                child.body.setVelocity(0, 0);
 
-               
+
 
             }.bind(this));
-           
+
         }
     }
 
-    
+
 
     setColliders() {
         this.physics.add.collider(this.alienGroup, this.bulletGroup, this.damageAlien, null, this);
 
     }
 
-   
-   
-       
-    
+
+
+
+
 
     onDown() {
         this.makeBullet();
@@ -181,27 +200,33 @@ class SceneMain extends Phaser.Scene {
     update() {
         if (this.keyA.isDown) {
             this.player.x--;
-            
+            this.tx -= 100;
+
             this.player.play('walk-left', true);
             angle = 180;
         }
 
         if (this.keyD.isDown) {
             this.player.x++;
+            this.tx += 100;
             this.player.play('walk-right', true);
             angle = 360;
         }
 
         if (this.keyW.isDown) {
             this.player.y--;
+            this.ty -= 100;
             this.player.play('walk-up', true);
             angle = 270;
         }
 
         if (this.keyS.isDown) {
             this.player.y++;
+            this.ty += 100;
             this.player.play('walk-down', true);
             angle = -270;
         }
+
+      
     }
 }
