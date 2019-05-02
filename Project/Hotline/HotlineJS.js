@@ -1069,8 +1069,9 @@ function BlindDatesPage()
     Middle.innerHTML = `
     <div id="BlindLeft" class="BlindLeft">
     </div>
-   
-        <div id="InnerBlindDatesBody" class="InnerBlindDatesBody">
+
+    <div id="InnerBlindDatesBody" class="InnerBlindDatesBody">
+
         <div id="BodyBorderBox" class="BodyBorderBox">
             <div class="BodyProfImage">
                 <img style="width:100%" src="https://www.krickshop.de/krick/prodpic/Roemisches-Katapult-800817_b_0.JPG" id="BodyProfImage" />
@@ -1080,27 +1081,16 @@ function BlindDatesPage()
             <div id="BodyDateAddress" class="BodyDateAddress">Oslo 6666 Torggata 35</div>
             <div id="BodyProfAge" class="BodyProfAge">27 år</div>
             <div id="BodyDateTime" class="BodyDateTime">27, April, 2020, 18:30</div>
+            <div id="BodyAddDateButton" class="BodyAddDateButton"> <button>+</button> </div>
         </div>
+
     </div>
 
-    <div id="InnerBlindDatesBody" class="InnerBlindDatesBody">
-        <div id="BodyBorderBox" class="BodyBorderBox">
-            <div class="BodyProfImage">
-                <img style="width:100%" src="https://www.krickshop.de/krick/prodpic/Roemisches-Katapult-800817_b_0.JPG" id="BodyProfImage" />
-            </div>
-
-            <div id="BodyProfName" class="BodyProfName">Jonas Risaker</div>
-            <div id="BodyDateAddress" class="BodyDateAddress">Oslo 6666 Torggata 35</div>
-            <div id="BodyProfAge" class="BodyProfAge">27</div>
-            <div id="BodyDateTime" class="BodyDateTime">27, April, 2020, 18:30</div>
-        </div>
-    </div>
- 
     <div id="BlindRight" class="BlindRight">
     </div>
     `;
 
-
+    Bottom.innerHTML = "";
 
 
 }
