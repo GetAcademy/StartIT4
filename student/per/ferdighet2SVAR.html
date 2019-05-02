@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ferdighet2</title>
+</head>
+<body>
+    <h1>QUIZ</h1>
+    <div>Hva heter Per til etternavn?</div>
+    <button type="button" onclick="VisRiktig()">Strande</button>
+    <button type="button" onclick="VisFeil()">Gunnleif</button>
+    <button type="button" onclick="VisFeil()">Mustafafa</button>
+    <div id="feil"></div>
+    <div id="riktig"></div>
+    <br />
+    <div>Hva heter bilen til Per?</div>
+    <button type="button" onclick="VisFeil1()">Sonja</button>
+    <button type="button" onclick="VisRiktig1()">Mette-Marit</button>
+    <button type="button" onclick="VisFeil1()">Harald</button>
+    <div id="feil1"></div>
+    <div id="riktig1"></div>
+
+    <script>
+
+        function VisRiktig() {
+            document.getElementById('riktig').innerHTML = 'Riktig!'
+        }
+        function VisFeil() {
+            document.getElementById('feil').innerHTML = 'Feil!'
+        }
+        function VisRiktig1() {
+            document.getElementById('riktig1').innerHTML = 'Riktig!'
+        }
+        function VisFeil1() {
+            document.getElementById('feil1').innerHTML = 'Feil!'
+        }
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        Ny todo:
+        <input type="text" onkeydown="if (event.keyCode === 13) add(this);" />
+
+
+    </div>
+    <div id="todo">Laster data...</div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBWMzTtmDc3WyiYm9sp1ig48zQ1xbIuMTs",
+            authDomain: "stromapp-b09aa.firebaseapp.com",
+            databaseURL: "https://stromapp-b09aa.firebaseio.com",
+            projectId: "stromapp-b09aa",
+            storageBucket: "stromapp-b09aa.appspot.com",
+            messagingSenderId: "798130353336"
+        };
+        firebase.initializeApp(config);
+        var db = firebase.firestore();
+
+        var todoCollection = db.collection('todoitems')
+        todoCollection.orderBy('todoText').onSnapshot(
+            function (collectionSnapshot) {
+                let html = '<ul>';
+                collectionSnapshot.forEach(
+                    function (todoitemsSnapshot) {
+                        let todoitems = todoitemsSnapshot.data();
+                        html += '<li>' + todoitems.todoText + ' (' + todoitems.todoDate + ')</li>';
+                    });
+                html += '</ul>';
+                document.getElementById('todo').innerHTML = html;
+            });
+
+        function add(inputTag) {
+            let todoItem = {
+                todoText: inputTag.value,
+                todoDate: new Date()
+            };
+            todoCollection.add(todoItem);
+        }
+    </script>
+</body>
+</html>
