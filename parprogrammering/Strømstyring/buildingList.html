@@ -125,7 +125,8 @@ for (let i = 0; i < data.building.length; i++) {
     let building = data.building[i];
     document.getElementById('myTable').innerHTML +=
     `<b>
-    <tr onclick="showAllInfo(${i})"><td>${building.name}</b></td>
+    <tr onclick="showAllInfo(${i})">
+    <td>${building.name}</b></td>
     <td>${building.Adresse}</td>
     <td>${building.Sted}</td>
     <td>${building.Kategori}</td>
@@ -155,14 +156,12 @@ for (let i = 0; i < data.building.length; i++) {
     let building = data.building[i];
     document.getElementById('myTable').innerHTML +=
     `<b>
-    <tr onclick="showAllInfo(${i})"><td>${building.name}</b></td>
+    <tr onclick="showAllInfo(${i})">
+    <td>${building.name}</b></td>
     <td>${building.Adresse}</td>
     <td>${building.Sted}</td>
-    <td>${building.Kategori}</td>
-
-`;
-    
-}
+    <td>${building.Kategori}</td>`;
+    }
 }   
 
 
