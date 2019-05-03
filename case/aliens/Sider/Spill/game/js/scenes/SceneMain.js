@@ -160,18 +160,19 @@ class SceneMain extends Phaser.Scene {
         return d.getTime();
     }
 
-    fireEBullet() {
-        for (let child of this.alienGroup.children.entries) {
-
-
-
-            this.lastEBullet = this.getTimer();
-            var eBullet = this.physics.add.sprite(child.x, child.y, "bullet");
-            this.eBulletGroup.add(eBullet);
-            eBullet.body.angularVelocity = 20;
-            eBullet.angle = angle;
-            this.physics.moveTo(eBullet, this.player.x, this.player.y, 100);
+    
+    fireEBullet(child) {
+        var elapsed = Math.abs(this.lastEBullet - this.getTimer());
+        if (elapsed < 500) {
+           return;
         }
+
+        this.lastEBullet = this.getTimer();
+        var eBullet = this.physics.add.sprite(child.x, child.y, "bullet");
+        this.eBulletGroup.add(eBullet);
+        eBullet.body.angularVelocity = 0;
+        eBullet.angle = angle;
+        this.physics.moveTo(eBullet, this.player.x, this.player.y, 100);
     }
 
     moveAlien() {
@@ -198,6 +199,11 @@ class SceneMain extends Phaser.Scene {
                 if (angle == 270) {
                     child.play('alien-up', true);
                 }
+            }
+
+            if (distX >= 100 && distY >= 100) {
+                child.body.setVelocity(0, 0);
+
             }
         }
     }
@@ -236,7 +242,7 @@ class SceneMain extends Phaser.Scene {
                 child.time = this.getTimer();
                 console.log(child.time);
 
-                child.body.setVelocity(0, 0);
+                
 
 
 
@@ -315,19 +321,14 @@ class SceneMain extends Phaser.Scene {
         }
 
         this.moveAlien();
-        this.alienGroup.children.iterate(function (child) {
+        for (let child of this.alienGroup.children.entries) {
             var distX = Math.abs(this.player.x - child.x);
             var distY = Math.abs(this.player.y - child.y);
-            if (distX < game.config.width / 7 && distY < game.config.height / 7) {
-                var elapsed = Math.abs(this.lastEBullet - this.getTimer());
-                if (elapsed < 1000) {
-                    return;
-                } else {
-                    this.fireEBullet();
-                }
-
+            if (distX < game.config.width / 5 && distY < game.config.height / 5) {
+                this.fireEBullet(child);
             }
-        }.bind(this));
+        }
+
 
 
     }
