@@ -34,7 +34,7 @@ class SceneMain extends Phaser.Scene {
         this.alienGroup = this.physics.add.group();
         //this.alienGroup.setVelocity(0, 0);
 
-        
+
         this.makeAliens();
 
         // this.hitCount = 0;
@@ -150,7 +150,7 @@ class SceneMain extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.setColliders();
-        
+
 
 
     }
@@ -162,16 +162,13 @@ class SceneMain extends Phaser.Scene {
 
     fireEBullet() {
         for (let child of this.alienGroup.children.entries) {
-            var elapsed = Math.abs(this.lastEBullet - this.getTimer());
-            if (elapsed < 500) {
-                return;
-            }
-            
-            
+
+
+
             this.lastEBullet = this.getTimer();
             var eBullet = this.physics.add.sprite(child.x, child.y, "bullet");
             this.eBulletGroup.add(eBullet);
-            eBullet.body.angularVelocity = 0;
+            eBullet.body.angularVelocity = 20;
             eBullet.angle = angle;
             this.physics.moveTo(eBullet, this.player.x, this.player.y, 100);
         }
@@ -182,15 +179,15 @@ class SceneMain extends Phaser.Scene {
             var distX = Math.abs(this.player.x - child.x);
             var distY = Math.abs(this.player.y - child.y);
 
-            if (distX > 30 && distY > 30) {
-               this.physics.moveTo(child, this.player.x, this.player.y, 30);
+            if (distX < 100 && distY < 100) {
+                this.physics.moveTo(child, this.player.x, this.player.y, 30);
 
-               
-              
-                
+
+
+
                 if (angle == 180) {
                     child.play('alien-left', true);
-                    
+
                 }
                 if (angle == 360) {
                     child.play('alien-right', true);
@@ -236,6 +233,8 @@ class SceneMain extends Phaser.Scene {
                 child.hitCount = 0;
                 child.x = xx;
                 child.y = yy;
+                child.time = this.getTimer();
+                console.log(child.time);
 
                 child.body.setVelocity(0, 0);
 
@@ -284,46 +283,52 @@ class SceneMain extends Phaser.Scene {
     update() {
         if (this.keyA.isDown) {
             this.player.x--;
-           
+
 
             this.player.play('walk-left', true);
-            
+
             angle = 180;
         }
 
         if (this.keyD.isDown) {
             this.player.x++;
-            
+
             this.player.play('walk-right', true);
-            
+
             angle = 360;
         }
 
         if (this.keyW.isDown) {
             this.player.y--;
-            
+
             this.player.play('walk-up', true);
-            
+
             angle = 270;
         }
 
         if (this.keyS.isDown) {
             this.player.y++;
-            
+
             this.player.play('walk-down', true);
-            
+
             angle = -270;
         }
 
         this.moveAlien();
-        for (let child of this.alienGroup.children.entries) {
+        this.alienGroup.children.iterate(function (child) {
             var distX = Math.abs(this.player.x - child.x);
             var distY = Math.abs(this.player.y - child.y);
-            if (distX < game.config.width / 5 && distY < game.config.height / 5) {
-                this.fireEBullet();
+            if (distX < game.config.width / 7 && distY < game.config.height / 7) {
+                var elapsed = Math.abs(this.lastEBullet - this.getTimer());
+                if (elapsed < 1000) {
+                    return;
+                } else {
+                    this.fireEBullet();
+                }
+
             }
-        }
-       
+        }.bind(this));
+
 
     }
 }
