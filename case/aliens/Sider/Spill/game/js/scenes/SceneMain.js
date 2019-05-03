@@ -31,7 +31,7 @@ class SceneMain extends Phaser.Scene {
 
         this.bulletGroup = this.physics.add.group();
         this.alienGroup = this.physics.add.group();
-        this.alienGroup.setVelocity(0, 0);
+        //this.alienGroup.setVelocity(0, 0);
 
         
         this.makeAliens();
@@ -110,20 +110,18 @@ class SceneMain extends Phaser.Scene {
         this.tx = this.player.x;
         this.ty = this.player.y;
 
-
         if (distX > 30 && distY > 30) {
-            var angle2 = this.physics.moveTo(this.alienGroup, this.player.x, this.player.y);
-            angle2 = this.toDegrees(angle2);
-            this.alienGroup.angle = angle2;
-
-        } 
-
-
+            console.log('før');
+            console.log(this.alienGroup.children);
+            for (let child of this.alienGroup.children.entries) {
+                this.physics.moveTo(child, this.player.x, this.player.y,10);
+            }
+        }
     }
 
 
     damageAlien(alienGroup, bullet) {
-        alienGroup.hitCount++
+        alienGroup.hitCount++;
         if (alienGroup.hitCount == 3) {
             alienGroup.destroy();
             alienGroup.hitCount = 0;
@@ -200,7 +198,7 @@ class SceneMain extends Phaser.Scene {
     update() {
         if (this.keyA.isDown) {
             this.player.x--;
-            this.tx -= 100;
+            this.tx -= 10;
 
             this.player.play('walk-left', true);
             angle = 180;
@@ -208,25 +206,25 @@ class SceneMain extends Phaser.Scene {
 
         if (this.keyD.isDown) {
             this.player.x++;
-            this.tx += 100;
+            this.tx += 10;
             this.player.play('walk-right', true);
             angle = 360;
         }
 
         if (this.keyW.isDown) {
             this.player.y--;
-            this.ty -= 100;
+            this.ty -= 10;
             this.player.play('walk-up', true);
             angle = 270;
         }
 
         if (this.keyS.isDown) {
             this.player.y++;
-            this.ty += 100;
+            this.ty += 10;
             this.player.play('walk-down', true);
             angle = -270;
         }
 
-      
+        
     }
 }
