@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <p>Oppgave - Vue - Skrive om tidligere oppgave til Vue (tidligere Ferdighet 9F)</p>
+        <h3>Pizza-bestilling</h3>
+        <div v-if="Count == 0" style="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
+        <div v-else-if="Count < 4">
+            du har ikke valgt:
+            <li v-if="!Bunn">bunn</li>
+            <li v-if="!Fyll">fyll</li>
+            <li v-if="!Størrelse">størrelse</li>
+            <li v-if="!Dressing">dressing</li>
+        </div>
+        <div v-else>Du har fylt ut alt og er klar til å bestille!</div>
+
+
+        Bunn: <input type="radio" v-model="Bunn" value="Thick" />Thick
+        <input type="radio" v-model="Bunn" value="Thin" />Thin <br />
+
+        Fyll: <input type="radio" v-model="Fyll" value="Taco" />Taco
+        <input type="radio" v-model="Fyll" value="Chicken" />Chicken
+        <input type="radio" v-model="Fyll" value="Pepperoni" />Pepperoni
+        <input type="radio" v-model="Fyll" value="BabyTesticles"/>Baby Testicles<br />
+
+        Størrelse: <input type="radio" v-model="Størrelse" value="Large" />Large
+        <input type="radio" v-model="Størrelse" value="Medium" />Medium
+        <input type="radio" v-model="Størrelse" value="Small" />Small<br />
+
+        Dressing: <input type="radio" v-model="Dressing" value="No" /> No
+        <input type="radio" v-model="Dressing" value="Garlic" /> Garlic Dressing
+        <input type="radio" v-model="Dressing" value="Sourcream"/> Sourcream Dressing<br />
+
+        <button v-if="Count == 4" @click="Bestill">Bestill</button>
+        <ul>
+            <li><s>Oppgave: Legg til et fyll til</s> DONE</li>
+            <li><s>Oppgave: Legg til en ting til i pizza-bestillingen, for eksempel firkantet eller rund pizza</s> DONE</li>
+        </ul>
+
+    </div>
+
+    <script>
+        var app = new Vue
+            ( {
+                el: '#app',
+
+                data:
+                {
+                    message: '',
+
+                    Bunn: null,
+                    Fyll: null,
+                    Størrelse: null,
+                    Dressing: null,
+                },
+                methods:
+                {
+                    Bestill: function ()
+                    {
+                        alert( `You have Ordered a ${this.Størrelse} ${this.Fyll} Pizza with ${this.Bunn} Crust and ${this.Dressing} Dressing, Enjoy! ` );
+                    },
+                },
+                computed:
+                {
+                    Count: function ()
+                    {
+                        return ( this.Bunn != null ) + ( this.Fyll != null ) + ( this.Størrelse != null ) + (this.Dressing != null);
+                    },
+                },
+            } )
+    </script>
+</body>
+</html>

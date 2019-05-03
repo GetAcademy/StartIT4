@@ -2,6 +2,24 @@
 
 <head>
     <style>
+        table.skillModifierCha {
+            text-align: center;
+        }
+        table.td.skillModifierStr {
+            text-align: center;
+        }
+        table.td.skillModifierDex {
+            text-align: center
+        }
+        table.td.skillModifierCon {
+            text-align: center;
+        }
+        table.td.skillModifierWis {
+            text-align: center;
+        }
+        table.td.skillModofierInt {
+            text-align: center;
+        }
         body {
             border: solid 3px;
         }
@@ -45,6 +63,7 @@
         .grid-container>div {
             background-color: white;
         }
+
         #modStr,
         #modDex,
         #modCon,
@@ -67,9 +86,13 @@
         #myTable tr {
             border-bottom: 1px solid #ddd;
         }
-        tr.skillInput {
+        tr {
+            text-align: center;
+        }
+        td {
             width: 30px;
         }
+
     </style>
 </head>
 
@@ -597,6 +620,7 @@
             var int = document.getElementById("int").value
             var wis = document.getElementById("wis").value
             var cha = document.getElementById("cha").value
+
             var strMod = Math.floor((str - 10) / 2);
             var dexMod = Math.floor((dex - 10) / 2);
             var conMod = Math.floor((con - 10) / 2);
@@ -604,17 +628,37 @@
             var wisMod = Math.floor((wis - 10) / 2);
             var chaMod = Math.floor((cha - 10) / 2);
 
-            var skillStr = getElementsByClassName("skillModifierStr")
-            var skillDex = getElementsByClassName("skillModifierDex")
-            var skillCon = getElementsByClassName("skillModifierCon")
-            var skillInt = getElementsByClassName("skillModifierInt")
-            var skillWis = getElementsByClassName("skillModifierWis")
-            var skillCha = getElementsByClassName("skillModifierCha")
+            var skillTable = document.getElementById("myTable")
+            var skillStr = skillTable.getElementsByClassName("skillModifierStr")
+            var skillDex = skillTable.getElementsByClassName("skillModifierDex")
+            var skillCon = skillTable.getElementsByClassName("skillModifierCon")
+            var skillInt = skillTable.getElementsByClassName("skillModifierInt")
+            var skillWis = skillTable.getElementsByClassName("skillModifierWis")
+            var skillCha = skillTable.getElementsByClassName("skillModifierCha")
+            var total = skillTable.getElementsByClassName("skillTotal")
 
-
-            skillStr.innerHTML = strMod
+            for ( let td of skillStr) {
+                td.innerHTML = strMod;
+            }
+            for ( let td of skillDex) {
+                td.innerHTML = dexMod;
+            }
+            for ( let td of skillCon) {
+                td.innerHTML = conMod;
+            }
+            for ( let td of skillInt) {
+                td.innerHTML = intMod;
+            }
+            for ( let td of skillWis) {
+                td.innerHTML = wisMod;
+            }
+            for ( let td of skillCha) {
+                td.innerHTML = chaMod;
+            }
+        
         }
     </script>
 </body>
 
 </html>
+
