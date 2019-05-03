@@ -35,6 +35,61 @@ var EditMode = false;
 
 var MyImageLink = '';
 
+var Dates = [];
+var FNames =
+    [
+        'John',
+        'James',
+        'Curly',
+        'Bill',
+        'Jack',
+        'Jennifer',
+        'Haley',
+        'Margaret',
+        'Gwen',
+        'Tammy'
+
+    ];
+var LNames =
+    [
+        'GryfWood',
+        'Farquad',
+        'Wood',
+        'Johnson',
+        'Smith',
+        'Williams',
+        'Jones',
+        'Brown',
+        'Miller',
+        'Wilson'
+    ];
+var Addresses =
+    [
+        'Ulåsveien 48, 3258 Larvik',
+        'Byskogstredet 192, 3257 Larvik',
+        'Frenvik 232, 3261 Larvik',
+        'Askeveien 209, 3274 Larvik',
+        'Ridesteinveien 36, 3261 larvik',
+        'Torstadbakken 63, 3259 Larvik',
+        'Antoniskogen 71, 3276 Larvik',
+        'Ibsens gate 239, 3266 Larvik',
+        'Breigata 250, 3260 Larvik',
+        'Nordahl Griegs vei 224, 3269 Larvik'
+    ];
+var Times =
+    [
+        '16 June 2019',
+        '21 June 2019',
+        '22 June 2019',
+        '29 June 2019',
+        '5 July 2019',
+        '6 July 2019',
+        '19 July 2019',
+        '20 July 2019',
+        '21 July 2019',
+        '28 July 2019'
+    ];
+
 var ListOfSingles =
     [
         { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePictures: ['https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', 'https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
@@ -43,6 +98,8 @@ var ListOfSingles =
         { Username: 'Jonas Gledesdreper', Password: 'KlumperIMelka', Email: 'KlumpeLumpen@hotmail.com', Age: 25, Birthday: new Date(1994, 08, 07), DatingPreference: 'Alien', ProfilePictures: ['https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Bearded_Man-17-512.png', 'https://cdn.pixabay.com/photo/2018/05/19/22/03/man-3414477__340.png'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat duis ultricies lacus sed turpis tincidunt. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi. Viverra aliquet eget sit amet. Eleifend donec pretium vulputate sapien nec sagittis. Leo urna molestie at elementum eu facilisis. Amet mauris commodo quis imperdiet. Tortor at auctor urna nunc id cursus. Auctor eu augue ut lectus arcu bibendum at varius vel.' },
         { Username: 'Hermann Hermannsen', Password: 'Karsk', Email: 'HermannJobb12@hotmail.com', Age: 50, Birthday: new Date(1969, 01, 10), DatingPreference: 'Men & Alien & Women', ProfilePictures: ['https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png', 'https://previews.123rf.com/images/gennadiikorchuganov/gennadiikorchuganov1702/gennadiikorchuganov170200069/71033969-mod%C3%A8le-de-logo-baby-panda-face-ic%C3%B4ne-du-visage-panda-b%C3%A9b%C3%A9-ours-asiatique-panda-t%C3%AAte-isol%C3%A9-sur-fond-blanc.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed velit. Nisl nunc mi ipsum faucibus vitae aliquet nec. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Massa eget egestas purus viverra accumsan in. Ac felis donec et odio pellentesque diam volutpat. Est ante in nibh mauris cursus. Sodales neque sodales ut etiam. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Sit amet aliquam id diam maecenas ultricies. Sed egestas egestas fringilla phasellus faucibus. Vestibulum rhoncus est pellentesque elit ullamcorper. Ac tortor dignissim convallis aenean et tortor at. Nulla aliquet enim tortor at auctor urna nunc id cursus. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Ac tortor dignissim convallis aenean et tortor at risus viverra. Malesuada pellentesque elit eget gravida cum.' }
     ]
+
+var YourDates = [];
 
 function RandomNumber(min, max)
 {
@@ -63,7 +120,6 @@ function LoginCheck()
         .then(function (querySnapshot)
         {
             if (querySnapshot.size > 0) {
-                //ThisUser = querySnapshot.docs[0]._document.proto.fields;
 
                 ThisUser = querySnapshot.docs[0].data();
                 alert("Welcome " + ThisUser.Username);
@@ -450,6 +506,60 @@ async function UploadImage(Image)
     {
         console.error("Send Amberlamps");
     }
+}
+
+function CreateDates()
+{
+    let Cache = '';
+
+    for ( let i = 0; i < RandomNumber( 1, 21 ); i++ )
+    {
+        let name = FNames[RandomNumber( 0, 10 )] + ' ' + LNames[RandomNumber( 0, 10 )];
+        let address = Addresses[RandomNumber( 0, 10 )];
+        let age = RandomNumber( 18, 51 );
+        let time = Times[RandomNumber( 0, 10 )];
+
+        Dates.push( `<div id="BodyBorderBox${i}" class="BodyBorderBox">
+                    <div class="BodyProfImage">
+                    <img style="width:100%" src="http://www.myseumoftoronto.com/wp-content/uploads/2018/12/face-placeholder.gif" id="BodyProfImage${i}" />
+                    </div>
+
+                    <div id="BodyProfName${i}" class="BodyProfName">${name}</div>
+                    <div id="BodyDateAddress${i}" class="BodyDateAddress">${address}</div>
+                    <div id="BodyProfAge${i}" class="BodyProfAge">${age} år</div>
+                    <div id="BodyDateTime${i}" class="BodyDateTime">${time}</div>
+                    <div id="BodyAddDateButton${i}" class="BodyAddDateButton"> <button onclick="AddDate('BodyBorderBox${i}','${i}','${name}','${address}','${age}','${time}')" >+</button> </div>
+                    </div>`);
+        Cache += Dates[i];
+        
+    }
+    document.getElementById( "InnerBlindDatesBody" ).innerHTML = Cache;
+}
+
+function AddDate(ID,Index,Name,Address,Age,Time)
+{
+    YourDates.push( `<div id="YourBodyBorderBox${Index}" class="YourBodyBorderBox">
+                    <div class="YourBodyProfImage">
+                    <img style="width:100%" src="http://www.myseumoftoronto.com/wp-content/uploads/2018/12/face-placeholder.gif" id="YourBodyProfImage${Index}" />
+                    </div>
+
+                    <div id="YourBodyProfName${Index}" class="YourBodyProfName">${Name}</div>
+                    <div id="YourBodyDateAddress${Index}" class="YourBodyDateAddress">${Address}</div>
+                    <div id="YourBodyProfAge${Index}" class="YourBodyProfAge">${Age} år</div>
+                    <div id="YourBodyDateTime${Index}" class="YourBodyDateTime">${Time}</div>
+                    
+                    </div>`);
+    document.getElementById( ID ).remove();
+    alert( "Date Added" );
+}
+function ShowYourDates()
+{
+    let Cache = '';
+    for ( let i = 0; i < YourDates.length; i++ )
+    {
+        Cache += YourDates[i];
+    }
+    document.getElementById( "YourInnerBlindDatesBody" ).innerHTML = Cache;
 }
 
 //page HTML's
@@ -1072,17 +1182,6 @@ function BlindDatesPage()
 
     <div id="InnerBlindDatesBody" class="InnerBlindDatesBody">
 
-        <div id="BodyBorderBox" class="BodyBorderBox">
-            <div class="BodyProfImage">
-                <img style="width:100%" src="https://www.krickshop.de/krick/prodpic/Roemisches-Katapult-800817_b_0.JPG" id="BodyProfImage" />
-            </div>
-
-            <div id="BodyProfName" class="BodyProfName">Jonas Risaker</div>
-            <div id="BodyDateAddress" class="BodyDateAddress">Oslo 6666 Torggata 35</div>
-            <div id="BodyProfAge" class="BodyProfAge">27 år</div>
-            <div id="BodyDateTime" class="BodyDateTime">27, April, 2020, 18:30</div>
-            <div id="BodyAddDateButton" class="BodyAddDateButton"> <button>+</button> </div>
-        </div>
 
     </div>
 
@@ -1091,8 +1190,8 @@ function BlindDatesPage()
     `;
 
     Bottom.innerHTML = "";
-
-
+    CreateDates();
+    //help with overflow
 }
 
 function YourBlindDatesPage()
@@ -1142,11 +1241,16 @@ function YourBlindDatesPage()
     Middle.classList.add("YourBlindDatesGridContainer");
     Middle.innerHTML = `
     
+    <div class="BlindLeft">
+    </div>
     <div id="YourInnerBlindDatesBody" class="YourInnerBlindDatesBody">
     
     
     
     </div>
+    <div class="BlindRight">
+    </div>
     `;
+    ShowYourDates();
 
 }
