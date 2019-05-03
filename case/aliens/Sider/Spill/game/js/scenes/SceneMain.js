@@ -92,6 +92,56 @@ class SceneMain extends Phaser.Scene {
 
         });
 
+        //alien anims
+        this.anims.create({
+            key: 'alien-down',
+            frames: this.anims.generateFrameNumbers('alien',
+                {
+                    start: 0,
+                    end: 3,
+                }),
+
+            frameRate: 8,
+
+        });
+
+        this.anims.create({
+            key: 'alien-right',
+            frames: this.anims.generateFrameNumbers('alien',
+                {
+                    start: 4,
+                    end: 7,
+                }),
+
+            frameRate: 8,
+
+        });
+
+        this.anims.create({
+            key: 'alien-up',
+            frames: this.anims.generateFrameNumbers('alien',
+                {
+                    start: 8,
+                    end: 11,
+                }),
+
+            frameRate: 8,
+
+        });
+
+        this.anims.create({
+            key: 'alien-left',
+            frames: this.anims.generateFrameNumbers('alien',
+                {
+                    start: 12,
+                    end: 15,
+                }),
+
+            frameRate: 8,
+
+        });
+
+
         // keyCodes 
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -99,22 +149,35 @@ class SceneMain extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.setColliders();
-        this.moveAlien();
+        
 
 
     }
 
     moveAlien() {
-        var distX = Math.abs(this.player.x - this.tx);
-        var distY = Math.abs(this.player.y - this.ty);
-        this.tx = this.player.x;
-        this.ty = this.player.y;
+        for (let child of this.alienGroup.children.entries) {
+            var distX = Math.abs(this.player.x - child.x);
+            var distY = Math.abs(this.player.y - child.y);
 
-        if (distX > 30 && distY > 30) {
-            console.log('før');
-            console.log(this.alienGroup.children);
-            for (let child of this.alienGroup.children.entries) {
-                this.physics.moveTo(child, this.player.x, this.player.y,10);
+            if (distX > 30 && distY > 30) {
+               this.physics.moveTo(child, this.player.x, this.player.y, 30);
+
+               
+              
+                
+                if (angle == 180) {
+                    child.play('alien-left', true);
+                    
+                }
+                if (angle == 360) {
+                    child.play('alien-right', true);
+                }
+                if (angle == -270) {
+                    child.play('alien-down', true);
+                }
+                if (angle == 270) {
+                    child.play('alien-up', true);
+                }
             }
         }
     }
@@ -198,33 +261,37 @@ class SceneMain extends Phaser.Scene {
     update() {
         if (this.keyA.isDown) {
             this.player.x--;
-            this.tx -= 10;
+           
 
             this.player.play('walk-left', true);
+            
             angle = 180;
         }
 
         if (this.keyD.isDown) {
             this.player.x++;
-            this.tx += 10;
+            
             this.player.play('walk-right', true);
+            
             angle = 360;
         }
 
         if (this.keyW.isDown) {
             this.player.y--;
-            this.ty -= 10;
+            
             this.player.play('walk-up', true);
+            
             angle = 270;
         }
 
         if (this.keyS.isDown) {
             this.player.y++;
-            this.ty += 10;
+            
             this.player.play('walk-down', true);
+            
             angle = -270;
         }
 
-        
+        this.moveAlien();
     }
 }
