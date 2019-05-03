@@ -56,17 +56,17 @@
                     showInLegend: true,
                     dataPoints: perDayData,
                 },
-            //     {
-            //         type: "line",
-            //         name: "Valby Grendehus",
-            //         markerSize: 5,
-            //         azisYType: "secondary",
-            //         xValueFormatString: "DD MM, YY",
-            //         yValueFormatString: "#,##0.0\"kw/h\"",
-            //         showInLegend: true,
-            //         dataPoints: niceData1,
-            //     },
-            //     {
+            //      {
+            //          type: "line",
+            //          name: "Valby Grendehus",
+            //          markerSize: 5,
+            //          azisYType: "secondary",
+            //          xValueFormatString: "DD MM, YY",
+            //          yValueFormatString: "#,##0.0\"kw/h\"",
+            //          showInLegend: true,
+            //          dataPoints: perDayData2,
+            //      },
+            // //     {
             //         type: "line",
             //         name: "Solstad Barnehage",
             //         markerSize: 5,

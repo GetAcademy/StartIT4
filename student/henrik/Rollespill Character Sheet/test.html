@@ -1,65 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html class='no-js'>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      padding-right: 10px;
+    }
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
+    table th,
+    table td {
+      text-align: left;
 
-#myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
+    }
 
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
+    table tr {
+      border-bottom: 1px solid #ddd;
+    }
 
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
+    tr {
+      text-align: center;
+    }
 
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-</style>
+    td {
+      width: 30px;
+    }
+  </style>
 </head>
+
 <body>
+  <script>
+    //setup our table array
+    var tableArr = [
+      ["Skill, Rank", "Modifier, Total"],
+      ["row 1, cell 1", "row 1, cell 2"],
+      ["row 2, cell 1", "row 2, cell 2"]
+    ]
+    //create a Table Object
+    let table = document.createElement('table');
+    //iterate over every array(row) within tableArr
+    for (let row of tableArr) {
+      //Insert a new row element into the table element
+      table.insertRow();
+      //Iterate over every index(cell) in each array(row)
+      for (let cell of row) {
+        //While iterating over the index(cell)
+        //insert a cell into the table element
+        let newCell = table.rows[table.rows.length - 1].insertCell();
+        //add text to the created cell element
+        newCell.textContent = cell;
+      }
+    }
+    //append the compiled table to the DOM
+    document.body.appendChild(table);
+  </script>
+</body>
 
-<h2>Skills</h2>
-
-<table id="myTable">
-  <tr class="header">
-    <th style="width:34%;">Name</th>
-    <th style="width:25%;">Rank</th>
-    <th style="width:33%;">Modifier</th>
-    <th style="width:33%;">Total</th>
-  </tr>
-  <tr>
-    <td>Acrobatics: </td>
-    <td><input></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>Appraise: </td>
-    <td><input></td>
-    <td></td>
-    <td></td>    
-    </tr>
-</table>
+</html>

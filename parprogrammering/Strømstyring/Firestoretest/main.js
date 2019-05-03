@@ -10,9 +10,7 @@ function renderBygg(doc) {
     let areal = document.createElement('span');
     let oppvarming = document.createElement('span');
     let cross = document.createElement('div');
-    let dataFrom = document.createElement('span');
-    let dataTo = document.createElement('span');
-
+    let kategori = document. createElement('span');
 
 
     li.setAttribute('data-id', doc.id);
@@ -23,8 +21,7 @@ function renderBygg(doc) {
     areal.textContent = 'Areal: ' + doc.data().areal;
     oppvarming.textContent = 'Oppvarmings Metode: ' + doc.data().oppvarming;
     cross.textContent = 'x';
-    dataFrom.textContent = 'Data Fra: ' + doc.data().dataFrom;
-    dataTo.textContent = 'Data Til: ' + doc.data().dataTo;
+    kategori.textContent = 'Kategori: ' + doc.data().kategori;
 
 
 
@@ -35,8 +32,7 @@ function renderBygg(doc) {
     li.appendChild(areal);
     li.appendChild(oppvarming);
     li.appendChild(cross);
-    li.appendChild(dataFrom);
-    li.appendChild(dataTo);
+    li.appendChild(kategori);
 
 
 
@@ -65,8 +61,7 @@ form.addEventListener('submit', (e) => {
         postnr: form.postnr.value,
         areal: form.areal.value,
         oppvarming: form.oppvarming.value,
-        dataFrom: form.dataFrom.value,
-        dataTo: form.dataTo.value
+        kategori: form.kategori.value,
 
     });
     form.navn.value = '';
@@ -75,8 +70,7 @@ form.addEventListener('submit', (e) => {
     form.postnr.value = '';
     form.areal.value = '';
     form.oppvarming.value = '';
-    // form.dataFrom.value = '';
-    // form.dataTo.value = '';
+    form.kategori.value = '';
 })
 //ekte tid
 db.collection('Bygg').orderBy('by').onSnapshot(snapshot => {
