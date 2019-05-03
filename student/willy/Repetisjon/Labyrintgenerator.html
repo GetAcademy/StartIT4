@@ -44,7 +44,7 @@
 <body>
     <div id="labyrinth"></div>
     <script>
-        var size = 5;
+        var size = 15;
         var html='';
 
         function switchWall(el) {
@@ -57,20 +57,20 @@
             }
         }
 
-        for (var hotPotato = rowIndex = 0; rowIndex < size; rowIndex++){
+        for (var rowIndex = 0; rowIndex < size; rowIndex++) {
             html += '<tr>';
             for (var columnIndex = 0; columnIndex < size; columnIndex++) {
                 var wallOrNoWall = rowIndex === 0 || Math.random() < 0.5 ? 'wall' : 'noWall';
                 html += '<td class="wall small"></td>';
-                html += '<td onclick="switchWall(this)" class"' + wallOrNoWall + ' wide"></td>';
+                html += '<td onclick="switchWall(this)" class="' + wallOrNoWall + ' wide"></td>';
             }
             html += '<td class="wall small"></td>';
             html += '</tr>';
 
             html += '<tr>';
             for (var columnIndex = 0; columnIndex < size; columnIndex++) {
-                var wallOrNoWall = colmIndex === 0 || Math.random() < 0.5 ? 'wall' : 'noWall';
-                html += '<td onclick="switchWall(this)" class"' + wallOrNoWall + ' high"></td>';
+                var wallOrNoWall = columnIndex === 0 || Math.random() < 0.5 ? 'wall' : 'noWall';
+                html += '<td onclick="switchWall(this)" class="' + wallOrNoWall + ' high"></td>';
                 html += '<td class="room"></td>';
             }
 
@@ -82,7 +82,7 @@
             html += '<td class="wall small"></td>';
             html += '<td onclick="switchWall(this)" class="wall wide"></td>';
         }
-        html += '<td class="wall small"></td>'
+        html += '<td class="wall small"></td>';
         html += '</tr>';
 
         html = '<table>' + html + '</table>';
