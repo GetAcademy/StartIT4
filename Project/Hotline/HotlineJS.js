@@ -20,6 +20,8 @@ var messagePage = false;
 var settingsPage = false;
 var optionsPage = false;
 var profilePage = false;
+var blinddatesPage = false;
+var yourblinddatesPage = false;
 
 var SinglePerson;
 
@@ -59,20 +61,18 @@ function LoginCheck()
         .where('Password', '==', document.getElementById("Password").value)
         .get()
         .then(function (querySnapshot)
-    {
-            if (querySnapshot.size > 0)
-            {
-            //ThisUser = querySnapshot.docs[0]._document.proto.fields;
-                
+        {
+            if (querySnapshot.size > 0) {
+                //ThisUser = querySnapshot.docs[0]._document.proto.fields;
+
                 ThisUser = querySnapshot.docs[0].data();
-            alert("Welcome " + ThisUser.Username);
-            SwipePage();
-        }
-            else
-            {
-            console.log('No User in DataBase that matches query!?');
-        }
-    })
+                alert("Welcome " + ThisUser.Username);
+                SwipePage();
+            }
+            else {
+                console.log('No User in DataBase that matches query!?');
+            }
+        })
 }
 
 function NewAccount()
@@ -352,8 +352,7 @@ async function UploadProfile(Image, username, password, email, age, birthday, da
     try {
         let ImageURL = [];
 
-        for (let i = 0; i < file.length; i++)
-        {
+        for (let i = 0; i < file.length; i++) {
             let fileRef = storageRef.child(file[i].name);
             await fileRef.put(file[i]);
             ImageURL.push(await fileRef.getDownloadURL());
@@ -386,8 +385,7 @@ function ViewedProfilePicture(image)
 function YourProfilePictures()
 {
     let Cache = '';
-    for (let i = 0; i < ThisUser.ProfilePictures.length; i++)
-    {
+    for (let i = 0; i < ThisUser.ProfilePictures.length; i++) {
         Cache += `<button onclick="ViewedProfilePicture('${ThisUser.ProfilePictures[i]}')" ></button>`;
         Cache += `<button class="DeleteButton" onclick="DeleteProfilePicture('${ThisUser.ProfilePictures[i]}')" ></button>`;
     }
@@ -397,10 +395,8 @@ async function DeleteProfilePicture(image)
 {
     await storage.refFromURL(image).delete();
 
-    for (let i = 0; i < ThisUser.ProfilePictures.length; i++)
-    {
-        if (ThisUser.ProfilePictures[i] == image)
-        {
+    for (let i = 0; i < ThisUser.ProfilePictures.length; i++) {
+        if (ThisUser.ProfilePictures[i] == image) {
             ThisUser.ProfilePictures.splice(i);
         }
     }
@@ -410,18 +406,16 @@ async function DeleteProfilePicture(image)
         .where('ProfilePictures', 'array-contains', image)
         .get();
 
-    if (MyQueryReturn.size == 1)
-    {
+    if (MyQueryReturn.size == 1) {
         console.log(MyQueryReturn);
         let id = MyQueryReturn.docs[0].id;
         let docRef = db.collection('Users').doc(id);
-            let cache = [];
-            for (let g = 0; g < ThisUser.ProfilePictures.length; g++)
-            {
-                cache.push(ThisUser.ProfilePictures[g]);
-            }
+        let cache = [];
+        for (let g = 0; g < ThisUser.ProfilePictures.length; g++) {
+            cache.push(ThisUser.ProfilePictures[g]);
+        }
 
-        
+
         await docRef.update
             ({
                 ProfilePictures: cache
@@ -429,8 +423,7 @@ async function DeleteProfilePicture(image)
         console.log(ThisUser.ProfilePictures);
         await UpdateLocalUser();
     }
-    else
-    {
+    else {
         console.log('Error deleting image from firestore unsuccessfull');
     }
 }
@@ -439,21 +432,19 @@ async function UploadImage(Image)
 {
     const file = Image;
 
-    try
-    {
+    try {
         let ImageURL = [];
 
-        for (let i = 0; i < file.length; i++)
-        {
+        for (let i = 0; i < file.length; i++) {
             let fileRef = storageRef.child(file[i].name);
             await fileRef.put(file[i]);
             ImageURL.push(await fileRef.getDownloadURL());
             alert(`Uploaded ${file[i].name}`);
         }
-        
+
         let DataBaseQuery = await db.collection("Users").where("Username", "==", ThisUser.Username).get();
         let DataBaseQueryID = await DataBaseQuery.docs[0].id;
-        await db.collection('Users').doc(DataBaseQueryID).update({ ProfilePictures: ThisUser.ProfilePictures.concat(ImageURL)})
+        await db.collection('Users').doc(DataBaseQueryID).update({ ProfilePictures: ThisUser.ProfilePictures.concat(ImageURL) })
     }
     catch
     {
@@ -486,6 +477,12 @@ function MessagePage()
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -494,13 +491,15 @@ function MessagePage()
     settingsPage = false;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
 
     Middle.classList.add("MessagePageContainer");
     Middle.classList.add("OverflowWindow");
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
-    document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
+    document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="BlindDatesPage()">Blind Dates</button>`;
     document.getElementById("Bottom").innerHTML = `<input onkeydown="if(event.keyCode==13){AddChat()}" class="ChatBox" type="text" id="ChatBox"/> <button class="Send" onclick="AddChat()">Send</button>`;
 
     Middle.innerHTML =
@@ -546,6 +545,12 @@ function SettingsPage()
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -554,6 +559,8 @@ function SettingsPage()
     settingsPage = true;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
@@ -592,6 +599,12 @@ function SwipePage()
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -600,6 +613,8 @@ function SwipePage()
     settingsPage = false;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     SinglePerson = RandomSinglePerson();
 
@@ -655,6 +670,12 @@ function LoginPage()
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = true;
     createAccountPage = false;
@@ -663,6 +684,8 @@ function LoginPage()
     settingsPage = false;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     Middle.classList.add("LogInPageGridContainer");
 
@@ -724,6 +747,12 @@ function NewAccountPage()
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = true;
@@ -732,6 +761,8 @@ function NewAccountPage()
     settingsPage = false;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     Middle.classList.add("CreateAccountPageContainer");
     Middle.innerHTML = `
@@ -829,6 +860,12 @@ function OptionsPage()
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -837,6 +874,8 @@ function OptionsPage()
     settingsPage = false;
     optionsPage = true;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     Middle.classList.add("OptionsPageGridContainer");
     Middle.innerHTML = `
@@ -928,6 +967,12 @@ function ProfilePage()
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -936,6 +981,8 @@ function ProfilePage()
     settingsPage = false;
     optionsPage = false;
     profilePage = true;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     Middle.classList.add("ProfilePageGridContainer");
     Middle.innerHTML = `
@@ -970,5 +1017,136 @@ function ProfilePage()
     `;
 
     ViewYourProfilePictures();
+
+}
+
+function BlindDatesPage()
+{
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+        Middle.classList.remove("CreateAccountPageContainer");
+    }
+    if (swipePage) {
+        Middle.classList.remove("SwipePageContainer");
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage) {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage) {
+        Middle.classList.remove("ProfilePageGridContainer");
+    }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
+
+    loginPage = false;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
+    optionsPage = false;
+    profilePage = false;
+    blinddatesPage = true;
+    yourblinddatesPage = false;
+
+    document.getElementById("MenuButtonOne").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
+    document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="YourBlindDatesPage()">Your Blind Dates</button>`;
+
+    Middle.classList.add("BlindDatesGridContainer");
+ 
+    Middle.innerHTML = `
+    <div id="BlindLeft" class="BlindLeft">
+    </div>
+
+    <div id="InnerBlindDatesBody" class="InnerBlindDatesBody">
+
+        <div id="BodyBorderBox" class="BodyBorderBox">
+            <div class="BodyProfImage">
+                <img style="width:100%" src="https://www.krickshop.de/krick/prodpic/Roemisches-Katapult-800817_b_0.JPG" id="BodyProfImage" />
+            </div>
+
+            <div id="BodyProfName" class="BodyProfName">Jonas Risaker</div>
+            <div id="BodyDateAddress" class="BodyDateAddress">Oslo 6666 Torggata 35</div>
+            <div id="BodyProfAge" class="BodyProfAge">27 år</div>
+            <div id="BodyDateTime" class="BodyDateTime">27, April, 2020, 18:30</div>
+            <div id="BodyAddDateButton" class="BodyAddDateButton"> <button>+</button> </div>
+        </div>
+
+    </div>
+
+    <div id="BlindRight" class="BlindRight">
+    </div>
+    `;
+
+    Bottom.innerHTML = "";
+
+
+}
+
+function YourBlindDatesPage()
+{
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+        Middle.classList.remove("CreateAccountPageContainer");
+    }
+    if (swipePage) {
+        Middle.classList.remove("SwipePageContainer");
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage) {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage) {
+        Middle.classList.remove("ProfilePageGridContainer");
+    }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
+
+    loginPage = false;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
+    optionsPage = false;
+    profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = true;
+
+    document.getElementById("MenuButtonOne").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
+    document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="BlindDatesPage()">Blind Dates Page</button>`;
+
+    Middle.classList.add("YourBlindDatesGridContainer");
+    Middle.innerHTML = `
+    
+    <div id="YourInnerBlindDatesBody" class="YourInnerBlindDatesBody">
+    
+    
+    
+    </div>
+    `;
 
 }

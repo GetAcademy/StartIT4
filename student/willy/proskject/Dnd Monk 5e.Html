@@ -5,17 +5,32 @@
     <meta charset="utf-8" />
     <title></title>
     <style>
-        /* .characterSheet {
-                                
-        } */
+        .armor{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            background-color: darkmagenta
+            padding 10px;
+        }
+        .armorContainer {
+            background-color:darkslateblue;
+            border: 1px solid;
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
         .Name{
+            grid-area: header;
             height: 10%;
+            border: solid black;
+            width: 100%;
+            height: 50px;
         }
         .playerInfoContainer {
+            grid-area: header2;
             display: grid;
             grid-template-columns: auto auto auto auto;
             background-color: brown;
-            padding: 10%;
+            padding: 2%;
         }
         .playerInfo{
             background-color: rgba(255, 255, 255, 0.8);
@@ -33,11 +48,30 @@
             height: 25%;
             text-align: center;
         }
+        .points {
+            grid-area: points;
+        }
+        .otherPassivPerception {
+            grid-area: other;
+        }
+        .reactions{
+            grid-area: reactions;
+        }
+        .characterSheet{
+            display: grid;
+            grid-template-areas:
+                'header header header2 header2'
+                'stats points reactions reactions'
+                'other other reactions reactions';
+            grid-gap: 10px;
+            background-color: aquamarine;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
 <div class="characterSheet">
-    <h1 id=name class=Name>hmmmm</h1>
+    <h1 id=name class=Name>hmmmmm</h1>
         <div class="playerInfoContainer">
             <div class="playerInfo"><textarea name="" id=""></textarea></br>class and level</div>
             <div class="playerInfo"><textarea name="" id=""></textarea></br>background</div>
@@ -48,7 +82,6 @@
             <div class="playerInfo"><textarea name="" id=""></textarea></br>Experiense Points</div>
             <div class="playerInfo"><textarea name="" id=""></textarea></br>Dci Number</div>
         </div>
-
     <div class="stats">
         <p>Strength <textarea class="strength" name="" id="">18</textarea></p>
         <p>Dexterity <textarea class="" name="" id=""></textarea></p>
@@ -56,6 +89,105 @@
         <p>Inteligence <textarea class="" name="" id=""></textarea></p>
         <p>Wisdom <textarea class="" name="" id=""></textarea></p>
         <p>Charisma <textarea class="" name="" id=""></textarea></p>
+    </div>
+    <div class="points">
+        <p><input type="radio">Inspartion</p>
+        <p><textarea name="" id=""></textarea>Proficency Bonus</p>
+        <div class="savingThrows">
+            <p><input type="radio">Strength</p>
+            <p><input type="radio">Dexterity</p>
+            <p><input type="radio">Constitution</p>
+            <p><input type="radio">Intelligence</p>
+            <p><input type="radio">Wisdom</p>
+            <p><input type="radio">Charisma</p></br>
+            Saving Throws
+        </div>
+        <div>
+            <p><input type="radio"><input type="text">Acrobatics(Dex)</p>
+            <p><input type="radio"><input type="">Animal Handeling(Wis)</p>
+            <p><input type="radio"><input type="">Arcana(Int)</p>
+            <p><input type="radio"><input type="">Athletics(Str)</p>
+            <p><input type="radio"><input type="">Deception(Cha)</p>
+            <p><input type="radio"><input type="">History(Int)</p>
+            <p><input type="radio"><input type="">Insight(Wis)</p>
+            <p><input type="radio"><input type="">Intimidation(Cha)</p>
+            <p><input type="radio"><input type="">Invistigation(Int)</p>
+            <p><input type="radio"><input type="">Medicine(Wis)</p>
+            <p><input type="radio"><input type="">Nature(Int)</p>
+            <p><input type="radio"><input type="">Perception(Wis)</p>
+            <p><input type="radio"><input type="">Performance(Cha)</p>
+            <p><input type="radio"><input type="">Persusion(Cha)</p>
+            <p><input type="radio"><input type="">Religion(Int)</p>
+            <p><input type="radio"><input type="">Sleight Of Hand(Dex)</p>
+            <p><input type="radio"><input type="">Stealth(Dex)</p>
+            <p><input type="radio"><input type="">Survival(Wis)</p></br>
+            Skills
+        </div>
+    </div>
+    <div class="otherPassivPerception">
+        <div>
+            <p><input type="text">Passive Wisdom (Perception)</p>
+        </div>
+        <div>
+            <p><textarea name="" id="" cols="30" rows="10"></textarea></br>Other Proficiencies and Languages</p>
+        </div>
+    </div>
+    <div class="reactions">
+        <div class="armor">
+            <p class="armorContainer"><input type="text"></br>ArmorClass</p>
+            <p class="armorContainer"><input type="text"></br>Instiate</p>
+            <p class="armorContainer"><input type="text"></br>speed</p>
+        </div>
+        <div>
+            <p>Hit Points Maximum<textarea></textarea></p>
+            <p><textarea></textarea></br>Current Hit Points</p>
+            <p><textarea></textarea></br>Temporary Hit Points</p>
+        </div>
+        <div>
+            <div>
+                <p>Total<textarea></textarea></p>
+                <p><textarea></textarea></br>Hit Dice</p>
+            </div>
+            <div>
+                <p>Successes<input type="radio"><input type="radio"><input type="radio"></p>
+                <p>Failures<input type="radio"><input type="radio"><input type="radio"></p>
+                <p>Deathsaves</p>
+            </div>
+            <div>
+                <div>
+                    <p>Name</p>
+                    <p><textarea></textarea></p>
+                    <p><textarea></textarea></p>
+                    <p><textarea></textarea></p>
+                </div>
+                <div>
+                    Atk Bonus
+                    <p><textarea></textarea></p>
+                    <p><textarea></textarea></p>
+                    <p><textarea></textarea></p>
+                </div>
+                <div>
+                    <p>Damage/Type</p>
+                    <p><textarea></textarea></p>
+                    <p><textarea></textarea></p>
+                    <p><textarea></textarea></p>
+                </div>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Cp<textarea name="" id=""></textarea></p>
+                <p>Sp<textarea name="" id=""></textarea></p>
+                <p>Ep<textarea name="" id=""></textarea></p>
+                <p>Gp<textarea name="" id=""></textarea></p>
+                <p>Pp<textarea name="" id=""></textarea></p>
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            Equipment
+        </div>
     </div>
 </div>
 </body>

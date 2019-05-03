@@ -26,7 +26,7 @@
 
         <div id="main" class="main" style="display:block">Velkommen til Larvik kommune sin kommunale strømstyring
             side.<br />Vennligst velg:
-            <div class="chartContainer" id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <div class="chartContainer" id="chartContainer" style="height: 600px; width: 100%;"></div>
         </div>
         <div id="content" style="display:none">
             <h1>Bygninger</h1>
@@ -37,9 +37,9 @@
                 <input type="text" name="postnr" placeholder="Post nummer">
                 <input type="text" name="areal" placeholder="Areal">
                 <input type="text" name="oppvarming" placeholder="Oppvarming metode">
-                <input id="from" type="datetime-local" name = "dataFrom" value="2019-01-01T10:00" title="Data generering fra"/><br />
-                <input id="to" type="datetime-local" name="dataTo" value="2019-01-01T15:00" title="Data generering til"/><br />
-                <button id="Knapp" >Legg til</button>
+                <input type="text" name="kategori" placeholder="Kategori">
+                
+                <button id="Knapp">Legg til</button>
             </form>
             <ul id="bygg-list"></ul>
         </div>
@@ -61,10 +61,14 @@
             const db = firebase.firestore();
             db.settings({ timestampsInSnapshots: true }); </script>
 
+
+        <script src="moment.js"></script>
         <script src="Firestoretest/main.js"></script>
         <script src="GraphDisplay.js"></script>
         <script src="charts.js"></script>
-        <script src="dataConverter.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="GraphDisplay2.js"></script>
+        <script src="DatasetYear.js"></script>
         <script src="test 3.js"></script>
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpRnjLpiGEoPxMt7I78RGftYx_wT0vKK4&callback=initMap"></script>
