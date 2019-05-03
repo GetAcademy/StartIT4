@@ -30,6 +30,7 @@ class SceneMain extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
 
         this.bulletGroup = this.physics.add.group();
+        this.eBulletGroup = this.physics.add.group();
         this.alienGroup = this.physics.add.group();
         //this.alienGroup.setVelocity(0, 0);
 
@@ -152,6 +153,28 @@ class SceneMain extends Phaser.Scene {
         
 
 
+    }
+
+    getTimer() {
+        var d = new Date();
+        return d.getTime();
+    }
+
+    fireEBullet() {
+        for (let child of this.alienGroup.children.entries) {
+            var elapsed = Math.abs(this.lastEBullet - this.getTimer());
+            if (elapsed < 500) {
+                return;
+            }
+            
+            
+            this.lastEBullet = this.getTimer();
+            var eBullet = this.physics.add.sprite(child.x, child.y, "bullet");
+            this.eBulletGroup.add(eBullet);
+            eBullet.body.angularVelocity = 0;
+            eBullet.angle = angle;
+            this.physics.moveTo(eBullet, this.player.x, this.player.y, 100);
+        }
     }
 
     moveAlien() {
@@ -293,5 +316,14 @@ class SceneMain extends Phaser.Scene {
         }
 
         this.moveAlien();
+        for (let child of this.alienGroup.children.entries) {
+            var distX = Math.abs(this.player.x - child.x);
+            var distY = Math.abs(this.player.y - child.y);
+            if (distX < game.config.width / 5 && distY < game.config.height / 5) {
+                this.fireEBullet();
+            }
+        }
+       
+
     }
 }
