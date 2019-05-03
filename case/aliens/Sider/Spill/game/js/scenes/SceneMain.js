@@ -103,7 +103,7 @@ class SceneMain extends Phaser.Scene {
                 }),
 
             frameRate: 8,
-
+            
         });
 
         this.anims.create({
@@ -208,6 +208,10 @@ class SceneMain extends Phaser.Scene {
         }
     }
 
+    damagePlayer(player, ebullet) {
+        
+        ebullet.destroy();
+    }
 
     damageAlien(alienGroup, bullet) {
         alienGroup.hitCount++;
@@ -255,6 +259,9 @@ class SceneMain extends Phaser.Scene {
 
     setColliders() {
         this.physics.add.collider(this.alienGroup, this.bulletGroup, this.damageAlien, null, this);
+        this.physics.add.collider(this.alienGroup, this.alienGroup);
+        this.physics.add.collider(this.player, this.alienGroup);
+        this.physics.add.collider(this.player, this.eBulletGroup, this.damagePlayer, null, this);
 
     }
 
@@ -290,7 +297,7 @@ class SceneMain extends Phaser.Scene {
         if (this.keyA.isDown) {
             this.player.x--;
 
-
+            this.player.body.setVelocity(0, 0);
             this.player.play('walk-left', true);
 
             angle = 180;
@@ -298,7 +305,7 @@ class SceneMain extends Phaser.Scene {
 
         if (this.keyD.isDown) {
             this.player.x++;
-
+            this.player.body.setVelocity(0, 0);
             this.player.play('walk-right', true);
 
             angle = 360;
@@ -306,7 +313,7 @@ class SceneMain extends Phaser.Scene {
 
         if (this.keyW.isDown) {
             this.player.y--;
-
+            this.player.body.setVelocity(0, 0);
             this.player.play('walk-up', true);
 
             angle = 270;
@@ -314,7 +321,7 @@ class SceneMain extends Phaser.Scene {
 
         if (this.keyS.isDown) {
             this.player.y++;
-
+            this.player.body.setVelocity(0, 0);
             this.player.play('walk-down', true);
 
             angle = -270;
