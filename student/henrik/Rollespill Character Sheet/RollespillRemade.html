@@ -603,16 +603,16 @@
             var intMod = Math.floor((int - 10) / 2);
             var wisMod = Math.floor((wis - 10) / 2);
             var chaMod = Math.floor((cha - 10) / 2);
-            var skillTable = document.getElementById("myTable")
-            var skillStr = skillTable.getElementsByClassName("skillModifierStr")
-            var skillDex = skillTable.getElementsByClassName("skillModifierDex")
-            var skillCon = skillTable.getElementsByClassName("skillModifierCon")
-            var skillInt = skillTable.getElementsByClassName("skillModifierInt")
-            var skillWis = skillTable.getElementsByClassName("skillModifierWis")
-            var skillCha = skillTable.getElementsByClassName("skillModifierCha")
-            for (let i = 0; i < skillStr.length; i++) {
-                skillStr.innerText = strMod;
-            }
+
+            var skillStr = getElementsByClassName("skillModifierStr")
+            var skillDex = getElementsByClassName("skillModifierDex")
+            var skillCon = getElementsByClassName("skillModifierCon")
+            var skillInt = getElementsByClassName("skillModifierInt")
+            var skillWis = getElementsByClassName("skillModifierWis")
+            var skillCha = getElementsByClassName("skillModifierCha")
+
+
+            skillStr.innerHTML = strMod
         }
     </script>
 </body>
