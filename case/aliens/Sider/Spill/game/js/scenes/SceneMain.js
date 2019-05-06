@@ -142,6 +142,20 @@ class SceneMain extends Phaser.Scene {
 
         });
 
+        // explosion anim 
+        var frameNames = this.anims.generateFrameNumbers('exp');
+        var f2 = frameNames.slice();
+        f2.reverse();
+
+        var f3 = f2.concat(frameNames);
+
+        this.anims.create({
+            key: 'boom',
+            frames: f3,
+            frameRate: 48,
+            repeat: false
+        });
+
 
         // keyCodes 
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -225,6 +239,9 @@ class SceneMain extends Phaser.Scene {
 
     damagePlayer(player, ebullet) {
         this.playerHealth--
+        this.player.body.setVelocity(0, 0);
+        var explosion = this.add.sprite(player.x, player.y, 'exp');
+        explosion.play('boom');
         this.text1.setText("Health\n" + this.playerHealth);
         if (this.playerHealth == 0) {
             this.scene.start('SceneOver');
@@ -235,6 +252,8 @@ class SceneMain extends Phaser.Scene {
 
     damageAlien(alienGroup, bullet) {
         alienGroup.hitCount++;
+        var explosion = this.add.sprite(bullet.x, bullet.y, 'exp');
+        explosion.play('boom');
         if (alienGroup.hitCount == 3) {
             alienGroup.destroy();
             alienGroup.hitCount = 0;
@@ -322,7 +341,7 @@ class SceneMain extends Phaser.Scene {
         if (this.keyA.isDown) {
             this.player.x--;
 
-            this.player.body.setVelocity(0, 0);
+            
             this.player.play('walk-left', true);
 
             angle = 180;
@@ -330,7 +349,7 @@ class SceneMain extends Phaser.Scene {
 
         if (this.keyD.isDown) {
             this.player.x++;
-            this.player.body.setVelocity(0, 0);
+           
             this.player.play('walk-right', true);
 
             angle = 360;
@@ -338,7 +357,7 @@ class SceneMain extends Phaser.Scene {
 
         if (this.keyW.isDown) {
             this.player.y--;
-            this.player.body.setVelocity(0, 0);
+            
             this.player.play('walk-up', true);
 
             angle = 270;
@@ -346,7 +365,7 @@ class SceneMain extends Phaser.Scene {
 
         if (this.keyS.isDown) {
             this.player.y++;
-            this.player.body.setVelocity(0, 0);
+            
             this.player.play('walk-down', true);
 
             angle = -270;
