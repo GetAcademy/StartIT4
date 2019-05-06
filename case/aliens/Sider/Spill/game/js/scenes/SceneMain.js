@@ -238,7 +238,7 @@ class SceneMain extends Phaser.Scene {
 
 
 
-            if (distX >= 100 && distY >= 100) {
+            if (distX >= 200 && distY >= 200) {
                 child.body.setVelocity(0, 0);
 
             }
