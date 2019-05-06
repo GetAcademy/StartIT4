@@ -5,9 +5,10 @@
     "\\images\\ui",
     "\\js",
     "\\js\\classes",
+    "\\js\\classes\\mc",
     "\\js\\classes\\ui",
     "\\js\\scenes"
   ],
-  "SelectedNode": "\\js\\classes\\ui\\soundButtons.js",
+  "SelectedNode": "\\js\\classes\\mc\\controller.js",
   "PreviewInSolutionExplorer": false
 }
