@@ -241,6 +241,7 @@ class SceneMain extends Phaser.Scene {
         this.playerHealth--
         this.player.body.setVelocity(0, 0);
         var explosion = this.add.sprite(player.x, player.y, 'exp');
+        explosion.setScale(0.7);
         explosion.play('boom');
         this.text1.setText("Health\n" + this.playerHealth);
         if (this.playerHealth == 0) {
@@ -252,7 +253,8 @@ class SceneMain extends Phaser.Scene {
 
     damageAlien(alienGroup, bullet) {
         alienGroup.hitCount++;
-        var explosion = this.add.sprite(bullet.x, bullet.y, 'exp');
+        var explosion = this.add.sprite(alienGroup.x, alienGroup.y, 'exp');
+        explosion.setScale(0.7);
         explosion.play('boom');
         if (alienGroup.hitCount == 3) {
             alienGroup.destroy();
