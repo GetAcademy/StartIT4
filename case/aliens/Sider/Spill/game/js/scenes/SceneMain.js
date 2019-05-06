@@ -13,8 +13,8 @@ class SceneMain extends Phaser.Scene {
         var mediaManager = new MediaManager({ scene: this });
 
         var sb = new SoundButtons({ scene: this });
-        this.tx = 0;
-        this.ty = 0;
+        this.playerHealth = 100;
+        model.playerWon = true;
 
         //adding imgs and sprites
         this.back = this.add.image(0, 0, "background");
@@ -32,12 +32,12 @@ class SceneMain extends Phaser.Scene {
         this.bulletGroup = this.physics.add.group();
         this.eBulletGroup = this.physics.add.group();
         this.alienGroup = this.physics.add.group();
-        //this.alienGroup.setVelocity(0, 0);
+      
 
 
         this.makeAliens();
 
-        // this.hitCount = 0;
+        
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
@@ -150,6 +150,7 @@ class SceneMain extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.setColliders();
+        this.makeInfo();
 
 
 
@@ -180,7 +181,7 @@ class SceneMain extends Phaser.Scene {
             var distX = Math.abs(this.player.x - child.x);
             var distY = Math.abs(this.player.y - child.y);
 
-            if (distX < 100 && distY < 100) {
+            if (distX < 150 && distY < 150) {
                 this.physics.moveTo(child, this.player.x, this.player.y, 30);
 
 
@@ -208,8 +209,27 @@ class SceneMain extends Phaser.Scene {
         }
     }
 
+    makeInfo() {
+        this.text1 = this.add.text(0, 0, "Health\n100", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
+        this.text2 = this.add.text(0, 0, "EnemyCount\n4", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
+        this.text1.setOrigin(0.5, 0.5);
+        this.text2.setOrigin(0.5, 0.5);
+        this.uiGrid = new AlignGrid({ scene: this, rows: 11, cols: 11 });
+        this.uiGrid.placeAtIndex(1, this.text1)
+        this.uiGrid.placeAtIndex(8, this.text2)
+       //this.uiGrid.showNumbers();
+
+        this.text1.setScrollFactor(0);
+        this.text2.setScrollFactor(0);
+    }
+
     damagePlayer(player, ebullet) {
-        
+        this.playerHealth--
+        this.text1.setText("Health\n" + this.playerHealth);
+        if (this.playerHealth == 0) {
+            this.scene.start('SceneOver');
+            model.playerWon = false;
+        }
         ebullet.destroy();
     }
 
@@ -218,6 +238,11 @@ class SceneMain extends Phaser.Scene {
         if (alienGroup.hitCount == 3) {
             alienGroup.destroy();
             alienGroup.hitCount = 0;
+        }
+        this.text2.setText("EnemyCount\n" + this.alienGroup.getChildren().length);
+        if (this.alienGroup.getChildren().length == 0) {
+            this.scene.start('SceneOver');
+            model.playerWon = true;
         }
         bullet.destroy();
 
@@ -229,7 +254,7 @@ class SceneMain extends Phaser.Scene {
             this.alienGroup = this.physics.add.group({
                 key: 'alien',
                 frame: [0,],
-                frameQuantity: 14,
+                frameQuantity: 4,
                 bounceX: 0,
                 bounceY: 0,
                 angularVelocity: 0,
@@ -244,7 +269,7 @@ class SceneMain extends Phaser.Scene {
                 child.x = xx;
                 child.y = yy;
                 child.time = this.getTimer();
-                console.log(child.time);
+                
 
                 
 
