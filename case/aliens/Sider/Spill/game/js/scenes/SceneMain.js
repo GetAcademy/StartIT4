@@ -244,6 +244,7 @@ class SceneMain extends Phaser.Scene {
             }
         }
     }
+    
 
     makeInfo() {
         this.text1 = this.add.text(0, 0, "Health\n100", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
