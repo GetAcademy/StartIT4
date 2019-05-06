@@ -10,7 +10,85 @@
 </head>
 <body>
 
-  
+    <div id="Model">
+        <h1>{{Header.Headline}}</h1>
+        <table>
+            <tr>
+                <td>
+                    <span>{{Texts[0].text}}</span><input v-model="LoginData.Username" type="text" />
+                    <span>{{Texts[1].text}}</span><input v-model="LoginData.Password" type="text" />
+                </td>
+            </tr>
+            <tr v-if="Bools.Retrieve">
+                <td>
+                    <h5 v-if="Bools.Retrieve">{{FakeMail.FakeFirst}}{{LoginData.Username}}{{FakeMail.FakeSecond}}</h5>
+                </td>
+                <td>
+                    <h5 v-if="Bools.Retrieve">{{LoginData.Password}}</h5>
+                </td>
+            </tr>
+            <tr>
+                <td><button @click="Clicked">retrieve account</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var MyVue = new Vue
+            ( {
+                el: '#Model',
+                data:
+                {
+                    Header:
+                    {
+                        Headline: "Forgot Password",
+                    },
+                    Texts:
+                        [
+                            { text: "Username" },
+                            { text: "Password" },
+                            { text: "jens69" },
+                            { text: "WontTerrorizeYou" },
+                            {text: "Gaylord55"}
+                        ],
+                    Bools:
+                    {
+                        Retrieve: false
+                    },
+                    LoginData:
+                    {
+                        Password: "",
+                        Username: ""
+                    },
+                    FakeMail:
+                    {
+                        FakeFirst: "www.",
+                        FakeSecond: "@gmail.com"
+                    }
+
+                },
+                methods:
+                {
+                    Clicked: function ()
+                    {
+                        this.LoginData.Password = this.LoginData.Password.split( "" ).reverse().join( "" )
+                        if ( !this.Bools.Retrieve )
+                        {
+                            this.Bools.Retrieve = true;
+                        }
+                        else
+                        {
+                            this.Bools.Retrieve = false;
+                        }
+                        
+                    }
+                },
+                computed:
+                {
+
+                }
+            } );
+    </script>
 
 </body>
 </html>
