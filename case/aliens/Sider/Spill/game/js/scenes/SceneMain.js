@@ -15,6 +15,7 @@ class SceneMain extends Phaser.Scene {
         var sb = new SoundButtons({ scene: this });
         this.playerHealth = 100;
         model.playerWon = true;
+        this.bulletHit = false;
 
         //adding imgs and sprites
         this.back = this.add.image(0, 0, "background");
@@ -214,14 +215,36 @@ class SceneMain extends Phaser.Scene {
                 if (angle == 270) {
                     child.play('alien-up', true);
                 }
+            } else if (child.bulletHit == true) {
+                this.physics.moveTo(child, this.player.x, this.player.y, 60);
+
+
+
+
+                if (angle == 180) {
+                    child.play('alien-left', true);
+
+                }
+                if (angle == 360) {
+                    child.play('alien-right', true);
+                }
+                if (angle == -270) {
+                    child.play('alien-down', true);
+                }
+                if (angle == 270) {
+                    child.play('alien-up', true);
+                }
             }
 
-            if (distX >= 100 && distY >= 100) {
+
+
+            if (distX >= 200 && distY >= 200) {
                 child.body.setVelocity(0, 0);
 
             }
         }
     }
+    
 
     makeInfo() {
         this.text1 = this.add.text(0, 0, "Health\n100", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
@@ -241,6 +264,7 @@ class SceneMain extends Phaser.Scene {
         this.playerHealth--
         this.player.body.setVelocity(0, 0);
         var explosion = this.add.sprite(player.x, player.y, 'exp');
+        explosion.setScale(0.7);
         explosion.play('boom');
         this.text1.setText("Health\n" + this.playerHealth);
         if (this.playerHealth == 0) {
@@ -252,9 +276,13 @@ class SceneMain extends Phaser.Scene {
 
     damageAlien(alienGroup, bullet) {
         alienGroup.hitCount++;
-        var explosion = this.add.sprite(bullet.x, bullet.y, 'exp');
+        var explosion = this.add.sprite(alienGroup.x, alienGroup.y, 'exp');
+        explosion.setScale(0.7);
         explosion.play('boom');
+
+        alienGroup.bulletHit = true;
         if (alienGroup.hitCount == 3) {
+            
             alienGroup.destroy();
             alienGroup.hitCount = 0;
         }
@@ -287,7 +315,7 @@ class SceneMain extends Phaser.Scene {
                 child.hitCount = 0;
                 child.x = xx;
                 child.y = yy;
-                child.time = this.getTimer();
+                child.bulletHit = false
                 
 
                 
@@ -339,7 +367,7 @@ class SceneMain extends Phaser.Scene {
 
     update() {
         if (this.keyA.isDown) {
-            this.player.x--;
+            this.player.x -= 2;
 
             
             this.player.play('walk-left', true);
@@ -348,7 +376,7 @@ class SceneMain extends Phaser.Scene {
         }
 
         if (this.keyD.isDown) {
-            this.player.x++;
+            this.player.x += 2;
            
             this.player.play('walk-right', true);
 
@@ -356,7 +384,7 @@ class SceneMain extends Phaser.Scene {
         }
 
         if (this.keyW.isDown) {
-            this.player.y--;
+            this.player.y -= 2;
             
             this.player.play('walk-up', true);
 
@@ -364,7 +392,7 @@ class SceneMain extends Phaser.Scene {
         }
 
         if (this.keyS.isDown) {
-            this.player.y++;
+            this.player.y += 2;
             
             this.player.play('walk-down', true);
 

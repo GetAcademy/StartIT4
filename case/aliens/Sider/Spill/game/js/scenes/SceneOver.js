@@ -15,7 +15,7 @@ class SceneOver extends Phaser.Scene {
 
         var title = this.add.image(0, 0, 'title');
         Align.scaletoGameW(title, 0.8);
-        this.alignGrid.placeAtIndex(38, title);
+        this.alignGrid.placeAtIndex(27, title);
         console.log("SceneTtile!");
 
         var btnStart = new FlatButton({ scene: this, key: 'button1', text: 'Play Again', event: 'start_game' });
