@@ -1,7 +1,7 @@
 const byggList = document.querySelector('#bygg-list');
 const form = document.querySelector('#add-bygg-form');
 
-function renderBygg(doc){
+function renderBygg(doc) {
     let li = document.createElement('li');
     let navn = document.createElement('span');
     let by = document.createElement('span');
@@ -10,7 +10,7 @@ function renderBygg(doc){
     let areal = document.createElement('span');
     let oppvarming = document.createElement('span');
     let cross = document.createElement('div');
-
+    let kategori = document. createElement('span');
 
 
     li.setAttribute('data-id', doc.id);
@@ -18,11 +18,11 @@ function renderBygg(doc){
     by.textContent = 'By: ' + doc.data().by;
     adresse.textContent = 'Adresse: ' + doc.data().adresse;
     postnr.textContent = 'Post Nummer: ' + doc.data().postnr;
-    areal.textContent = 'Areal: ' +doc.data().areal;
+    areal.textContent = 'Areal: ' + doc.data().areal;
     oppvarming.textContent = 'Oppvarmings Metode: ' + doc.data().oppvarming;
     cross.textContent = 'x';
+    kategori.textContent = 'Kategori: ' + doc.data().kategori;
 
-    
 
 
     li.appendChild(navn);
@@ -32,24 +32,25 @@ function renderBygg(doc){
     li.appendChild(areal);
     li.appendChild(oppvarming);-
     li.appendChild(cross);
-    
+    li.appendChild(kategori);
+
 
 
     byggList.appendChild(li);
 
     //Slett Data
-    cross.addEventListener('click', (e) =>{
+    cross.addEventListener('click', (e) => {
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
         db.collection('Bygg').doc(id).delete();
     })
 }
 //Få data
-    // /db.collection('Bygg').get().then((snapshot) =>{
-    //  snapshot.docs.forEach(doc => {
-    //    renderBygg(doc);
-    // })
-    // })
+// /db.collection('Bygg').get().then((snapshot) =>{
+//  snapshot.docs.forEach(doc => {
+//    renderBygg(doc);
+// })
+// })
 //Lagre data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -59,7 +60,8 @@ form.addEventListener('submit', (e) => {
         adresse: form.adresse.value,
         postnr: form.postnr.value,
         areal: form.areal.value,
-        oppvarming: form.oppvarming.value
+        oppvarming: form.oppvarming.value,
+        kategori: form.kategori.value,
 
     });
     form.navn.value = '';
@@ -68,17 +70,26 @@ form.addEventListener('submit', (e) => {
     form.postnr.value = '';
     form.areal.value = '';
     form.oppvarming.value = '';
+    form.kategori.value = '';
 })
 //ekte tid
 db.collection('Bygg').orderBy('by').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
     changes.forEach(change => {
         console.log(change.doc.data());
-        if(change.type == 'added'){
+        if (change.type == 'added') {
             renderBygg(change.doc);
-        } else if(change.type == 'removed'){
+        } else if (change.type == 'removed') {
             let li = byggList.querySelector('[data-id=' + change.doc.id + ']');
             byggList.removeChild(li);
         }
     });
 });
+
+
+
+function toggleLeggTilBygg() {
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('map').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+}

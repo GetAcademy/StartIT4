@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+      
+        content = document.getElementById('content');
+        show();
+        function show() {
+            content.innerHTML = `
+<input id="searchBar" type="text" /><button onclick="searchchar()">Søk</button><br />
+<input id="addName" type="text" /><br /><input id="addNum" type="text" /><button onclick="addchar()">Legg til</button>
+    <div id="showSearch"></div>`;
+        }
+        
+        const characters = [
+            { name: 'Liu Kang', number: '6' },
+            { name: 'Raiden', number: '3' },
+            { name: 'Johnny Cage', number: '1' },
+            { name: 'Kano', number: '2' },
+            { name: 'Sonya', number: '7' },
+            { name: 'Sub-Zero', number: '4' },
+            { name: 'Scorpion', number: '5' },
+            
+        ];
+        function searchchar() {
+            var searchBar = document.getElementById('searchBar');
+            var showSearch = document.getElementById('showSearch');
+            for (var i = 0; i < characters.length; i++) {
+                var character = characters[i]
+                if (searchBar.value === character.name || searchBar.value === character.number) {
+                    showSearch.innerHTML = character.name + ' ' + character.number;
+                }
+            }
+        }
+        function addchar() {
+            addName = document.getElementById('addName').value;
+            addNum = document.getElementById('addNum').value;
+            characters.push({ name: addName, number: addNum });
+            addName.value = '';
+            addNum.value = '';
+            show();
+        }
+    </script>
+</body>
+</html>

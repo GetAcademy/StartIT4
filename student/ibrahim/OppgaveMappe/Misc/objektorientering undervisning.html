@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg width='100%' height="20" viewport="0 0 100 10">
+        <rect x="0" y="0" width="100%" height="100%" fill="lightgray" />
+        <g id="texts"></g>
+    </svg>
+</body>
+<script>
+    var objektIbris = [
+        {
+            speed: 1,      // viktigste med var ibri er hvor fort den går, gjør det veldig lett å lage flere Ibris
+            id: 'txtIbri', // id for at det skal funke på hver enkelt av de
+            text: 'Ibri',   // hva som skal stå
+            color: 'green',  //farge
+        },
+        {
+            speed: 5,
+            id: 'txtTurbinIbri',
+            text: 'TurbinIbri',
+            color: 'black',
+        },
+    ];
+
+    init();
+    function init() {           //skal skrive opp html så vi slipper å lage en ny hver gang
+        var texts = document.getElementById('texts');
+
+        for (var i in objektIbris) {
+            var objektIbri = objektIbris[i];
+            objektIbri.angle = 0; // skal være samme på alle så bare skiver det inn her
+            objektIbri.x = 0; //skal være samme på alle så bare skiver det inn her
+
+            texts.innerHTML += '<text ' // lager html basert på objektet
+                + 'id="' + objektIbri.id + '" '
+                + 'x="0" '
+                + 'y="14" '
+                + 'fill="' + objektIbri.color + '"'
+                + ''
+                + '>'
+                + objektIbri.text
+                + '</text>';
+        }
+    }
+
+    var angle = 0;
+    setInterval(moveIbri, 30); //hvor mange ganger den skal gjøre funksjonen(moveIbri == funskon, 30 == hvor mange millisekunder det tar til neste) 
+
+
+    function moveIbri() {
+        for (var i in objektIbris) {                //Looper gjennom array og finner alle objektene
+            var objektIbri = objektIbris[i];         // litt usikker men [i] == index som er basert på hvor mange objekter det er inni array ??
+            var txt = document.getElementById(objektIbri.id); // får id
+            objektIbri.angle = (objektIbri.angle + objektIbri.speed) % 360;     //modulus == hvis den når 365 grader vil den gå tilbake til 5 så den ikke forsetter
+            objektIbri.x = Math.round(40 + 40 * Math.sin(Math.PI * objektIbri.angle / 180));    //for at vi ikke skulle trenge en range input og den går fram og tilbake av seg selv
+            txt.setAttribute('x', objektIbri.x + '%');  //foranderer på valuen til objektIbri.x | . == tilhører objektIbri
+        }
+    }
+
+</script>
+
+</html>

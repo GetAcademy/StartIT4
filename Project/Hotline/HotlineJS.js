@@ -20,6 +20,8 @@ var messagePage = false;
 var settingsPage = false;
 var optionsPage = false;
 var profilePage = false;
+var blinddatesPage = false;
+var yourblinddatesPage = false;
 
 var SinglePerson;
 
@@ -33,6 +35,61 @@ var EditMode = false;
 
 var MyImageLink = '';
 
+var Dates = [];
+var FNames =
+    [
+        'John',
+        'James',
+        'Curly',
+        'Bill',
+        'Jack',
+        'Jennifer',
+        'Haley',
+        'Margaret',
+        'Gwen',
+        'Tammy'
+
+    ];
+var LNames =
+    [
+        'GryfWood',
+        'Farquad',
+        'Wood',
+        'Johnson',
+        'Smith',
+        'Williams',
+        'Jones',
+        'Brown',
+        'Miller',
+        'Wilson'
+    ];
+var Addresses =
+    [
+        'Ulåsveien 48, 3258 Larvik',
+        'Byskogstredet 192, 3257 Larvik',
+        'Frenvik 232, 3261 Larvik',
+        'Askeveien 209, 3274 Larvik',
+        'Ridesteinveien 36, 3261 larvik',
+        'Torstadbakken 63, 3259 Larvik',
+        'Antoniskogen 71, 3276 Larvik',
+        'Ibsens gate 239, 3266 Larvik',
+        'Breigata 250, 3260 Larvik',
+        'Nordahl Griegs vei 224, 3269 Larvik'
+    ];
+var Times =
+    [
+        '16 June 2019',
+        '21 June 2019',
+        '22 June 2019',
+        '29 June 2019',
+        '5 July 2019',
+        '6 July 2019',
+        '19 July 2019',
+        '20 July 2019',
+        '21 July 2019',
+        '28 July 2019'
+    ];
+
 var ListOfSingles =
     [
         { Username: 'Ole Kristiansen', Password: 'Lekebil', Email: 'OleKri@hotmail.com', Age: 21, Birthday: new Date(1997, 02, 03), DatingPreference: 'Women', ProfilePictures: ['https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png', 'https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
@@ -42,32 +99,45 @@ var ListOfSingles =
         { Username: 'Hermann Hermannsen', Password: 'Karsk', Email: 'HermannJobb12@hotmail.com', Age: 50, Birthday: new Date(1969, 01, 10), DatingPreference: 'Men & Alien & Women', ProfilePictures: ['https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png', 'https://previews.123rf.com/images/gennadiikorchuganov/gennadiikorchuganov1702/gennadiikorchuganov170200069/71033969-mod%C3%A8le-de-logo-baby-panda-face-ic%C3%B4ne-du-visage-panda-b%C3%A9b%C3%A9-ours-asiatique-panda-t%C3%AAte-isol%C3%A9-sur-fond-blanc.jpg'], Bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum curabitur vitae nunc sed velit. Nisl nunc mi ipsum faucibus vitae aliquet nec. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Massa eget egestas purus viverra accumsan in. Ac felis donec et odio pellentesque diam volutpat. Est ante in nibh mauris cursus. Sodales neque sodales ut etiam. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Sit amet aliquam id diam maecenas ultricies. Sed egestas egestas fringilla phasellus faucibus. Vestibulum rhoncus est pellentesque elit ullamcorper. Ac tortor dignissim convallis aenean et tortor at. Nulla aliquet enim tortor at auctor urna nunc id cursus. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Ac tortor dignissim convallis aenean et tortor at risus viverra. Malesuada pellentesque elit eget gravida cum.' }
     ]
 
-function RandomNumber(min, max) {
+var YourDates = [];
+
+function RandomNumber(min, max)
+{
     return Math.floor(Math.random() * (max - min) + min)
 }
 
-function RandomSinglePerson() {
+function RandomSinglePerson()
+{
     return ListOfSingles[RandomNumber(0, 5)];
 }
 
-function LoginCheck() {
-    db.collection("Users").where('Username', '==', document.getElementById("Username").value).where('Password', '==', document.getElementById("Password").value).get().then(function (querySnapshot) {
-        if (querySnapshot.size > 0) {
-            ThisUser = querySnapshot.docs[0]._document.proto.fields;
-            alert("Welcome " + ThisUser.Username.stringValue);
-            SwipePage();
-        }
-        else {
-            console.log('No User in DataBase that matches query!?');
-        }
-    })
+function LoginCheck()
+{
+    db.collection("Users")
+        .where('Username', '==', document.getElementById("Username").value)
+        .where('Password', '==', document.getElementById("Password").value)
+        .get()
+        .then(function (querySnapshot)
+        {
+            if (querySnapshot.size > 0) {
+
+                ThisUser = querySnapshot.docs[0].data();
+                alert("Welcome " + ThisUser.Username);
+                SwipePage();
+            }
+            else {
+                console.log('No User in DataBase that matches query!?');
+            }
+        })
 }
 
-function NewAccount() {
+function NewAccount()
+{
     NewAccountPage();
 }
 
-function CreateAccount() {
+function CreateAccount()
+{
     let UsernameOne = document.getElementById("UsernameOne").value;
     let UsernameTwo = document.getElementById("UsernameTwo").value;
     let EmailOne = document.getElementById("E-mailOne").value;
@@ -75,12 +145,12 @@ function CreateAccount() {
     let PasswordOne = document.getElementById("PasswordOne").value;
     let PasswordTwo = document.getElementById("PasswordTwo").value;
     let Preference = document.getElementById("Preference").value;
-    let ProfilePic = DropzoneImages();
+    let ProfilePic = DropzoneImages("Dropzone");
     let ProfileBio = document.getElementById("CreateBio").value;
     let AgePrefOne = document.getElementById("AgePrefSliderOne").value;
     let AgePrefTwo = document.getElementById("AgePrefSliderTwo").value;
     let SearchDistance = document.getElementById("CreateSearchDistance").value;
-    let ProfImage = DropzoneImages();
+    let ProfImage = DropzoneImages("Dropzone");
 
 
 
@@ -95,25 +165,24 @@ function CreateAccount() {
         document.getElementById("PasswordOne").value = null;
         document.getElementById("PasswordTwo").value = null;
         document.getElementById("Preference").value = null;
-        document.getElementById("MyImage").value = null;
 
         LoginPage();
     }
 }
 
-function DropzoneImages()
+function DropzoneImages(Dropzone)
 {
-    let TheFile = document.getElementById("Dropzone").dropzone.files;
+    let TheFile = document.getElementById(Dropzone).dropzone.files;
     let Images = [];
-    for (let i = 0; i < TheFile.length; i++)
-    {
+    for (let i = 0; i < TheFile.length; i++) {
         Images.push(TheFile[i]);
     }
     console.log(Images);
     return Images;
 }
 
-function DateChange() {
+function DateChange()
+{
     BirthDate = document.getElementById("Birthdate").value;
     BirthDateYear = BirthDate.substr(0, 4);
     BirthDateMonth = BirthDate.substr(5, 2);
@@ -122,7 +191,8 @@ function DateChange() {
 }
 
 
-function LikeAndDislike(Button) {
+function LikeAndDislike(Button)
+{
     SinglePerson = RandomSinglePerson();
     if (Button.innerText == "Like") {
         document.getElementById("SwipeName").innerHTML = SinglePerson.Username;
@@ -146,11 +216,13 @@ function LikeAndDislike(Button) {
     }
 }
 
-function ChangeImage(image) {
+function ChangeImage(image)
+{
     document.getElementById("SwipeImage").innerHTML = `<img src="${image}" />`;
 }
 
-function ShowSwipeImageSelector() {
+function ShowSwipeImageSelector()
+{
     if (!ShowingSwipeImageSelector) {
         let Cache = '';
         for (let i = 0; i < SinglePerson.ProfilePictures.length; i++) {
@@ -165,19 +237,22 @@ function ShowSwipeImageSelector() {
         ShowingSwipeImageSelector = false;
     }
 }
-function ChangeMyViewedProfilePicture(image) {
+function ChangeMyViewedProfilePicture(image)
+{
     document.getElementById("ProfileImageDisplay").innerHTML = `<img src="${image}" alt="Missing" />`;
 }
-function ViewYourProfilePictures() {
+function ViewYourProfilePictures()
+{
     let Cache = '';
-    for (let i = 0; i < ThisUser.ProfilePictures.arrayValue.values.length; i++) {
-        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures.arrayValue.values[i].stringValue}')" ></button>`;
+    for (let i = 0; i < ThisUser.ProfilePictures.length; i++) {
+        Cache += `<button onclick="ChangeMyViewedProfilePicture('${ThisUser.ProfilePictures[i]}')" ></button>`;
     }
     document.getElementById('ProfileImageSelect').innerHTML = Cache;
 }
 
 // visste du at du kan lage napalm med isopor og diesel? #FunFact of the day
-function AddChat() {
+function AddChat()
+{
     document.getElementById("MyChat").innerHTML += `
         <div class="container LeftGrid">
         <img class="img" src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="Profile Picture">
@@ -198,7 +273,8 @@ function AddChat() {
     document.getElementById("ChatBox").value = null;
 }
 
-function RandomAnswer() {
+function RandomAnswer()
+{
     let i = Math.random();
     if (i < 0.1) {
         return "nei";
@@ -221,14 +297,16 @@ function RandomAnswer() {
 }
 
 function RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, profilePictures) // add profile picture parameter
-{                                       
+{
     db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: profilePictures })
-        .then(function (snapshot) {
+        .then(function (snapshot)
+        {
             alert("User Registered");
         });
 }
 
-function ShowBio() {
+function ShowBio()
+{
     if (!ShowingBio) {
         document.getElementById('SwipeBio').innerHTML = SinglePerson.Bio;
         ShowingBio = true;
@@ -239,7 +317,8 @@ function ShowBio() {
     }
 }
 
-function EditBio() {
+function EditBio()
+{
     if (!EditMode) {
         document.getElementById("ProfileBio").innerHTML = `<textarea id="ProfileBioInput" >${document.getElementById("ProfileBio").innerHTML}</textarea>`;
         EditMode = true;
@@ -251,17 +330,19 @@ function EditBio() {
     }
 }
 
-function ChangeSettingsSliderOne() {
+function ChangeSettingsSliderOne()
+{
     document.getElementById("ShowAgePreferenceValueOne").innerHTML = document.getElementById("AgePreferenceValueOne").value;
 }
 
-function ChangeSettingsSliderTwo() {
+function ChangeSettingsSliderTwo()
+{
     document.getElementById("ShowAgePreferenceValueTwo").innerHTML = document.getElementById("AgePreferenceValueTwo").value;
 }
 
 function UpdateUserSettings()
 {
-    getUser(ThisUser.Username.stringValue)
+    getUser(ThisUser.Username)
         .then(updateUser)
         .catch(function (error)
         {
@@ -272,31 +353,35 @@ function UpdateUserSettings()
 async function updateUser(docId)
 {
     //this is where the variables are actually updated.
-    try
-    {
+    try {
         await db.collection("Users").doc(docId).update({ DatingPreference: document.getElementById("PreferenceChoice").value })
-        await db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value)})
+        await db.collection("Users").doc(docId).update({ SearchDistance: parseInt(document.getElementById("SearchDistanceValue").value) })
         await db.collection("Users").doc(docId).update({ AgePreference: [parseInt(document.getElementById("AgePreferenceValueOne").value), parseInt(document.getElementById("AgePreferenceValueTwo").value)] })
+        await UploadImage(DropzoneImages("DropzoneTwo"));
         await UpdateLocalUser()
         await alert("Document Updated!")
     }
-    catch (error)
-    {
-      console.error(error);
+    catch (error) {
+        console.error(error);
     }
-       
-    
+
+
 }
-function getUser(username) {
-    return new Promise((resolve, reject) => {
+function getUser(username)
+{
+    return new Promise((resolve, reject) =>
+    {
         db.collection("Users").where('Username', "==", username).get()
-            .then(function (querySnapshot) {
-                querySnapshot.forEach(function (doc) {
+            .then(function (querySnapshot)
+            {
+                querySnapshot.forEach(function (doc)
+                {
                     resolve(doc.id);
                 });
                 reject('no documents');
             })
-            .catch(function (error) {
+            .catch(function (error)
+            {
                 reject(error);
             })
     })
@@ -304,15 +389,13 @@ function getUser(username) {
 
 function UpdateLocalUser()
 {
-    db.collection("Users").where('Username', '==', ThisUser.Username.stringValue).where('Password', '==', ThisUser.Password.stringValue).get().then(function (querySnapshot)
+    db.collection("Users").where('Username', '==', ThisUser.Username).where('Password', '==', ThisUser.Password).get().then(function (querySnapshot)
     {
-        if (querySnapshot.size > 0)
-        {
-            ThisUser = querySnapshot.docs[0]._document.proto.fields;
+        if (querySnapshot.size > 0) {
+            ThisUser = querySnapshot.docs[0].data();
             OptionsPage();
         }
-        else
-        {
+        else {
             console.log('Error Updating Local User');
         }
     })
@@ -321,19 +404,17 @@ function UpdateLocalUser()
 async function UploadProfile(Image, username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio)
 {
     const file = Image;
-    
-    try
-    {
+
+    try {
         let ImageURL = [];
-        
-        for (let i = 0; i < file.length; i++)
-        {
+
+        for (let i = 0; i < file.length; i++) {
             let fileRef = storageRef.child(file[i].name);
             await fileRef.put(file[i]);
             ImageURL.push(await fileRef.getDownloadURL());
-            alert(`Uploaded ${file[i].name}`); 
+            alert(`Uploaded ${file[i].name}`);
         }
-        
+
         RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, ImageURL);
     }
     catch (error) {
@@ -341,18 +422,149 @@ async function UploadProfile(Image, username, password, email, age, birthday, da
     }
 }
 
-function AgePrefSliderOne() {
+function AgePrefSliderOne()
+{
     document.getElementById("ShowAgePrefOne").innerHTML = document.getElementById("AgePrefSliderOne").value;
 }
 
-function AgePrefSliderTwo() {
+function AgePrefSliderTwo()
+{
     document.getElementById("ShowAgePrefTwo").innerHTML = document.getElementById("AgePrefSliderTwo").value;
 }
 
 
+// this is image thing for the options page
+function ViewedProfilePicture(image)
+{
+    document.getElementById("OptionsImage").innerHTML = `<img src="${image}" alt="Missing" />`;
+}
+function YourProfilePictures()
+{
+    let Cache = '';
+    for (let i = 0; i < ThisUser.ProfilePictures.length; i++) {
+        Cache += `<button onclick="ViewedProfilePicture('${ThisUser.ProfilePictures[i]}')" ></button>`;
+        Cache += `<button class="DeleteButton" onclick="DeleteProfilePicture('${ThisUser.ProfilePictures[i]}')" ></button>`;
+    }
+    document.getElementById('OptionsImageButtons').innerHTML = Cache;
+}
+async function DeleteProfilePicture(image)
+{
+    await storage.refFromURL(image).delete();
+
+    for (let i = 0; i < ThisUser.ProfilePictures.length; i++) {
+        if (ThisUser.ProfilePictures[i] == image) {
+            ThisUser.ProfilePictures.splice(i);
+        }
+    }
+
+    let MyQueryReturn = await db.collection("Users")
+        .where('Username', '==', ThisUser.Username)
+        .where('ProfilePictures', 'array-contains', image)
+        .get();
+
+    if (MyQueryReturn.size == 1) {
+        console.log(MyQueryReturn);
+        let id = MyQueryReturn.docs[0].id;
+        let docRef = db.collection('Users').doc(id);
+        let cache = [];
+        for (let g = 0; g < ThisUser.ProfilePictures.length; g++) {
+            cache.push(ThisUser.ProfilePictures[g]);
+        }
+
+
+        await docRef.update
+            ({
+                ProfilePictures: cache
+            });
+        console.log(ThisUser.ProfilePictures);
+        await UpdateLocalUser();
+    }
+    else {
+        console.log('Error deleting image from firestore unsuccessfull');
+    }
+}
+
+async function UploadImage(Image)
+{
+    const file = Image;
+
+    try {
+        let ImageURL = [];
+
+        for (let i = 0; i < file.length; i++) {
+            let fileRef = storageRef.child(file[i].name);
+            await fileRef.put(file[i]);
+            ImageURL.push(await fileRef.getDownloadURL());
+            alert(`Uploaded ${file[i].name}`);
+        }
+
+        let DataBaseQuery = await db.collection("Users").where("Username", "==", ThisUser.Username).get();
+        let DataBaseQueryID = await DataBaseQuery.docs[0].id;
+        await db.collection('Users').doc(DataBaseQueryID).update({ ProfilePictures: ThisUser.ProfilePictures.concat(ImageURL) })
+    }
+    catch
+    {
+        console.error("Send Amberlamps");
+    }
+}
+
+function CreateDates()
+{
+    let Cache = '';
+
+    for ( let i = 0; i < RandomNumber( 1, 21 ); i++ )
+    {
+        let name = FNames[RandomNumber( 0, 10 )] + ' ' + LNames[RandomNumber( 0, 10 )];
+        let address = Addresses[RandomNumber( 0, 10 )];
+        let age = RandomNumber( 18, 51 );
+        let time = Times[RandomNumber( 0, 10 )];
+
+        Dates.push( `<div id="BodyBorderBox${i}" class="BodyBorderBox">
+                    <div class="BodyProfImage">
+                    <img style="width:100%" src="http://www.myseumoftoronto.com/wp-content/uploads/2018/12/face-placeholder.gif" id="BodyProfImage${i}" />
+                    </div>
+
+                    <div id="BodyProfName${i}" class="BodyProfName">${name}</div>
+                    <div id="BodyDateAddress${i}" class="BodyDateAddress">${address}</div>
+                    <div id="BodyProfAge${i}" class="BodyProfAge">${age} år</div>
+                    <div id="BodyDateTime${i}" class="BodyDateTime">${time}</div>
+                    <div id="BodyAddDateButton${i}" class="BodyAddDateButton"> <button onclick="AddDate('BodyBorderBox${i}','${i}','${name}','${address}','${age}','${time}')" >+</button> </div>
+                    </div>`);
+        Cache += Dates[i];
+        
+    }
+    document.getElementById( "InnerBlindDatesBody" ).innerHTML = Cache;
+}
+
+function AddDate(ID,Index,Name,Address,Age,Time)
+{
+    YourDates.push( `<div id="YourBodyBorderBox${Index}" class="YourBodyBorderBox">
+                    <div class="YourBodyProfImage">
+                    <img style="width:100%" src="http://www.myseumoftoronto.com/wp-content/uploads/2018/12/face-placeholder.gif" id="YourBodyProfImage${Index}" />
+                    </div>
+
+                    <div id="YourBodyProfName${Index}" class="YourBodyProfName">${Name}</div>
+                    <div id="YourBodyDateAddress${Index}" class="YourBodyDateAddress">${Address}</div>
+                    <div id="YourBodyProfAge${Index}" class="YourBodyProfAge">${Age} år</div>
+                    <div id="YourBodyDateTime${Index}" class="YourBodyDateTime">${Time}</div>
+                    
+                    </div>`);
+    document.getElementById( ID ).remove();
+    alert( "Date Added" );
+}
+function ShowYourDates()
+{
+    let Cache = '';
+    for ( let i = 0; i < YourDates.length; i++ )
+    {
+        Cache += YourDates[i];
+    }
+    document.getElementById( "YourInnerBlindDatesBody" ).innerHTML = Cache;
+}
 
 //page HTML's
-function MessagePage() {
+function MessagePage()
+{
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
@@ -375,6 +587,12 @@ function MessagePage() {
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -383,13 +601,15 @@ function MessagePage() {
     settingsPage = false;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
 
     Middle.classList.add("MessagePageContainer");
     Middle.classList.add("OverflowWindow");
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
-    document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="SettingsPage()">Settings Page</button>`;
+    document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="BlindDatesPage()">Blind Dates</button>`;
     document.getElementById("Bottom").innerHTML = `<input onkeydown="if(event.keyCode==13){AddChat()}" class="ChatBox" type="text" id="ChatBox"/> <button class="Send" onclick="AddChat()">Send</button>`;
 
     Middle.innerHTML =
@@ -411,7 +631,8 @@ function MessagePage() {
     `;
 }
 
-function SettingsPage() {
+function SettingsPage()
+{
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
@@ -433,6 +654,12 @@ function SettingsPage() {
     }
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
+    }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
     }
 
     loginPage = false;
@@ -442,13 +669,15 @@ function SettingsPage() {
     settingsPage = true;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     document.getElementById("MenuButtonOne").innerHTML = `<button onclick="SwipePage()">Swipe Page</button>`;
     document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
     Middle.classList.add("SettingsPageGridContainer");
     Middle.innerHTML = `
     <div id="MyProfile" class="MyProfile">
-         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Profile Picture">
+         <img onclick="ProfilePage()" src="${ThisUser.ProfilePictures[0]}" alt="Profile Picture">
     </div>
     <div id="SettingsButton" class="SettingsButton">
          <button onclick="OptionsPage()">Settings</button>
@@ -456,7 +685,8 @@ function SettingsPage() {
     document.getElementById("Bottom").innerHTML = "";
 }
 
-function SwipePage() {
+function SwipePage()
+{
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
@@ -479,6 +709,12 @@ function SwipePage() {
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -487,6 +723,8 @@ function SwipePage() {
     settingsPage = false;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     SinglePerson = RandomSinglePerson();
 
@@ -518,7 +756,8 @@ function SwipePage() {
     document.getElementById("Bottom").innerHTML = "";
 }
 
-function LoginPage() {
+function LoginPage()
+{
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
@@ -541,6 +780,12 @@ function LoginPage() {
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = true;
     createAccountPage = false;
@@ -549,6 +794,8 @@ function LoginPage() {
     settingsPage = false;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     Middle.classList.add("LogInPageGridContainer");
 
@@ -571,18 +818,23 @@ function LoginPage() {
             </tr>
             </table>
             
+            <button class="TableButton" onclick="LoginCheck()">Login</button>
+            <button class="TableButton" onclick="NewAccount()">New Account</button>
+            <button class="TableButton">Forgot Password</button>            
+
             </div>
             <div id="LoginGridSix" class="LoginGridSix"></div>
-            <div id="LoginGridSeven" class="LoginGridSeven"><button class="TableButton" onclick="LoginCheck()">Login</button></div>
-            <div id="LoginGridEight" class="LoginGridEight"><button class="TableButton" onclick="NewAccount()">New Account</button></div>
-            <div id="LoginGridNine" class="LoginGridNine"><button class="TableButton">Forgot Password</button></div>
+            <div id="LoginGridSeven" class="LoginGridSeven"></div>
+            <div id="LoginGridEight" class="LoginGridEight"></div>
+            <div id="LoginGridNine" class="LoginGridNine"></div>
             
             
             `;
     document.getElementById("Bottom").innerHTML = "";
 }
 
-function NewAccountPage() {
+function NewAccountPage()
+{
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
@@ -605,6 +857,12 @@ function NewAccountPage() {
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = true;
@@ -613,6 +871,8 @@ function NewAccountPage() {
     settingsPage = false;
     optionsPage = false;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     Middle.classList.add("CreateAccountPageContainer");
     Middle.innerHTML = `
@@ -686,7 +946,8 @@ function NewAccountPage() {
     AgePrefSliderTwo();
 }
 
-function OptionsPage() {
+function OptionsPage()
+{
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
@@ -709,6 +970,12 @@ function OptionsPage() {
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -717,9 +984,20 @@ function OptionsPage() {
     settingsPage = false;
     optionsPage = true;
     profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     Middle.classList.add("OptionsPageGridContainer");
     Middle.innerHTML = `
+        
+        <div id="OptionsImageButtons" class="OptionsImageButtons">
+        
+        </div>
+        
+        <div id="OptionsImage" class="OptionsImage">
+        <img src="${ThisUser.ProfilePictures[0]}" alt="Missing" />
+        </div>
+        
         <table class="OptionsTable">
 
         <tr><div id="DatingPreference">
@@ -750,7 +1028,11 @@ function OptionsPage() {
         <td><div><input id="AgePreferenceValueOne" style="width:30%" oninput="ChangeSettingsSliderOne()" type="range" min="18" max="90" step="1"/> <em id="ShowAgePreferenceValueOne"></em> - <em id="ShowAgePreferenceValueTwo"></em> <input id="AgePreferenceValueTwo" style="width:30%" oninput="ChangeSettingsSliderTwo()" type="range" min="18" max="90" step="1"/><em>år</em></div></td>
 
         </div></tr>
-
+        
+        <tr>
+        <td><div id="AddProfilePictureTitle" style="font-weight:bolder">Upload Profile Picture: </div></td> <td><form id="DropzoneTwo" action="file" class="dropzone"></form></td>
+        </tr>
+        
         <tr><div id="SaveOptionsButton">
 
         <td><div id="SaveOptionsTitle" style="font-weight:bolder"></div></td>
@@ -760,16 +1042,19 @@ function OptionsPage() {
 
         </table>
         `;
-    document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference.stringValue;
-    document.getElementById("SearchDistanceValue").value = parseInt(ThisUser.SearchDistance.integerValue);
-    document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
-    document.getElementById("AgePreferenceValueTwo").value = parseInt(ThisUser.AgePreference.arrayValue.values[1].integerValue);
-    document.getElementById("ShowAgePreferenceValueOne").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[0].integerValue);
-    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = parseInt(ThisUser.AgePreference.arrayValue.values[1].integerValue);
+    new Dropzone("form#DropzoneTwo", { url: "/file/post" });
+    YourProfilePictures();
+    document.getElementById("PreferenceChoice").value = ThisUser.DatingPreference;
+    document.getElementById("SearchDistanceValue").value = parseInt(ThisUser.SearchDistance);
+    document.getElementById("AgePreferenceValueOne").value = parseInt(ThisUser.AgePreference[0]);
+    document.getElementById("AgePreferenceValueTwo").value = parseInt(ThisUser.AgePreference[1]);
+    document.getElementById("ShowAgePreferenceValueOne").innerHTML = parseInt(ThisUser.AgePreference[0]);
+    document.getElementById("ShowAgePreferenceValueTwo").innerHTML = parseInt(ThisUser.AgePreference[1]);
 
 }
 
-function ProfilePage() {
+function ProfilePage()
+{
     if (loginPage) {
         Middle.classList.remove("LogInPageGridContainer");
     }
@@ -792,6 +1077,12 @@ function ProfilePage() {
     if (profilePage) {
         Middle.classList.remove("ProfilePageGridContainer");
     }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
 
     loginPage = false;
     createAccountPage = false;
@@ -800,13 +1091,15 @@ function ProfilePage() {
     settingsPage = false;
     optionsPage = false;
     profilePage = true;
+    blinddatesPage = false;
+    yourblinddatesPage = false;
 
     Middle.classList.add("ProfilePageGridContainer");
     Middle.innerHTML = `
     
     <div id="EmptyProfileLeft" class="EmptyProfileLeft"></div>
 
-    <div id="ProfileName" class="ProfileName">${ThisUser.Username.stringValue}</div>
+    <div id="ProfileName" class="ProfileName">${ThisUser.Username}</div>
 
     <div id="EmptyProfileRight" class="EmptyProfileRight"></div>
 
@@ -818,14 +1111,14 @@ function ProfilePage() {
 
     <div id="ProfileImageDisplay" class="ProfileImageDisplay">
     
-    <img src="${ThisUser.ProfilePictures.arrayValue.values[0].stringValue}" alt="Profile Picture">
+    <img src="${ThisUser.ProfilePictures[0]}" alt="Profile Picture">
     
     </div>
 
     <div ondblclick="EditBio()" id="ProfileBio" class="ProfileBio">
 
     
-    ${ThisUser.Bio.stringValue}
+    ${ThisUser.Bio}
     
     
     
@@ -834,5 +1127,130 @@ function ProfilePage() {
     `;
 
     ViewYourProfilePictures();
+
+}
+
+function BlindDatesPage()
+{
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+        Middle.classList.remove("CreateAccountPageContainer");
+    }
+    if (swipePage) {
+        Middle.classList.remove("SwipePageContainer");
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage) {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage) {
+        Middle.classList.remove("ProfilePageGridContainer");
+    }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
+
+    loginPage = false;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
+    optionsPage = false;
+    profilePage = false;
+    blinddatesPage = true;
+    yourblinddatesPage = false;
+
+    document.getElementById("MenuButtonOne").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
+    document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="YourBlindDatesPage()">Your Blind Dates</button>`;
+
+    Middle.classList.add("BlindDatesGridContainer");
+ 
+    Middle.innerHTML = `
+    <div id="BlindLeft" class="BlindLeft">
+    </div>
+
+    <div id="InnerBlindDatesBody" class="InnerBlindDatesBody">
+
+
+    </div>
+
+    <div id="BlindRight" class="BlindRight">
+    </div>
+    `;
+
+    Bottom.innerHTML = "";
+    CreateDates();
+    //help with overflow
+}
+
+function YourBlindDatesPage()
+{
+    if (loginPage) {
+        Middle.classList.remove("LogInPageGridContainer");
+    }
+    if (createAccountPage) {
+        Middle.classList.remove("CreateAccountPageContainer");
+    }
+    if (swipePage) {
+        Middle.classList.remove("SwipePageContainer");
+    }
+    if (messagePage) {
+        Middle.classList.remove("MessagePageContainer");
+        Middle.classList.remove("OverflowWindow");
+    }
+    if (settingsPage) {
+        Middle.classList.remove("SettingsPageGridContainer");
+    }
+    if (optionsPage) {
+        Middle.classList.remove("OptionsPageGridContainer");
+    }
+    if (profilePage) {
+        Middle.classList.remove("ProfilePageGridContainer");
+    }
+    if (blinddatesPage) {
+        Middle.classList.remove("BlindDatesGridContainer");
+    }
+    if (yourblinddatesPage) {
+        Middle.classList.remove("YourBlindDatesGridContainer");
+    }
+
+    loginPage = false;
+    createAccountPage = false;
+    swipePage = false;
+    messagePage = false;
+    settingsPage = false;
+    optionsPage = false;
+    profilePage = false;
+    blinddatesPage = false;
+    yourblinddatesPage = true;
+
+    document.getElementById("MenuButtonOne").innerHTML = `<button onclick="MessagePage()">Message Page</button>`;
+    document.getElementById("MenuButtonTwo").innerHTML = `<button onclick="BlindDatesPage()">Blind Dates Page</button>`;
+
+    Middle.classList.add("YourBlindDatesGridContainer");
+    Middle.innerHTML = `
+    
+    <div class="BlindLeft">
+    </div>
+    <div id="YourInnerBlindDatesBody" class="YourInnerBlindDatesBody">
+    
+    
+    
+    </div>
+    <div class="BlindRight">
+    </div>
+    `;
+    ShowYourDates();
 
 }

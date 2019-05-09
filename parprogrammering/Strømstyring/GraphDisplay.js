@@ -1,7 +1,7 @@
         window.onload = function () {
 
             var chart = new CanvasJS.Chart("chartContainer", {
-                //theme: "light2", // "light1", "light2", "dark1", "dark2"
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
                 animationEnabled: true,
                 title: {
                     text: "Consumption of Electricity"
@@ -54,41 +54,41 @@
                     xValueFormatString: "DD MM,YY",
                     yValueFormatString: "#,##0.0\"kw/h\"",
                     showInLegend: true,
-                    dataPoints: niceData,
+                    dataPoints: perDayData,
                 },
-                {
-                    type: "line",
-                    name: "Valby Grendehus",
-                    markerSize: 5,
-                    azisYType: "secondary",
-                    xValueFormatString: "DD MM, YY",
-                    yValueFormatString: "#,##0.0\"kw/h\"",
-                    showInLegend: true,
-                    dataPoints: niceData1,
-                },
-                {
-                    type: "line",
-                    name: "Solstad Barnehage",
-                    markerSize: 5,
-                    azisYType: "secondary",
-                    xValueFormatString: "DD MM, YY",
-                    yValueFormatString: "#,##0.0\"kw/h\"",
-                    showInLegend: true,
-                    dataPoints: niceData2,
-                },
-                {
-                    type: "line",
-                    name: "Rødbøl Barnehage",
-                    markerSize: 5,
-                    azixYType: "secondary",
-                    xValueFormatString: "DD MM, YY",
-                    yValueFormatString: "#,##0.0\"kw/h\"",
-                    showInLegend: true,
-                    dataPoints: niceData3,
-                }
+            //      {
+            //          type: "line",
+            //          name: "Valby Grendehus",
+            //          markerSize: 5,
+            //          azisYType: "secondary",
+            //          xValueFormatString: "DD MM, YY",
+            //          yValueFormatString: "#,##0.0\"kw/h\"",
+            //          showInLegend: true,
+            //          dataPoints: perDayData2,
+            //      },
+            // //     {
+            //         type: "line",
+            //         name: "Solstad Barnehage",
+            //         markerSize: 5,
+            //         azisYType: "secondary",
+            //         xValueFormatString: "DD MM, YY",
+            //         yValueFormatString: "#,##0.0\"kw/h\"",
+            //         showInLegend: true,
+            //         dataPoints: niceData2,
+            //     },
+            //     {
+            //         type: "line",
+            //         name: "Rødbøl Barnehage",
+            //         markerSize: 5,
+            //         azixYType: "secondary",
+            //         xValueFormatString: "DD MM, YY",
+            //         yValueFormatString: "#,##0.0\"kw/h\"",
+            //         showInLegend: true,
+            //         dataPoints: niceData3,
+            //     }
                 ],
 
-            });
+             });
 
 
             chart.render();

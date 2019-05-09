@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+</head>
+<body>
+
+    <script>
+
+        class NewsBarClass
+        {
+            constructor( Speed, ID, Text, Color, BorderColor )
+            {
+                this._Speed = Speed;
+                this._ID = ID;
+                this._Text = Text;
+                this._Color = Color;
+                this._BorderColor = BorderColor;
+            }
+        }
+
+        class ClassTest
+        {
+            constructor( PropertyOne, PropertyTwo )
+            {
+                this.PropertyOne = PropertyOne;
+                this.PropertyTwo = PropertyTwo;
+            }
+        }
+
+        class InheritTest extends ClassTest
+        {
+            constructor( PropertyOne, PropertyTwo, PropertyThree )
+            {
+                super( PropertyOne, PropertyTwo );
+
+                this.PropertyThree = PropertyThree;
+            }
+        }
+
+        const MyTestOne = new ClassTest( "testing ", "Class" );
+        console.log( MyTestOne );
+        const MyTestTwo = new InheritTest( "testing ", "Class ", "inheritance" );
+        console.log( MyTestTwo );
+
+        var NewsFlashes =
+            [
+                new NewsBarClass( 1, "FlashOne", "Gay Elephant Killed By HorseDick in Uganda", "black", "white" ),
+                new NewsBarClass( 2, "FlashTwo", "Florida Man Caught Breaking Into Prison So He Could Hang Out With Friends", "white", "black" ),
+                new NewsBarClass( 3, "FlashThree", "Some Football Team Won 7-3 Against Another Football Team", "green", "yellow" ),
+                new NewsBarClass( 4, "FlashFour", "Disneyland To Shut Down After Great Disaster Involving Several Of The Classic Rides", "red", "blue" )
+            ]
+
+        console.log( NewsFlashes );
+    </script>
+
+</body>
+</html>

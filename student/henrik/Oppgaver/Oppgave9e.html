@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .stil1{
+                background-color: Black;
+            }
+            .stil2{
+                background-color: Lightgray;
+            }
+            .stil3 {
+                background-color: darkgreen;
+            }
+            .stil4 {
+                background-color: darkblue;
+            }
+            .stil5 {
+                background-color:lightcoral;
+            }
+            .stil6 {
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <select id="select" onchange="Color()">
+            <option id="a" selected value="Black">Black</option>
+            <option id="b" value="LightGray">Light Gray</option>
+            <option id="c" value="LightGreen">Light Green</option>
+            <option id="d" value="DarkBlue">Dark Blue</option>
+            <option id="e" value="lightcoral">Light Red</option>
+        </select>
+
+        <div id="resultat">test</div>
+
+        <script>
+            
+        var resultatDiv = document.getElementById('resultat');
+        var colorChooser = document.getElementById('select');
+        var color1Input = document.getElementById('a');
+        var color2Input = document.getElementById('d');
+
+
+
+        Color();
+
+        function Color() {
+            var black = color1Input.value;
+            var drkblue = color2Input.value;
+
+            resultatDiv.style.backgroundColor = colorChooser.value;
+
+            if (colorChooser.value == black || colorChooser.value == drkblue) {
+                resultatDiv.style.color='white';
+            }
+            else {
+                resultatDiv.style.color='black';
+            }
+        }
+
+
+        </script>
+
+    </body>
+
+</html>

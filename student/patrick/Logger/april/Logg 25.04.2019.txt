@@ -1,0 +1,16 @@
+Logg 25.04.2019
+
+Løste Problemer:
+
+(ingenting)
+men lyd er lagt til i spillet touch inputten er mye mer finjustert og spesial effektene til turretsa er programmert inn.
+
+Gjenstående problemer fra igår:
+
+(ingenting)
+ting bør finjusteres selv om grovarbeidet er gjort, det er for eksempel ikke noe options å forandre på enda.
+ingenting av informasjon blir lagret på spillet, det kan være lurt å ha en god løsning der snart.
+
+Nye Problemer:
+
+litt usikker på om spillet krever for høy intensitet til å være underholdene eller om det er riktig videre testing er nok nødvendig.
