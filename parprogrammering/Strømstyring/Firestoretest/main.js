@@ -30,7 +30,7 @@ function renderBygg(doc){
     li.appendChild(adresse);
     li.appendChild(postnr);
     li.appendChild(areal);
-    li.appendChild(oppvarming);
+    li.appendChild(oppvarming);-
     li.appendChild(cross);
     
 
