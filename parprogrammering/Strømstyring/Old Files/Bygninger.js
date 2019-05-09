@@ -56,30 +56,30 @@ var data = {
 
 //}
 //Henter informasjon fra array
-// function selectBuilding(index) {
-//     let building = data.buildings[index];
-//     document.getElementById('buildings').innerHTML =
-//         `<b>
-//     Navn: ${building.name}</b><br/>
-//     Adresse: ${building.Adresse}</br>
-//     PostNr: ${building.PostNr}<br/>
-//     Sted: ${building.Sted}<br/>
-//     Kategori: ${building.Kategori}<br/>
-//     Areal: ${building.Areal}<br/>
-//     `;
-// }
+function selectBuilding(index) {
+    let building = data.buildings[index];
+    document.getElementById('buildings').innerHTML =
+        `<b>
+    Navn: ${building.name}</b><br/>
+    Adresse: ${building.Adresse}</br>
+    PostNr: ${building.PostNr}<br/>
+    Sted: ${building.Sted}<br/>
+    Kategori: ${building.Kategori}<br/>
+    Areal: ${building.Areal}<br/>
+`;
+ }
 doStuff()
 function doStuff() {
 for (let i = 0; i < data.building.length; i++) {
     let building = data.building[i];
     document.getElementById('buildings').innerHTML =
-    `<b>
+    `< b >
     <tr><td>Navn: ${building.name}</b></td>
     <td>Adresse: ${building.Adresse}</td>
     <td>PostNr: ${building.PostNr}</td>
     <td>Sted: ${building.Sted}</td>
     <td>Kategori: ${building.Kategori}</td>
-    <td>Areal: ${building.Areal}</td></tr>
-`;}
+    <td>Areal: ${building.Areal}</td></tr >
+        `;}
 }   
 

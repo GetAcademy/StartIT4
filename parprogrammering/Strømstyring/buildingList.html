@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 * {
   box-sizing: border-box;
@@ -46,10 +47,13 @@
 
 <table id="myTable">
   <tr class="header">
-    <th style="width:25%;">Navn</th>
-    <th style="width:25%;">Adresse</th>
-    <th style="width:25%">Sted</th>
-    <th style="width:25%">Kategori</th>
+    <th style="width:14.2%;">Navn</th>
+    <th style="width:14.2%;">Adresse</th>
+    <th style="width:14.2%">Sted</th>
+    <th style="width:14.2%">Post.Nr</th>
+    <th style="width:14.2%">Kategori</th>
+    <th style="width:14.2%">Areal</th>
+    <th style="width:14.2%">Oppvarming</th>
   </tr>
 
   <div id="buttonHere"></div>
@@ -58,46 +62,6 @@
 <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase.js"></script>
 <script>
 
-var data = {
-    building: [
-        {
-            name: 'Bergeskoge Barnehage',
-            Adresse: "Brekkegata 31",
-            PostNr: "3260",
-            Sted: "Larvik",
-            Kategori: "Barnehage",
-            Areal: 724,
-            Oppvarming: "El",
-        },
-        {
-            name: 'Valby Grendehus',
-            Adresse: "Søvstråveien 44",
-            PostNr: "3261",
-            Sted: "Larvik",
-            Kategori: "Barnehage",
-            Areal: 373,
-            Oppvarming: "El",
-        },
-        {
-            name: "Solstad Barnehage",
-            Adresse: "Agnesveien 14",
-            PostNr: "3292",
-            Sted: "Stavern",
-            Kategori: "Barnehage",
-            Areal: 885,
-            Oppvarming: "El, Varmepumpe",
-        },
-        {
-            name: "Rødbøl",
-            Adresse: "Ganke Ravei 312",
-            PostNr: "3267",
-            Sted: "Larvik",
-            Kategori: "Barnehage",
-            Areal: 777,
-            Oppvarming: "El, Bio",
-        },
-    ]
-};
 
 function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
@@ -151,26 +115,13 @@ function myFunction() {
       <td>${building.navn}</b></td>
       <td>${building.adresse}</td>
       <td>${building.by}</td>
+      <td>${building.postnr}</td>
       <td>${building.kategori}</td>
+      <td>${building.areal}</td>
+      <td>${building.oppvarming}</td>
 
  `;}
 }
-
- function showAllInfo(alleBygg) {
-    let building = alleBygg[index];
-    document.getElementById('myTable').innerHTML =
-        `<b>
-    Navn: ${building.navn}</b><br/>
-    Adresse: ${building.adresse}</br>
-    PostNr: ${building.postnr}<br/>
-    Sted: ${building.by}<br/>
-    Kategori: ${building.kategori}<br/>
-    Areal: ${building.areal}<br/>
-`;
-    document.getElementById("buttonHere").innerHTML = '<button value="Refresh Page" onClick="window.location.reload();">Back</button>'
- }
-    
-  
 
 
 
