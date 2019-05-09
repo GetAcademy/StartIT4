@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #Main {
+            max-width: 100vw;
+            max-height: 100vh;
+            height: 99.2vh;
+            width: 99.2vw;
+            background: rgba(0, 233, 255, 0.75);
+            border: 1px solid #aa31ab;
+        }
+
+        #Bar {
+            object-fit: contain;
+        }
+
+        #FlashOne {
+            text-shadow: 3px 3px 3px rgba(255, 0, 0, 0.80);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="Main">
+        <svg id="Bar" width="99.2vw" height="20">
+            <rect x="0" y="0" width="99.2vw" height="100vh" fill="lightgray"></rect>
+        </svg>
+    </div>
+
+    <script>
+        
+        class NewsFlash
+        {
+            constructor(Speed, ID, Text, Color)
+            {
+                this._Speed = Speed;
+                this._ID = ID;
+                this._Text = Text;
+                this._Color = Color;
+                this._X = 0;
+                this._Number = 0;
+            }
+
+            AssembleTheNews()
+            {
+                return `<text id="${this._ID}" x="0" y="14" fill="${this._Color}">${this._Text}</text>`;
+            }
+            
+            MoveText()
+            {
+
+                this._Number = (this._Number + this._Speed) % 360;
+                this._X = Math.round(30 + 30 * Math.sin(Math.PI * this._Number / 180))
+                GetText(this._ID).setAttribute('x', this._X + '%');
+
+            }
+        }
+        setInterval(NewsFlash.MoveText, 30);
+        var MyNews =
+            [
+                new NewsFlash(10, "FlashOne", "FlashOne", "red"),
+                new NewsFlash(20, "FlashTwo", "FlashTwo", "blue"),
+                new NewsFlash(30, "FlashThree", "FlashThree", "green"),
+                new NewsFlash(40, "FlashFour", "FlashFour", "black")
+            ]
+
+        var bar = document.getElementById("Bar");
+        Start();
+        function Start()
+        {
+            for (let i = 0; i < MyNews.length; i++) {
+                bar.innerHTML += MyNews[i].AssembleTheNews();
+            }
+        }
+
+        function GetText(ID)
+        {
+            return document.getElementById(ID);
+        }
+
+        
+        var Number = 0;
+        
+
+    </script>
+
+
+</body>
+</html>
