@@ -117,7 +117,7 @@ class SceneMain extends Phaser.Scene {
     }
 
     makeInfo() {
-        this.text1 = this.add.text(0, 0, "Shields\n100", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
+        this.text1 = this.add.text(0, 0, "Shields\n100", );
         this.text2 = this.add.text(0, 0, "Enemy Shields\n100", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
 
         this.text1.setOrigin(0.5, 0.5);

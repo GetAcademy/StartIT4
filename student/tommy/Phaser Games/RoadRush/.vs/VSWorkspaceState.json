@@ -6,9 +6,10 @@
     "\\js\\Classes",
     "\\js\\Classes\\comps",
     "\\js\\Classes\\mc",
+    "\\js\\Classes\\ui",
     "\\js\\Classes\\util",
     "\\js\\scenes"
   ],
-  "SelectedNode": "\\js\\scenes\\sceneTitle.js",
+  "SelectedNode": "\\js\\Classes\\road.js",
   "PreviewInSolutionExplorer": false
 }

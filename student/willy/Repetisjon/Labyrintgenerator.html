@@ -42,8 +42,51 @@
 </style>
 </head>
 <body>
+    <div id="labyrinth"></div>
     <script>
-        
+        var size = 15;
+        var html='';
+
+        function switchWall(el) {
+            if(el.classList.contains('noWall')){
+                el.classList.remove('noWall');
+                el.classList.add('wall');
+            } else {
+                el.classList.add('noWall');
+                el.classList.remove('wall')
+            }
+        }
+
+        for (var rowIndex = 0; rowIndex < size; rowIndex++) {
+            html += '<tr>';
+            for (var columnIndex = 0; columnIndex < size; columnIndex++) {
+                var wallOrNoWall = rowIndex === 0 || Math.random() < 0.5 ? 'wall' : 'noWall';
+                html += '<td class="wall small"></td>';
+                html += '<td onclick="switchWall(this)" class="' + wallOrNoWall + ' wide"></td>';
+            }
+            html += '<td class="wall small"></td>';
+            html += '</tr>';
+
+            html += '<tr>';
+            for (var columnIndex = 0; columnIndex < size; columnIndex++) {
+                var wallOrNoWall = columnIndex === 0 || Math.random() < 0.5 ? 'wall' : 'noWall';
+                html += '<td onclick="switchWall(this)" class="' + wallOrNoWall + ' high"></td>';
+                html += '<td class="room"></td>';
+            }
+
+            html += '<td onclick="switchWall(this)" class="wall high"></td>';
+            html += '</tr>';
+        }
+        html += '<tr>';
+        for (var columnIndex = 0; columnIndex < size; columnIndex++) {
+            html += '<td class="wall small"></td>';
+            html += '<td onclick="switchWall(this)" class="wall wide"></td>';
+        }
+        html += '<td class="wall small"></td>';
+        html += '</tr>';
+
+        html = '<table>' + html + '</table>';
+        document.getElementById('labyrinth').innerHTML = html;
     </script>
 </body>
 </html>

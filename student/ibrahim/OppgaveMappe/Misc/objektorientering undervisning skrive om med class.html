@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg width='100%' height="20" viewport="0 0 100 10">
+        <rect x="0" y="0" width="100%" height="100%" fill="lightgray" />
+        <g id="texts"></g>
+    </svg>
+    <script src="SwingingText.js"></script>
+    <script>
+
+
+        var objektIbris = [
+            new SwingingText(6, 'txtTurbinIbri', 'TurbinIbri', 'black'), // konstruerer ett nytt objekt som bruker malen SwingingText(). Inne i parantesene er det valuen som blir satt
+            new SwingingText(2, 'txtSlowBri', 'slowBri', 'red'),
+            new SwingingText(4, 'txtKindaFastIbri', 'kindaFastIbri', 'yellow'),
+            new SwingingText(9, 'txtFasterThenTurnbinIbri', 'FasterThenTurnbinIbri', 'orange'),
+
+        ];
+
+        init();
+        function init() {           //skal skrive opp html så vi slipper å lage en ny hver gang
+            var texts = document.getElementById('texts');
+
+            for (var i in objektIbris) {
+                texts.innerHTML += objektIbris[i].getHtml();
+            }
+        }
+
+        var angle = 0;
+        setInterval(moveIbri, 30); //hvor mange ganger den skal gjøre funksjonen(moveIbri == funksjon, 30 == hvor mange millisekunder det tar til neste) 
+
+
+        function moveIbri() {
+            for (var i in objektIbris) {
+                objektIbris[i].moveIbri();
+
+            }
+        }
+
+    </script>
+</body>
+
+
+
+</html>
