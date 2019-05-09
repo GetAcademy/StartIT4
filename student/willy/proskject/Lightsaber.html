@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .sword{
+            width: 10px;
+            height: 200px;
+            border: solid;
+            margin: auto;
+            border-radius: 10px;
+            background-color: darkblue;
+        }
+        .topPart{
+            width: 12px;
+            height: 55px;
+            border: solid;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="lightsaber" id="ball">
+        <div class="sword"></div>
+        <div class="handle">
+            <div class="topPart"></div>
+            <div class="middlePart"></div>
+            <div class="button" onclick="swosh"></div>
+            <div class="bottomPart"></div>
+            <div class="pynt"></div>
+        </div>
+    </div>
+    <script>
+    let currentDroppable = null;
+
+ball.onmousedown = function(event) {
+
+  let shiftX = event.clientX - ball.getBoundingClientRect().left;
+  let shiftY = event.clientY - ball.getBoundingClientRect().top;
+
+  ball.style.position = 'absolute';
+  ball.style.zIndex = 1000;
+  document.body.append(ball);
+
+  moveAt(event.pageX, event.pageY);
+
+  function moveAt(pageX, pageY) {
+    ball.style.left = pageX - shiftX + 'px';
+    ball.style.top = pageY - shiftY + 'px';
+  }
+
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+
+    ball.hidden = true;
+    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+    ball.hidden = false;
+
+    if (!elemBelow) return;
+
+    let droppableBelow = elemBelow.closest('.droppable');
+    if (currentDroppable != droppableBelow) {
+      currentDroppable = droppableBelow;
+    }
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+
+  ball.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove);
+    ball.onmouseup = null;
+  };
+
+};
+
+ball.ondragstart = function() {
+  return false;
+};
+    </script>
+</body>
+</html>

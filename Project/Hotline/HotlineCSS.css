@@ -6,6 +6,12 @@
     
 }
 
+button {
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
+    background: rgba(236, 68, 251, 0.75);
+    border: 1px solid #AD00FF;
+}
+
 
 .HotlineLogo 
 {
