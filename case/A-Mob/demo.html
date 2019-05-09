@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml%22%3">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="css.css" />
+    <link rel="stylesheet" href="siifra.css" />
+    <link rel="stylesheet" href="hvaermobbing.css" />
+    <link rel="stylesheet" href="tavarepaandre.css" />
+    <link rel="stylesheet" href="Evaluering.css" />
+    <script src="/StartIT4/case/A-Mob//HovedMeny.js"></script>
+    <script src="/StartIT4/case/A-Mob//Willys%20Teste%20funksjoner.js"></script>
+    <script src="/StartIT4/case/A-Mob//A-Mob%20visOgSkjulMeny.js"></script>
+    <script src="/StartIT4/case/A-Mob//siIfra%20java.js"></script>
+    <script src="/StartIT4/case/A-Mob//takontakt.js"></script>
+    <script src="/StartIT4/case/A-Mob//SendInn%20siIfra.js"></script>
+    <script src="/StartIT4/case/A-Mob//HvaErMobbing.js"></script>
+    <script src="/StartIT4/case/A-Mob//HvordanTaVarePåAndre.js"></script>
+    <script src="/StartIT4/case/A-Mob//Selvevaluering.js"></script>
+</head>
+<body>
+    <div class="page" id="page">
+        <div class="header" id="header">
+            <button class="komOgDraMeny" onclick="visOgSkjulMeny()">☰</button>
+        </div>
+        <div class="innhold" id="innhold" onclick="nåErMenyBorte()">
+        </div>
+        <div class="meny" id="meny">
+            <div class="komOgDraMeny2" onclick="visOgSkjulMeny()">☰</div>
+            <br />
+            <button class="fixed" onclick="visMeny();visOgSkjulMeny()">Meny</button>
+            </br>
+            <button class="fixed" onclick="harBlittMobbet();visOgSkjulMeny()">Si ifra om mobbing</button>
+            <button class="fixed" onclick="visHvaErMobbing();visOgSkjulMeny()">Hva er mobbing</button>
+            <button class="fixed" onclick="visHvordanTaVarePåAndre();visOgSkjulMeny()">Hvordan ta vare på andre</button>
+            <button class="fixed" onclick="visSelvevaluering();visOgSkjulMeny()">Selvevaluering</button>
+            <button class="fixed" onclick="visLoggUt();visOgSkjulMeny()">Logg Ut</button>
+
+            <textarea class="lærerSpørsmål" id="godJul" type="text"></textarea></br>
+            <button class="lærerSenderSpørsmål" onclick="heisan()">klick her og sende spørsmål som er skrevet i den boxen over til Selvevaluering</button>
+        </div>
+    </div>
+
+    <script>
+        visMeny();
+        visOgSkjulMeny();
+    </script>
+</body>
+</html>
