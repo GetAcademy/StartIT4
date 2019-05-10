@@ -1,0 +1,53 @@
+body{
+    font-family: 'BebasNeueRegular'; 
+    font-weight: normal; 
+    font-style: normal;
+    background: #00D1FF;
+    color: #fff;
+    font-size: 14px;
+}
+#container{
+    width: 60%;
+    background: #199fdb;
+    margin: 20px auto;
+    overflow: auto;
+    padding: 25px;
+    border-radius: 5px;
+}
+header{
+    text-align: center;
+    border-bottom: #fff dashed 1px;
+}
+header h1{
+    padding: 5px;
+    margin: 0;
+    font-size: 60px;
+}
+header p{
+    padding: 0;
+    margin-top; 5px;
+    color: #000;
+}
+section{
+    min-height: 400px;
+}
+footer{
+    text-align: center;
+}
+input[type=submit]{
+    background: #f06226;
+    border: 0;
+    border-radius: 3px;
+    color: #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+#resultat h3{
+    background: #f06226;
+    padding: 10px;
+    margin: 10px 0;
+}
+#resultat span{
+    color: #000;
+    font-weight: bold;
+}

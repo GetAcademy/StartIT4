@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Beer Clicker</title>
+    <style>
+        body{
+            font-family: drama sans;
+            overflow-x: hidden;
+        }
+        .nav{
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            opacity: .9;
+            overflow-x: hidden;
+            padding-top: 60px; 
+            
+        }
+        .nav a{
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .nav .close{
+            position: absolute;
+            top: 0;
+            right: 40px;
+            margin-left: 50px;
+            font-size: 36px;
+        }
+        .slide a{
+            position: absolute;
+            top: 17px;
+            color: black;
+            font-size: 36px;
+        }
+        #content{
+            padding: 20px;
+            overflow: hidden;
+        }
+        #img1{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #yougot {
+            font-family: drama sans;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #text {
+            height: 20px;
+            color: black;
+            font-family: drama sans;
+            font-size: 18px;
+        }
+
+        #beers {
+            float: left;
+            font-family: drama sans;
+            font-size: 18px;
+        }
+
+        #save1 {
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin-left: 20px;
+            margin-bottom: 5px;
+            transition: 0.7s;
+            text-align: center;
+        }
+
+        #save1 a {
+            text-decoration: none;
+            color: black;
+            font-family: drama sans;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #load1 {
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            transition: 0.7s;
+        }
+
+        #load1 a {
+            text-decoration: none;
+            color: black;
+            font-family: drama sans;
+            font-size: 18px;
+        }
+
+        #beerspersecond {
+            font-family: drama sans;
+            text-align: center;
+        }
+
+        #amoutMultiplier {
+            font-family: drama sans;
+            float: right;
+        }
+
+        #multi {
+            width: 60px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 5px;
+            float: right;
+        }
+
+        #multi a {
+            text-decoration: none;
+            color: black;
+            font-family: drama sans;
+            font-size: 18px;
+        }
+
+        #costMultiplier {
+            font-family: drama sans;
+            margin-left: 100px;
+        }
+
+        #currentMultiplier {
+            font-family: drama sans;
+        }
+    </style>
+    <script>
+        function openSlideMenu(){
+            document.getElementById('menu').style.width = '400px';
+            document.getElementById('content').style.marginLeft = '400px';
+        }
+        function closeSlideMenu(){
+            document.getElementById('menu').style.width = '0';
+            document.getElementById('content').style.marginLeft = '0';
+        }
+    </script>
+</head>
+
+<body>
+        <div id="content">
+                <span class="slide">
+                    <a href="#" onclick="openSlideMenu()">
+                            <i class="fas fa-bars"></i>
+                    </a>
+                </span>
+                <div id="menu" class="nav">
+                    <a href="#" class="close" onclick="closeSlideMenu()">
+                        <i class="fas fa-times"></i>
+                    </a>
+                    <!--Save,load-->
+                    <button id="save1"><a href="#" onclick="save()">Save</a></button>
+                    <button id="load1"><a href="#" onclick="load()">Load</a></button>
+                    
+                </div>
+            </div>
+    <!--Beerspersecond -->
+    <p id="beerspersecond">You are gaining 0 Beers per/s</p>
+
+    <a href="#" onclick="add()"><img id="img1" src="img/blackgold.png" alt="beer" height="300px" width="300px"></a>
+    <br><br>
+
+    <div id="yougot" onchange="RefreshWidth()">You got: <span id="text">0</span> Beers</div>
+     <!--Multiplier-->
+     <p id="amoutMultiplier">Multiplier Upgrade x2</p>
+     <button id="multi"><a href="#" onclick="buyMultiplier()"><span id="amoutMultiplier2">x2</span></a></button>
+     <p id="costMultiplier">200 Beers</p>
+     <p id="currentMultiplier">Your Current Multiplier is x1</p>
+     <br>
+
+     <!--AutoClicker-->
+     <p>Buy 1 Auto Clicker</p>
+     <button id="mouse"><a href="#" onclick="buyAutoClick()"><img src="img/mouse-hover.png" alt="mouse"
+                 width="30px" height="40px"></a></button>
+     <p id="costAutoClick"> 12 Beers</p>
+     <p id="amoutAutoClick">You Own 0 Auto Clickers</p>
+     <br><br>
+
+     <!--Beertap-->
+     <p>Buy 1 BeerTap</p>
+     <button id="BeerTaps"><a href="#" onclick="buyBeerTaps()"><img src="img/beer-taps.png" alt="taps"
+                 width="30px" height="40"></a></button>
+     <p id="costBeerTaps"> 15 Beers</p>
+     <p id="amoutBeerTaps">You Own 0 BeerTaps</p>
+    <br><br><br>
+    <script>
+        function update() {
+            //beer telleren
+            document.getElementById('text').innerHTML = beercount;
+            document.title = beercount + ' Beers';
+            // Multiplier Upgrade
+            document.getElementById('amoutMultiplier').innerHTML = ' Multiplier Upgrade x' + (multiplier + 1);
+            document.getElementById('amoutMultiplier2').innerHTML = 'x' + (multiplier + 1);
+            document.getElementById('costMultiplier').innerHTML = ((multiplier + 1) * 100) + ' Beers';
+            document.getElementById('currentMultiplier').innerHTML = ' Your Current Multiplier is x' + (multiplier);
+            //Autoclicker
+            document.getElementById('amoutAutoClick').innerHTML = ' You Own ' + autoClick + ' Auto Clickers';
+            document.getElementById('costAutoClick').innerHTML = ((autoClick + 1) * 12) + ' Beers';
+            //Beertaps upgrade
+            document.getElementById('amoutBeerTaps').innerHTML = ' You Own ' + beerTaps + ' BeerTaps';
+            document.getElementById('costBeerTaps').innerHTML = ((beerTaps + 1) * 15) + ' Beers';
+            //Beer per sekund
+            document.getElementById('beerspersecond').innerHTML = ' You are gaining ' + (((autoClick) + (beerTaps *
+                2)) * multiplier) + ' Beers per/s';
+        }
+
+        var multiplier = 1;
+        var beercount = 0;
+        var autoClick = 0;
+        var beerTaps = 0;
+
+
+
+
+
+
+
+        //Auto oppdaterer auclickeren
+        function timer() {
+            beercount = beercount + autoClick * multiplier;
+            beercount = beercount + beerTaps * 2 * multiplier;
+            update();
+        }
+        setInterval(timer, 1000);
+
+
+        function add() {
+            beercount = beercount + 1;
+            update();
+        }
+
+
+        //Lagrer spillet
+        function save() {
+            localStorage.setItem('beercount', beercount);
+            localStorage.setItem('autoClick', autoClick);
+            localStorage.setItem('beerTaps', beerTaps);
+            localStorage.setItem('multiplier', multiplier);
+        }
+        //Loader spillet
+        function load() {
+            beercount = localStorage.getItem('beercount');
+            beercount = parseInt(beercount);
+            autoClick = localStorage.getItem('autoClick');
+            autoClick = parseInt(autoClick);
+            beerTaps = localStorage.getItem('beerTaps');
+            beerTaps = parseInt(beerTaps);
+            multiplier = localStorage.getItem('multiplier');
+            multiplier = parseInt(multiplier);
+            update();
+        }
+        //Kjøp av autoclickers
+        function buyAutoClick() {
+            if (beercount >= ((autoClick + 1) * 12)) {
+                beercount = beercount - ((autoClick + 1) * 12);
+                autoClick = autoClick + 1;
+                update();
+            }
+        }
+        //Kjøp av beertaps
+        function buyBeerTaps() {
+            if (beercount >= ((beerTaps + 1) * 15)) {
+                beercount = beercount - ((beerTaps + 1) * 15);
+                beerTaps = beerTaps + 1;
+                update();
+            }
+        }
+        // Multiplier oppgradering
+        function buyMultiplier() {
+            if (beercount >= ((multiplier + 1) * 100)) {
+                beercount = beercount - ((multiplier + 1) * 100);
+                multiplier = multiplier + 1;
+                update();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

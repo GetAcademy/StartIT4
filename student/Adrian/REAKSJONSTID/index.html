@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div.lamp{
+            width: 100px;
+            height: 100px;
+            border: lightblue 4px solid;
+            border-radius: 50%;
+            background-color: black;
+            float: left;
+            margin: 20px;
+        }
+        div.lightOn{
+            background-color: red;
+            
+        }
+        #info{
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info"></div>
+    <div class="lamp first" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+
+    <div class="lamp first" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+
+    <div class="lamp first" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+
+    <div class="lamp first" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+
+    <div class="lamp first" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+    <div class="lamp" onclick="turnOff(this)"></div>
+
+<script type="text/javascript">
+
+    var startTime = new Date().getTime();
+
+    turnOnRandom();
+
+    function turnOnRandom() {
+        var elementsList = document.getElementsByClassName("lamp");
+        var randomIndex = Math.floor(Math.random() * elementsList.length);
+        var selectedElement = elementsList[randomIndex];
+        var selectedElementClassList = selectedElement.classList;
+        selectedElementClassList.add("lightOn");
+    }
+
+    function turnOff(selectedElement){
+        var selectedElementClassList = selectedElement.classList;
+        if(selectedElementClassList.contains('lightOn')){
+            var finishTime = new Date().getTime();
+            var spendMilliseconds = Math.floor(finishTime - startTime);
+            var spendSeconds = spentMilliseconds = spendMilliseconds / 1000;
+            document.getElementById('info').innerHTML = 'Du brukte ' + spendSeconds + ' Sekunder.';
+            startTime = new Date().getTime();
+            selectedElementClassList.remove('lightOn');
+            turnOnRandom();
+        }
+    }
+    </script>
+</body>
+</html>
