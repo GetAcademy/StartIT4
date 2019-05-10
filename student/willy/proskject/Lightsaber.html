@@ -6,78 +6,101 @@
     <title></title>
     <style>
         .sword{
-            width: 10px;
-            height: 200px;
-            border: solid;
-            margin: auto;
+            cursor: pointer;
+            width: 20px;
+            height: 450px;
             border-radius: 10px;
+            border: solid;
+            margin-left: 500px;
             background-color: darkblue;
         }
         .topPart{
-            width: 12px;
-            height: 55px;
+            cursor: pointer;
+            width: 22px;
+            height: 45px;
             border: solid;
+            margin-left: 499px;
+            margin-top: -2px;
             background-color: darkgray;
         }
+        .middlePart{
+            cursor: pointer;
+            width: 19px;
+            height: 30px;
+            border: solid;
+            background-color: grey;
+            margin-left: 500.5px;
+        }
+        .button{
+            cursor: pointer;
+            height: 15px;
+            background-color: red;
+        }
+        .bottomPart{
+            cursor: pointer;
+            width: 22px;
+            height: 45px;
+            border: solid;
+            margin-left: 499px;
+            background-color: darkgray;
+        }
+        
     </style>
 </head>
 <body>
     <div class="lightsaber" id="ball">
-        <div class="sword"></div>
+        <div id="glowingPart"></div>
         <div class="handle">
             <div class="topPart"></div>
-            <div class="middlePart"></div>
-            <div class="button" onclick="swosh"></div>
+            <div class="middlePart">
+                <button id="hello" class="button" onclick="offAndOn(this)"></button>
+            </div>
             <div class="bottomPart"></div>
             <div class="pynt"></div>
         </div>
+        
     </div>
+    <button id="hello" class="button" onclick="offAndOn(this)"></button>
     <script>
     let currentDroppable = null;
 
-ball.onmousedown = function(event) {
+    ball.onmousedown = function(event) {
+   
+        let shiftX = event.clientX - ball.getBoundingClientRect().left;
+        let shiftY = event.clientY - ball.getBoundingClientRect().top;
 
-  let shiftX = event.clientX - ball.getBoundingClientRect().left;
-  let shiftY = event.clientY - ball.getBoundingClientRect().top;
+        ball.style.position = 'absolute';
+        ball.style.zIndex = 1000;
+        document.body.append(ball);
 
-  ball.style.position = 'absolute';
-  ball.style.zIndex = 1000;
-  document.body.append(ball);
+        moveAt(event.pageX, event.pageY);
 
-  moveAt(event.pageX, event.pageY);
+        function moveAt(pageX, pageY) {
+            ball.style.left = pageX - shiftX + 'px';
+            ball.style.top = pageY - shiftY + 'px';
+        }
 
-  function moveAt(pageX, pageY) {
-    ball.style.left = pageX - shiftX + 'px';
-    ball.style.top = pageY - shiftY + 'px';
-  }
+        function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+        }
+        document.addEventListener('mousemove', onMouseMove);
 
-  function onMouseMove(event) {
-    moveAt(event.pageX, event.pageY);
-
-    ball.hidden = true;
-    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
-    ball.hidden = false;
-
-    if (!elemBelow) return;
-
-    let droppableBelow = elemBelow.closest('.droppable');
-    if (currentDroppable != droppableBelow) {
-      currentDroppable = droppableBelow;
+        ball.onmouseup = function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            ball.onMouseUp = null;
+        }
+    };
+    ball.ondragstart = function() {
+        return false;
+    };
+    var light = document.getElementById('glowingPart');
+    function offAndOn() {
+        if(light.classList.contains('sword')){
+            light.classList.remove('sword');
+        } else {
+            light.classList.add('sword');
+        }
     }
-  }
-
-  document.addEventListener('mousemove', onMouseMove);
-
-  ball.onmouseup = function() {
-    document.removeEventListener('mousemove', onMouseMove);
-    ball.onmouseup = null;
-  };
-
-};
-
-ball.ondragstart = function() {
-  return false;
-};
-    </script>
+</script>
 </body>
 </html>
