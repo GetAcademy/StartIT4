@@ -56,6 +56,7 @@
         var pointsPerClick = 1;
         var price = 10;
         var price2 = 20;
+        const AutoClicker = [];
         //view
         function show() {
             counterDiv.innerHTML = counter;
@@ -68,18 +69,22 @@
             document.getElementById('pricetag').innerHTML = `Kjøp oppgradering(${parseInt(price)} poeng)`;
             show();
         }
-        function autoKlikker() {
+        function autoKlikker() 
+        {
             if (counter < price2) return;
             counter -= price2;
-            setInterval(function () {
-                counterDiv.click();
+            setInterval ( function () 
+            {
+                clicker();
             }, 1000);
             show();
-            ;
         }
+
+
         var audio = new Audio("hitmarker_2.mp3");
 
-        audio.oncanplaythrough = function () {
+        audio.oncanplaythrough = function () 
+        {
             audio.play();
 
             audio.loop = false;
