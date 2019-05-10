@@ -54,7 +54,7 @@
 
     <script>
         
-        var startTime = new Data().getTime();
+        var startTime = new Date().getTime();
 
         turnOnRandom();
 
@@ -66,14 +66,15 @@
             selectedElementClassList.add("lightOn");
         }
 
-        function turnOff(selectedElement) {
+        function turnOff(selectedElement)
+        {
             var selectedElementClassList = selectedElement.classList; 
             if (selectedElementClassList.contains("lightOn")) {
-                var finishTime = new Data().getTime();
+                var finishTime = new Date().getTime();
                 var spentMilliseconds = Math.floor(finishTime - startTime);
                 var spentSeconds = spentMilliseconds / 1000;
                 document.getElementById('info').innerHTML = 'Du brukte ' + spentSeconds + ' sekunder.'
-                startTime = new Data().getTime();
+                startTime = new Date().getTime();
                 selectedElementClassList.remove("lightOn");
                 turnOnRandom();
             }
