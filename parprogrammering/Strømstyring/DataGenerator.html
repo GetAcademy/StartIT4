@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    Fra: <input id="from" type="datetime-local" value="2019-01-01T10:00" /><br />
-    Til: <input id="to" type="datetime-local" value="2019-01-01T15:00" /><br />
+    Fra: <input id="from" type="datetime-local" value="2019-01-01T00:00" /><br />
+    Til: <input id="to" type="datetime-local" value="2019-01-01T00:00" /><br />
     <button onclick="createData()">Lag data</button>
     <script>
         var buildings;
@@ -28,12 +28,15 @@
                     name: 'Building ' + buildingNo,
                     data: []
                 }
-                let power = randomPower(24 + Math.random() * 70);
+                let power = randomPower(1 + Math.random() * 70);
                 for (let myDate = dateFrom; myDate <= dateTo; myDate = addOneHour(myDate)) {
+                    
                     buildingObj.data.push({
                         date: myDate.toISOString(),
                         power: randomPower(power)
+                        
                     });
+                
                 }
 
                 buildings.push(buildingObj);
@@ -43,12 +46,12 @@
         }
 
         function randomPower(oldValue) {
-            return (Math.random() * 0.4 + 0.8) * oldValue * 7;
+            return (Math.random() * 0.4 + 0.8) * oldValue;
         }
 
         function addOneHour(oldDate) {
             const newDate = new Date();
-            newDate.setTime(oldDate.getTime() + 1000 * 60 * 1440);
+            newDate.setTime(oldDate.getTime() + 1000 * 60 * 60);
             return newDate;
         }
     </script>
