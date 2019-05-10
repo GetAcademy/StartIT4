@@ -107,6 +107,14 @@ td {
 #knowArcane, #knowDungeoneering, #knowEngineering, #knowGeography,
 #knowHistory, #knowLocal, #linguistics, #perception, #ride,
 #senseMotive, #sleightOfHand, #spellcraft, #stealth, #survival,
-#swim, #UMD {
+#swim, #UMD, #knowNature {
     width: 50px;           
+}
+#acrobaticsMisc, #appraiseMisc, #bluffMisc, #climbMisc, #diplomacyMisc, #disableDeviceMisc,
+#disguiseMisc, #escapeArtistMisc, #flyMisc, #handleAnimalMisc, #healMisc, #intimidateMisc,
+#knowArcaneMisc, #knowDungeoneeringMisc, #knowEngineeringMisc, #knowGeographyMisc,
+#knowHistoryMisc, #knowLocalMisc, #linguisticsMisc, #perceptionMisc, #rideMisc,
+#senseMotiveMisc, #sleightOfHandMisc, #spellcraftMisc, #stealthMisc, #survivalMisc,
+#swimMisc, #umdMisc, #knowNatureMisc {
+    padding-left: 60px;           
 }
