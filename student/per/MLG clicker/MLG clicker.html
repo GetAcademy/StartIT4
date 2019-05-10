@@ -41,8 +41,10 @@
     <div onclick="audio.play(); clicker()">🚶</div>
     <div id="counter">0</div>
     <p id="pricetag" onclick="buyUpgrade()">Kjøp oppgradering(10 poeng)</p>
+    <p id="pricetag2 auto" onclick="autoKlikker()">Kjøp Autoklikker(20 poeng)</p>
 
     <script>
+        var auto = document.getElementById('auto');
         var counterDiv = document.getElementById('counter')
         //controller
         function clicker() {
@@ -53,6 +55,7 @@
         var counter = 0;
         var pointsPerClick = 1;
         var price = 10;
+        var price2 = 20;
         //view
         function show() {
             counterDiv.innerHTML = counter;
@@ -64,6 +67,15 @@
             price += parseInt((Math.random() * price) * 0.9);
             document.getElementById('pricetag').innerHTML = `Kjøp oppgradering(${parseInt(price)} poeng)`;
             show();
+        }
+        function autoKlikker() {
+            if (counter < price2) return;
+            counter -= price2;
+            setInterval(function () {
+                counterDiv.click();
+            }, 1000);
+            show();
+            ;
         }
         var audio = new Audio("hitmarker_2.mp3");
 
