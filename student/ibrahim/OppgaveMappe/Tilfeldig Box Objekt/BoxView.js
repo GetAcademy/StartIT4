@@ -1,23 +1,16 @@
 class BoxView {
     constructor(box) {
-        this._svg = document.getElementsByTagName('svg')[0];
         this._box = box;
     }
 
-    show() {
-        return '<div '
-        + 'style=" '
-        + ""
-        
+    getHtml(Index) {
+        var html = '<rect onclick="removeBox(' + Index + ')" '
+            + 'x ="' + this._box.getX() + '" '
+            + 'y ="' + this._box.getY() + '" '
+            + 'fill="' + this._box.getColor() + '" '
+            + 'width="' + this._box.getWidth() + '" '
+            + 'height="' + this._box.getHeight() + '"'
+            + '/>';
+        return html;
     }
 }
-
-// return '<text ' // lager html basert på objektet
-// + 'id="' + this._id + '" '
-// + 'x="0" '
-// + 'y="14" '
-// + 'fill="' + this._color + '"'
-// + ''
-// + '>'
-// + this._text
-// + '</text>';

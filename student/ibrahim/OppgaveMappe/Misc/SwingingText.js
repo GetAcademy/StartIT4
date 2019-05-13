@@ -14,7 +14,6 @@ class SwingingText {    // mal for objekter satt opp av metoder
                 + 'x="0" '
                 + 'y="14" '
                 + 'fill="' + this._color + '"'
-                + ''
                 + '>'
                 + this._text
                 + '</text>';
