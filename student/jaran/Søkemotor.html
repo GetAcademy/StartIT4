@@ -19,6 +19,7 @@
 <button onclick="sortNum()">Sorter Nummer</button>
 <button onclick="sortABC()">Sorter Navn</button>
 <button onclick="randomPick()">Tilfeldig</button>
+<button onclick="randomAll()">Shuffle</button>
 <div id="showSearch"></div>
 `;
         }
@@ -88,7 +89,11 @@
                 }
             }
         }
-        
+        function randomAll() {
+            var html = '';
+            characters.sort((a, b) => Math.random() - 0, 5)
+            showAll(characters);
+        }
         
     </script>
 </body>
