@@ -15,9 +15,9 @@
 
  var updateinputEmpty = setInterval(inputEmpty, 1000);
         function inputEmpty() {
-            var input1 = document.getElementById('input').value;
-            var input2 = document.getElementById('input').value;
-            var input3 = document.getElementById('input').value;
+            var input1 = document.getElementById('hva').value;
+            var input2 = document.getElementById('forkort').value;
+            var input3 = document.getElementById('hvorfor').value;
             if (input1 == "" || input2 == "" || input3 == "") {
                 document.getElementById('ukentlig').style.cssText = "visibility: hidden;";
                 document.getElementById('daglig').style.cssText = "visibility: hidden;";
