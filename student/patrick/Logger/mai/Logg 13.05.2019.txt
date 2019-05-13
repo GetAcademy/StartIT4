@@ -1,0 +1,6 @@
+Logg 13.05.2019
+
+Lært idag:
+
+jeg har øvd litt mer på properties og custom events for Vue hadde glemt properties men har refresha de nå idag.
+skal se om kunnskapen sitter imorgen og om den gjør det blir det å gå videre med Vue.
