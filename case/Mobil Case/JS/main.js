@@ -24,4 +24,13 @@
                 document.getElementById('content').innerHTML += `<div>Ingen mål har blitt lagt til.</div>`;
                 return false;
             }
+            else 
+                mainextra.innerHTML = `
+    <button class="button" onclick="showMyGoalsScreen()">${abc}</button>
+      <div><button class="button" onclick="ukentligEvaluering()" id=ukentlig>Ukentlig evaluering</button></div>
+      <div><button class="button" onclick="dagligEvaluering() id="daglig">Daglig evaluering</button></div>
+      <div><button class="button" onclick="newGoal()">Nytt mål</button></div>
+      <div><button class="button" onclick="lagDagbok()">Dagbok</button></div>
+      <div><button class="button" onclick="kalender()">Kalender</button></div>
+    `;
         }
