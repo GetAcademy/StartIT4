@@ -1,0 +1,56 @@
+﻿
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="basic.css" />
+    <link rel="stylesheet" href="dropzone.css" />
+    <link rel="stylesheet" href="HotlineCSS.css" />
+</head>
+<body>
+
+    <div id="GridContainer" class="GridContainer">
+        <div id="Menu" class="Menu"><div id="MenuButtonOne"></div><div id="MenuMiddle" class="HotlineLogo">Hotline</div><div id="MenuButtonTwo" style="text-align:end"></div></div>
+        <div id="Middle" class="Middle"></div>
+        <div id="Bottom" class="Bottom"></div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDxpTDB2O4oLTOPxJ17oJxXHtH0QFWr2P4",
+            authDomain: "hotline-007.firebaseapp.com",
+            databaseURL: "https://hotline-007.firebaseio.com",
+            projectId: "hotline-007",
+            storageBucket: "hotline-007.appspot.com",
+            messagingSenderId: "1018015890774"
+        };
+        firebase.initializeApp(config);
+        var db = firebase.firestore();
+        // Get a reference to the storage service, which is used to create references in your storage bucket
+        var storage = firebase.storage();
+
+        // Create a storage reference from our storage service
+        var storageRef = storage.ref();
+
+        // Create a child reference
+        var imagesRef = storageRef.child('images');
+        // imagesRef now points to 'images'
+
+        // Child references can also take paths delimited by '/'
+        var spaceRef = storageRef.child('images/space.jpg');
+        // spaceRef now points to "images/space.jpg"
+        // imagesRef still points to "images"
+
+    </script>
+    <script src="dropzone.js"></script>
+    <script src="HotlineJS.js"></script>
+    <script>LoginPage();</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+Logg 29.03.2019
+
+Løste Problemer:
+
+(ingenting) mye av dagen gikk til å prøve å hjelpe ibrahim som var gøy men desverre usuksessfullt, vi fant ikke problemet sammen.
+
+Gjenstående problemer fra igår:
+
+- på tide å legge inn funksjonalitet inn OptionsPage og SettingsPage og ekspandere Logg inn med å lagre hvem som er logget inn i en variabel til å kunne si hvilken profil en skal vise.
+
+- måten jeg sjekker innloggingen på er ved å laste ned alle brukere inn i en lokal array som jeg så bruker til å sjekke om noen av brukernavn og passord matcher de i listene, dette blir et problem med masse brukere og er et sikkerhetsproblem.
+
+Nye Problemer:
+
+- ShowSwipeImageSelector() klarer ikke å skape knappene jeg ønsker å skape inn i det feltet, det kommer som undefined.

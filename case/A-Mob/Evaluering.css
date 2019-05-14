@@ -1,0 +1,42 @@
+.Evaluering {
+    color: #ec8b5e;
+    font-size: 80px;
+    text-shadow: 0px 4px 4px black;
+}
+.faces{
+    border-radius: 10px;
+    font-size: 100px;
+    user-select: none;
+    width: 10.5rem;
+    height: 9.5rem;
+    display: inline-block;
+    border: solid;
+    overflow: hidden;
+    background-color:#5F6389;
+    color: #5F6389;
+}
+.chattingBox {
+    border-radius: 10px;
+    border: #EC8B5E solid;
+    width: 40%;
+    height: 40vh;
+    margin: 8px 0;  
+    box-sizing: border-box;
+    background-color: #EC8B5E;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 20px;
+    box-shadow: 0px 5px 5px black;
+
+}
+.evalueringSendInn {
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px black;
+    width: 25%;
+    height: 35px;
+    text-align: center;
+    border: solid #EC8B5E;
+    background-color: #EC8B5E;
+    font-size: 70%;
+    color: black;
+}

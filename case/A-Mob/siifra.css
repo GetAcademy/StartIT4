@@ -1,0 +1,77 @@
+.kontakt {
+    color: #EC8B5E;
+    text-shadow: 0px 4px 4px black;
+}
+.spør {
+  height: 7%;
+  padding-top: 6%;
+}
+.nesteMobbet {
+ height: 7%;
+ padding-top: 3%;
+}
+.text {
+  padding-top: 2%;
+}
+
+.knapp {
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px black;
+    width: 35%;
+    /* height: 60%; */
+    padding: 1%;
+    text-align: center;
+    border: solid #EC8B5E;
+    background-color: #EC8B5E;
+    font-size: 70%;
+}
+/* .knapp:active {
+    background-color: rgb(238, 113, 55);
+    transform: translateY(4px);
+  } */
+
+.customChk{
+  user-select: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  overflow: hidden;
+  background-color: #EC8B5E;
+  color: black;  
+}
+
+.customChkInner{
+  font-size: 135%;
+  font-weight: 900;
+  position: relative;
+  top: -60%;
+  color: black;
+}
+
+input[type=textBox] {
+    border-radius: 10px;
+    border: #EC8B5E solid;
+    width: 40%;
+    height: 30%;
+    padding: 40px 50px;
+    /* margin: 8px 0; */
+    box-sizing: border-box;
+    text-align: start;
+    background-color: #EC8B5E;
+    font-size: 20px;
+    text-align: start;
+    box-shadow: 0px 5px 5px black;
+
+  }
+
+.drit {
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px black;
+    width: 25%;
+    height: 35px;
+    text-align: center;
+    border: solid #EC8B5E;
+    background-color: #EC8B5E;
+    font-size: 70%;
+    color: black;
+}

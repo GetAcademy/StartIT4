@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Den teller når du trykker på knappen</p>
+    <button onclick="tell()">Trykk!</button>
+    <div id="info">trykk på kanppen!</div>
+
+    <script>
+        var tallA = 0;
+        var tekstA = 'stjerne';
+
+        var tallB = 0;
+        var tekstB = 'utropstegn';
+
+        var tallC = 0;
+        var tekstC = 'spørsmål';
+
+
+        // console.log(tallA, tekstA)
+
+        function tell() {
+            // var tallC = 0;
+            // var tekstC = 'tekstC';
+
+            tallA++;
+            tallB++;
+            tallC++;
+            tekstA += '*';
+            tekstB += '!';
+            tekstC += '?';
+
+            document.getElementById('info').innerHTML = 
+            ' =' + tallA + '<br/>' +
+            '<br/> =' + tallB + '<br/>' +
+            '<br/> =' + tallC + '<br/>' +
+            '<br/> =' + tekstA + '<br/>' +
+            '<br/> =' + tekstB + '<br/>' +
+            '<br/> =' + tekstC;
+
+        }
+    </script>
+
+</body>
+</html>

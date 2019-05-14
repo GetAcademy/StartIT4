@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <svg width="1200" height="800">
+    </svg>
+    <script src="Box.js"></script>
+    <script src="BoxSet.js"></script>
+    <script src="BoxView.js"></script>
+    <script src="BoxSetView.js"></script>
+
+    <script>
+
+
+
+        var boxSet = new BoxSet();
+        var boxSetView = new BoxSetView(boxSet);
+        boxSetView.show();
+
+
+        function removeBox(Index) {
+            boxSet.remove(Index);
+            boxSetView.show();
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="nytt mål.js"></script>
+    <script src="ny nøkkelvane.js"></script>
+    <script src="ny aktivitet.js"></script>
+    <script src="ny evaluering.js"></script>
+    
+    <style>
+        .overskrift {
+            float: left;
+        }
+        .back {
+            background-color: lightblue;
+        }
+        
+
+        .eval {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        var content = document.getElementById('content');
+        newGoal();
+        
+        function infoScreen() {
+            content.innerHTML =`
+                <div class="overskrift back" onclick="newGoal()">←</div> 
+                <h2 class="overskrift">Informasjon</h2>
+        `}
+        function addtxt() {
+            var textDiv = document.getElementById('textDiv');
+            textDiv.innerHTML += '<textarea></textarea><br />';
+        }
+        
+    </script>
+</body>
+</html>

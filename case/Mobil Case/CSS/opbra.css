@@ -1,0 +1,104 @@
+﻿body {
+    margin: 0;
+    color: #FFFFFF;
+    background-color: #5388EF;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#page {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 7fr;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: 'menu header menu2'
+                         'content content content';
+}
+
+.mainButton {
+    margin-left: 10%;
+    width: 80%;
+    height: 60%;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.mainGoals {
+    border: 1px solid black;
+    padding: 4%;
+    margin: 4%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.myGrid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: auto;
+}
+.mainPageContentGrid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto;
+}
+.myGoalsContentGrid {
+    padding: 50px;
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 3fr;
+    grid-template-columns: auto;
+}
+
+.evaluateDayContentGrid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(7,1fr) 4fr 1fr;
+    grid-template-columns: auto;
+}
+.mainEvaluatePage {
+    grid-template-rows: repeat(7,1fr) ;
+
+}
+
+.bigText {
+    height: 80%;
+    width: 80%;
+    border: 1px solid black;
+}
+
+.bigText2 {
+    height: 70%;
+    width: 70%;
+    border: 1px solid black;
+}
+#content {
+    grid-area: content;
+    background-color: #5388EF;
+}
+
+#header {
+    grid-area: header;
+    background-color: #004466;
+    text-align: center;
+}
+
+#menu {
+    grid-area: menu;
+    background-color: #004466;
+    padding-left: 4px;
+    font-size: 200%;
+    border-bottom-left-radius: 15px;
+}
+
+#menu2 {
+    padding-right: 4px;
+    text-align: right;
+    grid-area: menu2;
+    background-color: #004466;
+    font-size: 200%;
+    border-bottom-right-radius: 15px;
+}
+.Textbox {
+    overflow-y: scroll;
+    max-height: 200px;
+    border: solid black 1px;
+}

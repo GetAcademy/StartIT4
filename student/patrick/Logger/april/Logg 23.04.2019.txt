@@ -1,0 +1,17 @@
+Logg 23.04.2019
+
+Løste Problemer:
+
++ det finnes ikke en mekanikk for å selge og oppgradere turrets.
+
+Gjenstående problemer:
+
+- det finnes ikke en mekanikk for å starte spillet på nytt eller gå til menyen om man dør.
+
+- det finnes ikke en meny scene.
+
+- det finnes ingen options scene.
+
+Nye Problemer:
+
+kan oppgradere men ikke selge turrets, usikker på om selging av turrets er så nødvendig.

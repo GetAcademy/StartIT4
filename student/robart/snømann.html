@@ -67,7 +67,7 @@
         <rect x="142" y="130" width="115" height="10" style="fill:rgb(0, 0, 0);stroke-width:3;stroke:rgb(0,0,0)" />
         <rect x="163" y="60" width="70" height="80" style="fill:rgb(0, 0, 0);stroke-width:3;stroke:rgb(0,0,0)" />
     </svg>
-    <div id="mus1"></div>
+    <!-- <div id="mus1"></div>
     <script>
         setInterval(addRandomStar, 300);
         function mus() {
@@ -77,18 +77,18 @@
             document.getElementById('mus1').innerHTML = ''
         }
 
-        // function addRandomStar() {
-        //     var x = Math.floor(Math.random() * 500);
-        //     var y = Math.floor(Math.random() * 500);
-        //     console.log(x, y);
-        //     document.getElementById('stars').innerHTML +=
-        //         `<use xlink:href="#star" x="${x}" y="${y}"></use>`;
-        // }
+        function addRandomStar() {
+            var x = Math.floor(Math.random() * 500);
+            var y = Math.floor(Math.random() * 500);
+            console.log(x, y);
+            document.getElementById('stars').innerHTML +=
+                `<use xlink:href="#star" x="${x}" y="${y}"></use>`;
+        }
 
-        // function removeStar(useTag) {
-        //     useTag.outerHTML = '';
-        // }
-    </script>
+             function removeStar(useTag) {
+             useTag.outerHTML = '';
+         }
+    </script> -->
 </body>
 
 </html>

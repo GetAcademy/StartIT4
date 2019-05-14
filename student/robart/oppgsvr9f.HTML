@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Pizza-bestilling</h1>
+    <div id="info" style="padding-bottom: 20px;">gjør err valg på hver linje</div>
+
+    bunn: <input id="tykkbunn" type="checkbox" name="bunn" onchange="info()" /> tykk 
+    <input id="tynnbunn" type="checkbox" name="bunn" onchange="info()" /> tynn <br />
+
+    fyll: <input id="fylltaco" type="checkbox" name="fyll" onchange="info()" /> taco
+    <input id="fyllkylling" type="checkbox" name="fyll" onchange="info()" /> kylling
+    <input id="fyllbiff" type="checkbox" name="fyll" onchange="info()" /> biff
+    <input id="fyllpepperoni" type="checkbox" name="fyll" onchange="info()" /> pepperoni</br>
+
+    størrelse: <input id="stor" type="checkbox" name="str" onchange="info()" />stor
+    <input id="middels" type="checkbox" name="str" onchange="info()" />middels
+    <input id="liten" type="checkbox" name="str" onchange="info()" />liten</br>
+
+    formen: <input id="rund" type="checkbox" name="form" onchange="info()" />rund
+    <input id="firkant" type="checkbox" name="form" onchange="info()" />firkant</br>
+
+    <button  id="bestill" disabled="" onclick="alert('bestilt');">bestill</button>
+    <ul>
+        <li> bestill pizza</li>
+    </ul>
+
+    <script>
+        var btnbestill = document.getElementById('bestill');
+        var infodiv = document.getElementById('info');
+        var bunntykk = document.getElementById('tykkbunn');
+        var bunntynn = document.getElementById('tynnbunn');
+        var fylltaco = document.getElementById('fylltaco');
+        var fyllkylling = document.getElementById('fyllkylling');
+        var fyllpepperoni = document.getElementById('fyllpepperoni');
+        var fyllbiff = document.getElementById('fyllbiff');
+        var strstor = document.getElementById('stor');
+        var strmiddels = document.getElementById('middels');
+        var strliten = document.getElementById('liten');
+        var formfirkant = document.getElementById('firkant')
+        var formrund = document.getElementById('rund')
+
+        function info() {
+            if ((bunntykk.checked || bunntynn.checked) &&
+                (fylltaco.checked || fyllkylling.checked || fyllpepperoni.checked || fyllbiff.checked) &&
+                (strstor.checked || strmiddels.checked || strliten.checked) &&
+                (formfirkant.checked || formrund.checked)) {
+                infodiv.innerHTML = 'du har fylt ut alt og er klar til å bestille!';
+                btnbestill.disabled = false;
+            } else{
+                infodiv.innerHTML = 'du har ikke valgt!';
+                // if (bunntykk.checked || bunntynn.checked) {
+                // }else {
+                //     infodiv.innerHTML += '<li>bunn</li>'; 
+                // }
+                if (!bunntykk.checked && !bunntynn.checked) {
+                    infodiv.innerHTML += '<li>bunn</li>';
+                }
+                if (!fylltaco.checked && !fyllkylling.checked && !fyllpepperoni.checked && !fyllbiff.checked) {
+                    infodiv.innerHTML += '<li>fyll</li>';
+                }
+                if (!strstor.checked && !strmiddels.checked && !strliten.checked) {
+                    infodiv.innerHTML += '<li>størrelse</li>';
+                }
+                if (!formfirkant.checked && !formrund.checked) {
+                    infodiv.innerHTML += '<li>form</li>'
+                }
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

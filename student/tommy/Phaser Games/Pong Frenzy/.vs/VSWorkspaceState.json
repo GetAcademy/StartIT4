@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\images",
+    "\\js",
+    "\\js\\classes",
+    "\\js\\classes\\comps",
+    "\\js\\classes\\mc",
+    "\\js\\classes\\ui",
+    "\\js\\classes\\util",
+    "\\js\\scenes"
+  ],
+  "SelectedNode": "\\js\\scenes\\sceneTitle.js",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        div {
+            background: rgb(41, 144, 228);
+            border: 1px solid rgb(153, 36, 36);
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body onload="testOnLoad()">
+    <p>Ferdighet 2a - Alternative eventhandlere: onchange osv.</p>
+    <input type="text" onkeydown="testOnChange()" />
+    <h3 ondblclick="testOnMouseOver()" oncontextmenu="testOnMouseOut()">Test test test</h3>
+    <h2 id="info"></h2>
+    <div oncontextmenu="testOnInput()" contextmenu="text"></div>
+
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
+    <script>
+        function testOnLoad() {
+            document.getElementById('info').innerHTML += '<li>onload</li>';
+        }
+        function testOnChange() {
+            document.getElementById('info').innerHTML += '<li>onchange</li>';
+        }
+        function testOnInput() {
+            document.getElementById('info').innerHTML += '<li>oninput</li>';
+        }
+        function testOnMouseOver() {
+            document.getElementById('info').innerHTML += '<li>onmouseover</li>';
+        }
+        function testOnMouseOut() {
+            document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+﻿/*------------------------------------------------------------------------------------------------*/
+/*Global CSS is used across all pages.*/
+/*------------------------------------------------------------------------------------------------*/
+/*Global Text CSS*/
+/*------------------------------------------------------------------------------------------------*/
+body {
+font-size: 15px;
+color: black;
+text-decoration: none;
+list-style: none;
+}
+/*------------------------------------------------------------------------------------------------*/
+/*Global Button CSS*/
+/*------------------------------------------------------------------------------------------------*/
+.button {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 40px;
+    width: 100%;
+    border: solid black 1px;
+    background-color: gray;
+    font-size: 15px;
+    border-radius: 2px;
+    color: white;
+
+}
+
+.button:hover {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 40px;
+    width: 100%;
+    border: solid black 1px;
+    background-color: darkgray;
+    font-size: 15px;
+    border-radius: 2px;
+    color: white;
+}
+/*------------------------------------------------------------------------------------------------*/
+/*Global Input CSS*/
+/*------------------------------------------------------------------------------------------------*/
+.input {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 40px;
+    width: 100%;
+    border: solid black 1px;
+    background-color: white;
+    font-size: 15px;
+    border-radius: 2px;
+    color: black;
+}
+
+.input:active {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 40px;
+    width: 100%;
+    border: solid green 1px;
+    background-color: floralwhite;
+    font-size: 15px;
+    border-radius: 2px;
+    color: black;
+}
+/*------------------------------------------------------------------------------------------------*/
+/*Global Icon CSS*/ https://fontawesome.com/
+/*------------------------------------------------------------------------------------------------*/
+.fa {
+    color: white;
+}
+.fa:hover {
+    color: green;
+}
+/*------------------------------------------------------------------------------------------------*/

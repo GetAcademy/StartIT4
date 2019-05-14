@@ -7,6 +7,7 @@
         div{
             background-color: aquamarine;
             border: green solid 1px;
+            font-size: 300%;
         }
     </style>
 </head>
@@ -21,8 +22,8 @@
             - ellers (else)
             - ellers, hvis (else if)
         */
-    var lagerThanSymbol = '&gt';
-    var smallerThanSymbol = '&gt';
+    var greaterThanSymbol = '&gt';
+    var smallerThanSymbol = '&lt';
 
 
     window.onresize = windowSizeChanged;
@@ -33,12 +34,10 @@
         var height = window.innerHeight;
         var width = window.innerWidth;
         div.innerHTML = height + 'x' + width;
-        div.style.width = width / 2;
-        var totalPixelCount = height * width;
-        if(totalPixelCount > 125000){
-            div.innerHTML += '>1/8 megapixel';
-        }else{
-            div.innerHTML += '<1/8 megapixel';
+        var erBred = width > 500;
+        div.innerHTML += '</br>erBred = ' + erBred;
+        if(!erBred){
+            div.innerHTML += '</br>Bredden er større enn 500';
         }
     }
 </script>

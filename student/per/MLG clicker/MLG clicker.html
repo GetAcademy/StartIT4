@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 10rem;
+            user-select: none;
+            cursor: crosshair;
+        }
+
+        h1 {
+            text-align: center;
+            user-select: none;
+            font-size: 3rem;
+            font-family: 'Comic Sans MS';
+        }
+
+        p {
+            text-align: center;
+            user-select: none;
+            font-size: 1.5rem;
+            border: solid black 2px;
+            background-color: orangered;
+            font-family: 'Book Antiqua';
+            width: 320px;
+            position: center;
+        }
+
+        body {
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+    <h1>MLG CLICKER📣📣📣</h1>
+
+    <div onclick="audio.play(); clicker()">🚶</div>
+    <div id="counter">0</div>
+    <p id="pricetag" onclick="buyUpgrade()">Kjøp oppgradering(10 poeng)</p>
+    <p id="pricetag2 auto" onclick="autoKlikker()">Kjøp Autoklikker(20 poeng)</p>
+
+    <script>
+        var auto = document.getElementById('auto');
+        var counterDiv = document.getElementById('counter')
+        //controller
+        function clicker() {
+            counter += pointsPerClick;
+            show();
+        }
+        //model
+        var counter = 0;
+        var pointsPerClick = 1;
+        var price = 10;
+        var price2 = 20;
+        const AutoClicker = [];
+        //view
+        function show() {
+            counterDiv.innerHTML = counter;
+        }
+        function buyUpgrade() {
+            if (counter < price) return;
+            counter -= price;
+            pointsPerClick++;
+            price += parseInt((Math.random() * price) * 0.9);
+            document.getElementById('pricetag').innerHTML = `Kjøp oppgradering(${parseInt(price)} poeng)`;
+            show();
+        }
+        function autoKlikker() {
+            if (counter < price2) return;
+            counter -= price2;
+            setInterval(function () {
+                clicker();
+            }, 1000);
+
+            show();
+        }
+
+
+        var audio = new Audio("hitmarker_2.mp3");
+
+        audio.oncanplaythrough = function () {
+            audio.play();
+
+            audio.loop = false;
+        }
+    </script>
+</body>
+</html>

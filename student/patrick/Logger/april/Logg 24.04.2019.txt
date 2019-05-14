@@ -1,0 +1,22 @@
+Logg 24.04.2019
+
+Løste problemer:
+
++ det finnes ikke en mekanikk for å starte spillet på nytt eller gå til menyen om man dør.
+
++ det finnes ikke en meny scene.
+
++ det finnes ingen options scene.
+
+pluss jeg har lagt inn touch input så nå er det bare finjusteringen igjen så er det bra tenker jeg.
+
+Gjenstående Problemer fra igår:
+
+(ingenting)
+ting bør finjusteres selv om grovarbeidet er gjort, det er for eksempel ikke noe options å forandre på enda.
+
+Nye Problemer:
+
+ingenting av informasjon blir lagret på spillet, det kan være lurt å ha en god løsning der snart.
+
+

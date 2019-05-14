@@ -1,1 +1,147 @@
-// JavaScript source code
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 120;
+    /* overflow: unset; */
+}
+
+div.page {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 50px auto;
+    /* grid-template-rows: 20vh auto; */
+    grid-template-areas: 'header innhold ' ;
+                         /* 'header innhold innhold'
+                         'header innhold innhold' */
+}
+
+div.header {
+    grid-area: header;
+    background-color: #5F6389;
+}
+
+div.innhold {
+    grid-area: innhold;
+    background-color: #5F6389;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+button.fixed1 {
+    position: relative; 
+    border-radius: 10px;
+    width: 40%;
+    height: 70px;
+    /* margin-right: 15%;*/
+    margin-bottom: 0.5%; 
+    border: solid #EC8B5E;
+    background-color: #EC8B5E;
+    /* text-align: center; */
+    font-size: 70%;
+}
+
+button.fixed2 {
+    /* position: relative; */
+    border-radius: 10px;
+    width: 30%;
+    height: 60px;
+    margin-top: 5%;
+    /* margin: 150px; */
+    /* margin-left: 35%; */
+    text-align: center;
+    border: solid #EC8B5E;
+    background-color: #EC8B5E; 
+    font-size: 70%;
+}
+
+.to {
+    border-radius: 10px;
+    color: #EC8B5E;
+    text-align: center;
+    /* margin-right: 17%; */
+    font-size: 110px;
+    text-shadow: 0px 6px 6px black;
+
+}
+
+.innhold {
+    grid-area: innhold;
+    background-color: #EC8B5E;
+    font-size: 160%;
+    border: black;
+}
+
+.meny {
+    border-right: 3px solid rgb(69, 77, 150);
+    position: absolute;
+    width: 35%;
+    height: 100vh;
+    background-color: #EC8B5E;
+}
+
+.fixed {
+    border-radius: 10px;
+    width: 66%;
+    height: 7%;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    text-align: center;
+    border: solid #5F6389;
+    background-color: #5F6389;
+    font-size: 87%;
+}
+.botCorner {
+    position: relative;
+}
+.returnButton {
+    position:absolute;
+    bottom: 0;
+    right: 1%;
+    border-radius: 10px;
+    border: solid black;
+    width: 5%;
+    height: 5vh;
+    background-color: #EC8B5E;
+    font-size: 100%;
+
+}
+.komOgDraMeny {
+    position: absolute;
+    font-size: 260%;
+    background-color: #5F6389;
+    border: solid;
+    border-color: #5F6389;
+}
+
+.komOgDraMeny2 {
+    position: absolute;
+    font-size: 260%;
+    background-color: #EC8B5E;
+    border: solid;
+    border-color: #EC8B5E;
+}
+.lærerSpørsmål{
+    margin-left: 27%;
+    margin-bottom: 5%;
+    border-radius: 10px;
+    border: black solid;
+    width: 40%;
+    height: 15vh;
+    box-sizing: border-box;
+    background-color: #5F6389;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 20px;
+    box-shadow: 0px 5px 5px black;
+}
+.lærerSenderSpørsmål{
+    border-radius: 10px;
+    width: 66%;
+    height: 7%;
+    margin-left: 15%;
+    text-align: center;
+    border: black solid;
+    background-color: #5F6389;
+    font-size: 87%;
+    box-shadow: 0px 5px 5px #5F6389;
+}

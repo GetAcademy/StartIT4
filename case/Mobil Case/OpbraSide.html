@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="JS/main.js"></script>
+    <script src="JS/mineMålSide.js"></script>
+    <script src="JS/evaluateScreen.js"></script>
+    <script src="JS/ukentligEvaluering.js"></script>
+    <script src="JS/dagligEvaluering.js"></script>
+    <script src="JS/createNewGoal.js"></script>
+    <script src="JS/lagDagbok.js"></script>
+    <script src="JS/kalender.js"></script>
+    <script src="JS/ukentligEvalueringSideTO.js"></script>
+    <script src="JS/ukentligEvalueringSideTRE.js"></script>
+    <script src="JS/ukentligEvalueringSideFIRE.js"></script>
+    <script src="JS/nytt mål.js"></script>
+    <script src="JS/edit mål.js"></script>
+    <script src="JS/add text.js"></script>
+    <script src="JS/info screen.js"></script>
+    <script src="JS/daglig evaluering.js"></script>
+    <script src="JS/ukentlig evaluering.js"></script>
+    <script src="JS/finn coach.js"></script>
+    <script src="JS/ProfilSide.js"></script>
+    <script src="JS/LoggInn.js"></script>
+    <script src="JS/leggTilOppgaveSide.js"></script>
+    <script src="JS/Rolle.js"></script>
+    <script src="JS/LagNyBruker.js"></script>
+    <style>
+        .wrapper {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 1fr;
+            grid-template-rows: 350px auto 50px;
+            grid-template-areas: 'header' 'content' 'footer';
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .header {
+            grid-area: header;
+        }
+
+        .content {
+            grid-area: content;
+        }
+
+        .footer {
+            grid-area: footer;
+        }
+
+        .image {
+            width: 100%;
+            background-color: #8c0000;
+            min-height: 300px;
+            max-height: 300px;
+            border-bottom: solid black 1px;
+            background-image: url(https://steamuserimages-a.akamaihd.net/ugc/949593428627126109/6ED40943A3512F4E744992C263A1E0062DBAB46C/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true);
+            background-repeat: no-repeat;
+            background-size: 100% 300px;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #474747;
+            height: 50px;
+            border-bottom: solid black 1px;
+            overflow: hidden;
+        }
+
+        .logo {
+            color: white;
+            text-transform: uppercase;
+            line-height: 50px;
+            padding: 10px;
+            margin-right: 5px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        .menu-item {
+            color: white;
+            text-transform: uppercase;
+            padding: 10px;
+            float: right;
+            height: 50px;
+            border-left: solid black 1px;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            background-color: #383838;
+        }
+
+            .menu-item:hover {
+                color: white;
+                background-color: #8c0000;
+            }
+
+            .menu-item:focus {
+                outline: none;
+            }
+
+            .menu-item:active {
+                color: white;
+                background-color: #8c0000;
+            }
+
+        body {
+            font-family: Arial;
+            margin: 0px;
+            text-transform: uppercase;
+            background-color: #636363;
+        }
+
+        .lagetav {
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            background-color: #474747;
+            border-top: black solid 1px;
+            font-weight: lighter;
+        }
+
+        .button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 95%;
+            border: solid black 1px;
+            background-color: #ff0000;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 50px;
+            border-radius: 2px;
+            padding: 10px;
+        }
+
+            .button:hover {
+                background-color: #8c0000;
+            }
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #474747;
+            border: solid black 1px;
+        }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #ff0000;
+            border: solid black 1px;
+        }
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #8c0000;
+            }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+            /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+            .sticky + .content {
+                padding-top: 60px;
+            }
+
+        #modal {
+            width: 100%;
+            background-color: #474747;
+            border-bottom: solid black 1px;
+            border-top: solid black 1px;
+            color: white;
+            display: none;
+        }
+
+        .sub-item {
+            color: white;
+            text-transform: uppercase;
+            padding: 10px;
+            height: 50px;
+            border-top: solid black 1px;
+            border-left: none;
+            border-right: none;
+            background-color: #ff0000;
+            border-bottom: solid black 1px;
+            width: 100%;
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+            .sub-item:hover {
+                background-color: #8c0000;
+            }
+
+            .sub-item:focus {
+                outline: none;
+            }
+
+            .sub-item:active {
+                background-color: #8c0000;
+            }
+
+        .button-content {
+            color: white;
+            text-transform: uppercase;
+            padding: 10px;
+            height: 50px;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            background-color: #383838;
+            width: 100%;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            border-top: solid black 1px;
+            border-bottom: solid black 1px;
+        }
+
+            .button-content:hover {
+                color: white;
+                background-color: #8c0000;
+            }
+
+            .button-content:focus {
+                outline: none;
+            }
+
+            .button-content:active {
+                color: white;
+                background-color: #8c0000;
+            }
+    </style>
+</head>
+<body>
+    <div class="wrapper" id="wrapper">
+        <div class="header" id="header">
+            <div class="image"></div>
+            <div id="navbar" class="navbar">
+                <span class="logo">Opbra</span>
+                <button class="menu-item" onclick="modal()"><i class="fas fa-bars"></i></button>
+                <button class="menu-item"><i class="fas fa-info-circle"></i> info</button>
+                <button class="menu-item"><i class="fas fa-cog"></i> innstillinger</button>
+                <button class="menu-item" onclick="ProfileSide()"><i class="fas fa-user-circle"></i> emilo</button>
+                <button class="menu-item" onclick="showMainScreen()"><i class="fas fa-home"></i> Hovedside</button>
+            </div>
+        </div>
+        <div class="content" id="content">
+            <div id="modal" class="modal">
+                <button onclick="RemoveModal()" class="sub-item"><i class="fas fa-times-circle"></i> close</button>
+                <div class="sub-content">
+                    
+                    <button class="button-content"><i class="fas fa-plus"></i> legg til mål</button>
+                    <button class="button-content"><i class="fas fa-bullseye"></i> mine mål</button>
+                    <button class="button-content"><i class="fas fa-key"></i> nøkkelvaner</button>
+                    <button class="button-content"><i class="fas fa-chart-bar"></i> daglig evaluering</button>
+                    <button class="button-content"><i class="fas fa-chart-bar"></i> ukentlig evaluering</button>
+                    <button class="button-content"><i class="fas fa-power-off"></i> logg ut</button>
+                </div>
+            </div>
+            <div id="mainextra"></div>
+        </div>
+        <div class="footer" id="footer">
+            <div class="lagetav">Laget av GetAcademy</div>
+        </div>
+    </div>
+
+    <script>
+        var evalueringDag = [];
+        var mainextra = document.getElementById('mainextra');
+        showMainScreen();
+        window.onscroll = function () { myFunction() };
+        var navbar = document.getElementById('navbar');
+        var sticky = navbar.offsetTop;
+        
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add('sticky')
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        }
+        function modal() {
+            document.getElementById('modal').style.cssText = 'display: block;';
+        }
+        function RemoveModal() {
+            document.getElementById('modal').style.cssText = 'display: none;';
+        }
+    </script>
+</body>
+</html>

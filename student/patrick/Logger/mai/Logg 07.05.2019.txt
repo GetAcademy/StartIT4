@@ -1,0 +1,11 @@
+Logg 07.05.2019
+
+Lært idag:
+
+idag har jeg lært at Vue komponenter på deklæreres ovenfor root instansen av vue.
+jeg har fått øvd inn vue litt bedre men usikker på akkuratt hvor langt jeg er mot å mestre Vue.
+det sakt jeg har mestret det mer idag til en viss grad.
+
+i det siste har jeg glemt å skrive logg men det har ikke vært så mye nødvendighet for loggføring siden jeg har jobbet med å forstå vue og jeg trenger egentlig ikke et notat som sier at igår var jeg i prosessen av å lære Vue og idag skal jeg fortsette denne prosessen, men nå som jeg har et fotfeste i Vue kan jeg sette meg noen litt mer konkrete mål om hva jeg skal lære i Vue og hva som skal læres etter det jeg gjør nå.
+akkurat nå skriver jeg en versjon av "vinlotterix" til "Vue" og når jeg er ferdig med det vil jeg lage et litt mer komponent tungt script men litt usikker enda hva det dokumentet skal være, men det kommer seg.
+

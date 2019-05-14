@@ -1,0 +1,13 @@
+Logg 09.04.2019
+
+Løste Problemer:
+
++ nå som bildeopplasting er rimelig bra gjennomført for lagingen av ny konto så bør det også gjøres i settings page men legge til mulighet for å slette bilder og sette inn begrensning på filstørrelse per bilde og sette en maks kapasitet på bildene på 8 stykk per profil.
+
+Gjenstående problemer fra igår:
+
+(ingenting)
+
+Nye Problemer:
+
+(ingenting)
