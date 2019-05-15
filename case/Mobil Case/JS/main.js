@@ -5,9 +5,16 @@
     }
     mainextra.innerHTML = `
     <button class="button" onclick="showMyGoalsScreen()">${abc}</button>
+<<<<<<< HEAD
+<div><button class="button" onclick="newGoal()">Nytt mål</button></div>
+      <div><button class="button" onclick="ukentligEvaluering()">Ukentlig evaluering</button></div>
+      <div><button class="button" onclick="dagligEvaluering()">Daglig evaluering</button></div>
+      
+=======
       <div><button class="button" onclick="ukentligEvaluering()" id=ukentlig>Ukentlig evaluering</button></div>
       <div><button class="button" onclick="dagligEvaluering() id="daglig">Daglig evaluering</button></div>
       <div><button class="button" onclick="newGoal()">Nytt mål</button></div>
+>>>>>>> 694ad427fb7922d7ff1a9d25e91e4d446e5ed2c6
       <div><button class="button" onclick="lagDagbok()">Dagbok</button></div>
       <div><button class="button" onclick="kalender()">Kalender</button></div>
     `;

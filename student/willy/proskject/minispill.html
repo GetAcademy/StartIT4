@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body onload="startGame()" onkeydown="moveKeys(this)" onmouseup="clearmove()">
+    <script>
+        var myGamePiece;
+        var myObstacle = [];
+
+        function startGame() {
+            myGamePiece = new component(30, 30, "red", 10, 120);
+            myGameArea.start();
+        }
+        var myGameArea = {
+            canvas: document.createElement("canvas"),
+            start: function () {
+                this.canvas.width = 480;
+                this.canvas.height = 270;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                this.frameNo = 0;
+                this.inerval = setInterval(updateGameArea, 20);
+            },
+            clear: function () {
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            },
+            stop: function () {
+                clearInterval(this.Interval);
+            }
+        }
+        function everyinterval(n) {
+            if ((myGameArea.frameNo / n) % 1 == 0) { return true; }
+            return false;
+        }
+
+        function component(width, height, color, x, y) {
+            this.width = width;
+            this.height = height;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.x = x;
+            this.y = y;
+            this.update = function () {
+                ctx = myGameArea.context;
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+            this.newPos = function () {
+                this.x += this.speedX;
+                this.y += this.speedY;
+            }
+            this.crashWith = function (otherobj) {
+                var myleft = this.x;
+                var myright = this.x + (this.width);
+                var mytop = this.y;
+                var mybottom = this.y + (this.height);
+                var otherleft = otherobj.x;
+                var otherright = otherobj.x + (otherobj.width);
+                var othertop = otherobj.y;
+                var otherbottom = otherobj.y + (otherobj.height);
+                var crash = true;
+                if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+                    crash = false;
+                }
+                return crash;
+            }
+        }
+        function updateGameArea() {
+            var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+            for (i = 0; i < myObstacle.length; i += 1) {
+                if (myGamePiece.crashWith(myObstacle[i])) {
+                    myGameArea.stop();
+                    return;
+                }
+            //myGamePiece.onkeydown =moveKeys(this);
+            myGamePiece.onkeyup = console.log("hdgfh") //clearmove();
+            }
+            myGameArea.clear();
+            myGameArea.frameNo += 1;
+            if (myGameArea.frameNo == 1 || everyinterval(150)) {
+                x = myGameArea.canvas.width;
+                minHeight = 20;
+                maxHeight = 200;
+                height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
+                minGap = 50;
+                maxGap = 200;
+                gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+                myObstacle.push(new component(10, height, "blue", x, 0));
+                myObstacle.push(new component(10, x - height - gap, "green", x, height + gap));
+            }
+            for (i = 0; i < myObstacle.length; i += 1) {
+                myObstacle[i].x += -1;
+                myObstacle[i].update();
+            }
+            myGamePiece.newPos();
+            myGamePiece.update();
+        }
+        function everyinterval(n) {
+            if ((myGameArea.frameNo / n) % 1 == 0) { return true; }
+            return false;
+        }
+        // function updateGameArea() {
+        //     if (myGamePiece.crashWith(myObstacle)) {
+        //         myGameArea.stop();
+        //     } else {
+        //         myGameArea.clear();
+        //         myObstacle.update();
+        //         myObstacle.x += -1;
+        //         myGamePiece.x += myGamePiece.speedX;
+        //         myGamePiece.y += myGamePiece.speedY;
+        //         myGamePiece.update();
+        //     }
+        // }
+        function moveKeys(e) {
+            if (e.keyCode == 37) {
+                moveleft();
+                console.log("tfyyyy")
+            }
+            else if (e.keyCode == 38) {
+                moveup();
+            }
+            else if (e.keyCode == 39) {
+                moveright();
+            }
+            else if (e.keyCode == 40) {
+                movedown();
+            }
+        }
+        function moveup() {
+            myGamePiece.speedY = -1;
+        }
+        function movedown() {
+            myGamePiece.speedY = 1;
+        }
+        function moveleft() {
+            myGamePiece.speedX = -1;
+        }
+        function moveright() {
+            myGamePiece.speedX = 1;
+        }
+        function clearmove() {
+            myGamePiece.speedX = 0;
+            myGamePiece.speedY = 0;
+        }
+    </script>
+    <div styles="text-align:center;width:480px;">
+        <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+        <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+        <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+        <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+    </div>
+</body>
+
+</html>
