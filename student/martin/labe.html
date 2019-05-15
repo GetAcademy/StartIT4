@@ -57,7 +57,7 @@
         for (var rowIndex = 0; rowIndex < size; rowIndex++) {
             html += '<tr>';
             for (var columnIndex = 0; columnIndex < size; columnIndex++) {
-                var wallOrNoWall = columnIndex === 0 || Math.random() < 0.5 ? 'wall' : 'noWall';
+                var wallOrNoWall = rowIndex === 0 || Math.random() < 0.5 ? 'wall' : 'noWall';
                 html += '<td class="wall small"></td>';
                 html += '<td onclick="switchWall(this)" class="' + wallOrNoWall + ' wide"></td>';
             } 
