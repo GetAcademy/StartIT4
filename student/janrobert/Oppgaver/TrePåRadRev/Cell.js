@@ -1,32 +1,29 @@
 class Cell {
-    contructor(index) {
+    constructor(index) {
         this._content = null;
         this._index = index;
     }
 
     setX() {
-        this._content = 'X';
+        this._content = 'x';
     }
     setO() {
-        this._content = 'O';
+        this._content = 'o';
     }
     isBlank() {
         return this._content === null;
     }
     isX() {
-        return this._content === 'X';
+        return this._content === 'x';
     }
     isFirstInRow() {
         return this._index % 3 == 0;
-    }
-    isBlank() {
-        return this._content = null;
     }
     index() {
         return this._index;
     }
     content() {
-        if(this.isBlank()) return '';
+        if (this.isBlank()) return '';
         return this._content;
     }
 }
