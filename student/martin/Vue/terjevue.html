@@ -38,28 +38,29 @@
             <tr v-for="(unit, index) in units">
                 <td v-for="field in fields">
                     <template v-if="unit.isEditing">
-                        <input type="text" v-model="unit[field]" />
+                        <input type="text" v-model="unit[field]"/>
                     </template>
                     <template v-else>
                         {{unit[field]}}
                     </template>
                 </td>
                 <td v-if="unit.isEditing">
-                    <button v-on:click="changeEdit(index, false, true)">Cancel</button>
-                    <button v-on:click="changeEdit(index, false)">Save</button>
+                    <button v-on:click="changeEdit(index, false, true)">cancel</button>
+                    <button v-on:click="changeEdit(index, false)">save</button>
                 </td>
                 <td v-else>
-                    <button v-on:click="changeEdit(index)">Edit</button>
+                    <button v-on:click="changeEdit(index)">edit</button>
                 </td>
             </tr>
         </table>
+
     </div>
 
-    <script src="enhet.json"></script>
+    <script src="enheter.json"></script>
     <script>
         var app = new Vue({
             el: '#mainContent',
-            date: {
+            data: {
                 units: function() {
                     units.forEach(u => u.isEditing = false);
                     return units;
@@ -69,8 +70,11 @@
             methods: {
                 changeEdit: function (index, isEditing = true, revert = false) {
                     if (isEditing) {
-                        this.units[index].oldValue
+                        this.units[index].oldValue = JSON.parse(JSON.stringify(this.units[index]));
+                    } else if (revert) {
+                        this.fields.forEach(f => this.units[index][f] = this.units[index].oldValue[f]);
                     }
+                    this.units[index].isEditing = isEditing;
                 }
             }
         })
