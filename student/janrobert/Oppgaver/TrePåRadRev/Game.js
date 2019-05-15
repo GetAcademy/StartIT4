@@ -3,7 +3,7 @@ class Game {
         this._isStopped = false;
         this._cells = [];
         for (var i = 0; i < 9; i++) {
-            this._cells.puch(new Cell(i))
+            this._cells.push(new Cell(i));
         }
     }
 
@@ -26,8 +26,8 @@ class Game {
 
     getRandomBlankCell() {
         let blankCells = this._cells.filter(cell => cell.isBlank());
-        if (blankCells.lenght == 0) return null;
-        let index = Math.floor(Math.random() * blankCells.lenght);
+        if (blankCells.length == 0) return null;
+        let index = Math.floor(Math.random() * blankCells.length);
         return blankCells[index];
     }
 
@@ -46,7 +46,7 @@ class Game {
         var cell1 = this._cells[index1];
         var cell2 = this._cells[index2];
         var cell3 = this._cells[index3];
-        if (!cell.isBlank()
+        if (!cell1.isBlank()
         && cell2.content() === cell1.content()
         && cell3.content() === cell1.content()) {
             this._winner = cell1.isX() ? 'Du' : 'Datamaskinen';
