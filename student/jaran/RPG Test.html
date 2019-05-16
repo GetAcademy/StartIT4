@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .move1 {grid-area: move1;}
+        .move2 {grid-area: move2;}
+        .move3 {grid-area: move3;}
+        .move4 {grid-area: move4;}
+        .enemy {grid-area: enemy;}
+        .hero {grid-area: hero;}
+        .enemyhealth {grid-area: enemyhealth;}
+        .herohealth {grid-area: herohealth;}
+        .menuitem1 {grid-area: menuitem1;}
+        .menuitem2 {grid-area: menuitem2;}
+        .menuitem3 {grid-area: menuitem3;}
+        .menuitem4 {grid-area: menuitem4;}
+        .fightScreen {
+            height: 300px;
+            width: 300px;
+            display: grid;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            grid-template-areas: 'enemyhealth enemyhealth enemy' 'hero herohealth herohealth' 'moves moves menu';
+            margin: auto;
+            border: solid 4px black;
+        }
+        .healthbar {
+            width: 150px;
+            height: 10px;
+            border: solid 1px black;
+            background-color: green;
+            margin: 45px 20px;
+        }
+        .halfhealthbar {
+            background-color: yellow;
+        }
+        .lowhealthbar {
+            background-color: red;
+         }
+        .emptyhealthbar {
+            background-color: white;
+        }
+        .moves {
+            grid-area: moves;
+            display: grid;
+            grid-template-areas: 'move1 move2' 'move3 move4'
+        }
+        .menu {
+            grid-area: menu;
+            display: grid;
+            grid-template-areas: 'menuitem1 menuitem2' 'menuitem3 menuitem4'
+        }
+    </style>
+</head>
+<body>
+    <div class="fightScreen" id="mainScreen">
+        <div class="enemy"><img src="https://img.pokemondb.net/sprites/black-white/normal/charmander.png" alt="Charmander"></div>
+        <div class="hero"><img src="https://img.pokemondb.net/sprites/black-white/back-normal/bulbasaur.png" alt="Bulbasaur"></div>
+        <div class="enemyhealth"><div id="healthBarEnemy" class="healthbar"></div></div>
+        <div class="herohealth"><div class="healthbar"></div></div>
+        <div class="moves">
+        <button class="move1" onclick="tackleMove()">Tackle</button>
+        <button class="move2">Growl</button>
+        <button class="move3">Leech Seed</button>
+        <button class="move4"> Vine Whip</button>
+        </div>
+        <div class="menu">
+            <button class="menuitem1">Moves</button>
+            <button class="menuitem2">Item</button>
+            <button class="menuitem3">Switch</button>
+            <button class="menuitem4">Run</button></div>
+        </div>
+    <div id="healthBar" style="text-align:center"></div>
+    <div id="extraInfo" style="text-align:center"></div>
+    
+    <script> 
+        extraInfo = document.getElementById('extraInfo');
+        var enemyHealth = 100;
+        var attStr;
+        currentHealth();
+        function tackleMove() {
+            var moveAcc = Math.ceil(Math.random() * 100);
+            if (moveAcc <= 5) {
+                extraInfo.innerHTML = 'You Missed!'
+            }
+            else if (moveAcc <= 35) {
+                attStr = 13;
+                enemyHealth = enemyHealth - attStr;
+                extraInfo.innerHTML = 'Attack Strength = 13'
+                currentHealth();
+            }
+            else if (moveAcc <= 65) {
+                attStr = 14;
+                enemyHealth = enemyHealth - attStr;
+                extraInfo.innerHTML = 'Attack Strength = 14'
+                currentHealth();
+            }
+            else if (moveAcc <= 95) {
+                attStr = 15;
+                enemyHealth = enemyHealth - attStr;
+                extraInfo.innerHTML = 'Attack Strength = 15'
+                currentHealth();
+            }
+            else if (moveAcc <= 100) {
+                attStr = 20;
+                enemyHealth = enemyHealth - attStr;
+                extraInfo.innerHTML = 'Attack Strength = 20' + '</br>' + 'Critical Hit!'
+                currentHealth();
+            }
+            var healthBarEnemy = document.getElementById('healthBarEnemy');
+            if (enemyHealth <= 0) {
+                healthBarEnemy.classList.add('emptyhealthbar');
+             }
+            else if (enemyHealth <= 25) {
+                healthBarEnemy.classList.add('lowhealthbar');
+             }
+            else if (enemyHealth <= 50) {
+                healthBarEnemy.classList.add('halfhealthbar');
+            }
+        }
+        function currentHealth() {
+            document.getElementById('healthBar').innerHTML = enemyHealth
+        }
+       
+        
+    </script>
+</body>
+
+</html>

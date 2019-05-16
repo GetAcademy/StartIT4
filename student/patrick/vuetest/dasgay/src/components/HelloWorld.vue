@@ -10,6 +10,7 @@
         <tr v-for="vinner in Vinnere" v-bind:key="vinner.id"> <td> {{vinner.Navn}} vant en liter hjemmebrent! </td> </tr>
     </table>
     <br/><button @click="ChangeColor">click me</button>
+    <br/><button @click="$router.push('Superstar')">go to superstar</button>
   </div>
 </template>
 

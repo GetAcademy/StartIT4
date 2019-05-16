@@ -1,0 +1,8 @@
+Logg 10.05.2019
+
+Lært idag:
+
+har lært mer om Vue idag, lærte hvordan custom events skal fungere i Vue filer
+lærte også hva det praktiske formålet med custom events er.
+custom events eller emits er for å sende informasjon som et komponent bruker internt ut fra seg selv slik at for eksempel komponenten som bruker en instanse av denne komponenten kan bruke informasjonen den gir ut.
+det motsatte er jo properties som er for å sende informasjon med ned i et komponent da kan informasjon som komponente har sende med ned i andre komponenter som den bruker slik at det komponentet kan bruke den informasjonen.
