@@ -10,7 +10,7 @@ function renderBygg(doc) {
     let areal = document.createElement('span');
     let oppvarming = document.createElement('span');
     let cross = document.createElement('div');
-    let kategori = document. createElement('span');
+    let kategori = document.createElement('span');
 
 
     li.setAttribute('data-id', doc.id);
@@ -30,8 +30,8 @@ function renderBygg(doc) {
     li.appendChild(adresse);
     li.appendChild(postnr);
     li.appendChild(areal);
-    li.appendChild(oppvarming);-
-    li.appendChild(cross);
+    li.appendChild(oppvarming); -
+        li.appendChild(cross);
     li.appendChild(kategori);
 
 
@@ -91,5 +91,6 @@ db.collection('Bygg').orderBy('by').onSnapshot(snapshot => {
 function toggleLeggTilBygg() {
     document.getElementById('main').style.display = 'none';
     document.getElementById('map').style.display = 'none';
+    document.getElementById('SearchTable').style.display = "none";
     document.getElementById('content').style.display = 'block';
 }
