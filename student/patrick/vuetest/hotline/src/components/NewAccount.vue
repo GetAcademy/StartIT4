@@ -65,14 +65,18 @@
 
 <script>
 import vueDropzone from 'vue2-dropzone'
-import db from '@/FirebaseConfig/FireBaseStart'
+import firebase from '@/FirebaseConfig/FireBaseStart'
 export default {
 components: {
 vueDropzone,
-db,
+firebase,
 },
 data() {
   return{
+    db: firebase.firestore(),
+    storage: firebase.storage(),
+    storageRef: firebase.storage().ref(),
+
     BirthDateYear: null,
     BirthDateDay: null,
     BirthDateMonth: null,
@@ -114,12 +118,12 @@ methods: {
   CreateAccount: function ()
 {
     self = this;
-    let ProfilePic = self.DropzoneImages;
+    let ProfilePic = self.DropzoneImages();
 
     if (self.UsernameOne == self.UsernameTwo && self.EmailOne == self.EmailTwo && self.PasswordOne == self.PasswordTwo && self.BirthDateFull <= self.CheckAge && ProfilePic != null && self.Bio.length > 0 && self.AgePrefOne >= 18 && self.AgePrefTwo <= 90 && self.SearchDistance >= 1 && self.SearchDistance <= 100) {
 
-        self.UploadProfile(self.ProfImage, self.UsernameTwo, self.PasswordTwo, self.EmailTwo, parseInt(new Date().getFullYear()) - parseInt(self.BirthDateYear), self.BirthDateFull, self.Preference, self.AgePrefOne, self.AgePrefTwo, self.SearchDistance, self.ProfileBio);
-        self.$router.push('/Login');
+        self.UploadProfile(ProfilePic, self.UsernameTwo, self.PasswordTwo, self.EmailTwo, parseInt(new Date().getFullYear()) - parseInt(self.BirthDateYear), self.BirthDateFull, self.Preference, self.AgePrefOne, self.AgePrefTwo, self.SearchDistance, self.Bio);
+        self.$router.push('/');
     }
 },
 DropzoneImages: function ()
@@ -129,32 +133,34 @@ DropzoneImages: function ()
     for (let i = 0; i < TheFile.length; i++) {
         Images.push(TheFile[i]);
     }
-    console.log(Images);
+    // console.log(Images);
     return Images;
 },
-UploadProfile: async function(Image, username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio)
-{
-    const file = Image;
+UploadProfile: async function(Image, username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio) {
+  let self = this;
+  const file = Image;
 
-    try {
+    try
+    {
         let ImageURL = [];
 
-        for (let i = 0; i < file.length; i++) {
-            let fileRef = storageRef.child(file[i].name);
+        for (let i = 0; i < file.length; i++)
+        {
+            let fileRef = self.storageRef.child(file[i].name);
             await fileRef.put(file[i]);
             ImageURL.push(await fileRef.getDownloadURL());
             alert(`Uploaded ${file[i].name}`);
         }
 
-        this.RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, ImageURL);
+        self.RegisterUserToBackend(username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, ImageURL);
     }
-    catch (error) {
-        console.error(error);
-    }
+     catch (error) {
+         console.log("error, failed to upload profile!");
+     }
 },
 RegisterUserToBackend: function (username, password, email, age, birthday, datingpreference, AgePreferenceOne, AgePreferenceTwo, searchDistance, bio, profilePictures) // add profile picture parameter
 {
-    db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: profilePictures })
+    this.db.collection("Users").add({ Username: username, Password: password, Email: email, Age: age, Birthday: birthday, DatingPreference: datingpreference, AgePreference: [parseInt(AgePreferenceOne), parseInt(AgePreferenceTwo)], SearchDistance: parseInt(searchDistance), Bio: bio, ProfilePictures: profilePictures })
         .then(function (snapshot)
         {
             alert("User Registered");
@@ -177,9 +183,10 @@ created()
 {
     display:grid;
     grid-template-columns:35% 30% 35%;
-    grid-template-rows:100%;
+    grid-template-rows:80vh;
     grid-template-areas:'EmptyCreateLeft CreateAccountTable EmptyCreateRight';
-    overflow-y:none;
+    overflow-y: scroll;
+    max-height: 80vh;
 }
 
 .EmptyCreateLeft
@@ -194,6 +201,9 @@ created()
     text-align: center;
     align-self: center;
     background: rgba(236, 68, 251, 0.75);
+    text-shadow: 1px 0 0 #AD00FF, -1px 0 0 #AD00FF, 0 1px 0 #AD00FF, 0 -1px 0 #AD00FF, 1px 1px #AD00FF, -1px -1px 0 #AD00FF, 1px -1px 0 #AD00FF, -1px 1px 0 #AD00FF;
+    overflow-x: hidden;
+    max-height:80vh;
 }
 .EmptyCreateRight {
     grid-area: EmptyCreateRight;

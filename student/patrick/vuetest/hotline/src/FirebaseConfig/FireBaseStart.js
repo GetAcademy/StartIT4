@@ -5,4 +5,4 @@ import fireConfig from '@/FireBaseConfig/firestoreConfig';
 
 const FirebaseApp = firebase.initializeApp(fireConfig);
 
-export default FirebaseApp.firestore();
+export default FirebaseApp;
