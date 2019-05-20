@@ -4,62 +4,57 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <p>Ferdighet 9f - Valgsetninger - Sammenligne flere ting på en gang (og og eller sammen)</p>
-    <h3>Pizza-bestilling</h3>
-    <div id="info" style="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
+    <div id="app">
+        <h3>Pizza-bestilling</h3>
+        <div v-if="antallValgGjort == 0" style ="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
+        <div v-else-if="antallValgGjort<4">
+            Du har ikke valgt:
+            <li v-if="!bestilling.bunn">bunn</li>
+            <li v-if="!bestilling.fyll">fyll</li>
+            <li v-if="!bestilling.str">størrelse</li>
+        </div>
+        <div v-else>
+            du har fylt ut alt og er klar til og bestille!
+        </div>
+        Bunn: <input type="radio" v-model="bestilling.bunn" value="tykk" />Tykk
+        <input type="radio" v-model="bestilling.bunn" value="tynn" />Tynn <br/>
 
-    Bunn: <input id="tykkBunn" type="radio" name="bunn" onchange="info()" />Tykk
-    <input id="tynnBunn" type="radio" name="bunn" onchange="info()" />Tynn <br />
+        Fyll: <input type="radio" v-model="bestilling.fyll" value="taco" />Taco
+        <input type="radio" v-model="bestilling.fyll" value="kylling" />Kylling
+        <input type="radio" v-model="bestilling.fyll" value="pepperoni" />Pepperoni<br/>
 
-    Fyll: <input id="fyllTaco" type="radio" name="fyll" onchange="info()" />Taco
-    <input id="fyllKylling" type="radio" name="fyll" onchange="info()" />Kylling
-    <input id="fyllPepperoni" type="radio" name="fyll" onchange="info()" />Pepperoni<br />
+        Størrelse: <input type="radio" v-model="bestilling.str" value="stor" />Stor
+        <input type="radio" v-model="bestilling.str" value="middeles" />Middeles
+        <input type="radio" v-model="bestilling.str" value="Liten" />Liten<br/>
 
-    Størrelse: <input id="stor" type="radio" name="str" onchange="info()" />Stor
-    <input id="middels" type="radio" name="str" onchange="info()" />Middels
-    <input id="liten" type="radio" name="str" onchange="info()" />Liten<br />
-
-    <button id="bestill" disabled="" onclick="alert('Bestilt!');">Bestill</button>
-    <ul>
-        <li>Oppgave: Legg til et fyll til</li>
-        <li>Oppgave: Legg til en ting til i pizza-bestillingen, for eksempel firkantet eller rund pizza</li>
-    </ul>
+        <button :disabled="antallValgGjort<3" @click="bestill">Bestill</button>
+    </div>
     <script>
-        var btnBestill = document.getElementById('bestill');
-        var infoDiv = document.getElementById('info');
-        var bunnTykk = document.getElementById('tykkBunn');
-        var bunnTynn = document.getElementById('tynnBunn');
-        var fyllTaco = document.getElementById('fyllTaco');
-        var fyllKylling = document.getElementById('fyllKylling');
-        var fyllPepperoni = document.getElementById('fyllPepperoni');
-        var strStor = document.getElementById('stor');
-        var strMiddels = document.getElementById('middels');
-        var strLiten = document.getElementById('liten');
-        function info() {
-            if ((bunnTykk.checked || bunnTynn.checked) &&
-                (fyllTaco.checked || fyllKylling.checked || fyllPepperoni.checked) &&
-                (strStor.checked || strMiddels.checked || strLiten.checked)) {
-                infoDiv.innerHTML = 'Du har fylt ut alt og er klar til å bestille!';
-                btnBestill.disabled = false;
-            } else {
-                infoDiv.innerHTML = 'Du har ikke valgt:';
-                //if (bunnTykk.checked || bunnTynn.checked) {
-                //} else {
-                //    infoDiv.innerHTML += '<li>bunn</li>';
-                //}
-                if (!bunnTykk.checked && !bunnTynn.checked) {
-                    infoDiv.innerHTML += '<li>bunn</li>';
+        var app = new Vue({
+            el: '#app',
+            data: {
+                bestilling: {
+                    bunn: null,
+                    fyll: null,
+                    str: null,
+                },
+            },
+            methods: {
+                bestill: function() {
+                    alert('Bestilt! ' + JSON.stringify(this.bestilling.bunn+' '+this.bestilling.fyll+' '+this.bestilling.str));
                 }
-                if (!fyllTaco.checked && !fyllKylling.checked && !fyllPepperoni.checked) {
-                    infoDiv.innerHTML += '<li>fyll</li>';
-                }
-                if (!strStor.checked && !strMiddels.checked && !strLiten.checked) {
-                    infoDiv.innerHTML += '<li>størrelse</li>';
+            },
+            computed: {
+                antallValgGjort: function() {
+                    return (this.bestilling.bunn != null)
+                        + (this.bestilling.fyll != null)
+                        + (this.bestilling.str != null);
                 }
             }
-        }
+        })
     </script>
 </body>
 </html
