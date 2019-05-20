@@ -8,6 +8,8 @@
         .sword{
             cursor: pointer;
             width: 20px;
+            transform: rotate(180deg);
+            transform: scaleX(-1);
             height: 450px;
             border-radius: 10px;
             border: solid;
@@ -58,10 +60,18 @@
             <div class="bottomPart"></div>
             <div class="pynt"></div>
         </div>
-        
     </div>
     <button id="hello" class="button" onclick="offAndOn(this)"></button>
     <script>
+
+        var light = document.getElementById('glowingPart');
+        function offAndOn() {
+            if(light.classList.contains('sword')){
+                light.classList.remove('sword');
+            } else {
+                light.classList.add('sword');
+            }
+        }
     let currentDroppable = null;
 
     ball.onmousedown = function(event) {
@@ -74,7 +84,7 @@
         document.body.append(ball);
 
         moveAt(event.pageX, event.pageY);
-
+        offAndOn();
         function moveAt(pageX, pageY) {
             ball.style.left = pageX - shiftX + 'px';
             ball.style.top = pageY - shiftY + 'px';
@@ -82,6 +92,7 @@
 
         function onMouseMove(event) {
             moveAt(event.pageX, event.pageY);
+            //offAndOn();
         }
         document.addEventListener('mousemove', onMouseMove);
 
@@ -93,14 +104,6 @@
     ball.ondragstart = function() {
         return false;
     };
-    var light = document.getElementById('glowingPart');
-    function offAndOn() {
-        if(light.classList.contains('sword')){
-            light.classList.remove('sword');
-        } else {
-            light.classList.add('sword');
-        }
-    }
 </script>
 </body>
 </html>
