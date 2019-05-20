@@ -24,15 +24,16 @@
         }
         var myGameArea = {
             canvas: document.createElement("canvas"),
+            frameWaitLengthMillis: 20,
             lastFrameTime: new Date().getTime(),
             start: function () {
-                var intervalTimer = 10
+                //var intervalTimer = 11;
                 this.canvas.width = 480;
                 this.canvas.height = 270;
                 this.context = this.canvas.getContext("2d");
                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 this.frameNo = 0;
-                this.inerval = setInterval(updateGameArea, intervalTimer);
+                this.inerval = setInterval(updateGameArea, 1);
                 // var timer = setInterval(function(){
                 //       intervalTimer -= 1;
                 // console.log(intervalTimer);            
@@ -80,6 +81,16 @@
             }
         }
         function updateGameArea() {
+
+            let currentTimeMillis = new Date().getTime();
+            let spentTime = currentTimeMillis - myGameArea.lastFrameTime;
+            if (spentTime < myGameArea.frameWaitLengthMillis) return;
+            myGameArea.lastFrameTime = currentTimeMillis;
+
+            if (myGameArea.frameWaitLengthMillis > 1) myGameArea.frameWaitLengthMillis -= 0.02;;
+
+            console.log(myGameArea.frameWaitLengthMillis);
+
             var x, height, gap, minHeight, maxHeight, minGap, maxGap;
             for (i = 0; i < myObstacle.length; i += 1) {
                 if (myGamePiece.crashWith(myObstacle[i])) {
