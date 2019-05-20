@@ -32,13 +32,20 @@
     <div id="mainContent">
         <table>
             <tr>
+                <!-- Lager en "for løkke"
+                Som lager en "table header" for vært felt i fields -->
                 <th v-for="field in fields">{{field}}</th>
                 <th></th>
             </tr>
+            <!-- Lager en "for løkke"
+                Som lager en "table row" for vær unit
+                Tar også med "index" -->
             <tr v-for="(unit, index) in units">
                 <td v-for="field in fields">
+                    <!-- Litt usikker på hva "template" gjør enda.
+                    Men du kan bruke det som en "container" -->
                     <template v-if="unit.isEditing">
-                        <input type="text" v-model="unit[field]"/>
+                        <input type="text" v-model="unit[field]" />
                     </template>
                     <template v-else>
                         {{unit[field]}}
@@ -61,17 +68,19 @@
         var app = new Vue({
             el: '#mainContent',
             data: {
-                units: function() {
+                units: function () {
                     units.forEach(u => u.isEditing = false);
                     return units;
                 }(),
-                fields: ['organisasjonsnummer', 'antallAnsatte', 'navn']
+                fields: ['organisasjonsnummer', 'antallAnsatte', 'navn',]
             },
             methods: {
                 changeEdit: function (index, isEditing = true, revert = false) {
                     if (isEditing) {
+                        // lager en ny "property", som kopierer det gammle objektet
                         this.units[index].oldValue = JSON.parse(JSON.stringify(this.units[index]));
                     } else if (revert) {
+                        // Går igjennom alle feltene til "fields", og setter verdien til det gammle "objektet"
                         this.fields.forEach(f => this.units[index][f] = this.units[index].oldValue[f]);
                     }
                     this.units[index].isEditing = isEditing;

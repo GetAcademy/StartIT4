@@ -1,0 +1,11 @@
+Logg 14.05.2019
+
+Lært idag:
+
+jeg har lært at Vue projects bør skapes med "vue init webpack 'navn'" istedenfor "create 'navn'" om noe skal gi mening.
+så velge bort eslint og velge å bruke routeren den vil generere.
+
+så har jeg installert og initializa firebase i Vue.
+funnet ut mye om Vue idag egentlig, har begynt så vidt på å skrive prosjektet på nytt i Vue.
+
+ser frem til å gjøre mer imorgen men trenger å se de videoene kristoffer anbefalte for meg de skulle visst være toppers.

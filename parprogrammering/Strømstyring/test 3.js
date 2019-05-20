@@ -23,6 +23,7 @@ function initMap() {
 function toggleMap() {
     document.getElementById('main').style.display ='none';
     document.getElementById('content').style.display = 'none';
+    document.getElementById('SearchTable').style.display = "none";
     document.getElementById('map').style.display = 'block';
 }
 

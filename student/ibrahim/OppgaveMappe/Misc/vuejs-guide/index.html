@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="vue-app">
+        <h1>{{greet('RushB')}}</h1>
+        <a v-bind:href="website">veegee</a> <!--skal du linke en webside kan du bruke v-bind eller bare :-->
+        <p>{{name}}</p>
+        <p>{{job}}</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
