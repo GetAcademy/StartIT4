@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pizza Vue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>Pizza.bestilling</h3>
+        <div v-if="antallValgGjort == 0"
+            style="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
+        <div style="padding-bottom: 20px;" v-else-if="antallValgGjort<3">
+                Du har ikke valgt: 
+                <li v-if="!bestilling.bunn">Bunn</li>
+                <li v-if="!bestilling.fyll">Fyll</li>
+                <li v-if="!bestilling.str">Størrelse</li>
+        </div>
+        <div style="padding-bottom: 20px;" v-else>
+            Du har fylt ut alt og er klar til og å bestille!
+        </div>
+
+        bunn: <input type="radio" v-model="bestilling.bunn" value="Tykk" />Tykk
+        <input type="radio" v-model="bestilling.bunn" value="Tynn" />Tynn <br />
+
+        Fyll: <input type="radio" v-model="bestilling.fyll" value="Taco" />Taco
+        <input type="radio" v-model="bestilling.fyll" value="Kylling" />Kylling
+        <input type="radio" v-model="bestilling.fyll" value="Pepperoni" />Pepperonig<br />
+
+        Størrelse: <input type="radio" v-model="bestilling.str" value="Stor" />Stor
+        <input type="radio" v-model="bestilling.str" value="Middels" />Middels
+        <input type="radio" v-model="bestilling.str" value="Liten" />Liten<br />
+
+        <button :disabled="antallValgGjort<3" @click="bestill">Bestill</button>
+    </div> 
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                bestilling: {
+                    bunn: null,
+                    fyll: null,
+                    str: null,
+                },
+            },
+            methods: {
+                bestill: function () {
+                    alert('bestilt! ' + JSON.stringify(this.bestilling.bunn + ',' + ' ' 
+                    + this.bestilling.fyll + ',' + ' ' + this.bestilling.str));
+                }
+            },
+            computed: {
+                antallValgGjort: function () {
+                    return (this.bestilling.bunn != null)
+                        + (this.bestilling.fyll != null)
+                        + (this.bestilling.str != null);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
