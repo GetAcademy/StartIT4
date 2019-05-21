@@ -2,9 +2,11 @@
   <div id="app">
     <div class="GridContainer">
       <div class="Menu">
+        <button onclick="SettingsPage()">Settings Page</button>
         <div id="Hotline">
           Hotline
         </div>
+        <button onclick="MessagePage()">Message Page</button>
       </div>
       <div class="Middle">
         <router-view/>

@@ -18,7 +18,7 @@
             </table>
 
             <button class="TableButton" @click="LoginCheck">Login</button><br/>
-            <button class="TableButton" @click="this.$router.push('@/components/NewAccount')">New Account</button><br/>
+            <button class="TableButton" @click="$router.push('/NewAccount')">New Account</button><br/>
             <button class="TableButton" @click="test">Forgot Password</button>
 
             </div>
@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import db from '@/FirebaseConfig/FireBaseStart'
+import firebase from '@/FirebaseConfig/FireBaseStart'
 export default
 {
   components: {
-    db,
+    firebase,
   },
     data()
     {
@@ -42,6 +42,8 @@ export default
             Username: '',
             Password: '',
             ThisUser: {},
+
+            db: firebase.firestore(),
         }
     },
     methods:
@@ -50,9 +52,9 @@ export default
         {
           console.log(this.Username);
           let self = this;
-            db.collection("Users")
-                .where('Username', '==', this.Username)
-                .where('Password', '==', this.Password)
+            this.db.collection("Users")
+                .where('Username', '==', self.Username)
+                .where('Password', '==', self.Password)
                 .get()
                 .then(function (querySnapshot)
                 {
@@ -60,7 +62,7 @@ export default
 
                         self.ThisUser = querySnapshot.docs[0].data();
                         alert("Welcome " + self.ThisUser.Username);
-                        self.$router.push('@/components/Swipe'); // router is not defined, fix.mp3
+                        self.$router.push('/Swipe'); // router is not defined, fix.mp3
                     }
                      else
                      {
