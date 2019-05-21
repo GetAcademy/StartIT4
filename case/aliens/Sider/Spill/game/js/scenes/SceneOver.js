@@ -18,6 +18,11 @@ class SceneOver extends Phaser.Scene {
         this.alignGrid.placeAtIndex(27, title);
         console.log("SceneTtile!");
 
+        var alienface = this.add.image(0, 0, 'alienface');
+        alienface.setOrigin(0.5, 0.5);
+        Align.scaletoGameW(alienface, 2);
+        this.alignGrid.placeAtIndex(82, alienface);
+
         var btnStart = new FlatButton({ scene: this, key: 'button1', text: 'Play Again', event: 'start_game' });
         this.alignGrid.placeAtIndex(93, btnStart);
 

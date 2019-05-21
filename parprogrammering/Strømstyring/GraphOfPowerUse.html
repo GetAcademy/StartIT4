@@ -34,14 +34,14 @@
             <br />
             <input id="from" type="datetime-local" value="2019-01-01T00:00" /><br />
             <input id="to" type="datetime-local" value="2019-01-01T00:00" /><br />
-            
+
             <select id="chooseFormat">
-                <option id="withHours" selected value= niceData>Timer</option>
-                <option id="withOutHours" value= perDayData>Dager</option>
-                <option >Måneder</option>
-                <option >År</option>
+                <option value='Timer'>Timer</option>
+                <option value='Dager'>Dager</option>
+                <option value='Måned'>Måned</option>
+                <option value='År'>År</option>
             </select>
-            
+
             <button onclick="setInputValTjueFireTimer()">TjueFireTimer</button>
             <button onclick="setInputValEnMnd()">EnMnd</button>
             <button onclick="setInputValTreMnd()">TreMnd</button>
@@ -108,11 +108,11 @@
         <script>
             function call() {
                 createData();
-                niceData = convert(uglyData);
-                //perDayData = convertToPerDay(niceData);
-                console.log(perDayData)
+                console.log(perDayData);
                 updateChart();
+
             }
+
 
         </script>
         <script src="GraphDisplay.js"></script>
