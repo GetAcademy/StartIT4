@@ -2,11 +2,11 @@
 function newGoal() {
    
     mainextra.innerHTML = `
-                <p class="button">Hva vil du oppnå?</p>
+                <p class="regular">Hva vil du oppnå?</p>
                 <textarea id="hva" class="button" style="background-color:white;color:black"></textarea>
-                <p class="button">Forkort det til en setning.</p>
+                <p class="regular">Forkort det til en setning.</p>
                 <textarea id="forkort" class="button" style="background-color:white;color:black"></textarea>
-                <p class="button">Hvorfor vil du nå dette målet?</p>
+                <p class="regular">Hvorfor vil du nå dette målet?</p>
                 <textarea id="hvorfor" class="button" style="background-color:white;color:black"></textarea> <br />
                 <br /><button onclick="nyNøkkelvane()" class="button">Neste</button>
                                   `}
