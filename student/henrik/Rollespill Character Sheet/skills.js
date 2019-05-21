@@ -98,6 +98,22 @@ function skills() {
     var knowNatureTotal = document.getElementById("knowNatureTotal")
     var knowNatureMisc = document.getElementById("knowNatureMisc")
 
+    var knowNobility = document.getElementById("knowNobility").value
+    var knowNobilityTotal = document.getElementById("knowNobilityTotal")
+    var knowNobilityMisc = document.getElementById("knowNobilityMisc")
+
+    var knowPlanes = document.getElementById("knowPlanes").value
+    var knowPlanesTotal = document.getElementById("knowPlanesTotal")
+    var knowPlanesMisc = document.getElementById("knowPlanesMisc")
+
+    var knowReligion = document.getElementById("knowReligion").value
+    var knowReligionTotal = document.getElementById("knowReligionTotal")
+    var knowReligionMisc = document.getElementById("knowReligionMisc")
+
+    var perform = document.getElementById("perform").value
+    var performTotal = document.getElementById("performTotal")
+    var performMisc = document.getElementById("performMisc")
+
     var linguistics = document.getElementById("linguistics").value
     var linguisticsTotal = document.getElementById("linguisticsTotal")
     var linguisticsMisc = document.getElementById("linguisticsMisc")
@@ -193,6 +209,33 @@ function skills() {
         if (disableDevice >= 1) {
             disableDeviceMisc.innerHTML = +3;
         }
+        if (fly >= 1) {
+            flyMisc.innerHTML = +3;
+        }
+        if (heal >= 1) {
+            healMisc.innerHTML = +3;
+        }
+        if (knowArcane >= 1) {
+            knowArcaneMisc.innerHTML = +3;
+        }
+        if (knowNature >= 1) {
+            knowNatureMisc.innerHTML = +3;
+        }
+        if (perception >= 1) {
+            perceptionMisc.innerHTML = +3;
+        }
+        if (sleightOfHand >= 1) {
+            sleightOfHandMisc.innerHTML = +3;
+        }
+        if (spellcraft >= 1) {
+            spellcraftMisc.innerHTML = +3;
+        }
+        if (survival >= 1) {
+            survivalMisc.innerHTML = +3;
+        }
+        if (umd >= 1) {
+            umdMisc.InnerHTML = +3;
+        }
     }
     else if (chosenClass == 'Bard') {
         if (acrobatics >= 1) {
@@ -225,4 +268,105 @@ function skills() {
         if (knowDungeoneering >= 1) {
             knowDungeoneeringMisc.innerHTML = +3;
         }
+        if (knowEngineering >= 1) {
+            knowEngineeringMisc.innerHTML = +3;
+        }
+        if (knowGeography >= 1) {
+            knowGeographyMisc.innerHTML = +3;
+        }
+        if (knowHistory >= 1) {
+            knowHistoryMisc.innerHTML = +3;
+        }
+        if (knowLocal >= 1) {
+            knowLocalMisc.innerHTML = +3;
+        }
+        if (knowNature >= 1) {
+            knowNatureMisc.innerHTML = +3;
+        }
+        if (knowNobility >= 1) {
+            knowNobilityMisc.innerHTML = +3;
+        }
+        if (knowPlanes >= 1) {
+            knowPlanesMisc.innerHTML = +3;
+        }
+        if (knowReligion >= 1) {
+            knowReligionMisc.innerHTML = +3;
+        }
+        if (linguistics >= 1) {
+            linguisticsMisc.innerHTML = +3;
+        }
+        if (perception >= 1) {
+            perceptionMisc.innerHTML = +3;
+        }
+        if (perform >= 1) {
+            performMisc.innerHTML = +3;
+        }
+        if (senseMotive >= 1) {
+            senseMotiveMisc.innerHTML = +3;
+        }
+        if (sleightOfHand >= 1) {
+            sleightOfHandMisc.innerHTML = +3;
+        }
+        if (spellcraft >= 1) {
+            spellcraftMisc.innerHTML = +3;
+        }
+        if (stealth >= 1) {
+            stealthMisc.innerHTML = +3;
+        }
+        if (umd >= 1) {
+            umdMisc.innerHTML = +3;
+        }
+    }
+    else if (chosenClass == 'Barbarian') {
+        if (acrobatics >= 1) {
+            acrobatics.innerHTML = +3;
+        }
+        if (climb >= 1) {
+            climbMisc.innerHTML = +3;
+        }
+        if (handleAnimal >= 1) {
+            handleAnimalMisc.innerHTML = +3;
+        }
+        if (intimidate >= 1) {
+            intimidateMisc.innerHTML = +3;
+        }
+        if (knowNature >= 1) {
+            knowNatureMisc.innerHTML = +3;
+        }
+        if (perception >= 1) {
+            perceptionMisc.innerHTML = +3;
+        }
+        if (survival >= 1) {
+            survivalMisc.innerHTML = +3;
+        }
+        if (swim >= 1) {
+            swimMisc.innerHTML = +3;
+        }
+    }
+    else if (chosenClass == 'Cavalier') {
+        if (bluff >= 1) {
+            bluffMisc.innerHTML = +3;
+        }
+        if (climb >= 1) {
+            climbMisc.innerHTML = +3;
+        }
+        if (diplomacy >= 1) {
+            diplomacyMisc.innerHTML = +3;
+        }
+        if (handleAnimal >= 1) {
+            handleAnimalMisc.innerHTML = +3;
+        }
+        if (intimidate >= 1) {
+            intimidateMisc.innerHTML = +3;
+        }
+        if (ride >= 1) {
+            rideMisc.innerHTML = +3;
+        }
+        if (senseMotive >= 1) {
+            senseMotiveMisc.innerHTML = +3;
+        }
+        if (swim >= 1) {
+            swimMisc.innerHTML = +3;
+        }
+    }
 }
