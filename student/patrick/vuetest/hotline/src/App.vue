@@ -1,28 +1,91 @@
 <template>
   <div id="app">
-    <div class="GridContainer">
+    <div class="GridContainer" @ydate="HandleDate">
       <div class="Menu">
-        <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="this.$router.push('/Swipe')">Swipe Page</button>
         <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/Settings')">Settings Page</button>
+        <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/Swipe')">Swipe Page</button>
         <div class="Hotline">
           Hotline
         </div>
         <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/Messages')">Message Page</button>
-        <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="this.$router.push('/Dates')">Blind Dates</button>
+        <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/Dates')">Blind Dates</button>
+        <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/YourDates')">Your Blind Dates</button>
       </div>
       <div class="Middle">
-        <router-view/>
+        <router-view :SavedDates="YouDate" :Messages="MyChats" :Answers="YouChats"/>
       </div>
       <div class="Bottom">
-        <input v-if="this.$router.currentRoute.name == 'Messages'" @keydown.enter="AddChat" class="ChatBox" type="text" v-model="ChatBox"/>
+        <input v-if="this.$router.currentRoute.name == 'Messages'" @keydown.enter="AddChat" type="text" v-model="ChatBox"/>
         <button v-if="this.$router.currentRoute.name == 'Messages'" class="Send" @click="AddChat">Send</button>
       </div>
     </div>
   </div>
 </template>
 
+<script>
+import Messages from '@/components/Messages'
+import Date from '@/subcomponents/Date'
+export default {
+  data: function () {
+  return{
+    MyChats: [],
+    YouChats: [],
+    ChatBox: '',
+    Key: 0,
+
+    YouDate: [],
+  }
+},
+components:{Messages, Date,},
+methods:
+{
+  AddChat: function ()
+  {
+    this.Key++;
+    this.MyChats.push({Key: this.Key, Message: this.ChatBox,});
+    this.Key++;
+    this.YouChats.push({Key: this.Key, Message: this.RandomAnswer(),});
+  },
+  RandomAnswer: function ()
+    {
+      let i = Math.random();
+      if (i < 0.1) {
+          return "nei";
+      }
+      else if (i < 0.3 && i > 0.1) {
+          return "ja"
+      }
+      else if (i < 0.5 && i > 0.3) {
+          return "kansje";
+      }
+      else if (i < 0.7 && i > 0.5) {
+          return "du og meg og vi to sitter i en tresko!!!"
+      }
+      else if (i < 0.9 && i > 0.7) {
+          return "Prepare for trouble! Make it double! To protect the world from devastation! To unite all peoples within our nation! To denounce the evils of truth and love! To extend our reach to the stars above! Jessie! James! Team Rocket blasts off at the speed of light! Surrender now or prepare to fight! Meowth! That's right!"
+      }
+      else {
+          return "jeg forstår ikke hva du sier";
+      }
+    },
+
+    HandleDate(RecievedDate)
+    {
+			this.YouDates.push(RecievedDate);
+    },
+},
+// computed:
+// {
+
+// },
+}
+
+</script>
+
+
 <style>
 /* the chat inputs and buttons need a way to get the variables css and html and all to work with router view so that it can function on the messages page */
+
 
 #app
 {

@@ -2,14 +2,14 @@
 <div class="MessagePageContainer OverflowWindow">
 <div id="SideBar" class="SideBar">
             Contact List
-        </div>
+</div>
 
         <div class="MyChat">
-        <MyMessage v-for="Chat in MyChats" v-bind:key="Chat.Key" v-bind:ChatBox="Chat"></MyMessage>
+        <MyMessage v-for="Chat in Messages" v-bind:key="Chat.Key" v-bind:ChatBox="Chat"></MyMessage>
         </div>
 
         <div class="YouChat">
-        <YouMessage v-for="Chat in YouChats" v-bind:Key="Chat.Key" v-bind:Answer="Chat"></YouMessage>
+        <YouMessage v-for="Chat in Answers" v-bind:Key="Chat.Key" v-bind:Answer="Chat"></YouMessage>
         </div>
 
 
@@ -21,12 +21,13 @@ import MyMessage from '@/subcomponents/MyMessage'
 import YouMessage from '@/subcomponents/YouMessage'
 
 export default {
+props:['Messages','Answers'],
 data: function () {
   return{
-    MyChats: [],
-    YouChats: [],
-    ChatBox: '',
-    Key: 0,
+    // MyChats: [],
+    // YouChats: [],
+    // ChatBox: '',
+    // Key: 0,
   }
 },
 components:
@@ -36,38 +37,38 @@ components:
 },
 methods:
 {
-  AddChat: function ()
-  {
-    this.Key++;
-    this.MyChats.push({Key: this.Key, Message: this.ChatBox,});
-    this.Key++;
-    this.YouChats.push({Key: this.Key, Message: this.RandomAnswer,});
-  }
+  // AddChat: function ()
+  // {
+  //   this.Key++;
+  //   this.MyChats.push({Key: this.Key, Message: this.ChatBox,});
+  //   this.Key++;
+  //   this.YouChats.push({Key: this.Key, Message: this.RandomAnswer,});
+  // }
 },
 computed:
 {
-  RandomAnswer: function ()
-    {
-      let i = Math.random();
-      if (i < 0.1) {
-          return "nei";
-      }
-      else if (i < 0.3 && i > 0.1) {
-          return "ja"
-      }
-      else if (i < 0.5 && i > 0.3) {
-          return "kansje";
-      }
-      else if (i < 0.7 && i > 0.5) {
-          return "du og meg og vi to sitter i en tresko!!!"
-      }
-      else if (i < 0.9 && i > 0.7) {
-          return "Prepare for trouble! Make it double! To protect the world from devastation! To unite all peoples within our nation! To denounce the evils of truth and love! To extend our reach to the stars above! Jessie! James! Team Rocket blasts off at the speed of light! Surrender now or prepare to fight! Meowth! That's right!"
-      }
-      else {
-          return "jeg forstår ikke hva du sier";
-      }
-    },
+  // RandomAnswer: function ()
+  //   {
+  //     let i = Math.random();
+  //     if (i < 0.1) {
+  //         return "nei";
+  //     }
+  //     else if (i < 0.3 && i > 0.1) {
+  //         return "ja"
+  //     }
+  //     else if (i < 0.5 && i > 0.3) {
+  //         return "kansje";
+  //     }
+  //     else if (i < 0.7 && i > 0.5) {
+  //         return "du og meg og vi to sitter i en tresko!!!"
+  //     }
+  //     else if (i < 0.9 && i > 0.7) {
+  //         return "Prepare for trouble! Make it double! To protect the world from devastation! To unite all peoples within our nation! To denounce the evils of truth and love! To extend our reach to the stars above! Jessie! James! Team Rocket blasts off at the speed of light! Surrender now or prepare to fight! Meowth! That's right!"
+  //     }
+  //     else {
+  //         return "jeg forstår ikke hva du sier";
+  //     }
+  //   },
 },
 }
 </script>
@@ -75,6 +76,7 @@ computed:
 <style>
 .MessagePageContainer {
     height:100%;
+    max-height:80vh;
     display: grid;
     grid-template-columns: 10% 45% 45%;
     grid-template-rows: auto;

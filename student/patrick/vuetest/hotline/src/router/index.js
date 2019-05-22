@@ -33,7 +33,8 @@ export default new Router({
     {
       path: '/Messages',
       name: 'Messages',
-      component: Messages
+      component: Messages,
+      props: true
     },
     {
       path: '/Settings',
