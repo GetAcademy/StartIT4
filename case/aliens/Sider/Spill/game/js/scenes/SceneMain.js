@@ -13,23 +13,24 @@ class SceneMain extends Phaser.Scene {
 	    controller = new Controller();
 	    var mediaManager = new MediaManager({ scene: this });
 
-	    var sb = new SoundButtons({ scene: this });
+	   // var sb = new SoundButtons({ scene: this });
 	    this.playerHealth = 100;
 	    model.playerWon = true;
 	    this.bulletHit = false;
 
 	    //adding imgs and sprites
-	    this.back = this.add.image(0, 0, "mappy");
-	    this.back.setOrigin(0, 0);
+	   
 	    this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
 
 
-	    this.back.setInteractive();
-	    this.back.on('pointerdown', this.onDown, this);
+
+        this.input.on('pointerdown', this.onDown, this);
+            
+        
 
 	    this.player.body.collideWorldBounds = true;
 
-	    this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
+        this.physics.world.setBounds(0, 0, game.config.width, game.config.height);
 
 	    this.bulletGroup = this.physics.add.group();
 	    this.eBulletGroup = this.physics.add.group();
@@ -52,7 +53,7 @@ class SceneMain extends Phaser.Scene {
 		collide2Layer.setCollisionByProperty({ collides: true });
 
         //camera config
-        this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
+        this.cameras.main.setBounds(0, 0, game.config.width, game.config.height);
         this.cameras.main.startFollow(this.player, true);
 
 
@@ -321,8 +322,8 @@ class SceneMain extends Phaser.Scene {
             });
             this.alienGroup.hitCount = 0;
             this.alienGroup.children.iterate(function (child) {
-                var xx = Math.floor(Math.random() * this.back.displayWidth);
-                var yy = Math.floor(Math.random() * this.back.displayHeight);
+                var xx = Math.floor(Math.random() * game.config.width);
+                var yy = Math.floor(Math.random() * game.config.height);
                 child.hitCount = 0;
                 child.x = xx;
                 child.y = yy;
