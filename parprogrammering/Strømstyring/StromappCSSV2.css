@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: lightgrey;
+    background-color: lightgray;
     padding: 0;
     margin: 0;
 }
@@ -26,7 +26,7 @@
 }
 .main {
     grid-area: main;
-    background-color: ghostwhite;
+    background-color: lightgray;
     font-size: 30px;
 }
 
@@ -60,4 +60,30 @@
 }
 .button:hover{
     background-color: dodgerblue;
+}
+
+#knapp {
+    background-color: #006EB6;
+    border: none;
+    padding: 14px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 2px;
+    width: 8%;
+    color: white;
+}
+#knapp2 {
+    background-color: #006EB6;
+    border: none;
+    padding: 14px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-left: 65px;
+    width: 8%;
+    color: white;
 }
