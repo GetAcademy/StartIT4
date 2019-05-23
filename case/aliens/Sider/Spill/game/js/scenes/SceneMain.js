@@ -30,7 +30,7 @@ class SceneMain extends Phaser.Scene {
 
 	    this.player.body.collideWorldBounds = true;
 
-        this.physics.world.setBounds(0, 0, game.config.width, game.config.height);
+        this.physics.world.setBounds(0, 0, 1600, 1600);
 
 	    this.bulletGroup = this.physics.add.group();
 	    this.eBulletGroup = this.physics.add.group();
@@ -53,7 +53,7 @@ class SceneMain extends Phaser.Scene {
 		collide2Layer.setCollisionByProperty({ collides: true });
 
         //camera config
-        this.cameras.main.setBounds(0, 0, game.config.width, game.config.height);
+        this.cameras.main.setBounds(0, 0, 1600, 1600);
         this.cameras.main.startFollow(this.player, true);
 
 
