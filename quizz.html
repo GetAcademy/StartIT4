@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Quiz</title>
+	<style>
+		body {
+			background-color: lightblue;
+			font-family: "Comic Sans MS", cursive, sans-serif;
+			grid-area: content;
+			background: url(https://dolphintouch.org/wp-content/uploads/2018/02/bubblydefault.gif);
+		}
+		*{
+		box-sizing: border-box;
+		}
+		.column {
+			float: left;
+			width: 25%;
+			padding: 5px;
+		}
+		.row::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+	</style>
+</head>
+<body style="text-align:center" ;>
+	<p><h1>Quiz spørsmål Nr1: velg 1 av 4 alternativer</h1></p>
+	<p><ins>Hvilket fjell i verden var det høyeste før Mount Everest ble oppdaget?</ins></p>
+
+	<div class="row">
+		<div class="column">
+			<p><img src="montblanc.jpg" style="width: 90%" title="Mont Blanc" /></p>
+		</div>
+		<div class="column">
+			<img src="Mountaconcagua.jpg" alt="" style="width:100%" title="Mount Aconcagua">
+		</div>
+		<div class="column">
+			<img src="mountmckinley.jpg" alt="" style="width:90%" title="Mount Mckinley">
+		</div>
+		<div class="column">
+			<img src="everest.jpg" alt="" style="width:86%" title="Mount Everest">
+		</div>
+
+		<h4 class="velg" id="a1"><button onclick="velg1()">A)</button> Mount aconcagua </h4>
+		<h4 class="velg" id="a2"><button onclick="velg2()">B)</button> Mont Blanc  </h4>
+		<h4 class="velg" id="a3"><button onclick="velg3()">C)</button> Mount McKinley </h4>
+		<h4 class="velg" id="a4"><button onclick="velg4()">D)</button> Mount Everest </h4>
+
+		<a href="quiz_side2_v2.html"><button type="button"> Neste spørsmål </button></a>
+
+		
+
+		<script>
+			function velg1() {
+				document.getElementById('a1').innerHTML = '<del>Mount Aconcagua er feil svar!</del>';
+			}
+			function velg2() {
+				document.getElementById('a2').innerHTML = '<del>Mont Blanc er feil svar!</del>';
+
+			}
+			function velg3() {
+				document.getElementById('a3').innerHTML = '<del>Mount McKinley er feil svar!</del>';
+
+			}
+			function velg4() {
+				document.getElementById('a4').innerHTML = '<ins>Mount Everest er riktig svar!</ins>';
+			}
+
+		</script>
+
+
+</body>
+</html>
