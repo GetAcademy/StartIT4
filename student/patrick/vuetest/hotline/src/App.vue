@@ -79,6 +79,7 @@ methods:
 
     HandleUser(RecievedUser){
       this.ThisUser = RecievedUser;
+      console.log(this.ThisUser.ProfilePictures);
     },
 },
 // computed:

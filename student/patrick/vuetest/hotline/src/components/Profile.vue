@@ -11,7 +11,7 @@
 				<img :src="CurrentImage" alt="Profile Picture">
 			</div>
 			<div @dblclick="EditBio" v-if="!EditMode" class="ProfileBio">{{CurrentUser.Bio}}</div>
-			<textarea @dblclick="EditBio" v-if="EditMode" v-model="CurrentUser.Bio"></textarea>
+			<textarea rows="10" cols="50" @dblclick="EditBio" v-if="EditMode" v-model="CurrentUser.Bio"></textarea>
 
 	</div>
 </template>
@@ -62,7 +62,7 @@
     justify-content: center;
 		overflow-x: none;
 		display: grid;
-		grid-template-columns: 30vw 20vw 20vw 30vw;
+		grid-template-columns: 30vw 20vw 20vw 1fr;
 		grid-template-rows: 5% 5% 50% 40%;
 		grid-template-areas:
 			"EmptyProfileLeft ProfileName ProfileName EmptyProfileRight"
@@ -123,17 +123,12 @@
 		max-height: 100%;
 		max-width: 100%;
 	}
-	.ProfileBio > input {
-		overflow-y: scroll;
-		max-height: 100%;
-		max-width: 100%;
-		width: 100%;
-		height: 100%;
-	}
+
 	.ProfileBio > textarea {
+    text-align: center;
+    background: rgba(236, 68, 251, 0.75);
 		max-height: 100%;
 		max-width: 100%;
-		width: 100%;
 		height: 100%;
 	}
 </style>
