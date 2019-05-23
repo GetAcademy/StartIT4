@@ -18,7 +18,7 @@ class SceneMain extends Phaser.Scene {
         this.bulletHit = false;
 
         //adding imgs and sprites
-        this.back = this.add.image(0, 0, "background");
+        this.back = this.add.image(0, 0, "mappy");
         this.back.setOrigin(0, 0);
         this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
 
@@ -38,7 +38,8 @@ class SceneMain extends Phaser.Scene {
 
         this.makeAliens();
 
-        
+		let mappy = this.add.tilemap("mappy");
+		let terrain = mappy.addTilesetImage("terrain_atlas", "terrain");
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
