@@ -38,8 +38,8 @@ function convert(myArray) {
     for (let obj of myArray) {
         data.push({
             x: new Date(obj.date),
-            y: obj.power
-
+            y: obj.power,
+            z: obj.squareMeters
         });
 
     }
@@ -53,10 +53,11 @@ function convertToPerDay(someData) {
         let dateWithoutTime = new Date(value.x.setHours(0));
         if (currentDateData == null ||
             currentDateData.x.getTime() != dateWithoutTime.getTime()) {
-            currentDateData = { x: dateWithoutTime, y: 0 };
+            currentDateData = { x: dateWithoutTime, y: 0, z: 0 };
             newData.push(currentDateData);
         }
         currentDateData.y += value.y;
+        currentDateData.z += value.z
     }
     return newData;
 }
@@ -68,10 +69,12 @@ function ConvertToPerMonthData(someData2) {
         let dateWithoutTimeAndDays = new Date(value.x.setDate(0));
         if (currentDateData2 == null ||
             currentDateData2.x.getDay() != dateWithoutTimeAndDays.getDay()) {
-            currentDateData2 = { x: dateWithoutTimeAndDays, y: 0 };
+            currentDateData2 = { x: dateWithoutTimeAndDays, y: 0, z: 0 };
             newData2.push(currentDateData2);
         }
         currentDateData2.y += value.y;
+        currentDateData2.z += value.z
+
     }
     return newData2;
 }
@@ -83,10 +86,12 @@ function convertToPerYearData(someData3) {
         let dateWithoutTimeAndDaysAndMonths = new Date(value.x.setMonth(0));
         if (currentDateData3 == null ||
             currentDateData3.x.getFullYear() != dateWithoutTimeAndDaysAndMonths.getFullYear()) {
-            currentDateData3 = { x: dateWithoutTimeAndDaysAndMonths, y: 0 };
+            currentDateData3 = { x: dateWithoutTimeAndDaysAndMonths, y: 0, z: 0 };
             newData3.push(currentDateData3);
         }
         currentDateData3.y += value.y
+        currentDateData3.z += value.z
+
     }
     return newData3;
 }

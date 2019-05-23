@@ -7,49 +7,40 @@ class SceneMain extends Phaser.Scene {
 
 
     }
-
     create() {
-	    emitter = new Phaser.Events.EventEmitter();
-	    controller = new Controller();
-	    var mediaManager = new MediaManager({ scene: this });
+        emitter = new Phaser.Events.EventEmitter();
+        controller = new Controller();
+        var mediaManager = new MediaManager({ scene: this });
 
-	    var sb = new SoundButtons({ scene: this });
-	    this.playerHealth = 100;
-	    model.playerWon = true;
-	    this.bulletHit = false;
+        var sb = new SoundButtons({ scene: this });
+        this.playerHealth = 100;
+        model.playerWon = true;
+        this.bulletHit = false;
 
-	    //adding imgs and sprites
-	    this.back = this.add.image(0, 0, "mappy");
-	    this.back.setOrigin(0, 0);
-	    this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
-
-
-	    this.back.setInteractive();
-	    this.back.on('pointerdown', this.onDown, this);
-
-	    this.player.body.collideWorldBounds = true;
-
-	    this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
-
-	    this.bulletGroup = this.physics.add.group();
-	    this.eBulletGroup = this.physics.add.group();
-	    this.alienGroup = this.physics.add.group();
+        //adding imgs and sprites
+        this.back = this.add.image(0, 0, "mappy");
+        this.back.setOrigin(0, 0);
+        this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
 
 
-	    this.makeAliens();
+        this.back.setInteractive();
+        this.back.on('pointerdown', this.onDown, this);
 
-	    let mappy = this.add.tilemap("mappy");
-	    let terrain = mappy.addTilesetImage("terrain_atlas", "terrain");
+        this.player.body.collideWorldBounds = true;
 
-	    let botLayer = mappy.createStaticLayer("bot", terrain, 0, 0).setDepth(-1);
-	    let collideLayer = mappy.createStaticLayer("collide", terrain, 0, 0);
-	    let topLayer = mappy.createStaticLayer("top", terrain, 0, 0);
-	    let top2Layer = mappy.createStaticLayer("top over top", terrain, 0, 0);
-	    let collide2Layer = mappy.createStaticLayer("collide 2", terrain, 0, 0);
+        this.physics.world.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
 
-	    //map collisions
-		collideLayer.setCollisionByProperty({ collides: true });
-		collide2Layer.setCollisionByProperty({ collides: true });
+        this.bulletGroup = this.physics.add.group();
+        this.eBulletGroup = this.physics.add.group();
+        this.alienGroup = this.physics.add.group();
+      
+
+
+        this.makeAliens();
+
+		let mappy = this.add.tilemap("mappy");
+		let terrain = map.addTilesetImage("terrain_atlas", "terrain");
+
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
