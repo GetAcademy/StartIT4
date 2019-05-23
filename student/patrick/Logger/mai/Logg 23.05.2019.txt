@@ -1,0 +1,6 @@
+Logg 23.05.2019
+
+Lært idag:
+
+idag har jeg lært mer om vue akkuratt nå går det mere i øvelse enn i å lære særlig nye ting i vue, går mer på mestring
+prosjektet er nå omskrevet til vue jeg har commenta ut en try catch fordi jeg fikk en syntax error på opening squiggly bracketten til catchen men det funker uten forsåvidt så det kan tas siden det er ikke noe kjempe stress akkuratt nå men hadde vært fint å vist hvorfor erroren slo ut.
