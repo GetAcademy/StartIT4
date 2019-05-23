@@ -64,7 +64,7 @@
 
     <div class="item3">
         <h3>Skills</h3>
-        <table id="myTable">
+        <table id="myTable" onchange="statMods(), saves(), attackValue(), skills()">
             <tr>
                 <th>Skill</th>
                 <th>Rank </th>
@@ -82,160 +82,195 @@
             <tr>
                 <td>Appraise:</td>
                 <td><input id="appraise"></td>
-                <td id="appraisemisc"></td>
+                <td id="appraiseMisc"></td>
                 <td class="skillModifierInt"></td>
                 <td id="appraiseTotal"></td>
             </tr>
             <tr>
                 <td>Bluff:</td>
                 <td><input id="bluff"></td>
-                <td id="bluffmisc"></td>
+                <td id="bluffMisc"></td>
                 <td class="skillModifierCha"></td>
                 <td id="bluffTotal"></td>
             </tr>
             <tr>
                 <td>Climb:</td>
                 <td><input id="climb"></td>
+                <td id="climbMisc"></td>
                 <td class="skillModifierStr"></td>
                 <td id="climbTotal"></td>
             </tr>
             <tr>
                 <td>Diplomacy:</td>
                 <td><input id="diplomacy"></td>
+                <td id="diplomacyMisc"></td>
                 <td class="skillModifierCha"></td>
                 <td id="diplomacyTotal"></td>
             </tr>
             <tr>
                 <td>Disable Device:</td>
                 <td><input id="disableDevice"></td>
+                <td id="disableDeviceMisc"></td>
                 <td class="skillModifierInt"></td>
                 <td id="disableDeviceTotal"></td>
             </tr>                        
             <tr>
                 <td>Disguise:</td>
                 <td><input id="disguise"></td>
+                <td id="disguiseMisc"></td>
                 <td class="skillModifierCha"></td>
                 <td id="disguiseTotal"></td>
             </tr>  
             <tr>
                 <td>Escape Artist:</td>
                 <td><input id="escapeArtist"></td>
+                <td id="escapeArtistMisc"></td>
                 <td class="skillModifierDex"></td>
                 <td id="escapeArtistTotal"></td>
             </tr>  
             <tr>
                 <td>Fly:</td>
                 <td><input id="fly"></td>
+                <td id="flyMisc"></td>
                 <td class="skillModifierDex"></td>
                 <td id="flyTotal"></td>
             </tr>
             <tr>
                 <td>Handle Animal:</td>
                 <td><input id="handleAnimal"></td>
+                <td id="handleAnimalMisc"></td>
                 <td class="skillModifierWis"></td>
                 <td id="handleAnimalTotal"></td>
             </tr>    
             <tr>
                 <td>Heal:</td>
                 <td><input id="heal"></td>
+                <td id="healMisc"></td>
                 <td class="skillModifierWis"></td>
                 <td id="healTotal"></td>
             </tr>  
             <tr>
                 <td>Intimidate:</td>
                 <td><input id="intimidate"></td>
+                <td id="intimidateMisc"></td>
                 <td class="skillModifierCha"></td>
                 <td id="intimidateTotal"></td>
             </tr>  
             <tr>
                 <td>Knowledge Arcane:</td>
                 <td><input id="knowArcane"></td>
+                <td id="knowArcaneMisc"></td>
                 <td class="skillModifierInt"></td>
                 <td id="knowArcaneTotal"></td>
             </tr>
             <tr>
                 <td>Knowledge Dungeoneering:</td>
                 <td><input id="knowDungeoneering"></td>
+                <td id="knowDungeoneeringMisc"></td>
                 <td class="skillModifierInt"></td>
                 <td id="knowDungoneeringTotal"></td>
             </tr>  
             <tr>
                 <td>Knowledge Engineering:</td>
                 <td><input id="knowEngineering"></td>
+                <td id="knowEngineeringMisc"></td>
                 <td class="skillModifierInt"></td>
-                <td id="knowEngineeringTotal"></td>            </tr>             
+                <td id="knowEngineeringTotal"></td>            
+            </tr>             
             <tr>
                 <td>Knowledge Geography:</td>
                 <td><input id="knowGeography"></td>
+                <td id="knowGeographyMisc"></td>
                 <td class="skillModifierInt"></td>
-                <td id="knowGeographyTotal"></td>            </tr>  
+                <td id="knowGeographyTotal"></td>            
+            </tr>  
             <tr>
                 <td>Knowledge History:</td>
                 <td><input id="knowHistory"></td>
+                <td id="knowHistoryMisc"></td>
                 <td class="skillModifierInt"></td>
-                <td id="knowHistoryTotal"></td>            </tr>  
+                <td id="knowHistoryTotal"></td>            
+            </tr>  
             <tr>
                 <td>Knowledge Local:</td>
                 <td><input id="knowLocal"></td>
+                <td id="knowLocalMisc"></td>
                 <td class="skillModifierInt"></td>
-                <td id="knowLocalTotal"></td>            </tr>  
+                <td id="knowLocalTotal"></td>            
+            </tr>  
+                <td>Knowledge Nature:</td>
+                <td><input type="text" id="knowNature"></td>
+                <td id="knowNatureMisc"></td>
+                <td class="skillModifierInt"></td>
+                <td id="knowNatureTotal"></td>
+
             <tr>
                 <td>Linguistics:</td>
                 <td><input id="linguistics"></td>
+                <td id="linguisticsMisc"></td>
                 <td class="skillModifierInt"></td>
                 <td id="linguisticsTotal"></td>
             </tr>  
             <tr>
                 <td>Perception:</td>
                 <td><input id="perception"></td>
+                <td id="perceptionMisc"></td>
                 <td class="skillModifierWis"></td>
                 <td id="perceptionTotal"></td>
             </tr>  
             <tr>
                 <td>Ride:</td>
                 <td><input id="ride"></td>
+                <td id="rideMisc"></td>
                 <td class="skillModifierDex"></td>
                 <td id="rideTotal"></td>
             </tr>  
             <tr>
                 <td>Sense Motive:</td>
                 <td><input id="senseMotive"></td>
+                <td id="senseMotiveMisc"></td>
                 <td class="skillModifierWis"></td>
                 <td id="senseMotiveTotal"></td>
             </tr>  
             <tr>
                 <td>Sleight of Hand:</td>
                 <td><input id="sleightOfHand"></td>
+                <td id="sleightOfHandMisc"></td>
                 <td class="skillModifierDex"></td>
                 <td id="sleightOfHandTotal"></td>
             </tr>  
             <tr>
                 <td>Spellcraft:</td>
                 <td><input id="spellcraft"></td>
+                <td id="spellcraftMisc"></td>
                 <td class="skillModifierInt"></td>
                 <td id="spellcraftTotal"></td>
             </tr>  
             <tr>
                 <td>Stealth:</td>
                 <td><input id="stealth"></td>
+                <td id="stealthMisc"></td>
                 <td class="skillModifierDex"></td>
                 <td id="stealthTotal"></td>
             </tr>  
             <tr>
                 <td>Survival:</td>
                 <td><input id="survival"></td>
+                <td id="survivalMisc"></td>
                 <td class="skillModifierWis"></td>
                 <td id="survivalTotal"></td>
             </tr>  
             <tr>
                 <td>Swim:</td>
                 <td><input id="swim"></td>
+                <td id="swimMisc"></td>
                 <td class="skillModifierStr"></td>
                 <td id="swimTotal"></td>
             </tr>  
             <tr>
                 <td>UMD:</td>
                 <td><input id="umd"></td>
+                <td id="umdMisc"></td>
                 <td class="skillModifierCha"></td>
                 <td id="umdTotal"></td>
             </tr>  

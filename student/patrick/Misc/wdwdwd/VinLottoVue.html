@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="VinLottoStyle.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+</head>
+<body>
+
+    <div id="app">
+        
+        <toptext v-for="leke in leketest" v-bind:key="leke.id" v-bind:text="leke.text"></toptext>
+        <table class="Borders">
+            <Headline text="Personer"></Headline>
+            <person v-for="person in personer" v-bind:key="person.id" v-bind:folk="person" v-on:delete-person="DeletePerson(person)"></person>
+
+            <tr> <td> <input type="text" v-model="InputText" /> </td> <td><button v-on:click="AddPerson()">Legg til Person</button> </td> </tr>
+            <tr>
+            <td></td>
+            </tr>
+            <tr><td><input type="number" v-model="InputNumber" /> </td> <td> <button v-on:click="TrekkVinnere()"><span>trekk </span>{{InputNumber}}<span> vinnere</span></button></td></tr>
+        </table>
+
+        <table>
+            <Headline text="Vinnere"></Headline>
+            <vinner v-for="vinner in vinnere" v-bind:key="vinner.id" v-bind:deltager="vinner"></vinner>
+        </table>
+    </div>
+
+
+    <script src="VinLottoMVC.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+Vue Components
+
+properties:
+
+properties are declared in props in the export default field.
+their purpose is to send data from the parent component into the child component.
+
+written like this:
+props: ['MyProperty'],
+
+the property can then be used by parent components like such:
+"to pass a string"
+<ChildComponent MyProperty="Example"></ChildComponent>
+
+"to pass a variable"
+<ChildComponent :MyProperty="Example"></ChildComponent>
+
+"you can use the variable way of sending a property to send an object created inline"
+<ChildComponent :MyProperty="{Example: 'this is my example', ExampleTwo: 'This is my other example'}"></ChildComponent>
+
+custom events:
+
+custom events are declared in a method in the methods field.
+their purpose is to send data from the child component into the parent component.
+
+written like this in the child component:
+
+<template>
+
+<button @click="ExampleMethod">click here to emit ExampleEvent</button>
+
+</template>
+
+data: function ()
+{
+	return
+	{
+		ExampleData: 'ExampleString',
+	}
+	
+},
+
+methods: 
+{
+	ExampleMethod() 
+	{
+		this.$emit('ExampleEvent' ExampleData)
+	},
+},
+
+written like this in the parent component:
+
+<template>
+
+<ChildComponent @ExampeEvent="UseEvent"></ChildComponent>
+
+<span>{{DataForParent}}</span>
+
+</template>
+
+data: function ()
+{
+	return
+	{
+		DataForParent: 'placeholder',
+	}
+}
+
+methods: 
+{
+	UseEvent: function (EventData)
+	{
+		this.DataForParent = EventData;
+	},
+},
+
