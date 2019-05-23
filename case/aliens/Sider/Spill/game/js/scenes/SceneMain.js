@@ -20,7 +20,7 @@ class SceneMain extends Phaser.Scene {
 
 	    //adding imgs and sprites
 	   
-	    this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
+	    this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player").setDepth(0);
 
 
 
@@ -49,10 +49,11 @@ class SceneMain extends Phaser.Scene {
 		let collide2Layer = mappy.createStaticLayer("collide 2", terrain, 0, 0).setDepth(-1);
 
 		//map collisions
-		this.physics.add.collider(this.player, this.collideLayer);
-		this.physics.add.collider(this.player, this.collide2Layer);
+		this.physics.add.collider(this.player, collideLayer);
+		this.physics.add.collider(this.player, collide2Layer);
 		collideLayer.setCollisionByProperty({collides:true});
 		collide2Layer.setCollisionByProperty({collides:true});
+
 
         //camera config
         this.cameras.main.setBounds(0, 0, 1600, 1600);
