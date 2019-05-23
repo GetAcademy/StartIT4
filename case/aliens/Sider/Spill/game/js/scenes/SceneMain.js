@@ -42,15 +42,17 @@ class SceneMain extends Phaser.Scene {
 	    let mappy = this.add.tilemap("mappy");
 	    let terrain = mappy.addTilesetImage("terrain_atlas", "terrain");
 
-	    let botLayer = mappy.createStaticLayer("bot", terrain, 0, 0).setDepth(-1);
-	    let collideLayer = mappy.createStaticLayer("collide", terrain, 0, 0);
-	    let topLayer = mappy.createStaticLayer("top", terrain, 0, 0);
-	    let top2Layer = mappy.createStaticLayer("top over top", terrain, 0, 0);
-	    let collide2Layer = mappy.createStaticLayer("collide 2", terrain, 0, 0);
+	    let botLayer = mappy.createStaticLayer("bot", terrain, 0, 0).setDepth(-2);
+		let collideLayer = mappy.createStaticLayer("collide", terrain, 0, 0).setDepth(-1);
+		let topLayer = mappy.createStaticLayer("top", terrain, 0, 0).setDepth(-1);
+		let top2Layer = mappy.createStaticLayer("top over top", terrain, 0, 0).setDepth(-1);
+		let collide2Layer = mappy.createStaticLayer("collide 2", terrain, 0, 0).setDepth(-1);
 
-	    //map collisions
-		collideLayer.setCollisionByProperty({ collides: true });
-		collide2Layer.setCollisionByProperty({ collides: true });
+		//map collisions
+		this.physics.add.collider(this.player, this.collideLayer);
+		this.physics.add.collider(this.player, this.collide2Layer);
+		collideLayer.setCollisionByProperty({collides:true});
+		collide2Layer.setCollisionByProperty({collides:true});
 
         //camera config
         this.cameras.main.setBounds(0, 0, 1600, 1600);
