@@ -4,6 +4,7 @@
 
 		<div class="InnerBlindDatesBody">
 			<Date @ydate="HandleDate" v-for="date in Dates" v-bind:key="date.Key" v-bind:Instance="date"></Date>
+
 		</div>
 
 		<div class="BlindRight"></div>
@@ -20,7 +21,6 @@
 			return {
 				Key: 0,
 				Dates: [],
-				YouDates: [],
 				FNames: [
 					"John",
 					"James",
@@ -99,9 +99,7 @@
 
       HandleDate(RecievedDate)
       {
-			console.log("test" + RecievedDate);
-			this.YouDates.push(RecievedDate);
-			console.log(this.YouDates);
+      this.$emit('fucker', RecievedDate);
       },
 		},
 

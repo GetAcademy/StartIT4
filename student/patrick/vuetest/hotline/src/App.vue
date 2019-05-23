@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <div class="GridContainer" @ydate="HandleDate">
+    <div class="GridContainer" >
       <div class="Menu">
-        <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/Settings')">Settings Page</button>
+        <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/Profile')">Profile Page</button>
+        <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/Options')">Options Page</button>
         <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/Swipe')">Swipe Page</button>
         <div class="Hotline">
           Hotline
@@ -12,7 +13,7 @@
         <button v-if="this.$router.currentRoute.name != 'Login' && this.$router.currentRoute.name != 'NewAccount'" class="MenuButton" @click="$router.push('/YourDates')">Your Blind Dates</button>
       </div>
       <div class="Middle">
-        <router-view :SavedDates="YouDate" :Messages="MyChats" :Answers="YouChats"/>
+        <router-view @fucker="HandleDate" @current-user="HandleUser" :User="ThisUser" :SavedDates="YouDates" :Messages="MyChats" :Answers="YouChats"/>
       </div>
       <div class="Bottom">
         <input v-if="this.$router.currentRoute.name == 'Messages'" @keydown.enter="AddChat" type="text" v-model="ChatBox"/>
@@ -24,7 +25,8 @@
 
 <script>
 import Messages from '@/components/Messages'
-import Date from '@/subcomponents/Date'
+import Dates from '@/components/Dates'
+import Login from '@/components/Login'
 export default {
   data: function () {
   return{
@@ -33,10 +35,11 @@ export default {
     ChatBox: '',
     Key: 0,
 
-    YouDate: [],
+    YouDates: [],
+    ThisUser: null,
   }
 },
-components:{Messages, Date,},
+components:{Messages, Dates, Login},
 methods:
 {
   AddChat: function ()
@@ -71,7 +74,11 @@ methods:
 
     HandleDate(RecievedDate)
     {
-			this.YouDates.push(RecievedDate);
+      this.YouDates.push(RecievedDate);
+    },
+
+    HandleUser(RecievedUser){
+      this.ThisUser = RecievedUser;
     },
 },
 // computed:
@@ -84,9 +91,6 @@ methods:
 
 
 <style>
-/* the chat inputs and buttons need a way to get the variables css and html and all to work with router view so that it can function on the messages page */
-
-
 #app
 {
     margin: 0px;
