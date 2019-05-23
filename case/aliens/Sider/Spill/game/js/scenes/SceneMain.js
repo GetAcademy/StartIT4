@@ -322,8 +322,8 @@ class SceneMain extends Phaser.Scene {
             });
             this.alienGroup.hitCount = 0;
             this.alienGroup.children.iterate(function (child) {
-                var xx = Math.floor(Math.random() * game.config.width);
-                var yy = Math.floor(Math.random() * game.config.height);
+                var xx = Math.floor(Math.random() * 1600);
+                var yy = Math.floor(Math.random() * 1600);
                 child.hitCount = 0;
                 child.x = xx;
                 child.y = yy;
