@@ -21,7 +21,9 @@ class SceneLoad extends Phaser.Scene {
         this.load.image("background", "images/background.jpg");
         this.load.image("bullet", "images/bullet.png");
         this.load.image("title", "images/ui/Xenocide.png");
-        this.load.image('alienHead', "images/alien.png");
+		this.load.image('alienface', "images/Alienface.png");
+		this.load.image("terrain", "images/terrain_atlas.png");
+		this.load.tilemapTiledJSON("mappy", "images/test/mappy.json");
         this.load.spritesheet("player", "images/sprites/MechanicMale.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet("alien", "images/sprites/Higan.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('exp', "images/exp.png", { frameWidth: 64, frameHeight: 64 });

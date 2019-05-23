@@ -5,18 +5,54 @@
     <meta charset="utf-8" />
     <title></title>
     <style>
-        .move1 {grid-area: move1;}
-        .move2 {grid-area: move2;}
-        .move3 {grid-area: move3;}
-        .move4 {grid-area: move4;}
-        .enemy {grid-area: enemy;}
-        .hero {grid-area: hero;}
-        .enemyhealth {grid-area: enemyhealth;}
-        .herohealth {grid-area: herohealth;}
-        .menuitem1 {grid-area: menuitem1;}
-        .menuitem2 {grid-area: menuitem2;}
-        .menuitem3 {grid-area: menuitem3;}
-        .menuitem4 {grid-area: menuitem4;}
+        .move1 {
+            grid-area: move1;
+        }
+
+        .move2 {
+            grid-area: move2;
+        }
+
+        .move3 {
+            grid-area: move3;
+        }
+
+        .move4 {
+            grid-area: move4;
+        }
+
+        .enemy {
+            grid-area: enemy;
+        }
+
+        .hero {
+            grid-area: hero;
+        }
+
+        .enemyhealth {
+            grid-area: enemyhealth;
+        }
+
+        .herohealth {
+            grid-area: herohealth;
+        }
+
+        .menuitem1 {
+            grid-area: menuitem1;
+        }
+
+        .menuitem2 {
+            grid-area: menuitem2;
+        }
+
+        .menuitem3 {
+            grid-area: menuitem3;
+        }
+
+        .menuitem4 {
+            grid-area: menuitem4;
+        }
+
         .fightScreen {
             height: 300px;
             width: 300px;
@@ -27,27 +63,53 @@
             margin: auto;
             border: solid 4px black;
         }
+
         .healthbar {
             width: 150px;
             height: 10px;
             border: solid 1px black;
             background-color: green;
             margin: 45px 20px;
+            border-collapse: collapse;
         }
+
         .halfhealthbar {
             background-color: yellow;
         }
+
         .lowhealthbar {
             background-color: red;
-         }
+        }
+
         .emptyhealthbar {
             background-color: white;
         }
+
+        .ailment {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border: solid 1px black;
+        }
+
+        .poisonailment {
+            background-color: purple;
+        }
+
+        .paralyzisailment {
+            background-color: yellow;
+        }
+
+        .sleepailment {
+            background-color: blue;
+        }
+
         .moves {
             grid-area: moves;
             display: grid;
             grid-template-areas: 'move1 move2' 'move3 move4'
         }
+
         .menu {
             grid-area: menu;
             display: grid;
@@ -59,73 +121,231 @@
     <div class="fightScreen" id="mainScreen">
         <div class="enemy"><img src="https://img.pokemondb.net/sprites/black-white/normal/charmander.png" alt="Charmander"></div>
         <div class="hero"><img src="https://img.pokemondb.net/sprites/black-white/back-normal/bulbasaur.png" alt="Bulbasaur"></div>
-        <div class="enemyhealth"><div id="healthBarEnemy" class="healthbar"></div></div>
-        <div class="herohealth"><div class="healthbar"></div></div>
+        <div class="enemyhealth"><div class="ailment" id="enemyStatusAilment"></div><div id="healthBarEnemy" class="healthbar"></div></div>
+        <div class="herohealth"><div id="healthBarHero" class="healthbar"></div></div>
         <div class="moves">
-        <button class="move1" onclick="tackleMove()">Tackle</button>
-        <button class="move2">Growl</button>
-        <button class="move3">Leech Seed</button>
-        <button class="move4"> Vine Whip</button>
+            <button class="move1" onclick="tackleMove()">Tackle</button>
+            <button class="move2" onclick="poisonPowderMove()">Poison Powder</button>
+            <button class="move3" onclick="stunPowderMove()">Stun Powder</button>
+            <button class="move4" onclick="sleepPowderMove()">Sleep Powder</button>
         </div>
         <div class="menu">
             <button class="menuitem1">Moves</button>
             <button class="menuitem2">Item</button>
             <button class="menuitem3">Switch</button>
-            <button class="menuitem4">Run</button></div>
+            <button class="menuitem4">Run</button>
         </div>
+    </div>
     <div id="healthBar" style="text-align:center"></div>
     <div id="extraInfo" style="text-align:center"></div>
-    
-    <script> 
-        extraInfo = document.getElementById('extraInfo');
+
+    <script>
+        var enemyStatusAilment = document.getElementById('enemyStatusAilment');
+        var battleOver = false;
+        var extraInfo = document.getElementById('extraInfo');
         var enemyHealth = 100;
-        var attStr;
+        var heroHealth = 100;
+        var enemyDeBuff = 0;
+        var heroDeBuff = 0;
+        var enemyPoisonStatus = false;
+        var enemySleepStatus = false;
+        var enemyParalyzeStatus = false;
+        var heroAttStr;
+        var enemyAttStr;
         currentHealth();
         function tackleMove() {
+            if (battleOver == true) { return }
             var moveAcc = Math.ceil(Math.random() * 100);
             if (moveAcc <= 5) {
-                extraInfo.innerHTML = 'You Missed!'
+                extraInfo.innerHTML += 'Bulbasaur used Tackle' + '</br>' + 'Bulbasaur Missed!' + '</br>'
             }
             else if (moveAcc <= 35) {
-                attStr = 13;
-                enemyHealth = enemyHealth - attStr;
-                extraInfo.innerHTML = 'Attack Strength = 13'
+                heroAttStr = 13;
+                heroAttStr = heroAttStr - heroDeBuff
+                enemyHealth = enemyHealth - heroAttStr;
+                extraInfo.innerHTML += 'Bulbasaur used Tackle' + '</br>' + 'Attack Strength = ' + heroAttStr + '</br>'
                 currentHealth();
             }
             else if (moveAcc <= 65) {
-                attStr = 14;
-                enemyHealth = enemyHealth - attStr;
-                extraInfo.innerHTML = 'Attack Strength = 14'
+                heroAttStr = 14;
+                heroAttStr = heroAttStr - heroDeBuff
+                enemyHealth = enemyHealth - heroAttStr;
+                extraInfo.innerHTML += 'Bulbasaur used Tackle' + '</br>' + 'Attack Strength = ' + heroAttStr + '</br>'
                 currentHealth();
             }
             else if (moveAcc <= 95) {
-                attStr = 15;
-                enemyHealth = enemyHealth - attStr;
-                extraInfo.innerHTML = 'Attack Strength = 15'
+                heroAttStr = 15;
+                heroAttStr = heroAttStr - heroDeBuff
+                enemyHealth = enemyHealth - heroAttStr;
+                extraInfo.innerHTML += 'Bulbasaur used Tackle' + '</br>' + 'Attack Strength = ' + heroAttStr + '</br>'
                 currentHealth();
             }
             else if (moveAcc <= 100) {
-                attStr = 20;
-                enemyHealth = enemyHealth - attStr;
-                extraInfo.innerHTML = 'Attack Strength = 20' + '</br>' + 'Critical Hit!'
+                heroAttStr = 20;
+                heroAttStr = heroAttStr - heroDeBuff
+                enemyHealth = enemyHealth - heroAttStr;
+                extraInfo.innerHTML += 'Bulbasaur used Tackle' + '</br>' + 'Attack Strength = ' + heroAttStr + '</br>' + 'Critical Hit!' + '</br>'
                 currentHealth();
             }
             var healthBarEnemy = document.getElementById('healthBarEnemy');
             if (enemyHealth <= 0) {
                 healthBarEnemy.classList.add('emptyhealthbar');
-             }
+                enemyHealth = 0;
+                currentHealth();
+                battleOver = true
+                return
+            }
             else if (enemyHealth <= 25) {
                 healthBarEnemy.classList.add('lowhealthbar');
-             }
+            }
             else if (enemyHealth <= 50) {
                 healthBarEnemy.classList.add('halfhealthbar');
             }
+            enemyTurn();
+        }
+        function growlMove() {
+            if (battleOver == true) { return }
+            enemyDeBuff = enemyDeBuff + 5;
+            extraInfo.innerHTML += 'Bulbasaur used Growl' + '</br>'
+            enemyTurn();
+        }
+        function stunPowderMove() {
+            if (battleOver == true) { return }
+            var moveAcc = Math.ceil(Math.random() * 100);
+            if (moveAcc <= 20) {
+                extraInfo.innerHTML += 'Bulbasaur used Stun Powder' + '</br>' + 'Bulbasaur Missed!' + '</br>'
+            }
+            else if (enemyParalyzeStatus == true || enemySleepStatus == true || enemyPoisonStatus == true) {
+                extraInfo.innerHTML += 'Bulbasaur used Stun Powder' + '</br>' + 'It did not work!' + '</br>'
+            }
+            else {
+                enemyParalyzeStatus = true
+                enemyStatusAilment.classList.add('paralyzisailment')
+                extraInfo.innerHTML += 'Bulbasaur used Stun Powder' + '</br>' + 'Charmander is Paralyzed!' + '</br>'
+            }
+            enemyTurn();
+        }
+        function sleepPowderMove() {
+            if (battleOver == true) { return }
+            var moveAcc = Math.ceil(Math.random() * 100);
+            if (moveAcc <= 20) {
+                extraInfo.innerHTML += 'Bulbasaur used Sleep Powder' + '</br>' + 'Bulbasaur Missed!' + '</br>'
+                enemyTurn();
+            }
+            else if (enemyParalyzeStatus == true || enemySleepStatus == true || enemyPoisonStatus == true) {
+                extraInfo.innerHTML += 'Bulbasaur used Sleep Powder' + '</br>' + 'It did not work!' + '</br>'
+                enemyTurn();
+            }
+            else {
+                enemySleepStatus = true
+                enemyStatusAilment.classList.add('sleepailment')
+                extraInfo.innerHTML += 'Bulbasaur used Sleep Powder' + '</br>' + 'Charmander falls Asleep!' + '</br>'
+            }
+        }
+        function poisonPowderMove() {
+            if (battleOver == true) { return }
+            var moveAcc = Math.ceil(Math.random() * 100);
+            if (moveAcc <= 20) {
+                extraInfo.innerHTML += 'Bulbasaur used Poison Powder' + '</br>' + 'Bulbasaur Missed!' + '</br>'
+            }
+            else if (enemyParalyzeStatus == true || enemySleepStatus == true || enemyPoisonStatus == true) {
+                extraInfo.innerHTML += 'Bulbasaur used Poison Powder' + '</br>' + 'It did not work!' + '</br>'
+            }
+            else {
+                enemyPoisonStatus = true
+                enemyStatusAilment.classList.add('poisonailment')
+                extraInfo.innerHTML += 'Bulbasaur used Poison Powder' + '</br>' + 'Charmander is Poisoned!' + '</br>'
+            }
+            enemyTurn();
+        }
+        function enemyTurn() {
+            if (enemyParalyzeStatus == true) {
+                var paralyzeStatus = Math.ceil(Math.random() * 100)
+                if (paralyzeStatus <= 50) {
+                    extraInfo.innerHTML += 'Charmander is Paralyzed' + '</br>'
+                    return
+                }
+            }
+            else if (enemySleepStatus == true) {
+                var sleepStatus = Math.ceil(Math.random() * 100)
+                if (sleepStatus <= 75) {
+                    extraInfo.innerHTML += 'Charmander is Fast Asleep' + '</br>'
+                    return
+                }
+                else {
+                    enemySleepStatus = false
+                    enemyStatusAilment.classList.remove('sleepailment')
+                    extraInfo.innerHTML += 'Charmander Wakes Up' + '</br>'
+                }
+            }
+            else if (enemyPoisonStatus == true) {
+                enemyHealth = enemyHealth - 7
+                extraInfo.innerHTML += 'Charmander is Poisoned' + '</br>'
+            }
+            var chooseMove = Math.ceil(Math.random() * 10);
+            if (chooseMove <= 2) {
+                leerMove()
+                currentHealth();
+            }
+            else { scratchMove() }
+            function scratchMove() {
+                var moveAcc = Math.ceil(Math.random() * 100);
+                if (moveAcc <= 5) {
+                    extraInfo.innerHTML += 'Charmander used Scratch' + '</br>' + 'Charmander Missed!' + '</br>'
+                }
+                else if (moveAcc <= 35) {
+                    enemyAttStr = 13;
+                    enemyAttStr = enemyAttStr - enemyDeBuff
+                    heroHealth = heroHealth - enemyAttStr;
+                    extraInfo.innerHTML += 'Charmander used Scratch' + '</br>' + 'Attack Strength = ' + enemyAttStr + '</br>'
+                    currentHealth();
+                }
+                else if (moveAcc <= 65) {
+                    enemyAttStr = 14;
+                    enemyAttStr = enemyAttStr - enemyDeBuff
+                    heroHealth = heroHealth - enemyAttStr;
+                    extraInfo.innerHTML += 'Charmander used Scratch' + '</br>' + 'Attack Strength = ' + enemyAttStr + '</br>'
+                    currentHealth();
+                }
+                else if (moveAcc <= 95) {
+                    enemyAttStr = 15;
+                    enemyAttStr = enemyAttStr - enemyDeBuff
+                    heroHealth = heroHealth - enemyAttStr;
+                    extraInfo.innerHTML += 'Charmander used Scratch' + '</br>' + 'Attack Strength = ' + enemyAttStr + '</br>'
+                    currentHealth();
+                }
+                else if (moveAcc <= 100) {
+                    enemyAttStr = 20;
+                    enemyAttStr = enemyAttStr - enemyDeBuff
+                    heroHealth = heroHealth - enemyAttStr;
+                    extraInfo.innerHTML += 'Charmander used Scratch' + '</br>' + 'Attack Strength = ' + enemyAttStr + '</br>' + 'Critical Hit!' + '</br>'
+                    currentHealth();
+                }
+                var healthBarHero = document.getElementById('healthBarHero');
+                if (heroHealth <= 0) {
+                    healthBarHero.classList.add('emptyhealthbar');
+                    heroHealth = 0;
+                    currentHealth();
+                    battleOver = true
+                    return
+                }
+                else if (heroHealth <= 25) {
+                    healthBarHero.classList.add('lowhealthbar');
+                }
+                else if (heroHealth <= 50) {
+                    healthBarHero.classList.add('halfhealthbar');
+                }
+            }
+        }
+        function leerMove() {
+            heroDeBuff = heroDeBuff + 5;
+            extraInfo.innerHTML += 'Charmander used Leer' + '</br>'
         }
         function currentHealth() {
-            document.getElementById('healthBar').innerHTML = enemyHealth
+            document.getElementById('healthBar').innerHTML = heroHealth + ' ' + enemyHealth
         }
-       
-        
+
+
     </script>
 </body>
 

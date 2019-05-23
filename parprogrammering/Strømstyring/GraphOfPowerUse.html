@@ -34,21 +34,21 @@
             <br />
             <input id="from" type="datetime-local" value="2019-01-01T00:00" /><br />
             <input id="to" type="datetime-local" value="2019-01-01T00:00" /><br />
-            
+
             <select id="chooseFormat">
-                <option id="withHours" selected value= niceData>Timer</option>
-                <option id="withOutHours" value= perDayData>Dager</option>
-                <option >Måneder</option>
-                <option >År</option>
+                <option value='Timer'>Timer</option>
+                <option value='Dager'>Dager</option>
+                <option value='Måned'>Måned</option>
+                <option value='År'>År</option>
             </select>
-            
-            <button onclick="setInputValTjueFireTimer()">TjueFireTimer</button>
-            <button onclick="setInputValEnMnd()">EnMnd</button>
-            <button onclick="setInputValTreMnd()">TreMnd</button>
-            <button onclick="setInputValSeksMnd()">SeksMnd</button>
-            <button onclick="setInputValTolvMnd()">TolvMnd</button>
+
+            <button id="knapp" onclick="setInputValTjueFireTimer()">1 døgn</button>
+            <button id="knapp" onclick="setInputValEnMnd()">1 måned</button>
+            <button id="knapp" onclick="setInputValTreMnd()">3 måneder</button>
+            <button id="knapp" onclick="setInputValSeksMnd()">6 måneder</button>
+            <button id="knapp" onclick="setInputValTolvMnd()">1 år</button>
             <br />
-            <button onclick="call()">Lag data</button>
+            <button id="knapp2" onclick="call()">Lag data</button>
 
             <div class="chartContainer1" id="chartContainer1" style="height: 300px; width: 100%;"></div>
             <!-- <div class="chartContainer3" id="chartContainer3" style="height: 300px; width: 100%;"></div> -->
@@ -108,11 +108,12 @@
         <script>
             function call() {
                 createData();
-                niceData = convert(uglyData);
-                //perDayData = convertToPerDay(niceData);
-                console.log(perDayData)
                 updateChart();
+                console.log(perDayData);
+                console.log(niceData);
+
             }
+
 
         </script>
         <script src="GraphDisplay.js"></script>
