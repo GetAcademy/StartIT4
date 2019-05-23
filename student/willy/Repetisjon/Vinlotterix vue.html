@@ -5,7 +5,6 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
         body {
             padding: 0;
@@ -37,7 +36,9 @@
             grid-area: meny;
             overflow: hidden;
         }
-
+        div.innhold {
+            grid-area: innhold;
+        }
         div.header {
             grid-area: header;
         }
@@ -89,10 +90,11 @@
             color: green;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
-    <div class="page" :class="showMenu ? '' : 'pageUtenMeny'">
+    <div class="page" :class="showMenu ? '' : 'pageUtenMeny'" id="page">
         <div class="header" id="header">
             <button @click="visOgSkjulMeny" class="knapp">☰</button> Vinlotterix 🍷
         </div>
@@ -134,7 +136,7 @@
         <div v-else-if="currentPage == 'trekninger'" class="innhold" id="innhold">
             <p v-for="(trekning, i) in trekninger">
                 <small>
-                    {{dagsNavn[new Date(trekning.tid)]}}
+                    {{dagsNavn[new Date(trekning.tid).getday]}}
                     {{lagDatoTekstForVisning(new Date(trekning.tid))}}
                 </small><br/>
                 <b :class="'førsteTrekning' + i ">
@@ -148,14 +150,14 @@
             </p>
         </div>
         <div v-if="showMenu" class="meny" id="meny">
-            <button class="knapp fixed" @click="currentPage = 'personer'">Personer</button>
-            <button class="knapp fixed" @click="currentPage = 'trekninger'">Trekninger</button>
+            <button class="knapp fixed" @click="currentPage = 'personer'">Personer</button><br/>
+            <button class="knapp fixed" @click="currentPage = 'trekninger'">Trekninger</button><br/>
         </div>
     </div>
     <script>
         var app = new Vue({
             el: '#page',
-            data: {
+            data: {                
                 showMenu: true,
                 currentPage: 'personer',
                 personer: {
@@ -190,11 +192,10 @@
                 lagTekstListe: function (liste) {
                     if (liste.length === 0) return '';
                     if (liste.length === 1) return liste[0];
-
                     const tekstListe = liste.join(', ');
-                    const indexSisteKomma =  texstListe.lastIndexOf(',');
-                    return texstListe.substr(0, indexSisteKomma)
-                        + ' og ' + texstListe.substr(indexSisteKomma + 1);
+                    const indexSisteKomma = tekstListe.lastIndexOf(',');
+                    return tekstListe.substr(0, indexSisteKomma)
+                        + ' og ' + tekstListe.substr(indexSisteKomma + 1);
                 },
                 lagDatoTekstForVisning: function (dato) {
                     return dato.toLocaleString().replace(',', '').substr(0, 15);
@@ -225,20 +226,20 @@
                 trekk: function () {
                     console.log('trekk');
                     let antall = this.personer.trekkAntall;
-                    const personerListe = this.personer.filter(p => p.erValgt);
-                    const indesker = Array.from(personerListe.keys());
+                    const personerListe = this.personer.liste.filter(p => p.erValgt);
+                    const indekser = Array.from(personerListe.keys());
                     const vinnere = [];
-                    while (antall--> 0 && indekser.length > 0) {
+                    while (antall-- > 0 && indekser.length > 0) {
                         const tilfeldigIndeks = Math.floor(Math.random() * indekser.length);
-                        const indeks = indekser.spice(tilfeldigIndeks, 1);
-                        vinnere.push(personerListe[index].navn);
+                        const indeks = indekser.splice(tilfeldigIndeks, 1);
+                        vinnere.push(personerListe[indeks].navn);
                     }
                     this.trekninger.unshift({
                         vinnere: vinnere,
-                        tid: this.lagDatoTekstForLagring(),
+                        tid: this.lagDatoTekstNåForLagring(),
                         deltakere: personerListe.map(p => p.navn)
                     });
-                    this.currentPage ='trekninger';
+                    this.currentPage = 'trekninger';
                 }
             }
         })
