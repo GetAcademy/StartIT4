@@ -39,7 +39,8 @@ class SceneMain extends Phaser.Scene {
         this.makeAliens();
 
 		let mappy = this.add.tilemap("mappy");
-		let terrain = mappy.addTilesetImage("terrain_atlas", "terrain");
+		let terrain = map.addTilesetImage("terrain_atlas", "terrain");
+
 
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
