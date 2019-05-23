@@ -11,4 +11,5 @@ class GameController {
         this._game.setX(index);
         updateView();
     }
+    
 }
