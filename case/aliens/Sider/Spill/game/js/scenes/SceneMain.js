@@ -41,6 +41,12 @@ class SceneMain extends Phaser.Scene {
 		let mappy = this.add.tilemap("mappy");
 		let terrain = mappy.addTilesetImage("terrain_atlas", "terrain");
 
+		let botLayer = mappy.createStaticLayer("bot", terrain, 0, 0);
+		let collideLayer = mappy.createStaticLayer("collide", terrain, 0, 0);
+		let top = mappy.createStaticLayer("top", terrain, 0, 0);
+		let top2 = mappy.createStaticLayer("top over top", terrain, 0, 0);
+		let collide2 = mappy.createStaticLayer("collide 2", terrain, 0, 0);
+
         //camera config
         this.cameras.main.setBounds(0, 0, this.back.displayWidth, this.back.displayHeight);
         this.cameras.main.startFollow(this.player, true);
