@@ -16,7 +16,6 @@ function myFunction() {
         }
     }
 }
-
 db.collection('Bygg').get()
     .then(function (data) {
         let alleBygg = [];
@@ -29,13 +28,13 @@ db.collection('Bygg').get()
 
     })
     .catch(function (error) { console.error(error); })
-
+createSearchHtml()
 function doSomethingWithAlleBygg(alleBygg) {
     for (let i = 0; i < alleBygg.length; i++) {
         let building = alleBygg[i];
         document.getElementById('myTable').innerHTML +=
-            `<b>
-      <tr onclick="showAllInfo(${i})">
+     `
+      <tr>
       <td>${building.navn}</b></td>
       <td>${building.adresse}</td>
       <td>${building.by}</td>
@@ -43,14 +42,8 @@ function doSomethingWithAlleBygg(alleBygg) {
       <td>${building.kategori}</td>
       <td>${building.areal}</td>
       <td>${building.oppvarming}</td>
-
+      </tr>
  `;
     }
 }
 
-function toggleList(){
-    document.getElementById('main').style.display = 'none';
-    document.getElementById('content').style.display = 'none';
-    document.getElementById('map').style.display = 'none';
-    document.getElementById('SearchTable').style.display="block";
-}
