@@ -51,7 +51,32 @@
         <p>Age + A = {{ addToA }}</p>
         <p>Age + B = {{ addToB }}</p>
     </div>
-    
+    <hr>
+
+    <div id="vue-app-five">
+        <!-- <h1>Dynamic CSS</h1>
+        <h2>Example 1</h2>
+        <div @click="available = !available" :class="{available: available}">
+            <span class="info">Ryu</span>
+        </div> -->
+        <h2>Example 2</h2>
+        <button @click="nearby = !nearby">Toggle nearby</button>
+        <button @click="available = !available">Toggle available</button>
+        <div :class="compClasses">
+            <span class="info">Ryu</span>
+        </div>
+    </div>
+    <hr>
+
+    <div id="vue-app-six">
+        <h1>Conditionals</h1>
+        <button @click="error = !error">Toggle Error</button>
+        <button @click="sucess = !sucess">Toggle Sucess</button>
+        <!-- <p v-if="error">ERROR</p>
+        <p v-else-if="sucess">Yay, ERROR fixed</p> -->
+        <p v-show="error">ERROR</p>
+        <p v-show="sucess">Yay, ERROR fixed</p>
+    </div>
 
 
 
