@@ -11,7 +11,7 @@ class SceneLoad extends Phaser.Scene {
 
        
 
-        //this.load.audio('backgroundMusic', ["audio/background.mp3", "audio/background.ogg"]);
+        this.load.audio('backgroundMusic', ["audio/Dangers of the Third Degree.mp3"])
 
         this.load.image("toggleBack", "images/ui/toggles/1.png");
         this.load.image("sfxOff", "images/ui/icons/sfx_off.png");
