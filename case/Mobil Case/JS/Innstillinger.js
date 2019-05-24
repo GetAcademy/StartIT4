@@ -12,5 +12,5 @@ function Innstillinger() {
     <div>
         <input type="password" placeholder="PASSORD" value="FAKEPASSORD" />
     </div>
-    <button>LAGRE ENDRINGER</button>`;
+    <button class="regular">LAGRE ENDRINGER</button>`;
 }
