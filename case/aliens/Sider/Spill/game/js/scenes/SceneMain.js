@@ -21,7 +21,7 @@ class SceneMain extends Phaser.Scene {
 
 	    //adding imgs and sprites
 	   
-	    this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player").setDepth(0);
+	    this.player = this.physics.add.sprite(game.config.width / 2, game.config.height / 2, "player");
 
 
 
@@ -43,6 +43,7 @@ class SceneMain extends Phaser.Scene {
 	    let mappy = this.add.tilemap("mappy");
 	    let terrain = mappy.addTilesetImage("terrain_atlas", "terrain");
 
+		//layers
 	    let botLayer = mappy.createStaticLayer("bot", terrain, 0, 0).setDepth(-2);
 		let collideLayer = mappy.createStaticLayer("collide", terrain, 0, 0).setDepth(-1);
 		let topLayer = mappy.createStaticLayer("top", terrain, 0, 0).setDepth(-1);
