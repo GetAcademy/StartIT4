@@ -14,7 +14,8 @@ class SceneMain extends Phaser.Scene {
         var mediaManager = new MediaManager({ scene: this });
         mediaManager.setBackgroundMusic("backgroundMusic");
 
-	   // var sb = new SoundButtons({ scene: this });
+       
+       
 	    this.playerHealth = 100;
 	    model.playerWon = true;
 	    this.bulletHit = false;
@@ -268,7 +269,7 @@ class SceneMain extends Phaser.Scene {
         this.text1.setOrigin(0.5, 0.5);
         this.text2.setOrigin(0.5, 0.5);
         this.uiGrid = new AlignGrid({ scene: this, rows: 11, cols: 11 });
-        this.uiGrid.placeAtIndex(1, this.text1)
+        this.uiGrid.placeAtIndex(2, this.text1)
         this.uiGrid.placeAtIndex(8, this.text2)
        //this.uiGrid.showNumbers();
 
