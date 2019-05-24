@@ -1,6 +1,6 @@
 var NameArray = ['Navn', 'Adresse', 'Sted', 'Post.Nr', 'Kategori', 'Areal', 'Oppvarming'];
 
-function 
+// function 
 
 /* <h1>Bygninger</h1>
     <form id="add-bygg-form">
