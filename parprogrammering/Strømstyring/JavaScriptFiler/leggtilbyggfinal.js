@@ -28,7 +28,7 @@ db.collection('Bygg').get()
 
     })
     .catch(function (error) { console.error(error); })
-createSearchHtml()
+createSearchHtml();
 function doSomethingWithAlleBygg(alleBygg) {
     for (let i = 0; i < alleBygg.length; i++) {
         let building = alleBygg[i];
