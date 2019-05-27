@@ -11,7 +11,7 @@ class SceneTitle extends Phaser.Scene {
         controller = new Controller();
 
         this.alignGrid = new AlignGrid({ rows: 11, cols: 11, scene: this });
-       // this.alignGrid.showNumbers();
+        //this.alignGrid.showNumbers();
 
 
         var title = this.add.image(0, 0, 'title');
@@ -19,6 +19,11 @@ class SceneTitle extends Phaser.Scene {
         Align.scaletoGameW(title, 0.8);
         this.alignGrid.placeAtIndex(27, title);
         console.log("SceneTtile!");
+
+        var alienface = this.add.image(0, 0, 'alienface');
+        alienface.setOrigin(0.5, 0.5);
+        Align.scaletoGameW(alienface, 2);
+        this.alignGrid.placeAtIndex(82, alienface);
 
         
 

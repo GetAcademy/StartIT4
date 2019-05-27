@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            float: left;
+            background-color: darkgrey;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            vertical-align: middle;
+            font-family: drama sans;
+            font-size: 200%;
+            border: #bbbbaa solid 4px;
+            border-radius: 10px;
+        }
+        div.resultatBox{
+            width: 344px;
+            text-align: right;
+        }
+        div.firstInRow{
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+        <div id="resultatBox" class="resultatBox" id="scree"></div>
+        <div class="firstInRow" onclick="addCharacter(7)">7</div>
+        <div onclick="addCharacter(8)">8</div>
+        <div onclick="addCharacter(9)">9</div>
+        <div onclick="addCharacter('÷')">÷</div>
+
+        <div class="firstInRow" onclick="digitClicked(4)">4</div>
+        <div onclick="addCharacter(5)">5</div> 
+        <div onclick="addCharacter(6)">6</div>
+        <div onclick="addCharacter('×')">×</div>
+        
+        <div class="firstInRow" onclick="addCharacter(1)">1</div>
+        <div onclick="addCharacter(2)">2</div>
+        <div onclick="addCharacter(3)">3</div>
+        <div onclick="addCharacter('-')">-</div>
+
+        <div class="firstInRow" onclick="addCharacter(0)">0</div>
+        <div onclick="clearResultatbox()">C</div>
+        <div onclick="calculate()">=</div>
+        <div onclick="addCharacter('+')">+</div>
+
+        <script type="text/javascript">
+            var resultatBox = document.getElementById('resultatBox');
+
+
+
+            function addCharacter(x){
+                resultatBox.innerHTML += x;
+            }
+            function calculate(){
+                var calculation = resultatBox.
+                innerHTML
+                .replace('×', '*')
+                .replace('÷', '/');
+                resultatBox.innerHTML = eval(calculation);
+            }
+            function clearResultatbox(){
+                resultatBox.innerHTML = '';
+            }
+            
+        </script>
+</body>
+</html>

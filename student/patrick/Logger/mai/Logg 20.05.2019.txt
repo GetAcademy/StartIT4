@@ -1,0 +1,16 @@
+Logg 20.05.2019
+
+idag har jeg fikset lag ny account siden
+jeg har fikset den ødelagte css en jeg har fikset slik at jeg kan referere til firebase
+jeg har fikset en del andre små errorer som kom opp som tok en del tid å fikse når jeg hadde fikset referansen til firebase.
+
+jeg har begynt på swipe pagen og har møtt på en rar error og ser desverre ikke hva som kan være feil. spør om hjelp med å forstå dette imorgen.
+
+på spillet har jeg fiksa kyllingens panic speed
+jeg har fiksa slik at det er en knapp for å starte runden enn å måtte tappe 3 ganger.
+jeg har fiksa at man kan kjøpe barrikader.
+
+jeg har fikset slik at fiender ser forran seg og sjekker om de ser på en barrikade da må de stoppe.
+men har enda ikke skrevet kode for at barrikaden tar skade så lenge fiender må stoppe forran den,
+har heller ikke testet ut om dette funker i det hele tatt men det er blitt sent og jeg er sulten,
+så det får jeg ta imorgen ettermiddag.

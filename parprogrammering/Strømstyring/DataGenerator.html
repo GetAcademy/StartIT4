@@ -24,22 +24,17 @@
              buildings = [];
              
             for (let buildingNo = 1; buildingNo < 2; buildingNo++) {
-                const buildingObj = {
-                    name: 'Building ' + buildingNo,
-                    data: []
-                }
                 let power = randomPower(1 + Math.random() * 70);
                 for (let myDate = dateFrom; myDate <= dateTo; myDate = addOneHour(myDate)) {
                     
-                    buildingObj.data.push({
+                    buildings.push({
                         date: myDate.toISOString(),
-                        power: randomPower(power)
-                        
+                        power: randomPower(power),
+                        areal: power / 700,
                     });
                 
                 }
 
-                buildings.push(buildingObj);
             }
             
             console.log(JSON.stringify(buildings));
