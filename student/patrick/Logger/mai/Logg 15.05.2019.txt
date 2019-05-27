@@ -1,0 +1,11 @@
+Logg 15.05.2019
+
+Lært idag:
+
+idag har jeg lært at firebase kan installeres med npm og kan initialiseres i terminal.
+jeg har også lært at dette ikke faktisk initialiserer firebase og du må fortsatt initialisere firebase manuelt.
+jeg har lært at this nødvendigheten til vue component variabler når de blir brukt i andre variabler eller metoder i samme komponenten ikke har scope viss det er i en funksjon i en funksjon.
+da må man lagre this i en variabel i det ytteste funksjonslaget som man kan bruke istedenfor this når man kommer inn til den indre funksjonen slik at this blir referert til riktig denne da.
+fant også ut at viss man bruker arrow functions istedenfor onklige function calls så beholder man scope så når man skriver de firebase callback funksjonene så kan man bruke this uten å lage variabel viss man bruker arrow functions fordi scope blir beholdt.
+
+erroren jeg skal få lov til å godte meg med imorgen er "router is not defined" gøyale saker at den ikke vet hva routeren min er fornoe. så det blir sikkert lærerikt.

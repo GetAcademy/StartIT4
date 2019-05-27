@@ -8,14 +8,19 @@
 <body>
     <div id="content"></div>
     <script>
-      
+        
         content = document.getElementById('content');
         show();
         function show() {
             content.innerHTML = `
 <input id="searchBar" type="text" /><button onclick="searchchar()">Søk</button><br />
 <input id="addName" type="text" /><br /><input id="addNum" type="text" /><button onclick="addchar()">Legg til</button>
-    <div id="showSearch"></div>`;
+    <button onclick="showAll()">Vis Alle</button>
+<button onclick="sortNum()">Sorter Nummer</button>
+<button onclick="sortABC()">Sorter Navn</button>
+<button onclick="randomPick()">Tilfeldig</button>
+<div id="showSearch"></div>
+`;
         }
         
         const characters = [
@@ -41,11 +46,50 @@
         function addchar() {
             addName = document.getElementById('addName').value;
             addNum = document.getElementById('addNum').value;
+            if (addName.trim() == '' || addNum.trim() == '') return;
             characters.push({ name: addName, number: addNum });
             addName.value = '';
             addNum.value = '';
             show();
         }
+        function showAll() {
+            var html = '';
+            var showSearch = document.getElementById('showSearch');
+            for (let i = 0; i < characters.length; i++) {
+                var character = characters[i]
+                html += character.name + ' ' + character.number + '<br />';
+                showSearch.innerHTML = html;
+            }
+        }
+        function sortABC() {
+            var html = '';
+            characters.sort((a, b) => a.name.localeCompare(b.name));
+            for (let i = 0; i < characters.length; i++) {
+                var character = characters[i]
+                html += character.name + ' ' + character.number + '<br />';
+                showSearch.innerHTML = html;
+            }
+        }
+        function sortNum() {
+            var html = '';
+            characters.sort((a, b) => a.number - b.number);
+            for (let i = 0; i < characters.length; i++) {
+                var character = characters[i]
+                html += character.name + ' ' + character.number + '<br />';
+                showSearch.innerHTML = html;
+            }
+        }
+        function randomPick() {
+            var randonum = Math.ceil(Math.random() * 7);
+            for (let i = 0; i < characters.length; i++) {
+                var character = characters[i]
+                if (randonum == character.number) {
+                    showSearch.innerHTML = character.name + ' ' + character.number;
+                }
+            }
+        }
+        
+        
     </script>
 </body>
 </html>
