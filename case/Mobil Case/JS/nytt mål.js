@@ -3,11 +3,11 @@ function newGoal() {
    
     mainextra.innerHTML = `
                 <button class="button">Hva vil du oppnå?</button>
-                <textarea id="hva" class="button" style="background-color:white;color:black"></textarea>
+                <input id="hva" class="button" style="background-color:white;color:black; width: 94%; height: 32px;"></input>
                 <button class="button">Forkort det til en setning.</button>
-                <textarea id="forkort" class="button" style="background-color:white;color:black"></textarea>
+                <input id="forkort" class="button" style="background-color:white;color:black; width: 94%; height: 32px;"></input>
                 <button class="button">Hvorfor vil du nå dette målet?</button>
-                <textarea id="hvorfor" class="button" style="background-color:white;color:black"></textarea> <br />
+                <input id="hvorfor" class="button" style="background-color:white;color:black; width: 94%; height: 32px;"></input> <br />
                 <br /><button onclick="nyNøkkelvane()" class="button">Neste</button>
                                   `}
 function nyNøkkelvane() {
@@ -22,7 +22,7 @@ function nyNøkkelvane() {
     mainextra.innerHTML = `
                 <div class="overskrift back" onclick="newGoal()">←</div>
                 <button class="button">Hvilke vaner trenger du for å nå målet?</button>
-                <div class="Textbox" id="textDiv"> <textarea id="vaner" class="button" style="background-color:white;color:black"></textarea><br /></div>
+                <div class="Textbox" id="textDiv"> <input id="vaner" class="button" style="background-color:white;color:black; width: 94%; height: 32px;"></input><br /></div>
                 <div id="nyVane" onclick="addtxt()" style="font-size:50px; text-align:center;">⁺</div><br />
                 <br /><button onclick="nyAktivitet()" class="button">Neste</button>
                             `}
