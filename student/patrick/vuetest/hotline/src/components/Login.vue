@@ -61,6 +61,7 @@ export default
                     if (querySnapshot.size > 0) {
 
                         self.ThisUser = querySnapshot.docs[0].data();
+                        self.$emit('current-user', self.ThisUser);
                         alert("Welcome " + self.ThisUser.Username);
                         self.$router.push('/Swipe'); // router is not defined, fix.mp3
                     }

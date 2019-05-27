@@ -88,9 +88,3 @@ db.collection('Bygg').orderBy('by').onSnapshot(snapshot => {
 
 
 
-function toggleLeggTilBygg() {
-    document.getElementById('main').style.display = 'none';
-    document.getElementById('map').style.display = 'none';
-    document.getElementById('SearchTable').style.display = "none";
-    document.getElementById('content').style.display = 'block';
-}

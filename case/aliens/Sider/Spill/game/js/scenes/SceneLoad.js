@@ -11,7 +11,7 @@ class SceneLoad extends Phaser.Scene {
 
        
 
-        //this.load.audio('backgroundMusic', ["audio/background.mp3", "audio/background.ogg"]);
+        this.load.audio('backgroundMusic', ["audio/Dangers of the Third Degree.mp3"])
 
         this.load.image("toggleBack", "images/ui/toggles/1.png");
         this.load.image("sfxOff", "images/ui/icons/sfx_off.png");
@@ -21,7 +21,9 @@ class SceneLoad extends Phaser.Scene {
         this.load.image("background", "images/background.jpg");
         this.load.image("bullet", "images/bullet.png");
         this.load.image("title", "images/ui/Xenocide.png");
-        this.load.image('alienface', "images/Alienface.png");
+		this.load.image('alienface', "images/Alienface.png");
+		this.load.image("terrain", "images/terrain_atlas.png");
+		this.load.tilemapTiledJSON("mappy", "images/test/mappy.json");
         this.load.spritesheet("player", "images/sprites/MechanicMale.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet("alien", "images/sprites/Higan.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet('exp', "images/exp.png", { frameWidth: 64, frameHeight: 64 });

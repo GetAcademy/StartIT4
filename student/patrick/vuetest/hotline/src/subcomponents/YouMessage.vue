@@ -1,7 +1,7 @@
 <template>
         <div class="container darker RightGrid">
         <img class="img right" src="https://s3-eu-central-1.amazonaws.com/workaround-production/wp-content/uploads/2018/03/28152123/avatar-user-hacker-3830b32ad9e0802c-512x512.png" alt="Avatar">
-        <p class="Text right">{{Answer}}</p>
+        <p class="Text right">{{Answer.Message}}</p>
         <span class="time right">{{Timestamp}}</span>
         </div>
 </template>

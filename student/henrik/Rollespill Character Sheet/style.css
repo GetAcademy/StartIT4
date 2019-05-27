@@ -93,6 +93,9 @@ input.statistics {
     text-align: left;
     
 }
+input.ACInputs {
+    width: 30px;
+}
 #myTable tr {
     border-bottom: 1px solid #ddd;
 }
@@ -107,14 +110,14 @@ td {
 #knowArcane, #knowDungeoneering, #knowEngineering, #knowGeography,
 #knowHistory, #knowLocal, #linguistics, #perception, #ride,
 #senseMotive, #sleightOfHand, #spellcraft, #stealth, #survival,
-#swim, #UMD, #knowNature {
-    width: 50px;           
+#swim, #UMD, #knowNature, #knowPlanes, #knowNobility, #knowReligion, #perform {
+    width: 50px;          
 }
 #acrobaticsMisc, #appraiseMisc, #bluffMisc, #climbMisc, #diplomacyMisc, #disableDeviceMisc,
 #disguiseMisc, #escapeArtistMisc, #flyMisc, #handleAnimalMisc, #healMisc, #intimidateMisc,
 #knowArcaneMisc, #knowDungeoneeringMisc, #knowEngineeringMisc, #knowGeographyMisc,
 #knowHistoryMisc, #knowLocalMisc, #linguisticsMisc, #perceptionMisc, #rideMisc,
 #senseMotiveMisc, #sleightOfHandMisc, #spellcraftMisc, #stealthMisc, #survivalMisc,
-#swimMisc, #umdMisc, #knowNatureMisc {
+#swimMisc, #umdMisc, #knowNatureMisc, #knowPlanesMisc, #knowNobilityMisc, #knowReligionMisc, #performMisc {
     padding-left: 60px;           
 }
