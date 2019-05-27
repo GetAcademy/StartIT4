@@ -5,35 +5,36 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="StromappCSSV2.css" />
-    <link rel="stylesheet" href="Firestoretest/main.css">
+    <link rel="stylesheet" href="./CssFiler/StromappCSSV2.css" />
+    <link rel="stylesheet" href="./Firestoretest/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="Map.css">
-    <link rel="stylesheet" href="leggtilbygg.css">
-    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="./CssFiler/Map.css">
+    <link rel="stylesheet" href="./CssFiler/leggtilbygg.css">
+    <link rel="stylesheet" href="./CssFiler/search.css">
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
-    <script src="Generator.js"></script>
-    <script src="DatasetYear.js"></script>
-    <script src="charts.js"></script>
+    <script src="./JavaScriptFiler/Generator.js"></script>
+    <script src="./JavaScriptFiler/DatasetYear.js"></script>
+    <script src="./JavaScriptFiler/charts.js"></script>
 
 </head>
 
 <body>
     <div class="grid-container">
-        <div class="header">Kommunal Strømstyring</div>
+        <div onclick="homeButton()" class="header" style="cursor:pointer; color: white;">Kommunal Strømstyring</div>
         <div class="menuContainer">
             <button class="button" onclick="toggleList()">Liste over bygg</button>
             <button class="button" onclick="toggleLeggTilBygg()">Legg til bygg</button>
-            <button class="button" onclick="toggleMap()">Kart</button></div>
+            <button class="button" onclick="toggleMap()">Kart</button>
+        </div>
 
 
         <div id="main" class="main" style="display:block">Velkommen til Larvik kommune sin kommunale strømstyring
             side.<br />Vennligst velg:
             <br />
-                    <input id="from" type="datetime-local" value="2019-01-01T00:00" /><br />
-                    <input id="to" type="datetime-local" value="2019-01-01T00:00" /><br />
+            <input id="from" type="datetime-local" value="2019-01-01T00:00" /><br />
+            <input id="to" type="datetime-local" value="2019-01-01T00:00" /><br />
             <div class="form-group">
                 <div class="dropdown bootstrap-select">
                     <select id="chooseFormat" class="custom-select text-white"
@@ -56,10 +57,7 @@
             <button type="button" class="btn btn-primary" id="knapp2" onclick="call()">Lag data</button>
 
             <div class="chartContainer1" id="chartContainer1" style="height: 300px; width: 100%;"></div>
-            <!-- <div class="chartContainer3" id="chartContainer3" style="height: 300px; width: 100%;"></div> -->
-
         </div>
-
 
         <div id="content" style="display:none">
             <h1>Bygninger</h1>
@@ -78,48 +76,29 @@
         </div>
         <div id="map" style="display:none"></div>
 
-
         <div id="SearchTable" style="display:none">
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."
                 title="Type in a name">
-
-            <table id="myTable">
-                <tr class="tableHeader">
-                    <th style="width:14.2%;">Navn</th>
-                    <th style="width:14.2%;">Adresse</th>
-                    <th style="width:14.2%">Sted</th>
-                    <th style="width:14.2%">Post.Nr</th>
-                    <th style="width:14.2%">Kategori</th>
-                    <th style="width:14.2%">Areal</th>
-                    <th style="width:14.2%">Oppvarming</th>
-                </tr>
-
-                <div id="buttonHere"></div>
-
-            </table>
+            <table id="myTable"></table>
         </div>
 
         <div class="footer">Laget av: Per, Henrik, Ibrahim og Adrian</div>
 
-        <script src="config.js"></script>
-        <script src="firebaseinit.js"></script>
-        <script src="Firestoretest/main.js"></script>
+        <script src="creatingHtml.js"></script>
+        <script src="./JavaScriptFiler/config.js"></script>
+        <script src="./JavaScriptFiler/firebaseinit.js"></script>
+        <script src="./Firestoretest/main.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-        <script src="test 3.js"></script>
-        <script src="leggtilbyggfinal.js"></script>
+        <script src="./JavaScriptFiler/test 3.js"></script>
+        <script src="./JavaScriptFiler/leggtilbyggfinal.js"></script>
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpRnjLpiGEoPxMt7I78RGftYx_wT0vKK4&callback=initMap">
             </script>
-        <script>
-            function call() {
-                createData();
-                updateChart();
-                console.log(perDayData);
-                console.log(niceData);
 
-            }
+        <script>
+
         </script>
-        <script src="GraphDisplay.js"></script>
+        <script src="./JavaScriptFiler/GraphDisplay.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -129,6 +108,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
             </script>
+        <script src="./JavaScriptFiler/sitecontroller.js"></script>
 
 </body>
 

@@ -17,6 +17,7 @@ function saves() {
     var willSave = document.getElementById("willSave")
     var reflexSave = document.getElementById("reflexSave")
     // High Fort and ref
+
     if (
         chosenClass == 'Alchemist' || 
         chosenClass == 'Gunslinger' || 

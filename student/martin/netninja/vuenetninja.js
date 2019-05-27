@@ -77,3 +77,37 @@ new Vue({
         },
     }
 });
+
+new Vue({
+    el: '#vue-app-five',
+    data: {
+        available: false,
+        nearby: false
+    },
+    methods: {
+
+    },
+    computed: {
+        compClasses: function() {
+            return {
+                available: this.available,
+                nearby: this.nearby
+            }
+        }
+    }
+});
+
+new Vue({
+    el: '#vue-app-six',
+    data: {
+        error: false,
+        sucess: false
+    },
+    methods: {
+
+    },
+    computed: {
+        
+    }
+});
+

@@ -5,6 +5,6 @@
         Hva skal det nye målet være?
     </div>
     <div><textarea class="bigText2"></textarea></div>
-    <div><button onclick="showMainScreen()">Lagre og ferdig</button</div>
+    <div><button class="regular" onclick="showMainScreen()">Lagre og ferdig</button</div>
     `;
 }
