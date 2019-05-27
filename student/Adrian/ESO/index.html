@@ -9,9 +9,8 @@
 </head>
 <body>
         <h1>ESO PLANER</h1>
-        <div id="pic"></div>
-        <select onchange="chosenRace()" id="race">
-            <option value="">Choose</option>
+        <select  onchange="chosenRace()" id="race">
+            <option value="choose">Choose</option>
             <option value="breton">Breton</option>
             <option value="redguard">Redguard</option>
             <option value="orc">Orc</option>
@@ -23,6 +22,16 @@
             <option value="argonian">Argonian</option>
             <option value="imperial">Imperial</option>
         </select>
+        <select id="classes">
+            <option value="" id="classes">Choose</option>
+            <option value="dragonknight">Dragonknight</option>
+            <option value="nightblade">Nightblade</option>
+            <option value="sorcerer">Sorcerer</option>
+            <option value="templar">Templar</option>
+            <option value="warden">Warden</option>
+            <option value="necromancer">Necromancer</option>
+        </select>
+        <div id="pic"></div>
         <script src="/js/main.js"></script>
 </body>
 </html>
