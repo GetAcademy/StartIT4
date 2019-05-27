@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div id="stamina">0</div> <button onclick="stamina()" id="stamIncrease">Increase</button>
+        <div id="health">0</div> <button onclick="health()" id="healthIncrease">Increase</button>
+        <div id="magicka">0</div> <button onclick="magicka()" id="magiIncrease">Increase</button>
+
+
+
+
+        <script>
+            var stam = 0;
+            var stamGain = 10;
+            var healthThing = 0;
+            var healthGain = 10
+            var magi = 0
+            var magiGain = 10
+
+            function stamina() {
+                var stamina = document.getElementById("stamina")
+                var increase = document.getElementById("stamIncrease")
+                
+                stam += stamGain;
+
+                stamina.innerHTML = stam;
+
+
+
+            
+                
+            }
+
+            function health() {
+                var health = document.getElementById("health")
+                var increase = document.getElementById("healthIncrase")
+
+                healthThing += healthGain;
+
+                health.innerHTML = healthThing
+
+            }
+
+            function magicka() {
+                var magicka = document.getElementById("magicka")
+                var increase = document.getElementById("magiIncrease")
+
+                magi += magiGain
+
+                magicka.innerHTML = magi
+
+            }
+        
+        
+        
+        
+        </script>
+    </body>
+</html>
