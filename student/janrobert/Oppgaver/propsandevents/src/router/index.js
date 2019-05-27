@@ -10,12 +10,14 @@ export default new Router({
     {
       path: '/',
       name: 'CompA',
-      component: CompA
+      component: CompA,
+      props: true
     },
     {
       path: '/b',
       name: 'CompB',
-      component: CompB
+      component: CompB,
+      props: true
     }
   ]
 })
