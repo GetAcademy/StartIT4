@@ -94,7 +94,7 @@ list-style: none;
 /*------------------------------------------------------------------------------------------------*/
 
 /*TEXTAREA CSS*/
-.txtarea {
+.text {
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -107,16 +107,16 @@ list-style: none;
     color: white;
     outline: none;
 }
-.txtarea:focus {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    border: solid red 1px;
-    height: 40px;
-    background-color: grey;
-    font-size: 15px;
-    border-radius: 2px;
-    color: white;
-    outline: none;
-}
+    .text {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        border: solid red 1px;
+        height: 40px;
+        background-color: grey;
+        font-size: 15px;
+        border-radius: 2px;
+        color: white;
+        outline: none;
+    }

@@ -41,10 +41,11 @@ function dagligEvaluering() {
         }
     }
     let text = answers.text;
-    html += `   <div><input oninput="editText(this.value)" type="text" value="${text
+    html += `   <div><input oninput="editText(this.value)" class="button" type="text" style="background-color:white;color:black; width: 94%; height: 32px;" value="${text
         }"/></div>
 
-                                           </div>`;
+                                           </div>
+<button class="button" onclick="showMainScreen()">Tilbake</button>`;
 
 
     mainextra.innerHTML = html;
