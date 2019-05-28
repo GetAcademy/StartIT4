@@ -25,6 +25,16 @@
     background-color: #EC8B5E;
     font-size: 70%;
 }
+.knapp1 {
+  border-radius: 10px;
+  box-shadow: 0px 3px 3px black;
+  width: 30%;
+  height: 35px;
+  border: solid #EC8B5E;
+  background-color: #EC8B5E;
+  font-size: 70%;
+  color: black;
+}
 /* .knapp:active {
     background-color: rgb(238, 113, 55);
     transform: translateY(4px);
