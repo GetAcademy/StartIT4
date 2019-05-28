@@ -10,7 +10,7 @@ var evaluations = [
 ];
 
 
-dagligEvaluering();
+
 
 function dagligEvaluering() {
     let evaluation = getEvaluationForCurrentDay();
