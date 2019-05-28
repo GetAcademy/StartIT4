@@ -1,14 +1,11 @@
-function createHtml(){
+function createHtml() {
     var display = '';
-    display += '<tr>';
-    for (let i = 0; i < 9; i++){
-        let first = i % 3 === 0;
-        first = 'first';
-        let tr = i % 3 === 0;
-        if(tr === 0) return '<tr>';
-        if(tr === 3) return '</tr>';
-        display += `<td class="cell ${first}" id="${i}"></td>`;
+    for (let row = 0; row < 3; row++) {
+        display += '<tr>';
+        for (let i = 0; i < 3; i++) {
+            display += `<td class=" cell " id="${Math.floor(Math.random(1000) * 1000)}"></td>`;
+        }
+        display += '</tr>'
     }
-
     document.getElementById('htmlTable').innerHTML += display;
 }

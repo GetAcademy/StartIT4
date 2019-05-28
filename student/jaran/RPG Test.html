@@ -147,6 +147,7 @@
         var heroHealth = 100;
         var enemyDeBuff = 0;
         var heroDeBuff = 0;
+        var enemySleepCounter;
         var enemyPoisonStatus = false;
         var enemySleepStatus = false;
         var enemyParalyzeStatus = false;
@@ -238,6 +239,7 @@
             }
             else {
                 enemySleepStatus = true
+                enemySleepCounter = 4
                 enemyStatusAilment.classList.add('sleepailment')
                 extraInfo.innerHTML += 'Bulbasaur used Sleep Powder' + '</br>' + 'Charmander falls Asleep!' + '</br>'
             }
@@ -267,6 +269,9 @@
                 }
             }
             else if (enemySleepStatus == true) {
+                if (enemySleepCounter == 4) { enemySleepCounter--; return }
+                if (enemySleepCounter == 0) { enemySleepStatus = false; enemyStatusAilment.classList.remove('sleepailment') }
+                enemySleepCounter--
                 var sleepStatus = Math.ceil(Math.random() * 100)
                 if (sleepStatus <= 75) {
                     extraInfo.innerHTML += 'Charmander is Fast Asleep' + '</br>'

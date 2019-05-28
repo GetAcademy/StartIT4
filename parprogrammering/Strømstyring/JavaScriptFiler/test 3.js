@@ -18,7 +18,7 @@ function initMap() {
     var marker = new google.maps.Marker({ position: ValbyBarnehage, map: map });
     var marker = new google.maps.Marker({ position: Rødbøl, map: map });
     var marker = new google.maps.Marker({ position: larvik, map: map });
-
+   
 }
 
 
