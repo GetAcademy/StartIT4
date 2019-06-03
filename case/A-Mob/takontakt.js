@@ -14,7 +14,7 @@ var model = {
                 'Vet du hvem som ble mobbet?',
                 'Så du hvem som mobbet?',
                 'Gjorde du noe for å stoppe mobbingen?',
-                'Hvordan mobbet ble vedkommende?'
+                'skjedde det denne uken?'
             ],
         checked: [null, null, null, null]
     }
