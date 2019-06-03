@@ -4,7 +4,7 @@ function newGoal() {
     mainextra.innerHTML = `
                 <button class="regular">Hva vil du oppnå?</button>
                 <input id="hva" class="regular" style="background-color:white;color:black; width: 94%; height: 32px;"></input>
-                <button class="regular">Forkort det til en setning.</button>
+                <button class="regular">Konkretiser det så godt som mulig.</button>
                 <input id="forkort" class="regular" style="background-color:white;color:black; width: 94%; height: 32px;"></input>
                 <button class="regular">Hvorfor vil du nå dette målet?</button>
                 <input id="hvorfor" class="regular" style="background-color:white;color:black; width: 94%; height: 32px;"></input> <br />
