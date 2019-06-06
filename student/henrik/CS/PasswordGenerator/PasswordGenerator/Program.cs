@@ -1,13 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace passwordGenerator
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            if (!IsValid(args))
+            {
+                Info();
+                return;
+            }
+        }
         static void Info()
         {
             Console.WriteLine("Password Generator");
@@ -25,39 +30,52 @@ namespace passwordGenerator
 
         }
 
-        static void Main(string[] args)
+        public static bool IsValid(string[] args)
         {
             if (args.Length == 0 || args.Length == 1)
             {
-                Info();
+                return false;
             }
-                     
+
             else if (args.Length == 2)
             {
-
                 string userArgsDigit = args[0];
                 string userArgsLetter = args[1];
                 int value;
 
                 if (int.TryParse(userArgsDigit, out value))
                 {
-                    if (userArgsLetter.Contains("L") || userArgsLetter.Contains("l") || userArgsLetter.Contains("d") || userArgsLetter.Contains("s"))
+                    const string notValidLetters = "abcefghijkmnopqrtuvwxyz";
+
+                    if (userArgsLetter.Contains("L") || userArgsLetter.Contains("l") || userArgsLetter.Contains("d") ||
+                        userArgsLetter.Contains("s"))
                     {
-                        Console.WriteLine("test");
+                        foreach (var character in notValidLetters)
+                        {
+                            if (!userArgsLetter.Contains(character))
+                            {
+                                Console.WriteLine("test");
+                                return true;
+                            }
+
+                            return false;
+                        }
+
                     }
 
                     else
                     {
-                        Info();
+                        return false;
                     }
                 }
 
                 else
                 {
-                    Info();
+                    return false;
                 }
             }
- 
+
+            return false;
         }
     }
 }
