@@ -1,13 +1,62 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace passwordGenerator
 {
     class Program
     {
+        public static void Main(string[] args)
+        {
+            string generatedPassword = "";
+            if (!IsValid(args))
+            {
+                Info();
+                return;
+            }
+            string pattern = args[1];
+            string length = args[0];
+            int i = 0;
+            if (!Int32.TryParse(length, out i))
+            {
+                i = -1;
+            }
+            if (pattern.Length > i)
+            {
+                Info();
+            }
+            if (pattern.Length < i)
+            {
+                pattern = pattern.PadRight(i, 'l');
+
+                while (pattern.Length >= 1)
+                {
+                    if (pattern.EndsWith("L"))
+                    {
+                        WriteRandomUpperCaseLetter();
+                        pattern = pattern.Substring(0, pattern.Length - 1);
+                    }
+                    else if (pattern.EndsWith("l"))
+                    {
+                        WriteRandomLowerCaseLetter();
+                        pattern = pattern.Substring(0, pattern.Length - 1);
+                    }
+                    else if (pattern.EndsWith("d"))
+                    {
+                        WriteRandomDigit();
+                        pattern = pattern.Substring(0, pattern.Length - 1);
+                    }
+                    else if (pattern.EndsWith("s"))
+                    {
+                        WriteRandomSpecialCharacter();
+                        pattern = pattern.Substring(0, pattern.Length - 1);
+                    }
+
+
+                }
+            }
+            
+
+        }
         static void Info()
         {
             Console.WriteLine("Password Generator");
@@ -22,42 +71,66 @@ namespace passwordGenerator
             Console.WriteLine("     Min. 2 upper case");
             Console.WriteLine("     Min. 2 special characters");
             Console.WriteLine("     Min. 2 digits");
+            Console.WriteLine("Additional information:     ");
+            Console.WriteLine("     Password options can not be longer than the specified length");
 
         }
 
-        static void Main(string[] args)
+        public static bool IsValid(string[] args)
         {
             if (args.Length == 0 || args.Length == 1)
             {
-                Info();
+                return false;
             }
-                     
-            else if (args.Length == 2)
+            if (args.Length == 2)
             {
-
                 string userArgsDigit = args[0];
                 string userArgsLetter = args[1];
                 int value;
-
                 if (int.TryParse(userArgsDigit, out value))
                 {
-                    if (userArgsLetter.Contains("L") || userArgsLetter.Contains("l") || userArgsLetter.Contains("d") || userArgsLetter.Contains("s"))
+                    const string notValidLetters = "abcefghijkmnopqrtuvwxyz";
+                    if (userArgsLetter.Contains("L") || userArgsLetter.Contains("l") || userArgsLetter.Contains("d") ||
+                        userArgsLetter.Contains("s"))
                     {
-                        Console.WriteLine("test");
+                        foreach (var character in notValidLetters)
+                        {
+                            if (userArgsLetter.Contains(character))
+                            {
+                                return false;
+                            }
+                        }
+                        return true;
                     }
-
-                    else
                     {
-                        Info();
+                        return false;
                     }
                 }
-
-                else
                 {
-                    Info();
+                    return false;
                 }
             }
- 
+            return false;
+        }
+
+        public static void WriteRandomLowerCaseLetter()
+        {
+            generatedPassword += "x";
+        }
+
+        public static void WriteRandomUpperCaseLetter()
+        {
+            generatedPassword += "Y";
+        }
+
+        public static void WriteRandomDigit()
+        {
+            generatedPassword += "3";
+        }
+
+        public static void WriteRandomSpecialCharacter()
+        {
+            generatedPassword += "!";
         }
     }
 }
