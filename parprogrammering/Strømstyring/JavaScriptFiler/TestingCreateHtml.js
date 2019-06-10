@@ -1,4 +1,4 @@
-var NameArray = [
+var NameArray = [ // skift til objekts
     ['Navn', 'Adresse', 'Sted', 'Post.Nr', 'Kategori', 'Areal', 'Oppvarming'],
     ['Liste Over Bygg', 'Legg til bygg', 'Kart'],
     ['toggleList()', 'toggleLeggTilBygg()', 'toggleMap()'],

@@ -14,7 +14,8 @@ class SceneMain extends Phaser.Scene {
         var mediaManager = new MediaManager({ scene: this });
         mediaManager.setBackgroundMusic("backgroundMusic");
 
-	   // var sb = new SoundButtons({ scene: this });
+       
+       
 	    this.playerHealth = 100;
 	    model.playerWon = true;
 	    this.bulletHit = false;
@@ -206,6 +207,7 @@ class SceneMain extends Phaser.Scene {
         eBullet.body.angularVelocity = 0;
         eBullet.angle = angle;
         this.physics.moveTo(eBullet, this.player.x, this.player.y, 100);
+        mediaManager.playSound("zap1");
     }
 
     moveAlien() {
@@ -265,11 +267,11 @@ class SceneMain extends Phaser.Scene {
 
     makeInfo() {
         this.text1 = this.add.text(0, 0, "Health\n100", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
-        this.text2 = this.add.text(0, 0, "EnemyCount\n4", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
+        this.text2 = this.add.text(0, 0, "EnemyCount\n10", { fontSize: game.config.width / 30, align: "center", backgroundColor: '#000000' });
         this.text1.setOrigin(0.5, 0.5);
         this.text2.setOrigin(0.5, 0.5);
         this.uiGrid = new AlignGrid({ scene: this, rows: 11, cols: 11 });
-        this.uiGrid.placeAtIndex(1, this.text1)
+        this.uiGrid.placeAtIndex(2, this.text1)
         this.uiGrid.placeAtIndex(8, this.text2)
        //this.uiGrid.showNumbers();
 
@@ -289,6 +291,7 @@ class SceneMain extends Phaser.Scene {
             model.playerWon = false;
         }
         ebullet.destroy();
+        mediaManager.playSound("exp");
     }
 
     damageAlien(alienGroup, bullet) {
@@ -309,7 +312,7 @@ class SceneMain extends Phaser.Scene {
             model.playerWon = true;
         }
         bullet.destroy();
-
+        mediaManager.playSound("exp");
 
     }
 
@@ -318,7 +321,7 @@ class SceneMain extends Phaser.Scene {
             this.alienGroup = this.physics.add.group({
                 key: 'alien',
                 frame: [0,],
-                frameQuantity: 4,
+                frameQuantity: 10,
                 bounceX: 0,
                 bounceY: 0,
                 angularVelocity: 0,
@@ -361,6 +364,7 @@ class SceneMain extends Phaser.Scene {
 
     onDown() {
         this.makeBullet();
+       
     }
 
     makeBullet() {
@@ -369,6 +373,7 @@ class SceneMain extends Phaser.Scene {
         this.bulletGroup.add(bullet);
         bullet.angle = angle;
         bullet.body.setVelocity(dirObj.tx * 400, dirObj.ty * 400);
+        mediaManager.playSound("zap1")
     }
 
     getDirFromAngle(angle) {

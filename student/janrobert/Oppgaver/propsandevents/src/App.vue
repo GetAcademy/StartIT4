@@ -1,14 +1,28 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
+    <router-view :personprop="person" @datachanged="handleDataChanged"/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
-}
+  name: 'App',
+  data: function() {
+    return {
+      person: {
+        name: 'Jan',
+        birthYear: 1995
+      }
+    };
+  },
+  methods: {
+    handleDataChanged:function(personData) {
+      this.person.name = personData.name;
+      this.person.birthYear = personData.birthYear;
+    }
+  }
+};
 </script>
 
 <style>

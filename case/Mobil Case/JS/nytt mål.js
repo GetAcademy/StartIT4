@@ -2,12 +2,12 @@
 function newGoal() {
    
     mainextra.innerHTML = `
-                <p class="regular">Hva vil du oppnå?</p>
-                <textarea id="hva" class="button" style="background-color:white;color:black"></textarea>
-                <p class="regular">Forkort det til en setning.</p>
-                <textarea id="forkort" class="button" style="background-color:white;color:black"></textarea>
-                <p class="regular">Hvorfor vil du nå dette målet?</p>
-                <textarea id="hvorfor" class="button" style="background-color:white;color:black"></textarea> <br />
+                <button class="regular">Hva vil du oppnå?</button>
+                <input id="hva" class="regular" style="background-color:white;color:black; width: 94%; height: 32px;"></input>
+                <button class="regular">Konkretiser det så godt som mulig.</button>
+                <input id="forkort" class="regular" style="background-color:white;color:black; width: 94%; height: 32px;"></input>
+                <button class="regular">Hvorfor vil du nå dette målet?</button>
+                <input id="hvorfor" class="regular" style="background-color:white;color:black; width: 94%; height: 32px;"></input> <br />
                 <br /><button onclick="nyNøkkelvane()" class="button">Neste</button>
                                   `}
 function nyNøkkelvane() {
@@ -21,9 +21,9 @@ function nyNøkkelvane() {
     
     mainextra.innerHTML = `
                 <div class="overskrift back" onclick="newGoal()">←</div>
-                <p class="button">Hvilke vaner trenger du for å nå målet?</p>
-                <div class="Textbox" id="textDiv"> <textarea id="vaner" class="button" style="background-color:white;color:black"></textarea><br /></div>
-                <div id="nyVane" onclick="addtxt()" style="font-size:50px; text-align:center;">⁺</div><br />
+                <button class="regular">Skriv ned en vane du trenger for å nå målet?</button>
+                <div class="Textbox" id="textDiv"> <input id="vaner" class="button" style="background-color:white;color:black; width: 94%; height: 32px;"></input><br /></div>
+               
                 <br /><button onclick="nyAktivitet()" class="button">Neste</button>
                             `}
 
@@ -33,9 +33,9 @@ function nyAktivitet() {
     goalOBJ.vaner = vaner;
     mainextra.innerHTML = `
                 <div class="overskrift back" onclick="nyNøkkelvane()">←</div>
-                <p class="button">Hvilke aktiviteter vil være viktige for deg hvis du skal nå dette målet?</p>
-                <div id="textDiv"> <textarea id="aktiviteter" class="button" style="background-color:white;color:black"></textarea><br /></div>
-                <div id="nyVane" onclick="addtxt()" style="font-size:50px; text-align:center;">⁺</div><br />
+                <button class="regular">Skriv ned en aktivitet som vil være viktige for deg hvis du skal nå dette målet?</button>
+                <div id="textDiv"> <input id="aktiviteter" class="button" style="background-color:white;color:black; width: 94%; height: 32px;"></input><br /></div>
+                
                 <br /><button onclick="dailyScreen()" class="button">Neste</button>
                         `}
 
@@ -44,10 +44,10 @@ function dailyScreen() {
     goalOBJ.aktiviteter = aktiviteter;
     mainextra.innerHTML = `
                 <div class="overskrift back" onclick="nyEvaluering()">←</div>
-                <p class="button">Velg</p>
-                <textarea id="daglig1" class="button" style="background-color:white;color:black">Humør</textarea><br />
-                <textarea id="daglig2" class="button" style="background-color:white;color:black">Mentalt Tilstede</textarea><br />
-                <textarea id="daglig3" class="button" style="background-color:white;color:black">Kvalitet på arbeid</textarea><br />
+                <button class="regular">Velg 3 ting du ønsker å bli evaluert på daglig.</button>
+                <input id="daglig1" class="button" style="background-color:white;color:black; width: 94%; height: 32px;" value="Humør"></input><br />
+                <input id="daglig2" class="button" style="background-color:white;color:black; width: 94%; height: 32px;" value="Mentalt Tilstede"></input><br />
+                <input id="daglig3" class="button" style="background-color:white;color:black; width: 94%; height: 32px;" value="Kvalitet på arbeid"></input><br />
                 <br /><button onclick="weeklyScreen()" class="button">Lagre</button>
 `}
 
@@ -60,10 +60,10 @@ function weeklyScreen() {
     goalOBJ.daglig3 = daglig3;
     mainextra.innerHTML = `
                 <div class="overskrift back" onclick="nyEvaluering()">←</div>
-                <p class="button">Lag Spørsmål</p>
-                <textarea id="ukentlig1" class="button" style="background-color:white;color:black">Hva har vært spesielt bra denne uken?</textarea><br />
-                <textarea id="ukentlig2" class="button" style="background-color:white;color:black">Hva kan gjøres bedre neste uke?</textarea><br />
-                <textarea id="ukentlig3" class="button" style="background-color:white;color:black">Hva skal du ha spesielt fokus på neste uke</textarea><br />
+                <button class="regular">Lag 3 Spørsmål du må svare på hver uke</button>
+                <input id="ukentlig1" class="button" style="background-color:white;color:black; width: 94%; height: 32px;" value="Hva har vært spesielt bra denne uken?"></input><br />
+                <input id="ukentlig2" class="button" style="background-color:white;color:black; width: 94%; height: 32px;" value="Hva kan gjøres bedre neste uke?"></input><br />
+                <input id="ukentlig3" class="button" style="background-color:white;color:black; width: 94%; height: 32px;" value="Hva skal du ha spesielt fokus på neste uke"></input><br />
                 <br /><button onclick="coachScreen()" class="button">Lagre</button>
                 
 `}

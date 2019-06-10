@@ -1,0 +1,123 @@
+
+th.modTable {
+    padding-left: 90px;
+}
+th.miscBonus {
+    padding-left: 60px;
+}
+
+td.skillModifierCha {
+    text-align: center;
+    padding-left: 100px;
+}
+td.skillModifierStr {
+    text-align: center;
+    padding-left: 100px;
+}
+td.skillModifierDex {
+    text-align: center;
+    padding-left: 100px;
+}
+td.skillModifierCon {
+    text-align: center;
+    padding-left: 100px;
+}
+td.skillModifierWis {
+    text-align: center;
+    padding-left: 100px;
+}
+td.skillModifierInt {
+    text-align: center;
+    padding-left: 100px;
+}
+body {
+    border: solid 3px;
+}
+div.stat {
+    float: left;
+    padding-right: 5px;
+}
+input.statistics {
+    width: 25px;
+    text-align: center;
+    height: 15px;
+}
+.item1 {
+    grid-area: header;
+}
+.item3 {
+    grid-area: main;
+}
+.item4 {
+    grid-area: right;
+}
+.item2 {
+    grid-area: left;
+}
+.item5 {
+    grid-area: leftLow;
+}
+.item6 {
+    grid-area: rightLow;
+}
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header'
+        'left main right'
+        'leftLow main rightLow';
+    grid-gap: 10px;
+    background-color: white;
+    padding: 10px;
+}
+.grid-container>div {
+    background-color: white;
+}
+
+#modStr,
+#modDex,
+#modCon,
+#modInt,
+#modWis,
+#modCha {
+    float: left;
+}
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    padding-right: 10px;
+}
+#myTable th, #myTable td {
+    text-align: left;
+    
+}
+input.ACInputs {
+    width: 30px;
+}
+#myTable tr {
+    border-bottom: 1px solid #ddd;
+}
+tr {
+    text-align: center;
+}
+td {
+    width: 30px;
+}
+#acrobatics, #appraise, #bluff, #climb, #diplomacy, #disableDevice,
+#disguise, #escapeArtist, #fly, #handleAnimal, #heal, #intimidate,
+#knowArcane, #knowDungeoneering, #knowEngineering, #knowGeography,
+#knowHistory, #knowLocal, #linguistics, #perception, #ride,
+#senseMotive, #sleightOfHand, #spellcraft, #stealth, #survival,
+#swim, #UMD, #knowNature, #knowPlanes, #knowNobility, #knowReligion, #perform {
+    width: 50px;          
+}
+#acrobaticsMisc, #appraiseMisc, #bluffMisc, #climbMisc, #diplomacyMisc, #disableDeviceMisc,
+#disguiseMisc, #escapeArtistMisc, #flyMisc, #handleAnimalMisc, #healMisc, #intimidateMisc,
+#knowArcaneMisc, #knowDungeoneeringMisc, #knowEngineeringMisc, #knowGeographyMisc,
+#knowHistoryMisc, #knowLocalMisc, #linguisticsMisc, #perceptionMisc, #rideMisc,
+#senseMotiveMisc, #sleightOfHandMisc, #spellcraftMisc, #stealthMisc, #survivalMisc,
+#swimMisc, #umdMisc, #knowNatureMisc, #knowPlanesMisc, #knowNobilityMisc, #knowReligionMisc, #performMisc {
+    padding-left: 60px;           
+}

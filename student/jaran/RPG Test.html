@@ -130,7 +130,7 @@
             <button class="move4" onclick="sleepPowderMove()">Sleep Powder</button>
         </div>
         <div class="menu">
-            <button class="menuitem1">Moves</button>
+            <button class="menuitem1" onclick="growlMove()">Moves</button>
             <button class="menuitem2">Item</button>
             <button class="menuitem3">Switch</button>
             <button class="menuitem4">Run</button>
@@ -147,6 +147,9 @@
         var heroHealth = 100;
         var enemyDeBuff = 0;
         var heroDeBuff = 0;
+        var heroDeBuffCounter = 3;
+        var enemyDeBuffCounter = 3;
+        var enemySleepCounter;
         var enemyPoisonStatus = false;
         var enemySleepStatus = false;
         var enemyParalyzeStatus = false;
@@ -205,7 +208,12 @@
         }
         function growlMove() {
             if (battleOver == true) { return }
-            enemyDeBuff = enemyDeBuff + 5;
+            if (enemyDeBuffCounter == 0) {
+                extraInfo.innerHTML += 'Bulbasaur used Growl' + '</br>' + 'It did not work' + '</br>'
+                enemyTurn();
+            }
+            enemyDeBuff = enemyDeBuff + 3;
+            enemyDeBuffCounter--;
             extraInfo.innerHTML += 'Bulbasaur used Growl' + '</br>'
             enemyTurn();
         }
@@ -238,6 +246,7 @@
             }
             else {
                 enemySleepStatus = true
+                enemySleepCounter = 4
                 enemyStatusAilment.classList.add('sleepailment')
                 extraInfo.innerHTML += 'Bulbasaur used Sleep Powder' + '</br>' + 'Charmander falls Asleep!' + '</br>'
             }
@@ -267,6 +276,9 @@
                 }
             }
             else if (enemySleepStatus == true) {
+                if (enemySleepCounter == 4) { enemySleepCounter--; return }
+                if (enemySleepCounter == 0) { enemySleepStatus = false; enemyStatusAilment.classList.remove('sleepailment') }
+                enemySleepCounter--
                 var sleepStatus = Math.ceil(Math.random() * 100)
                 if (sleepStatus <= 75) {
                     extraInfo.innerHTML += 'Charmander is Fast Asleep' + '</br>'
@@ -338,7 +350,12 @@
             }
         }
         function leerMove() {
-            heroDeBuff = heroDeBuff + 5;
+            if (heroDeBuffCounter == 0) {
+                extraInfo.innerHTML += 'Charmander used Leer' + '</br>' + 'It did not work' + '</br>'
+                return
+            }
+            heroDeBuff = heroDeBuff + 3;
+            heroDeBuffCounter--;
             extraInfo.innerHTML += 'Charmander used Leer' + '</br>'
         }
         function currentHealth() {
