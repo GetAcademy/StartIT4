@@ -1,0 +1,7 @@
+C:\Users\Ibrahim\source\repos\DoingAtHomeChapter3Task\DoingAtHomeChapter3Task\bin\Debug\DoingAtHomeChapter3Task.exe.config
+C:\Users\Ibrahim\source\repos\DoingAtHomeChapter3Task\DoingAtHomeChapter3Task\bin\Debug\DoingAtHomeChapter3Task.exe
+C:\Users\Ibrahim\source\repos\DoingAtHomeChapter3Task\DoingAtHomeChapter3Task\bin\Debug\DoingAtHomeChapter3Task.pdb
+C:\Users\Ibrahim\source\repos\DoingAtHomeChapter3Task\DoingAtHomeChapter3Task\obj\Debug\DoingAtHomeChapter3Task.csprojAssemblyReference.cache
+C:\Users\Ibrahim\source\repos\DoingAtHomeChapter3Task\DoingAtHomeChapter3Task\obj\Debug\DoingAtHomeChapter3Task.csproj.CoreCompileInputs.cache
+C:\Users\Ibrahim\source\repos\DoingAtHomeChapter3Task\DoingAtHomeChapter3Task\obj\Debug\DoingAtHomeChapter3Task.exe
+C:\Users\Ibrahim\source\repos\DoingAtHomeChapter3Task\DoingAtHomeChapter3Task\obj\Debug\DoingAtHomeChapter3Task.pdb
