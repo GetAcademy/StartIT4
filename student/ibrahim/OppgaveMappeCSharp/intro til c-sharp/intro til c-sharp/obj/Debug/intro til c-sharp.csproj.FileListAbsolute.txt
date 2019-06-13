@@ -1,0 +1,7 @@
+C:\Users\Ibrahim\source\repos\intro til c-sharp\intro til c-sharp\obj\Debug\intro til c-sharp.csprojAssemblyReference.cache
+C:\Users\Ibrahim\source\repos\intro til c-sharp\intro til c-sharp\obj\Debug\intro til c-sharp.csproj.CoreCompileInputs.cache
+C:\Users\Ibrahim\source\repos\intro til c-sharp\intro til c-sharp\bin\Debug\UndervisningIntroCSharp.exe.config
+C:\Users\Ibrahim\source\repos\intro til c-sharp\intro til c-sharp\bin\Debug\UndervisningIntroCSharp.exe
+C:\Users\Ibrahim\source\repos\intro til c-sharp\intro til c-sharp\bin\Debug\UndervisningIntroCSharp.pdb
+C:\Users\Ibrahim\source\repos\intro til c-sharp\intro til c-sharp\obj\Debug\UndervisningIntroCSharp.exe
+C:\Users\Ibrahim\source\repos\intro til c-sharp\intro til c-sharp\obj\Debug\UndervisningIntroCSharp.pdb
