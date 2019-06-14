@@ -1,0 +1,7 @@
+D:\GitHub\GitHub\oppgave 3-på-rad\bin\Debug\oppgave 3-på-rad.exe.config
+D:\GitHub\GitHub\oppgave 3-på-rad\bin\Debug\oppgave 3-på-rad.exe
+D:\GitHub\GitHub\oppgave 3-på-rad\bin\Debug\oppgave 3-på-rad.pdb
+D:\GitHub\GitHub\oppgave 3-på-rad\obj\Debug\oppgave 3-på-rad.csprojAssemblyReference.cache
+D:\GitHub\GitHub\oppgave 3-på-rad\obj\Debug\oppgave 3-på-rad.csproj.CoreCompileInputs.cache
+D:\GitHub\GitHub\oppgave 3-på-rad\obj\Debug\oppgave 3-på-rad.exe
+D:\GitHub\GitHub\oppgave 3-på-rad\obj\Debug\oppgave 3-på-rad.pdb

@@ -1,0 +1,7 @@
+D:\GitHub\GitHub\Oppgave Tilfeldige Firkanter\bin\Debug\Oppgave Tilfeldige Firkanter.exe.config
+D:\GitHub\GitHub\Oppgave Tilfeldige Firkanter\bin\Debug\Oppgave Tilfeldige Firkanter.exe
+D:\GitHub\GitHub\Oppgave Tilfeldige Firkanter\bin\Debug\Oppgave Tilfeldige Firkanter.pdb
+D:\GitHub\GitHub\Oppgave Tilfeldige Firkanter\obj\Debug\Oppgave Tilfeldige Firkanter.csprojAssemblyReference.cache
+D:\GitHub\GitHub\Oppgave Tilfeldige Firkanter\obj\Debug\Oppgave Tilfeldige Firkanter.csproj.CoreCompileInputs.cache
+D:\GitHub\GitHub\Oppgave Tilfeldige Firkanter\obj\Debug\Oppgave Tilfeldige Firkanter.exe
+D:\GitHub\GitHub\Oppgave Tilfeldige Firkanter\obj\Debug\Oppgave Tilfeldige Firkanter.pdb

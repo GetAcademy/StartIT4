@@ -1,0 +1,7 @@
+D:\GitHub\GitHub\Oppgave Obligatorisk 1\bin\Debug\Oppgave Obligatorisk 1.exe.config
+D:\GitHub\GitHub\Oppgave Obligatorisk 1\bin\Debug\Oppgave Obligatorisk 1.exe
+D:\GitHub\GitHub\Oppgave Obligatorisk 1\bin\Debug\Oppgave Obligatorisk 1.pdb
+D:\GitHub\GitHub\Oppgave Obligatorisk 1\obj\Debug\Oppgave Obligatorisk 1.csprojAssemblyReference.cache
+D:\GitHub\GitHub\Oppgave Obligatorisk 1\obj\Debug\Oppgave Obligatorisk 1.csproj.CoreCompileInputs.cache
+D:\GitHub\GitHub\Oppgave Obligatorisk 1\obj\Debug\Oppgave Obligatorisk 1.exe
+D:\GitHub\GitHub\Oppgave Obligatorisk 1\obj\Debug\Oppgave Obligatorisk 1.pdb

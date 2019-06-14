@@ -1,0 +1,11 @@
+D:\GitHub\GitHub\Oppgave2\bin\Debug\netcoreapp2.1\Oppgave2.deps.json
+D:\GitHub\GitHub\Oppgave2\bin\Debug\netcoreapp2.1\Oppgave2.runtimeconfig.json
+D:\GitHub\GitHub\Oppgave2\bin\Debug\netcoreapp2.1\Oppgave2.runtimeconfig.dev.json
+D:\GitHub\GitHub\Oppgave2\bin\Debug\netcoreapp2.1\Oppgave2.dll
+D:\GitHub\GitHub\Oppgave2\bin\Debug\netcoreapp2.1\Oppgave2.pdb
+D:\GitHub\GitHub\Oppgave2\obj\Debug\netcoreapp2.1\Oppgave2.csprojAssemblyReference.cache
+D:\GitHub\GitHub\Oppgave2\obj\Debug\netcoreapp2.1\Oppgave2.csproj.CoreCompileInputs.cache
+D:\GitHub\GitHub\Oppgave2\obj\Debug\netcoreapp2.1\Oppgave2.AssemblyInfoInputs.cache
+D:\GitHub\GitHub\Oppgave2\obj\Debug\netcoreapp2.1\Oppgave2.AssemblyInfo.cs
+D:\GitHub\GitHub\Oppgave2\obj\Debug\netcoreapp2.1\Oppgave2.dll
+D:\GitHub\GitHub\Oppgave2\obj\Debug\netcoreapp2.1\Oppgave2.pdb

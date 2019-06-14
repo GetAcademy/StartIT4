@@ -1,0 +1,11 @@
+D:\GitHub\GitHub\SharpieInThePooper\bin\Debug\netcoreapp2.1\SharpieInThePooper.deps.json
+D:\GitHub\GitHub\SharpieInThePooper\bin\Debug\netcoreapp2.1\SharpieInThePooper.runtimeconfig.json
+D:\GitHub\GitHub\SharpieInThePooper\bin\Debug\netcoreapp2.1\SharpieInThePooper.runtimeconfig.dev.json
+D:\GitHub\GitHub\SharpieInThePooper\bin\Debug\netcoreapp2.1\SharpieInThePooper.dll
+D:\GitHub\GitHub\SharpieInThePooper\bin\Debug\netcoreapp2.1\SharpieInThePooper.pdb
+D:\GitHub\GitHub\SharpieInThePooper\obj\Debug\netcoreapp2.1\SharpieInThePooper.csprojAssemblyReference.cache
+D:\GitHub\GitHub\SharpieInThePooper\obj\Debug\netcoreapp2.1\SharpieInThePooper.csproj.CoreCompileInputs.cache
+D:\GitHub\GitHub\SharpieInThePooper\obj\Debug\netcoreapp2.1\SharpieInThePooper.AssemblyInfoInputs.cache
+D:\GitHub\GitHub\SharpieInThePooper\obj\Debug\netcoreapp2.1\SharpieInThePooper.AssemblyInfo.cs
+D:\GitHub\GitHub\SharpieInThePooper\obj\Debug\netcoreapp2.1\SharpieInThePooper.dll
+D:\GitHub\GitHub\SharpieInThePooper\obj\Debug\netcoreapp2.1\SharpieInThePooper.pdb
