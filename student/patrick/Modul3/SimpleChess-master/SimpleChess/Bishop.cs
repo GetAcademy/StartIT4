@@ -2,19 +2,29 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace SimpleChess
 {
-    abstract class Bishop
+    class Bishop : Piece
     {
-        public string Symbol { get; }
-        private readonly string _type;
-
-        protected Bishop(string type, string symbol)
+        string type;
+        string symbol;
+        public Bishop(string Type, string Symbol) : base(Type, Symbol)
         {
-            _type = type;
-            Symbol = symbol;
+            type = Type;
+            symbol = Symbol;
         }
 
-        public abstract bool Move(string fromPosition, string toPosition);
+        public override bool Move(string fromPosition, string toPosition)
+        {
+            if (type == "Rook") return fromPosition[0] == toPosition[0] || fromPosition[1] == toPosition[1];
+            if (type == "Bishop")
+            {
+                var diffCol = fromPosition[0] - toPosition[0];
+                var diffRow = fromPosition[1] - toPosition[1];
+                return Math.Abs(diffRow) == Math.Abs(diffCol);
+            }
+            return true;
+        }
     }
 }
