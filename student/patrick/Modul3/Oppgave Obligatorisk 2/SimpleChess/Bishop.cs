@@ -7,12 +7,10 @@ namespace SimpleChess
 {
     class Bishop : Piece
     {
-        string type;
-        string symbol;
-        public Bishop(string Type = "Bishop", string Symbol = "LPR") : base(Type, Symbol)
+        
+        public Bishop(string Type, string Symbol = "LPR") : base(Type, Symbol)
         {
-            type = Type;
-            symbol = Symbol;
+            
         }
 
         public override bool Move(string fromPosition, string toPosition)

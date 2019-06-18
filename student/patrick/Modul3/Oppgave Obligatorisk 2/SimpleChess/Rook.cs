@@ -7,12 +7,10 @@ namespace SimpleChess
 {
     internal partial class Rook : Piece
     {
-        string type;
-        string symbol;
-        public Rook(string Type = "Rook",string Symbol = "TRN") : base(Type,Symbol)
+        
+        public Rook(string Type,string Symbol = "TRN") : base(Type,Symbol)
         {
-            type = Type;
-            symbol = Symbol;
+            
         }
 
         public override bool Move(string fromPosition, string toPosition)
