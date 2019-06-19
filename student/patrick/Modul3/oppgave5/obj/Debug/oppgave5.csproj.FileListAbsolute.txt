@@ -1,7 +1,0 @@
-D:\GitHub\GitHub\oppgave5\bin\Debug\oppgave5.exe.config
-D:\GitHub\GitHub\oppgave5\bin\Debug\oppgave5.exe
-D:\GitHub\GitHub\oppgave5\bin\Debug\oppgave5.pdb
-D:\GitHub\GitHub\oppgave5\obj\Debug\oppgave5.csprojAssemblyReference.cache
-D:\GitHub\GitHub\oppgave5\obj\Debug\oppgave5.csproj.CoreCompileInputs.cache
-D:\GitHub\GitHub\oppgave5\obj\Debug\oppgave5.exe
-D:\GitHub\GitHub\oppgave5\obj\Debug\oppgave5.pdb

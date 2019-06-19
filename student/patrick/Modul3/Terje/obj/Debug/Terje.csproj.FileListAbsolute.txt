@@ -1,7 +1,0 @@
-D:\GitHub\GitHub\Terje\bin\Debug\Terje.exe.config
-D:\GitHub\GitHub\Terje\bin\Debug\Terje.exe
-D:\GitHub\GitHub\Terje\bin\Debug\Terje.pdb
-D:\GitHub\GitHub\Terje\obj\Debug\Terje.csprojAssemblyReference.cache
-D:\GitHub\GitHub\Terje\obj\Debug\Terje.csproj.CoreCompileInputs.cache
-D:\GitHub\GitHub\Terje\obj\Debug\Terje.exe
-D:\GitHub\GitHub\Terje\obj\Debug\Terje.pdb

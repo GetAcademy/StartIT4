@@ -1,7 +1,0 @@
-D:\GitHub\GitHub\StartIT4\student\patrick\Modul3\TextGame\OgreVent\bin\Debug\OgreVent.exe.config
-D:\GitHub\GitHub\StartIT4\student\patrick\Modul3\TextGame\OgreVent\bin\Debug\OgreVent.exe
-D:\GitHub\GitHub\StartIT4\student\patrick\Modul3\TextGame\OgreVent\bin\Debug\OgreVent.pdb
-D:\GitHub\GitHub\StartIT4\student\patrick\Modul3\TextGame\OgreVent\obj\Debug\OgreVent.csprojAssemblyReference.cache
-D:\GitHub\GitHub\StartIT4\student\patrick\Modul3\TextGame\OgreVent\obj\Debug\OgreVent.csproj.CoreCompileInputs.cache
-D:\GitHub\GitHub\StartIT4\student\patrick\Modul3\TextGame\OgreVent\obj\Debug\OgreVent.exe
-D:\GitHub\GitHub\StartIT4\student\patrick\Modul3\TextGame\OgreVent\obj\Debug\OgreVent.pdb

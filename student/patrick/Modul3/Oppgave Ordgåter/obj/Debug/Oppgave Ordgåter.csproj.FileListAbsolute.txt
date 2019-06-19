@@ -1,7 +1,0 @@
-D:\GitHub\GitHub\Oppgave Ordgåter\bin\Debug\Oppgave Ordgåter.exe.config
-D:\GitHub\GitHub\Oppgave Ordgåter\bin\Debug\Oppgave Ordgåter.exe
-D:\GitHub\GitHub\Oppgave Ordgåter\bin\Debug\Oppgave Ordgåter.pdb
-D:\GitHub\GitHub\Oppgave Ordgåter\obj\Debug\Oppgave Ordgåter.csprojAssemblyReference.cache
-D:\GitHub\GitHub\Oppgave Ordgåter\obj\Debug\Oppgave Ordgåter.csproj.CoreCompileInputs.cache
-D:\GitHub\GitHub\Oppgave Ordgåter\obj\Debug\Oppgave Ordgåter.exe
-D:\GitHub\GitHub\Oppgave Ordgåter\obj\Debug\Oppgave Ordgåter.pdb

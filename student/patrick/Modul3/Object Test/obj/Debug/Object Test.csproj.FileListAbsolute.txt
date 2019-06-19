@@ -1,7 +1,0 @@
-D:\GitHub\GitHub\Object Test\bin\Debug\Object Test.exe.config
-D:\GitHub\GitHub\Object Test\bin\Debug\Object Test.exe
-D:\GitHub\GitHub\Object Test\bin\Debug\Object Test.pdb
-D:\GitHub\GitHub\Object Test\obj\Debug\Object Test.csprojAssemblyReference.cache
-D:\GitHub\GitHub\Object Test\obj\Debug\Object Test.csproj.CoreCompileInputs.cache
-D:\GitHub\GitHub\Object Test\obj\Debug\Object Test.exe
-D:\GitHub\GitHub\Object Test\obj\Debug\Object Test.pdb

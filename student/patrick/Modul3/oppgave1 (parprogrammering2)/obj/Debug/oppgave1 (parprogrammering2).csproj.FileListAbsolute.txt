@@ -1,7 +1,0 @@
-D:\GitHub\GitHub\oppgave1 (parprogrammering2)\bin\Debug\oppgave1 (parprogrammering2).exe.config
-D:\GitHub\GitHub\oppgave1 (parprogrammering2)\bin\Debug\oppgave1 (parprogrammering2).exe
-D:\GitHub\GitHub\oppgave1 (parprogrammering2)\bin\Debug\oppgave1 (parprogrammering2).pdb
-D:\GitHub\GitHub\oppgave1 (parprogrammering2)\obj\Debug\oppgave1 (parprogrammering2).csprojAssemblyReference.cache
-D:\GitHub\GitHub\oppgave1 (parprogrammering2)\obj\Debug\oppgave1 (parprogrammering2).csproj.CoreCompileInputs.cache
-D:\GitHub\GitHub\oppgave1 (parprogrammering2)\obj\Debug\oppgave1 (parprogrammering2).exe
-D:\GitHub\GitHub\oppgave1 (parprogrammering2)\obj\Debug\oppgave1 (parprogrammering2).pdb
