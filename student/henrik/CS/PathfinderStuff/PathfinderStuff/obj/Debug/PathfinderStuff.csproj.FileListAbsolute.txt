@@ -1,0 +1,14 @@
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\bin\Debug\PathfinderStuff.exe.config
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\bin\Debug\PathfinderStuff.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\bin\Debug\PathfinderStuff.pdb
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\MainWindow.g.cs
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\App.g.cs
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\PathfinderStuff_MarkupCompile.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\PathfinderStuff_MarkupCompile.lref
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\MainWindow.baml
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\PathfinderStuff.g.resources
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\PathfinderStuff.Properties.Resources.resources
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\PathfinderStuff.csproj.GenerateResource.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\PathfinderStuff.csproj.CoreCompileInputs.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\PathfinderStuff.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\obj\Debug\PathfinderStuff.pdb

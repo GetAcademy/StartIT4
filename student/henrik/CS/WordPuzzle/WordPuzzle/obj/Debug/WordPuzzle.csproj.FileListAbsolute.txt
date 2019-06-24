@@ -1,0 +1,7 @@
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\WordPuzzle\WordPuzzle\bin\Debug\WordPuzzle.exe.config
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\WordPuzzle\WordPuzzle\bin\Debug\WordPuzzle.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\WordPuzzle\WordPuzzle\bin\Debug\WordPuzzle.pdb
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\WordPuzzle\WordPuzzle\obj\Debug\WordPuzzle.csproj.CoreCompileInputs.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\WordPuzzle\WordPuzzle\obj\Debug\WordPuzzle.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\WordPuzzle\WordPuzzle\obj\Debug\WordPuzzle.pdb
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\WordPuzzle\WordPuzzle\obj\Debug\WordPuzzle.csprojAssemblyReference.cache

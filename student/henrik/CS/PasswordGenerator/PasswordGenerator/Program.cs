@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Linq;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace passwordGenerator
 {
     class Program
     {
+        public static string Password = string.Empty;
+        static readonly Random Random = new Random();
         public static void Main(string[] args)
-        {
-            string generatedPassword = "";
+        { 
             if (!IsValid(args))
             {
                 Info();
@@ -32,8 +35,10 @@ namespace passwordGenerator
                 {
                     if (pattern.EndsWith("L"))
                     {
+                        
                         WriteRandomUpperCaseLetter();
                         pattern = pattern.Substring(0, pattern.Length - 1);
+                        
                     }
                     else if (pattern.EndsWith("l"))
                     {
@@ -53,6 +58,11 @@ namespace passwordGenerator
 
 
                 }
+                Console.WriteLine("Your generated password is " + Password);
+                Console.WriteLine("For which site is this password made?");
+                string PassLocation = Console.ReadLine();
+                File.AppendAllText(@"C:\Users\Geir\Documents\Password.txt", PassLocation + ": " + Password);
+                File.AppendAllText(@"C:\Users\Geir\Documents\Password.txt", Environment.NewLine);
             }
             
 
@@ -66,7 +76,7 @@ namespace passwordGenerator
             Console.WriteLine("     - d = digit");
             Console.WriteLine("     - s = special character");
             Console.WriteLine("");
-            Console.WriteLine("Example: PasswordGenerator 14 Llssdd");
+            Console.WriteLine("Example: PasswordGenerator 14 LLlssdd");
             Console.WriteLine("     Min. 1 lower case");
             Console.WriteLine("     Min. 2 upper case");
             Console.WriteLine("     Min. 2 special characters");
@@ -115,22 +125,28 @@ namespace passwordGenerator
 
         public static void WriteRandomLowerCaseLetter()
         {
-            generatedPassword += "x";
+            string Letter = "abcdefghijklmnopqrstuvwxyzæøå";
+            int Index = Random.Next(Letter.Length);
+            Password += Letter[Index];
         }
 
         public static void WriteRandomUpperCaseLetter()
         {
-            generatedPassword += "Y";
+            string UpperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ";
+            int Index = Random.Next(UpperLetters.Length);
+            Password += UpperLetters[Index];
         }
 
         public static void WriteRandomDigit()
         {
-            generatedPassword += "3";
+            Password += Random.Next(0, 9);
         }
 
         public static void WriteRandomSpecialCharacter()
         {
-            generatedPassword += "!";
+            string SpecialCharacters = "!#%&?=$£@";
+            int index = Random.Next(SpecialCharacters.Length);
+            Password += SpecialCharacters[index];
         }
     }
 }
