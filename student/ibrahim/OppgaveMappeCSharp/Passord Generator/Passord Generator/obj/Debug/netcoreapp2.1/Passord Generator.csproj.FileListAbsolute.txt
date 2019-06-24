@@ -1,0 +1,11 @@
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\obj\Debug\netcoreapp2.1\Passord Generator.csproj.CoreCompileInputs.cache
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\obj\Debug\netcoreapp2.1\Passord Generator.AssemblyInfoInputs.cache
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\obj\Debug\netcoreapp2.1\Passord Generator.AssemblyInfo.cs
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\bin\Debug\netcoreapp2.1\PasswordGenerator.deps.json
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\bin\Debug\netcoreapp2.1\PasswordGenerator.runtimeconfig.json
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\bin\Debug\netcoreapp2.1\PasswordGenerator.runtimeconfig.dev.json
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\bin\Debug\netcoreapp2.1\PasswordGenerator.dll
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\bin\Debug\netcoreapp2.1\PasswordGenerator.pdb
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\obj\Debug\netcoreapp2.1\PasswordGenerator.dll
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\obj\Debug\netcoreapp2.1\PasswordGenerator.pdb
+C:\Users\Ibrahim\source\repos\Passord Generator\Passord Generator\obj\Debug\netcoreapp2.1\Passord Generator.csprojAssemblyReference.cache

@@ -1,0 +1,8 @@
+C:\Users\Ibrahim\source\repos\Input_output_Undervisning\Input_output_Undervisning\bin\Debug\data.txt
+C:\Users\Ibrahim\source\repos\Input_output_Undervisning\Input_output_Undervisning\bin\Debug\Input_output_Undervisning.exe.config
+C:\Users\Ibrahim\source\repos\Input_output_Undervisning\Input_output_Undervisning\bin\Debug\Input_output_Undervisning.exe
+C:\Users\Ibrahim\source\repos\Input_output_Undervisning\Input_output_Undervisning\bin\Debug\Input_output_Undervisning.pdb
+C:\Users\Ibrahim\source\repos\Input_output_Undervisning\Input_output_Undervisning\obj\Debug\Input_output_Undervisning.csprojAssemblyReference.cache
+C:\Users\Ibrahim\source\repos\Input_output_Undervisning\Input_output_Undervisning\obj\Debug\Input_output_Undervisning.csproj.CoreCompileInputs.cache
+C:\Users\Ibrahim\source\repos\Input_output_Undervisning\Input_output_Undervisning\obj\Debug\Input_output_Undervisning.exe
+C:\Users\Ibrahim\source\repos\Input_output_Undervisning\Input_output_Undervisning\obj\Debug\Input_output_Undervisning.pdb
