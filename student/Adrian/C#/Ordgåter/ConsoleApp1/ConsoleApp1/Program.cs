@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Versioning;
 using System.Text;
 
-namespace Ordgåter
+namespace ConsoleApp1
 {
     class Program
     {

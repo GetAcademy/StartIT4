@@ -1,0 +1,7 @@
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\Basic c#\Tutotrial\Tutotrial\bin\Debug\Tutotrial.exe.config
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\Basic c#\Tutotrial\Tutotrial\bin\Debug\Tutotrial.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\Basic c#\Tutotrial\Tutotrial\bin\Debug\Tutotrial.pdb
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\Basic c#\Tutotrial\Tutotrial\obj\Debug\Tutotrial.csprojAssemblyReference.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\Basic c#\Tutotrial\Tutotrial\obj\Debug\Tutotrial.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\Basic c#\Tutotrial\Tutotrial\obj\Debug\Tutotrial.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\Basic c#\Tutotrial\Tutotrial\obj\Debug\Tutotrial.pdb

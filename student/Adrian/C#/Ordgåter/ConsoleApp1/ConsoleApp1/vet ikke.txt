@@ -1,0 +1,3 @@
+Console.WriteLine("¦x o x¦");
+Console.WriteLine("¦o x o¦");
+Console.WriteLine("¦x o x¦");

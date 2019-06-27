@@ -1,0 +1,7 @@
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\javascript\javascript\bin\Debug\javascript.exe.config
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\javascript\javascript\bin\Debug\javascript.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\javascript\javascript\bin\Debug\javascript.pdb
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\javascript\javascript\obj\Debug\javascript.csprojAssemblyReference.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\javascript\javascript\obj\Debug\javascript.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\javascript\javascript\obj\Debug\javascript.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\javascript\javascript\obj\Debug\javascript.pdb
