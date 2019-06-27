@@ -1,0 +1,7 @@
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\GeometryCreator\GeometryCreator\bin\Debug\GeometryCreator.exe.config
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\GeometryCreator\GeometryCreator\bin\Debug\GeometryCreator.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\GeometryCreator\GeometryCreator\bin\Debug\GeometryCreator.pdb
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\GeometryCreator\GeometryCreator\obj\Debug\GeometryCreator.csprojAssemblyReference.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\GeometryCreator\GeometryCreator\obj\Debug\GeometryCreator.csproj.CoreCompileInputs.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\GeometryCreator\GeometryCreator\obj\Debug\GeometryCreator.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\GeometryCreator\GeometryCreator\obj\Debug\GeometryCreator.pdb

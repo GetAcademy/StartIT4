@@ -1,0 +1,7 @@
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Arrays\Arrays\bin\Debug\Arrays.exe.config
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Arrays\Arrays\bin\Debug\Arrays.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Arrays\Arrays\bin\Debug\Arrays.pdb
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Arrays\Arrays\obj\Debug\Arrays.csprojAssemblyReference.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Arrays\Arrays\obj\Debug\Arrays.csproj.CoreCompileInputs.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Arrays\Arrays\obj\Debug\Arrays.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Arrays\Arrays\obj\Debug\Arrays.pdb

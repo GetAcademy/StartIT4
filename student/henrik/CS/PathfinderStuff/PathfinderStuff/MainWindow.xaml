@@ -1,0 +1,77 @@
+﻿<Window x:Class="PathfinderStuff.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PathfinderStuff"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="837" Width="952">
+    <Grid Margin="0,0,0,-21" Height="827" VerticalAlignment="Bottom">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="138*"/>
+            <RowDefinition Height="184*"/>
+            <RowDefinition Height="505*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="478*"/>
+            <ColumnDefinition Width="279*"/>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Background" HorizontalAlignment="Left" Height="817" VerticalAlignment="Top" Width="1236" RenderTransformOrigin="0.025,-0.095" Source="C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\assets\old-paper.jpg" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,-293,0" Grid.RowSpan="3"/>
+
+
+
+
+
+        <Image x:Name="Logo" HorizontalAlignment="Left" Height="398" Margin="-62,-130,0,0" VerticalAlignment="Top" Width="678" RenderTransformOrigin="0.025,-0.095" Source="C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\PathfinderStuff\PathfinderStuff\assets\Logo.png" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="2,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" RenderTransformOrigin="0.358,-0.435" TextChanged="TextBox_TextChanged_2"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="2,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" RenderTransformOrigin="0.358,-0.435"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="2,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" RenderTransformOrigin="0.358,-0.435"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="2,25,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="16" Width="44" FontFamily="Yu Gothic"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="2,58,0,0" TextWrapping="Wrap" Text="Race" VerticalAlignment="Top" Height="16" Width="32" FontFamily="Yu Gothic"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="2,92,0,0" TextWrapping="Wrap" Text="Alignment" VerticalAlignment="Top" Height="16" Width="67" FontFamily="Yu Gothic"/>
+        <ComboBox Grid.Column="3" HorizontalAlignment="Left" Margin="5,40,0,0" VerticalAlignment="Top" Width="120" Height="22">
+            <ComboBoxItem>Barbarian</ComboBoxItem>
+            <ComboBoxItem>Bard</ComboBoxItem>
+            <ComboBoxItem>Cleric</ComboBoxItem>
+            <ComboBoxItem>Druid</ComboBoxItem>
+            <ComboBoxItem>Fighter</ComboBoxItem>
+            <ComboBoxItem>Monk</ComboBoxItem>
+            <ComboBoxItem>Paladin</ComboBoxItem>
+            <ComboBoxItem>Ranger</ComboBoxItem>
+            <ComboBoxItem>Rogue</ComboBoxItem>
+            <ComboBoxItem>Sorceror</ComboBoxItem>
+            <ComboBoxItem>Wizard</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="5,26,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="16" Width="32" FontFamily="Yu Gothic"/>
+        <TextBox Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="5,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="5,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="5,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Yu Gothic" Height="38" Width="30"><Run Text="Level"/><LineBreak/><Run/></TextBlock>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="5,92,0,0" TextWrapping="Wrap" Text="Deity" VerticalAlignment="Top" FontFamily="Yu Gothic" Height="19" Width="29"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="83,11,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23" TextChanged="TextBox_TextChanged_3"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="83,38,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="83,66,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="83,94,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="83,122,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="83,150,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="23"/>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="21" Margin="9,12,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="21" Margin="9,38,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="21" Margin="9,66,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="21" Margin="9,94,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="21" Margin="9,123,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="21" Margin="9,151,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,13,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Strength:" VerticalAlignment="Top" Height="22" Width="49"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="11,40,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dexterity:" VerticalAlignment="Top" Height="22" Width="68"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Constitution:" VerticalAlignment="Top" Height="22" Width="68"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,95,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Intelligence:" VerticalAlignment="Top" Height="22" Width="68" RenderTransformOrigin="0.5,0.318"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="11,124,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wisdom:" VerticalAlignment="Top" Height="22" Width="68"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="11,152,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Charisma:" VerticalAlignment="Top" Height="22" Width="68"/>
+
+
+
+
+
+    </Grid>
+</Window>

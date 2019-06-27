@@ -1,0 +1,15 @@
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\bin\Release\Pathfinder Character sheet.exe.config
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\bin\Release\Pathfinder Character sheet.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\bin\Release\Pathfinder Character sheet.pdb
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder Character sheet.csprojAssemblyReference.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\CharacterSheet.g.cs
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\App.g.cs
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder Character sheet_MarkupCompile.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder Character sheet_MarkupCompile.lref
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\CharacterSheet.baml
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder Character sheet.g.resources
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder_Character_sheet.Properties.Resources.resources
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder Character sheet.csproj.GenerateResource.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder Character sheet.csproj.CoreCompileInputs.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder Character sheet.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Pathfinder Character sheet\Pathfinder Character sheet\obj\Release\Pathfinder Character sheet.pdb
