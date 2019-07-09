@@ -1,0 +1,7 @@
+C:\Users\allum\Dropbox\GET\C#\Intro til Csharp\Intro til Csharp\obj\Debug\Intro til Csharp.csprojAssemblyReference.cache
+C:\Users\allum\Dropbox\GET\C#\Intro til Csharp\Intro til Csharp\obj\Debug\Intro til Csharp.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\Intro til Csharp\Intro til Csharp\bin\Debug\Intro til Csharp.exe.config
+C:\Users\allum\Dropbox\GET\C#\Intro til Csharp\Intro til Csharp\bin\Debug\Intro til Csharp.exe
+C:\Users\allum\Dropbox\GET\C#\Intro til Csharp\Intro til Csharp\bin\Debug\Intro til Csharp.pdb
+C:\Users\allum\Dropbox\GET\C#\Intro til Csharp\Intro til Csharp\obj\Debug\Intro til Csharp.exe
+C:\Users\allum\Dropbox\GET\C#\Intro til Csharp\Intro til Csharp\obj\Debug\Intro til Csharp.pdb

@@ -1,0 +1,7 @@
+C:\Users\allum\Dropbox\GET\C#\PurePuzzles\PurePuzzles\bin\Debug\PurePuzzles.exe.config
+C:\Users\allum\Dropbox\GET\C#\PurePuzzles\PurePuzzles\bin\Debug\PurePuzzles.exe
+C:\Users\allum\Dropbox\GET\C#\PurePuzzles\PurePuzzles\bin\Debug\PurePuzzles.pdb
+C:\Users\allum\Dropbox\GET\C#\PurePuzzles\PurePuzzles\obj\Debug\PurePuzzles.csprojAssemblyReference.cache
+C:\Users\allum\Dropbox\GET\C#\PurePuzzles\PurePuzzles\obj\Debug\PurePuzzles.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\PurePuzzles\PurePuzzles\obj\Debug\PurePuzzles.exe
+C:\Users\allum\Dropbox\GET\C#\PurePuzzles\PurePuzzles\obj\Debug\PurePuzzles.pdb

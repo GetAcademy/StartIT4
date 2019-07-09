@@ -1,0 +1,7 @@
+C:\Users\allum\Dropbox\GET\C#\TrePåRad\TrePåRad\bin\Debug\TrePåRad.exe.config
+C:\Users\allum\Dropbox\GET\C#\TrePåRad\TrePåRad\bin\Debug\TrePåRad.exe
+C:\Users\allum\Dropbox\GET\C#\TrePåRad\TrePåRad\bin\Debug\TrePåRad.pdb
+C:\Users\allum\Dropbox\GET\C#\TrePåRad\TrePåRad\obj\Debug\TrePåRad.csprojAssemblyReference.cache
+C:\Users\allum\Dropbox\GET\C#\TrePåRad\TrePåRad\obj\Debug\TrePåRad.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\TrePåRad\TrePåRad\obj\Debug\TrePåRad.exe
+C:\Users\allum\Dropbox\GET\C#\TrePåRad\TrePåRad\obj\Debug\TrePåRad.pdb

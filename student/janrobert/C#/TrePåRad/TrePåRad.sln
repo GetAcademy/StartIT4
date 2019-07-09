@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrePåRad", "TrePåRad\TrePåRad.csproj", "{8BC45075-960B-404E-AAF8-D95A300AF862}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BC45075-960B-404E-AAF8-D95A300AF862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC45075-960B-404E-AAF8-D95A300AF862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC45075-960B-404E-AAF8-D95A300AF862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC45075-960B-404E-AAF8-D95A300AF862}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36D01C98-ADED-47F0-A77E-690105C5AA96}
+	EndGlobalSection
+EndGlobal

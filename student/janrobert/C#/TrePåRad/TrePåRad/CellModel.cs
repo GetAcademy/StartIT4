@@ -1,0 +1,30 @@
+﻿
+namespace TrePåRad
+{
+    public class CellModel
+    {
+        private int _content;
+
+        public CellModel()
+        {
+            _content = 0;
+        }
+
+        public bool IsEmpty()
+        {
+            return _content == 0;
+        }
+
+        public bool IsPlayer1()
+        {
+            return _content == 1;
+        }
+
+        public void Mark(bool isPlayer1)
+        {
+            if (!IsEmpty()) return;
+            _content = isPlayer1 ? 1 : 2;
+        }
+
+    }
+}

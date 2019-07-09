@@ -1,0 +1,7 @@
+C:\Users\allum\Dropbox\GET\C#\Solving problems with arrays\Solving problems with arrays\bin\Debug\Solving problems with arrays.exe.config
+C:\Users\allum\Dropbox\GET\C#\Solving problems with arrays\Solving problems with arrays\bin\Debug\Solving problems with arrays.exe
+C:\Users\allum\Dropbox\GET\C#\Solving problems with arrays\Solving problems with arrays\bin\Debug\Solving problems with arrays.pdb
+C:\Users\allum\Dropbox\GET\C#\Solving problems with arrays\Solving problems with arrays\obj\Debug\Solving problems with arrays.csprojAssemblyReference.cache
+C:\Users\allum\Dropbox\GET\C#\Solving problems with arrays\Solving problems with arrays\obj\Debug\Solving problems with arrays.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\Solving problems with arrays\Solving problems with arrays\obj\Debug\Solving problems with arrays.exe
+C:\Users\allum\Dropbox\GET\C#\Solving problems with arrays\Solving problems with arrays\obj\Debug\Solving problems with arrays.pdb
