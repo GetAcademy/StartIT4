@@ -1,0 +1,7 @@
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Players\Players\bin\Debug\Players.exe.config
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Players\Players\bin\Debug\Players.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Players\Players\bin\Debug\Players.pdb
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Players\Players\obj\Debug\Players.csprojAssemblyReference.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Players\Players\obj\Debug\Players.csproj.CoreCompileInputs.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Players\Players\obj\Debug\Players.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\Players\Players\obj\Debug\Players.pdb

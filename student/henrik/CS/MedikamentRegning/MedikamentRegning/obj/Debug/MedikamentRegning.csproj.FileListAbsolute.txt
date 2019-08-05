@@ -1,0 +1,7 @@
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\MedikamentRegning\MedikamentRegning\bin\Debug\MedikamentRegning.exe.config
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\MedikamentRegning\MedikamentRegning\bin\Debug\MedikamentRegning.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\MedikamentRegning\MedikamentRegning\bin\Debug\MedikamentRegning.pdb
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\MedikamentRegning\MedikamentRegning\obj\Debug\MedikamentRegning.csprojAssemblyReference.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\MedikamentRegning\MedikamentRegning\obj\Debug\MedikamentRegning.csproj.CoreCompileInputs.cache
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\MedikamentRegning\MedikamentRegning\obj\Debug\MedikamentRegning.exe
+C:\Users\Geir\Documents\GitHub\StartIT4\student\henrik\CS\MedikamentRegning\MedikamentRegning\obj\Debug\MedikamentRegning.pdb
