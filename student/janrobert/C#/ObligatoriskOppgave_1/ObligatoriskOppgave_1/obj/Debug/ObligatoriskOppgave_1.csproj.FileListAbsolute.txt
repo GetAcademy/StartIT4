@@ -1,0 +1,7 @@
+C:\Users\allum\Dropbox\GET\C#\ObligatoriskOppgave_1\ObligatoriskOppgave_1\obj\Debug\ObligatoriskOppgave_1.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\ObligatoriskOppgave_1\ObligatoriskOppgave_1\bin\Debug\ObligatoriskOppgave_1.exe.config
+C:\Users\allum\Dropbox\GET\C#\ObligatoriskOppgave_1\ObligatoriskOppgave_1\bin\Debug\ObligatoriskOppgave_1.exe
+C:\Users\allum\Dropbox\GET\C#\ObligatoriskOppgave_1\ObligatoriskOppgave_1\bin\Debug\ObligatoriskOppgave_1.pdb
+C:\Users\allum\Dropbox\GET\C#\ObligatoriskOppgave_1\ObligatoriskOppgave_1\obj\Debug\ObligatoriskOppgave_1.exe
+C:\Users\allum\Dropbox\GET\C#\ObligatoriskOppgave_1\ObligatoriskOppgave_1\obj\Debug\ObligatoriskOppgave_1.pdb
+C:\Users\allum\Dropbox\GET\C#\ObligatoriskOppgave_1\ObligatoriskOppgave_1\obj\Debug\ObligatoriskOppgave_1.csprojAssemblyReference.cache

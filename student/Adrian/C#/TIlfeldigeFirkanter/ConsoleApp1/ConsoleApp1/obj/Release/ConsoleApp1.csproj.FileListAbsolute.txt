@@ -1,0 +1,6 @@
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TIlfeldigeFirkanter\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TIlfeldigeFirkanter\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.exe.config
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TIlfeldigeFirkanter\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TIlfeldigeFirkanter\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.pdb
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TIlfeldigeFirkanter\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TIlfeldigeFirkanter\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.pdb

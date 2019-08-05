@@ -1,0 +1,7 @@
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\Familietree\Familie\Familie\bin\Debug\Familie.exe.config
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\Familietree\Familie\Familie\bin\Debug\Familie.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\Familietree\Familie\Familie\bin\Debug\Familie.pdb
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\Familietree\Familie\Familie\obj\Debug\Familie.csprojAssemblyReference.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\Familietree\Familie\Familie\obj\Debug\Familie.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\Familietree\Familie\Familie\obj\Debug\Familie.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\Familietree\Familie\Familie\obj\Debug\Familie.pdb

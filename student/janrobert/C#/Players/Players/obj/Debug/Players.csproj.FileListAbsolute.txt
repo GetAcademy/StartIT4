@@ -1,0 +1,7 @@
+C:\Users\allum\Dropbox\GET\C#\Players\Players\bin\Debug\Players.exe.config
+C:\Users\allum\Dropbox\GET\C#\Players\Players\bin\Debug\Players.exe
+C:\Users\allum\Dropbox\GET\C#\Players\Players\bin\Debug\Players.pdb
+C:\Users\allum\Dropbox\GET\C#\Players\Players\obj\Debug\Players.csprojAssemblyReference.cache
+C:\Users\allum\Dropbox\GET\C#\Players\Players\obj\Debug\Players.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\Players\Players\obj\Debug\Players.exe
+C:\Users\allum\Dropbox\GET\C#\Players\Players\obj\Debug\Players.pdb

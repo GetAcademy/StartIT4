@@ -7,6 +7,8 @@ namespace ConsoleApp1
     {
         public static void Show(BoardModel boardModel)
         {
+            Console.Clear();
+            var winningSymbol = boardModel.IsWinning();
             var content = boardModel.Content;
             Console.WriteLine("  a b c");
             Console.WriteLine(" ┌─────┐");
@@ -14,6 +16,12 @@ namespace ConsoleApp1
             ShowOneLine(3, content);
             ShowOneLine(6, content);
             Console.WriteLine(" └─────┘");
+            if (winningSymbol != CellContent.None)
+            {
+                var symbol = winningSymbol == CellContent.Circle ? "Datamaskinen" : "Du";
+                Console.WriteLine("\n" + symbol + " Har vunnet");
+                Environment.Exit(0);
+            }
         }
 
         private static void ShowOneLine(int startIndex, CellContent[] content)

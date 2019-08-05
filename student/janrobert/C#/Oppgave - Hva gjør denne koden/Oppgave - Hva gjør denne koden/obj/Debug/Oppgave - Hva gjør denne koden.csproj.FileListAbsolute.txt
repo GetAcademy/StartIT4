@@ -1,0 +1,7 @@
+C:\Users\allum\Dropbox\GET\C#\Oppgave - Hva gjør denne koden\Oppgave - Hva gjør denne koden\bin\Debug\Oppgave - Hva gjør denne koden.exe.config
+C:\Users\allum\Dropbox\GET\C#\Oppgave - Hva gjør denne koden\Oppgave - Hva gjør denne koden\bin\Debug\Oppgave - Hva gjør denne koden.exe
+C:\Users\allum\Dropbox\GET\C#\Oppgave - Hva gjør denne koden\Oppgave - Hva gjør denne koden\bin\Debug\Oppgave - Hva gjør denne koden.pdb
+C:\Users\allum\Dropbox\GET\C#\Oppgave - Hva gjør denne koden\Oppgave - Hva gjør denne koden\obj\Debug\Oppgave - Hva gjør denne koden.csprojAssemblyReference.cache
+C:\Users\allum\Dropbox\GET\C#\Oppgave - Hva gjør denne koden\Oppgave - Hva gjør denne koden\obj\Debug\Oppgave - Hva gjør denne koden.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\Oppgave - Hva gjør denne koden\Oppgave - Hva gjør denne koden\obj\Debug\Oppgave - Hva gjør denne koden.exe
+C:\Users\allum\Dropbox\GET\C#\Oppgave - Hva gjør denne koden\Oppgave - Hva gjør denne koden\obj\Debug\Oppgave - Hva gjør denne koden.pdb

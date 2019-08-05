@@ -1,0 +1,7 @@
+C:\Users\allum\Dropbox\GET\C#\Ordgåter\Ordgåter\bin\Debug\Ordgåter.exe.config
+C:\Users\allum\Dropbox\GET\C#\Ordgåter\Ordgåter\bin\Debug\Ordgåter.exe
+C:\Users\allum\Dropbox\GET\C#\Ordgåter\Ordgåter\bin\Debug\Ordgåter.pdb
+C:\Users\allum\Dropbox\GET\C#\Ordgåter\Ordgåter\obj\Debug\Ordgåter.csprojAssemblyReference.cache
+C:\Users\allum\Dropbox\GET\C#\Ordgåter\Ordgåter\obj\Debug\Ordgåter.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\Ordgåter\Ordgåter\obj\Debug\Ordgåter.exe
+C:\Users\allum\Dropbox\GET\C#\Ordgåter\Ordgåter\obj\Debug\Ordgåter.pdb

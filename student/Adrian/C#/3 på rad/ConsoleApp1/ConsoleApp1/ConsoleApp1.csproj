@@ -46,6 +46,7 @@
     <Compile Include="BoardModel.cs" />
     <Compile Include="BoardView.cs" />
     <Compile Include="CellContent.cs" />
+    <Compile Include="Combination.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

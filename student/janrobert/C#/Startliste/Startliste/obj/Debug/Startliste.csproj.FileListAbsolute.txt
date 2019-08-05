@@ -1,0 +1,8 @@
+C:\Users\allum\Dropbox\GET\C#\Startliste\Startliste\bin\Debug\startlist.csv
+C:\Users\allum\Dropbox\GET\C#\Startliste\Startliste\bin\Debug\Startliste.exe.config
+C:\Users\allum\Dropbox\GET\C#\Startliste\Startliste\bin\Debug\Startliste.exe
+C:\Users\allum\Dropbox\GET\C#\Startliste\Startliste\bin\Debug\Startliste.pdb
+C:\Users\allum\Dropbox\GET\C#\Startliste\Startliste\obj\Debug\Startliste.csprojAssemblyReference.cache
+C:\Users\allum\Dropbox\GET\C#\Startliste\Startliste\obj\Debug\Startliste.csproj.CoreCompileInputs.cache
+C:\Users\allum\Dropbox\GET\C#\Startliste\Startliste\obj\Debug\Startliste.exe
+C:\Users\allum\Dropbox\GET\C#\Startliste\Startliste\obj\Debug\Startliste.pdb

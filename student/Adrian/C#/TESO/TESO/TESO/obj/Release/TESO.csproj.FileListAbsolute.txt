@@ -1,0 +1,17 @@
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO.csprojAssemblyReference.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\MainWindow.g.cs
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO_MarkupCompile.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO_MarkupCompile.lref
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\App.g.cs
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\bin\Release\TESO.exe.config
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\bin\Release\TESO.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\bin\Release\TESO.pdb
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\App.baml
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\MainWindow.baml
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO.g.resources
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO.Properties.Resources.resources
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO.csproj.GenerateResource.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO.exe
+C:\Users\adria\OneDrive\Documents\GitHub\StartIT4\student\Adrian\C#\TESO\TESO\TESO\obj\Release\TESO.pdb
