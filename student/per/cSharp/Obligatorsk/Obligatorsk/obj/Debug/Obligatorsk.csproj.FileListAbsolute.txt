@@ -1,0 +1,7 @@
+C:\Users\Pedersen\source\repos\Obligatorsk\Obligatorsk\obj\Debug\Obligatorsk.csprojAssemblyReference.cache
+C:\Users\Pedersen\source\repos\Obligatorsk\Obligatorsk\obj\Debug\Obligatorsk.csproj.CoreCompileInputs.cache
+C:\Users\Pedersen\source\repos\Obligatorsk\Obligatorsk\bin\Debug\Obligatorsk.exe.config
+C:\Users\Pedersen\source\repos\Obligatorsk\Obligatorsk\bin\Debug\Obligatorsk.exe
+C:\Users\Pedersen\source\repos\Obligatorsk\Obligatorsk\bin\Debug\Obligatorsk.pdb
+C:\Users\Pedersen\source\repos\Obligatorsk\Obligatorsk\obj\Debug\Obligatorsk.exe
+C:\Users\Pedersen\source\repos\Obligatorsk\Obligatorsk\obj\Debug\Obligatorsk.pdb
