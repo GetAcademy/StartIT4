@@ -1,6 +1,6 @@
 class CellView {
     constructor(cell) {
-        this._cell = cell
+        this._cell = cell;
     }
     
     getHtml() {

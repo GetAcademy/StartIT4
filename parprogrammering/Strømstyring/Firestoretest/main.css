@@ -92,7 +92,7 @@ form:after{
     font-family: ubuntu;
     letter-spacing: 1px;
     color: #999;
-    font-size: 16px;
+    font-size: 15px;
 }
 p{
     position: absolute;
@@ -104,4 +104,7 @@ p{
     padding: 10px 0;
     font-weight:  bold;
     cursor:  pointer;  
+}
+button.btn-primary {
+    margin: 2px;
 }

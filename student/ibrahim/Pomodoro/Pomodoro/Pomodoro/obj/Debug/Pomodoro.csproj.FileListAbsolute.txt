@@ -1,0 +1,10 @@
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\bin\Debug\Pomodoro.exe.config
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\bin\Debug\Pomodoro.exe
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\bin\Debug\Pomodoro.pdb
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\obj\Debug\Pomodoro.csproj.CoreCompileInputs.cache
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\obj\Debug\Pomodoro.exe
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\obj\Debug\Pomodoro.pdb
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\bin\Debug\PomodoroEngine.dll
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\bin\Debug\PomodoroEngine.pdb
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\obj\Debug\Pomodoro.csproj.CopyComplete
+C:\Users\Ibrahim\source\repos\Pomodoro\Pomodoro\obj\Debug\Pomodoro.csprojAssemblyReference.cache

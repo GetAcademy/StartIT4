@@ -1,9 +1,5 @@
 function homeButton(){
-    document.getElementById('content').style.display = 'none';
-    document.getElementById('SearchTable').style.display = "none";
-    document.getElementById('map').style.display = 'none'; 
-    document.getElementById('main').style.display = 'block';
-    createMainHtml();
+    window.location.reload()
 }
 function toggleMap() {
     document.getElementById('main').style.display = 'none';
@@ -25,6 +21,7 @@ function toggleLeggTilBygg() {
     document.getElementById('content').style.display = 'block';
 }
 function call() {
+    niceData = null;
     createData();
     updateChart();
     console.log(perDayData);
